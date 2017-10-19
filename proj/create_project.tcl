@@ -2,7 +2,7 @@
 # If ::create_path global variable is set, the project is created under that path instead of the working dir
 
 # Project specific settings. These must be updated for each project.
-set proj_name "HDMI"
+set proj_name "base-lin"
 
 if {[info exists ::create_path]} {
 	set dest_dir $::create_path
@@ -80,32 +80,27 @@ add_files -fileset constrs_1 -quiet $src_dir/constraints
 
 # Create 'synth_1' run (if not found)
 if {[string equal [get_runs -quiet synth_1] ""]} {
-  create_run -name synth_1 -part $part -flow {Vivado Synthesis 2015} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
+  create_run -name synth_1 -part $part -flow {Vivado Synthesis 2017} -strategy "Vivado Synthesis Defaults" -constrset constrs_1
 } else {
   set_property strategy "Vivado Synthesis Defaults" [get_runs synth_1]
-  set_property flow "Vivado Synthesis 2015" [get_runs synth_1]
+  set_property flow "Vivado Synthesis 2017" [get_runs synth_1]
 }
 set obj [get_runs synth_1]
 set_property "part" $part $obj
-set_property "steps.synth_design.args.flatten_hierarchy" "none" $obj
-set_property "steps.synth_design.args.directive" "RuntimeOptimized" $obj
-set_property "steps.synth_design.args.fsm_extraction" "off" $obj
 
 # set the current synth run
 current_run -synthesis [get_runs synth_1]
 
 # Create 'impl_1' run (if not found)
 if {[string equal [get_runs -quiet impl_1] ""]} {
-  create_run -name impl_1 -part $part -flow {Vivado Implementation 2015} -strategy "Vivado Implementation Defaults" -constrset constrs_1 -parent_run synth_1
+  create_run -name impl_1 -part $part -flow {Vivado Implementation 2017} -strategy "Performance_ExtraTimingOpt" -constrset constrs_1 -parent_run synth_1
 } else {
-  set_property strategy "Vivado Implementation Defaults" [get_runs impl_1]
-  set_property flow "Vivado Implementation 2015" [get_runs impl_1]
+  set_property strategy "Performance_ExtraTimingOpt" [get_runs impl_1]
+  set_property flow "Vivado Implementation 2017" [get_runs impl_1]
 }
 set obj [get_runs impl_1]
 set_property "part" $part $obj
-set_property "steps.opt_design.args.directive" "RuntimeOptimized" $obj
-set_property "steps.place_design.args.directive" "RuntimeOptimized" $obj
-set_property "steps.route_design.args.directive" "RuntimeOptimized" $obj
+set_property -name "steps.route_design.args.directive" -value "RuntimeOptimized" -objects $obj
 
 # set the current impl run
 current_run -implementation [get_runs impl_1]
