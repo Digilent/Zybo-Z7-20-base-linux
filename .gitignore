@@ -43,6 +43,7 @@ repo/**
 !repo/local
 !repo/local/**
 !repo/cache
+repo/cache/**
 
 # Make sure we keep only xci files in ip src subfolder
 src/ip/*/**
