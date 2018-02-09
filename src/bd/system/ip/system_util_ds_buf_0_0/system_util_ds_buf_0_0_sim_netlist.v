@@ -1,8 +1,8 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2.1 (lin64) Build 1957588 Wed Aug  9 16:32:10 MDT 2017
-// Date        : Wed Oct 11 10:52:36 2017
-// Host        : ubuntu running 64-bit unknown
+// Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+// Date        : Thu Feb  8 18:34:52 2018
+// Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0_sim_netlist.v
 // Design      : system_util_ds_buf_0_0
@@ -12,13 +12,13 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_util_ds_buf_0_0,util_ds_buf,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "util_ds_buf,Vivado 2017.2.1" *) 
+(* CHECK_LICENSE_TYPE = "system_util_ds_buf_0_0,util_ds_buf,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "util_ds_buf,Vivado 2017.4" *) 
 (* NotValidForBitStream *)
 module system_util_ds_buf_0_0
    (BUFG_I,
     BUFG_O);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 BUFG_I CLK" *) input [0:0]BUFG_I;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 BUFG_O CLK" *) output [0:0]BUFG_O;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 BUFG_I CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BUFG_I, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1" *) input [0:0]BUFG_I;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 BUFG_O CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BUFG_O, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1" *) output [0:0]BUFG_O;
 
   wire [0:0]BUFG_I;
   wire [0:0]BUFG_O;

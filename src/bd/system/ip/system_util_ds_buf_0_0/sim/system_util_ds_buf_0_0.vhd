@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:util_ds_buf:2.1
--- IP Revision: 6
+-- IP Revision: 7
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -104,8 +104,11 @@ ARCHITECTURE system_util_ds_buf_0_0_arch OF system_util_ds_buf_0_0 IS
     );
   END COMPONENT util_ds_buf;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
-  ATTRIBUTE X_INTERFACE_INFO OF BUFG_I: SIGNAL IS "xilinx.com:signal:clock:1.0 BUFG_I CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF BUFG_O: SIGNAL IS "XIL_INTERFACENAME BUFG_O, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1";
   ATTRIBUTE X_INTERFACE_INFO OF BUFG_O: SIGNAL IS "xilinx.com:signal:clock:1.0 BUFG_O CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF BUFG_I: SIGNAL IS "XIL_INTERFACENAME BUFG_I, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1";
+  ATTRIBUTE X_INTERFACE_INFO OF BUFG_I: SIGNAL IS "xilinx.com:signal:clock:1.0 BUFG_I CLK";
 BEGIN
   U0 : util_ds_buf
     GENERIC MAP (

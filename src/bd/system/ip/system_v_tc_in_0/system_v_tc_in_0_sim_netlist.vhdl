@@ -1,8 +1,8 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.2.1 (lin64) Build 1957588 Wed Aug  9 16:32:10 MDT 2017
--- Date        : Wed Oct 11 04:16:22 2017
--- Host        : ubuntu running 64-bit unknown
+-- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+-- Date        : Thu Feb  8 18:34:24 2018
+-- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_v_tc_in_0/system_v_tc_in_0_sim_netlist.vhdl
 -- Design      : system_v_tc_in_0
@@ -16,13 +16,13 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity system_v_tc_in_0_address_decoder is
   port (
-    D : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    p_151_out : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_arready : out STD_LOGIC;
     s_axi_awready : out STD_LOGIC;
     aclk : in STD_LOGIC;
     aresetn : in STD_LOGIC;
     Q : in STD_LOGIC;
-    \bus2ip_addr_i_reg[8]\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    D : in STD_LOGIC_VECTOR ( 1 downto 0 );
     ipif_RdAck : in STD_LOGIC;
     is_read : in STD_LOGIC;
     ipif_WrAck : in STD_LOGIC;
@@ -34,16 +34,16 @@ entity system_v_tc_in_0_address_decoder is
 end system_v_tc_in_0_address_decoder;
 
 architecture STRUCTURE of system_v_tc_in_0_address_decoder is
-  signal \^d\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \MEM_DECODE_GEN[0].cs_out_i[0]_i_1_n_0\ : STD_LOGIC;
   signal \MEM_DECODE_GEN[0].cs_out_i[0]_i_2_n_0\ : STD_LOGIC;
   signal \MEM_DECODE_GEN[1].cs_out_i[1]_i_1_n_0\ : STD_LOGIC;
+  signal \^p_151_out\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^s_axi_arready\ : STD_LOGIC;
   signal \^s_axi_awready\ : STD_LOGIC;
   signal s_axi_wready_INST_0_i_1_n_0 : STD_LOGIC;
   signal s_axi_wready_INST_0_i_2_n_0 : STD_LOGIC;
 begin
-  D(1 downto 0) <= \^d\(1 downto 0);
+  p_151_out(1 downto 0) <= \^p_151_out\(1 downto 0);
   s_axi_arready <= \^s_axi_arready\;
   s_axi_awready <= \^s_axi_awready\;
 \MEM_DECODE_GEN[0].cs_out_i[0]_i_1\: unisim.vcomponents.LUT4
@@ -62,10 +62,10 @@ begin
       INIT => X"2F20"
     )
         port map (
-      I0 => \bus2ip_addr_i_reg[8]\(1),
-      I1 => \bus2ip_addr_i_reg[8]\(0),
+      I0 => D(1),
+      I1 => D(0),
       I2 => Q,
-      I3 => \^d\(1),
+      I3 => \^p_151_out\(1),
       O => \MEM_DECODE_GEN[0].cs_out_i[0]_i_2_n_0\
     );
 \MEM_DECODE_GEN[0].cs_out_i_reg[0]\: unisim.vcomponents.FDRE
@@ -73,7 +73,7 @@ begin
       C => aclk,
       CE => '1',
       D => \MEM_DECODE_GEN[0].cs_out_i[0]_i_1_n_0\,
-      Q => \^d\(1),
+      Q => \^p_151_out\(1),
       R => '0'
     );
 \MEM_DECODE_GEN[1].cs_out_i[1]_i_1\: unisim.vcomponents.LUT6
@@ -81,9 +81,9 @@ begin
       INIT => X"0000000000002E00"
     )
         port map (
-      I0 => \^d\(0),
+      I0 => \^p_151_out\(0),
       I1 => Q,
-      I2 => \bus2ip_addr_i_reg[8]\(1),
+      I2 => D(1),
       I3 => aresetn,
       I4 => \^s_axi_arready\,
       I5 => \^s_axi_awready\,
@@ -94,7 +94,7 @@ begin
       C => aclk,
       CE => '1',
       D => \MEM_DECODE_GEN[1].cs_out_i[1]_i_1_n_0\,
-      Q => \^d\(0),
+      Q => \^p_151_out\(0),
       R => '0'
     );
 s_axi_arready_INST_0: unisim.vcomponents.LUT4
@@ -10712,7 +10712,7 @@ begin
       I1 => core_regs(247),
       I2 => \GEN_SEL_DELAY[1].sel_int_reg_n_0_[1][0]\,
       I3 => core_regs(224),
-      I4 => \data_sync_reg[2][34]_0\,
+      I4 => \data_sync_reg[2][34]_1\,
       I5 => core_regs(201),
       O => \GEN_TREE.GEN_BRANCH[4].GEN_MUX_REG.data_out_reg[4][22]_i_2__0_n_0\
     );
@@ -14821,11 +14821,11 @@ entity system_v_tc_in_0_tc_detector is
     \time_status_regs[7]\ : out STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_status_regs[9]\ : out STD_LOGIC_VECTOR ( 23 downto 0 );
     clk : in STD_LOGIC;
+    lost_lock : in STD_LOGIC;
     hsync_in : in STD_LOGIC;
     active_video_in : in STD_LOGIC;
     clken : in STD_LOGIC;
     det_clken : in STD_LOGIC;
-    lost_lock : in STD_LOGIC;
     resetn_out : in STD_LOGIC;
     \genr_control_regs[0]\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
     core_d_out : in STD_LOGIC;
@@ -14845,17 +14845,6 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   signal \DET_HACTIVE.DET_AVIDEO_LOCK.det_active_video_lock_int_i_1_n_0\ : STD_LOGIC;
   signal \DET_HACTIVE.active_video_count[0]_i_1_n_0\ : STD_LOGIC;
   signal \DET_HACTIVE.active_video_count[0]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[0]_i_5_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[0]_i_6_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[0]_i_7_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[4]_i_2_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[4]_i_3_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[4]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[4]_i_5_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[8]_i_2_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[8]_i_3_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[8]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_HACTIVE.active_video_count[8]_i_5_n_0\ : STD_LOGIC;
   signal \DET_HACTIVE.active_video_count_reg\ : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \DET_HACTIVE.active_video_count_reg[0]_i_3_n_0\ : STD_LOGIC;
   signal \DET_HACTIVE.active_video_count_reg[0]_i_3_n_1\ : STD_LOGIC;
@@ -14890,17 +14879,6 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   signal \DET_HSYNC.hsync_count[0]_i_1_n_0\ : STD_LOGIC;
   signal \DET_HSYNC.hsync_count[0]_i_2_n_0\ : STD_LOGIC;
   signal \DET_HSYNC.hsync_count[0]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[0]_i_5_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[0]_i_6_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[0]_i_7_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[4]_i_2_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[4]_i_3_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[4]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[4]_i_5_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[8]_i_2_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[8]_i_3_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[8]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_HSYNC.hsync_count[8]_i_5_n_0\ : STD_LOGIC;
   signal \DET_HSYNC.hsync_count_reg\ : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \DET_HSYNC.hsync_count_reg[0]_i_3_n_0\ : STD_LOGIC;
   signal \DET_HSYNC.hsync_count_reg[0]_i_3_n_1\ : STD_LOGIC;
@@ -14971,17 +14949,6 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   signal \DET_VSYNC.det_vsync_pol_int_i_1_n_0\ : STD_LOGIC;
   signal \DET_VSYNC.vsync_count[0]_i_1_n_0\ : STD_LOGIC;
   signal \DET_VSYNC.vsync_count[0]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[0]_i_5_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[0]_i_6_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[0]_i_7_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[4]_i_2_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[4]_i_3_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[4]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[4]_i_5_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[8]_i_2_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[8]_i_3_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[8]_i_4_n_0\ : STD_LOGIC;
-  signal \DET_VSYNC.vsync_count[8]_i_5_n_0\ : STD_LOGIC;
   signal \DET_VSYNC.vsync_count_reg\ : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \DET_VSYNC.vsync_count_reg[0]_i_3_n_0\ : STD_LOGIC;
   signal \DET_VSYNC.vsync_count_reg[0]_i_3_n_1\ : STD_LOGIC;
@@ -15060,17 +15027,6 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   signal det_hsync_start_int_2 : STD_LOGIC;
   signal det_hsync_start_last : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal det_htotal_int : STD_LOGIC_VECTOR ( 11 downto 0 );
-  signal \det_htotal_int2[11]_i_2_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[11]_i_3_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[11]_i_4_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[4]_i_2_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[4]_i_3_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[4]_i_4_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[4]_i_5_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[8]_i_2_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[8]_i_3_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[8]_i_4_n_0\ : STD_LOGIC;
-  signal \det_htotal_int2[8]_i_5_n_0\ : STD_LOGIC;
   signal \det_htotal_int2_reg[11]_i_1_n_2\ : STD_LOGIC;
   signal \det_htotal_int2_reg[11]_i_1_n_3\ : STD_LOGIC;
   signal \det_htotal_int2_reg[4]_i_1_n_0\ : STD_LOGIC;
@@ -15251,17 +15207,6 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   signal det_v0sync_start_int_4 : STD_LOGIC;
   signal det_v0sync_start_last : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \det_v0total[0]_i_1_n_0\ : STD_LOGIC;
-  signal \det_v0total[11]_i_2_n_0\ : STD_LOGIC;
-  signal \det_v0total[11]_i_3_n_0\ : STD_LOGIC;
-  signal \det_v0total[11]_i_4_n_0\ : STD_LOGIC;
-  signal \det_v0total[4]_i_2_n_0\ : STD_LOGIC;
-  signal \det_v0total[4]_i_3_n_0\ : STD_LOGIC;
-  signal \det_v0total[4]_i_4_n_0\ : STD_LOGIC;
-  signal \det_v0total[4]_i_5_n_0\ : STD_LOGIC;
-  signal \det_v0total[8]_i_2_n_0\ : STD_LOGIC;
-  signal \det_v0total[8]_i_3_n_0\ : STD_LOGIC;
-  signal \det_v0total[8]_i_4_n_0\ : STD_LOGIC;
-  signal \det_v0total[8]_i_5_n_0\ : STD_LOGIC;
   signal det_v0total_int : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \det_v0total_int[0]_i_1_n_0\ : STD_LOGIC;
   signal \det_v0total_int[10]_i_1_n_0\ : STD_LOGIC;
@@ -15349,17 +15294,6 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   signal \h_count[0]_i_4_n_0\ : STD_LOGIC;
   signal \h_count[0]_i_5_n_0\ : STD_LOGIC;
   signal \h_count[0]_i_6_n_0\ : STD_LOGIC;
-  signal \h_count[0]_i_7_n_0\ : STD_LOGIC;
-  signal \h_count[0]_i_8_n_0\ : STD_LOGIC;
-  signal \h_count[0]_i_9_n_0\ : STD_LOGIC;
-  signal \h_count[4]_i_2_n_0\ : STD_LOGIC;
-  signal \h_count[4]_i_3_n_0\ : STD_LOGIC;
-  signal \h_count[4]_i_4_n_0\ : STD_LOGIC;
-  signal \h_count[4]_i_5_n_0\ : STD_LOGIC;
-  signal \h_count[8]_i_2_n_0\ : STD_LOGIC;
-  signal \h_count[8]_i_3_n_0\ : STD_LOGIC;
-  signal \h_count[8]_i_4_n_0\ : STD_LOGIC;
-  signal \h_count[8]_i_5_n_0\ : STD_LOGIC;
   signal \h_count_reg[0]_i_3_n_0\ : STD_LOGIC;
   signal \h_count_reg[0]_i_3_n_1\ : STD_LOGIC;
   signal \h_count_reg[0]_i_3_n_2\ : STD_LOGIC;
@@ -15682,17 +15616,6 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   signal top_of_frame_reg_n_0 : STD_LOGIC;
   signal \v_count[0]_i_1_n_0\ : STD_LOGIC;
   signal \v_count[0]_i_5_n_0\ : STD_LOGIC;
-  signal \v_count[0]_i_6_n_0\ : STD_LOGIC;
-  signal \v_count[0]_i_7_n_0\ : STD_LOGIC;
-  signal \v_count[0]_i_8_n_0\ : STD_LOGIC;
-  signal \v_count[4]_i_2_n_0\ : STD_LOGIC;
-  signal \v_count[4]_i_3_n_0\ : STD_LOGIC;
-  signal \v_count[4]_i_4_n_0\ : STD_LOGIC;
-  signal \v_count[4]_i_5_n_0\ : STD_LOGIC;
-  signal \v_count[8]_i_2_n_0\ : STD_LOGIC;
-  signal \v_count[8]_i_3_n_0\ : STD_LOGIC;
-  signal \v_count[8]_i_4_n_0\ : STD_LOGIC;
-  signal \v_count[8]_i_5_n_0\ : STD_LOGIC;
   signal v_count_last : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal v_count_reg : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal \v_count_reg[0]_i_2_n_0\ : STD_LOGIC;
@@ -15780,46 +15703,46 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   signal \NLW_plusOp_inferred__0/i__carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_v_count_reg[8]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \DET_HACTIVE.active_video_rose_i_1\ : label is "soft_lutpair276";
-  attribute SOFT_HLUTNM of \DET_HSYNC.hsync_d_i_3\ : label is "soft_lutpair284";
-  attribute SOFT_HLUTNM of \DET_VSYNC.GEN_DET_VSYNC_LOCK.vsync_delay[0]_i_1\ : label is "soft_lutpair283";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[0]_i_1\ : label is "soft_lutpair303";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[10]_i_1\ : label is "soft_lutpair304";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[11]_i_1\ : label is "soft_lutpair303";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[1]_i_1\ : label is "soft_lutpair291";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[2]_i_1\ : label is "soft_lutpair292";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[3]_i_1\ : label is "soft_lutpair293";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[4]_i_1\ : label is "soft_lutpair294";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[5]_i_1\ : label is "soft_lutpair295";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[6]_i_1\ : label is "soft_lutpair296";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[7]_i_1\ : label is "soft_lutpair297";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[8]_i_1\ : label is "soft_lutpair298";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[9]_i_1\ : label is "soft_lutpair304";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[0]_i_1\ : label is "soft_lutpair298";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[10]_i_1\ : label is "soft_lutpair289";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[11]_i_2\ : label is "soft_lutpair288";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[1]_i_1\ : label is "soft_lutpair297";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[2]_i_1\ : label is "soft_lutpair296";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[3]_i_1\ : label is "soft_lutpair295";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[4]_i_1\ : label is "soft_lutpair294";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[5]_i_1\ : label is "soft_lutpair293";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[6]_i_1\ : label is "soft_lutpair292";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[7]_i_1\ : label is "soft_lutpair291";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[8]_i_1\ : label is "soft_lutpair277";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[9]_i_1\ : label is "soft_lutpair290";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[10]_i_1\ : label is "soft_lutpair299";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[11]_i_1\ : label is "soft_lutpair299";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[1]_i_1\ : label is "soft_lutpair302";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[2]_i_1\ : label is "soft_lutpair288";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[3]_i_1\ : label is "soft_lutpair290";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[4]_i_1\ : label is "soft_lutpair289";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[5]_i_1\ : label is "soft_lutpair302";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[6]_i_1\ : label is "soft_lutpair301";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[7]_i_1\ : label is "soft_lutpair301";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[8]_i_1\ : label is "soft_lutpair300";
-  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[9]_i_1\ : label is "soft_lutpair300";
-  attribute SOFT_HLUTNM of \DET_VSYNC.vsync_rose_i_1\ : label is "soft_lutpair275";
-  attribute SOFT_HLUTNM of \DET_VSYNC.vsync_toggled_i_1\ : label is "soft_lutpair275";
+  attribute SOFT_HLUTNM of \DET_HACTIVE.active_video_rose_i_1\ : label is "soft_lutpair279";
+  attribute SOFT_HLUTNM of \DET_HSYNC.hsync_d_i_3\ : label is "soft_lutpair288";
+  attribute SOFT_HLUTNM of \DET_VSYNC.GEN_DET_VSYNC_LOCK.vsync_delay[0]_i_1\ : label is "soft_lutpair287";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[0]_i_1\ : label is "soft_lutpair306";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[10]_i_1\ : label is "soft_lutpair307";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[11]_i_1\ : label is "soft_lutpair306";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[1]_i_1\ : label is "soft_lutpair294";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[2]_i_1\ : label is "soft_lutpair295";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[3]_i_1\ : label is "soft_lutpair296";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[4]_i_1\ : label is "soft_lutpair297";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[5]_i_1\ : label is "soft_lutpair298";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[6]_i_1\ : label is "soft_lutpair299";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[7]_i_1\ : label is "soft_lutpair300";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[8]_i_1\ : label is "soft_lutpair301";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0bp_start_int[9]_i_1\ : label is "soft_lutpair307";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[0]_i_1\ : label is "soft_lutpair301";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[10]_i_1\ : label is "soft_lutpair292";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[11]_i_2\ : label is "soft_lutpair291";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[1]_i_1\ : label is "soft_lutpair300";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[2]_i_1\ : label is "soft_lutpair299";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[3]_i_1\ : label is "soft_lutpair298";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[4]_i_1\ : label is "soft_lutpair297";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[5]_i_1\ : label is "soft_lutpair296";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[6]_i_1\ : label is "soft_lutpair295";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[7]_i_1\ : label is "soft_lutpair294";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[8]_i_1\ : label is "soft_lutpair280";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_hori_int[9]_i_1\ : label is "soft_lutpair293";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[10]_i_1\ : label is "soft_lutpair302";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[11]_i_1\ : label is "soft_lutpair302";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[1]_i_1\ : label is "soft_lutpair305";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[2]_i_1\ : label is "soft_lutpair291";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[3]_i_1\ : label is "soft_lutpair293";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[4]_i_1\ : label is "soft_lutpair292";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[5]_i_1\ : label is "soft_lutpair305";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[6]_i_1\ : label is "soft_lutpair304";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[7]_i_1\ : label is "soft_lutpair304";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[8]_i_1\ : label is "soft_lutpair303";
+  attribute SOFT_HLUTNM of \DET_VSYNC.det_v0sync_start_int[9]_i_1\ : label is "soft_lutpair303";
+  attribute SOFT_HLUTNM of \DET_VSYNC.vsync_rose_i_1\ : label is "soft_lutpair278";
+  attribute SOFT_HLUTNM of \DET_VSYNC.vsync_toggled_i_1\ : label is "soft_lutpair278";
   attribute METHODOLOGY_DRC_VIOS : string;
   attribute METHODOLOGY_DRC_VIOS of \_inferred__11/i__carry\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \_inferred__11/i__carry__0\ : label is "{SYNTH-8 {cell *THIS*}}";
@@ -15827,31 +15750,31 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   attribute METHODOLOGY_DRC_VIOS of \_inferred__8/i__carry\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \_inferred__8/i__carry__0\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \_inferred__8/i__carry__1\ : label is "{SYNTH-8 {cell *THIS*}}";
-  attribute SOFT_HLUTNM of \det_v0active_start_hori_int2[0]_i_1\ : label is "soft_lutpair285";
+  attribute SOFT_HLUTNM of \det_v0active_start_hori_int2[0]_i_1\ : label is "soft_lutpair289";
   attribute METHODOLOGY_DRC_VIOS of \det_v0active_start_hori_int2_reg[0]_i_2\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \det_v0active_start_hori_int2_reg[0]_i_3\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \det_v0active_start_hori_int2_reg[11]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \det_v0active_start_hori_int2_reg[3]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \det_v0active_start_hori_int2_reg[7]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
-  attribute SOFT_HLUTNM of \det_v0fp_start_hori_int2[0]_i_1\ : label is "soft_lutpair285";
+  attribute SOFT_HLUTNM of \det_v0fp_start_hori_int2[0]_i_1\ : label is "soft_lutpair289";
   attribute METHODOLOGY_DRC_VIOS of \det_v0fp_start_hori_int2_reg[11]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \det_v0fp_start_hori_int2_reg[3]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \det_v0fp_start_hori_int2_reg[7]_i_1\ : label is "{SYNTH-8 {cell *THIS*}}";
-  attribute SOFT_HLUTNM of \det_v0total_int[0]_i_1\ : label is "soft_lutpair280";
-  attribute SOFT_HLUTNM of \det_v0total_int[10]_i_1\ : label is "soft_lutpair280";
-  attribute SOFT_HLUTNM of \det_v0total_int[11]_i_2\ : label is "soft_lutpair279";
-  attribute SOFT_HLUTNM of \det_v0total_int[1]_i_1\ : label is "soft_lutpair287";
-  attribute SOFT_HLUTNM of \det_v0total_int[2]_i_1\ : label is "soft_lutpair287";
-  attribute SOFT_HLUTNM of \det_v0total_int[3]_i_1\ : label is "soft_lutpair286";
+  attribute SOFT_HLUTNM of \det_v0total_int[0]_i_1\ : label is "soft_lutpair286";
+  attribute SOFT_HLUTNM of \det_v0total_int[10]_i_1\ : label is "soft_lutpair283";
+  attribute SOFT_HLUTNM of \det_v0total_int[11]_i_2\ : label is "soft_lutpair282";
+  attribute SOFT_HLUTNM of \det_v0total_int[1]_i_1\ : label is "soft_lutpair283";
+  attribute SOFT_HLUTNM of \det_v0total_int[2]_i_1\ : label is "soft_lutpair290";
+  attribute SOFT_HLUTNM of \det_v0total_int[3]_i_1\ : label is "soft_lutpair290";
   attribute SOFT_HLUTNM of \det_v0total_int[4]_i_1\ : label is "soft_lutpair286";
-  attribute SOFT_HLUTNM of \det_v0total_int[5]_i_1\ : label is "soft_lutpair282";
-  attribute SOFT_HLUTNM of \det_v0total_int[6]_i_1\ : label is "soft_lutpair281";
-  attribute SOFT_HLUTNM of \det_v0total_int[7]_i_1\ : label is "soft_lutpair279";
-  attribute SOFT_HLUTNM of \det_v0total_int[8]_i_1\ : label is "soft_lutpair282";
-  attribute SOFT_HLUTNM of \det_v0total_int[9]_i_1\ : label is "soft_lutpair281";
-  attribute SOFT_HLUTNM of frame_end_d_i_1 : label is "soft_lutpair278";
-  attribute SOFT_HLUTNM of \h_count[0]_i_9\ : label is "soft_lutpair277";
-  attribute SOFT_HLUTNM of \intr_status_int[9]_i_2\ : label is "soft_lutpair283";
+  attribute SOFT_HLUTNM of \det_v0total_int[5]_i_1\ : label is "soft_lutpair285";
+  attribute SOFT_HLUTNM of \det_v0total_int[6]_i_1\ : label is "soft_lutpair284";
+  attribute SOFT_HLUTNM of \det_v0total_int[7]_i_1\ : label is "soft_lutpair282";
+  attribute SOFT_HLUTNM of \det_v0total_int[8]_i_1\ : label is "soft_lutpair285";
+  attribute SOFT_HLUTNM of \det_v0total_int[9]_i_1\ : label is "soft_lutpair284";
+  attribute SOFT_HLUTNM of frame_end_d_i_1 : label is "soft_lutpair281";
+  attribute SOFT_HLUTNM of \h_count[0]_i_6\ : label is "soft_lutpair280";
+  attribute SOFT_HLUTNM of \intr_status_int[9]_i_2\ : label is "soft_lutpair287";
   attribute METHODOLOGY_DRC_VIOS of neqOp_carry : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \neqOp_inferred__0/i__carry\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \neqOp_inferred__1/i__carry\ : label is "{SYNTH-8 {cell *THIS*}}";
@@ -15859,9 +15782,9 @@ architecture STRUCTURE of system_v_tc_in_0_tc_detector is
   attribute METHODOLOGY_DRC_VIOS of \neqOp_inferred__3/i__carry\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \neqOp_inferred__4/i__carry\ : label is "{SYNTH-8 {cell *THIS*}}";
   attribute METHODOLOGY_DRC_VIOS of \neqOp_inferred__5/i__carry\ : label is "{SYNTH-8 {cell *THIS*}}";
-  attribute SOFT_HLUTNM of top_of_frame_i_2 : label is "soft_lutpair276";
-  attribute SOFT_HLUTNM of \v_count[0]_i_3\ : label is "soft_lutpair278";
-  attribute SOFT_HLUTNM of \v_count[0]_i_4\ : label is "soft_lutpair284";
+  attribute SOFT_HLUTNM of top_of_frame_i_2 : label is "soft_lutpair279";
+  attribute SOFT_HLUTNM of \v_count[0]_i_3\ : label is "soft_lutpair281";
+  attribute SOFT_HLUTNM of \v_count[0]_i_4\ : label is "soft_lutpair288";
 begin
   \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][11]\(11 downto 0) <= \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][11]\(11 downto 0);
   Q(11 downto 0) <= \^q\(11 downto 0);
@@ -16058,99 +15981,11 @@ begin
     );
 \DET_HACTIVE.active_video_count[0]_i_4\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(3),
-      O => \DET_HACTIVE.active_video_count[0]_i_4_n_0\
-    );
-\DET_HACTIVE.active_video_count[0]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(2),
-      O => \DET_HACTIVE.active_video_count[0]_i_5_n_0\
-    );
-\DET_HACTIVE.active_video_count[0]_i_6\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(1),
-      O => \DET_HACTIVE.active_video_count[0]_i_6_n_0\
-    );
-\DET_HACTIVE.active_video_count[0]_i_7\: unisim.vcomponents.LUT1
-    generic map(
       INIT => X"1"
     )
         port map (
       I0 => \DET_HACTIVE.active_video_count_reg\(0),
-      O => \DET_HACTIVE.active_video_count[0]_i_7_n_0\
-    );
-\DET_HACTIVE.active_video_count[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(7),
-      O => \DET_HACTIVE.active_video_count[4]_i_2_n_0\
-    );
-\DET_HACTIVE.active_video_count[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(6),
-      O => \DET_HACTIVE.active_video_count[4]_i_3_n_0\
-    );
-\DET_HACTIVE.active_video_count[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(5),
-      O => \DET_HACTIVE.active_video_count[4]_i_4_n_0\
-    );
-\DET_HACTIVE.active_video_count[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(4),
-      O => \DET_HACTIVE.active_video_count[4]_i_5_n_0\
-    );
-\DET_HACTIVE.active_video_count[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(11),
-      O => \DET_HACTIVE.active_video_count[8]_i_2_n_0\
-    );
-\DET_HACTIVE.active_video_count[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(10),
-      O => \DET_HACTIVE.active_video_count[8]_i_3_n_0\
-    );
-\DET_HACTIVE.active_video_count[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(9),
-      O => \DET_HACTIVE.active_video_count[8]_i_4_n_0\
-    );
-\DET_HACTIVE.active_video_count[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HACTIVE.active_video_count_reg\(8),
-      O => \DET_HACTIVE.active_video_count[8]_i_5_n_0\
+      O => \DET_HACTIVE.active_video_count[0]_i_4_n_0\
     );
 \DET_HACTIVE.active_video_count_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -16176,10 +16011,8 @@ begin
       O(2) => \DET_HACTIVE.active_video_count_reg[0]_i_3_n_5\,
       O(1) => \DET_HACTIVE.active_video_count_reg[0]_i_3_n_6\,
       O(0) => \DET_HACTIVE.active_video_count_reg[0]_i_3_n_7\,
-      S(3) => \DET_HACTIVE.active_video_count[0]_i_4_n_0\,
-      S(2) => \DET_HACTIVE.active_video_count[0]_i_5_n_0\,
-      S(1) => \DET_HACTIVE.active_video_count[0]_i_6_n_0\,
-      S(0) => \DET_HACTIVE.active_video_count[0]_i_7_n_0\
+      S(3 downto 1) => \DET_HACTIVE.active_video_count_reg\(3 downto 1),
+      S(0) => \DET_HACTIVE.active_video_count[0]_i_4_n_0\
     );
 \DET_HACTIVE.active_video_count_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -16260,10 +16093,7 @@ begin
       O(2) => \DET_HACTIVE.active_video_count_reg[4]_i_1_n_5\,
       O(1) => \DET_HACTIVE.active_video_count_reg[4]_i_1_n_6\,
       O(0) => \DET_HACTIVE.active_video_count_reg[4]_i_1_n_7\,
-      S(3) => \DET_HACTIVE.active_video_count[4]_i_2_n_0\,
-      S(2) => \DET_HACTIVE.active_video_count[4]_i_3_n_0\,
-      S(1) => \DET_HACTIVE.active_video_count[4]_i_4_n_0\,
-      S(0) => \DET_HACTIVE.active_video_count[4]_i_5_n_0\
+      S(3 downto 0) => \DET_HACTIVE.active_video_count_reg\(7 downto 4)
     );
 \DET_HACTIVE.active_video_count_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -16322,10 +16152,7 @@ begin
       O(2) => \DET_HACTIVE.active_video_count_reg[8]_i_1_n_5\,
       O(1) => \DET_HACTIVE.active_video_count_reg[8]_i_1_n_6\,
       O(0) => \DET_HACTIVE.active_video_count_reg[8]_i_1_n_7\,
-      S(3) => \DET_HACTIVE.active_video_count[8]_i_2_n_0\,
-      S(2) => \DET_HACTIVE.active_video_count[8]_i_3_n_0\,
-      S(1) => \DET_HACTIVE.active_video_count[8]_i_4_n_0\,
-      S(0) => \DET_HACTIVE.active_video_count[8]_i_5_n_0\
+      S(3 downto 0) => \DET_HACTIVE.active_video_count_reg\(11 downto 8)
     );
 \DET_HACTIVE.active_video_count_reg[9]\: unisim.vcomponents.FDRE
     generic map(
@@ -16565,14 +16392,14 @@ begin
     );
 \DET_HSYNC.GEN_DET_HSYNC_LOCK.det_hsync_lock_int_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"000000000A0A0A3A"
+      INIT => X"0000000030303074"
     )
         port map (
-      I0 => \^hsync_lock_int\,
-      I1 => det_hsync_pol_change,
-      I2 => \^det_ce\,
-      I3 => neqOp4_out,
-      I4 => neqOp5_out,
+      I0 => det_hsync_pol_change,
+      I1 => \^det_ce\,
+      I2 => \^hsync_lock_int\,
+      I3 => neqOp5_out,
+      I4 => neqOp4_out,
       I5 => p_5_out,
       O => \DET_HSYNC.GEN_DET_HSYNC_LOCK.det_hsync_lock_int_i_1_n_0\
     );
@@ -16945,99 +16772,11 @@ begin
     );
 \DET_HSYNC.hsync_count[0]_i_4\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(3),
-      O => \DET_HSYNC.hsync_count[0]_i_4_n_0\
-    );
-\DET_HSYNC.hsync_count[0]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(2),
-      O => \DET_HSYNC.hsync_count[0]_i_5_n_0\
-    );
-\DET_HSYNC.hsync_count[0]_i_6\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(1),
-      O => \DET_HSYNC.hsync_count[0]_i_6_n_0\
-    );
-\DET_HSYNC.hsync_count[0]_i_7\: unisim.vcomponents.LUT1
-    generic map(
       INIT => X"1"
     )
         port map (
       I0 => \DET_HSYNC.hsync_count_reg\(0),
-      O => \DET_HSYNC.hsync_count[0]_i_7_n_0\
-    );
-\DET_HSYNC.hsync_count[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(7),
-      O => \DET_HSYNC.hsync_count[4]_i_2_n_0\
-    );
-\DET_HSYNC.hsync_count[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(6),
-      O => \DET_HSYNC.hsync_count[4]_i_3_n_0\
-    );
-\DET_HSYNC.hsync_count[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(5),
-      O => \DET_HSYNC.hsync_count[4]_i_4_n_0\
-    );
-\DET_HSYNC.hsync_count[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(4),
-      O => \DET_HSYNC.hsync_count[4]_i_5_n_0\
-    );
-\DET_HSYNC.hsync_count[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(11),
-      O => \DET_HSYNC.hsync_count[8]_i_2_n_0\
-    );
-\DET_HSYNC.hsync_count[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(10),
-      O => \DET_HSYNC.hsync_count[8]_i_3_n_0\
-    );
-\DET_HSYNC.hsync_count[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(9),
-      O => \DET_HSYNC.hsync_count[8]_i_4_n_0\
-    );
-\DET_HSYNC.hsync_count[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_HSYNC.hsync_count_reg\(8),
-      O => \DET_HSYNC.hsync_count[8]_i_5_n_0\
+      O => \DET_HSYNC.hsync_count[0]_i_4_n_0\
     );
 \DET_HSYNC.hsync_count_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -17063,10 +16802,8 @@ begin
       O(2) => \DET_HSYNC.hsync_count_reg[0]_i_3_n_5\,
       O(1) => \DET_HSYNC.hsync_count_reg[0]_i_3_n_6\,
       O(0) => \DET_HSYNC.hsync_count_reg[0]_i_3_n_7\,
-      S(3) => \DET_HSYNC.hsync_count[0]_i_4_n_0\,
-      S(2) => \DET_HSYNC.hsync_count[0]_i_5_n_0\,
-      S(1) => \DET_HSYNC.hsync_count[0]_i_6_n_0\,
-      S(0) => \DET_HSYNC.hsync_count[0]_i_7_n_0\
+      S(3 downto 1) => \DET_HSYNC.hsync_count_reg\(3 downto 1),
+      S(0) => \DET_HSYNC.hsync_count[0]_i_4_n_0\
     );
 \DET_HSYNC.hsync_count_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -17147,10 +16884,7 @@ begin
       O(2) => \DET_HSYNC.hsync_count_reg[4]_i_1_n_5\,
       O(1) => \DET_HSYNC.hsync_count_reg[4]_i_1_n_6\,
       O(0) => \DET_HSYNC.hsync_count_reg[4]_i_1_n_7\,
-      S(3) => \DET_HSYNC.hsync_count[4]_i_2_n_0\,
-      S(2) => \DET_HSYNC.hsync_count[4]_i_3_n_0\,
-      S(1) => \DET_HSYNC.hsync_count[4]_i_4_n_0\,
-      S(0) => \DET_HSYNC.hsync_count[4]_i_5_n_0\
+      S(3 downto 0) => \DET_HSYNC.hsync_count_reg\(7 downto 4)
     );
 \DET_HSYNC.hsync_count_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -17209,10 +16943,7 @@ begin
       O(2) => \DET_HSYNC.hsync_count_reg[8]_i_1_n_5\,
       O(1) => \DET_HSYNC.hsync_count_reg[8]_i_1_n_6\,
       O(0) => \DET_HSYNC.hsync_count_reg[8]_i_1_n_7\,
-      S(3) => \DET_HSYNC.hsync_count[8]_i_2_n_0\,
-      S(2) => \DET_HSYNC.hsync_count[8]_i_3_n_0\,
-      S(1) => \DET_HSYNC.hsync_count[8]_i_4_n_0\,
-      S(0) => \DET_HSYNC.hsync_count[8]_i_5_n_0\
+      S(3 downto 0) => \DET_HSYNC.hsync_count_reg\(11 downto 8)
     );
 \DET_HSYNC.hsync_count_reg[9]\: unisim.vcomponents.FDRE
     generic map(
@@ -18611,99 +18342,11 @@ begin
     );
 \DET_VSYNC.vsync_count[0]_i_4\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(3),
-      O => \DET_VSYNC.vsync_count[0]_i_4_n_0\
-    );
-\DET_VSYNC.vsync_count[0]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(2),
-      O => \DET_VSYNC.vsync_count[0]_i_5_n_0\
-    );
-\DET_VSYNC.vsync_count[0]_i_6\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(1),
-      O => \DET_VSYNC.vsync_count[0]_i_6_n_0\
-    );
-\DET_VSYNC.vsync_count[0]_i_7\: unisim.vcomponents.LUT1
-    generic map(
       INIT => X"1"
     )
         port map (
       I0 => \DET_VSYNC.vsync_count_reg\(0),
-      O => \DET_VSYNC.vsync_count[0]_i_7_n_0\
-    );
-\DET_VSYNC.vsync_count[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(7),
-      O => \DET_VSYNC.vsync_count[4]_i_2_n_0\
-    );
-\DET_VSYNC.vsync_count[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(6),
-      O => \DET_VSYNC.vsync_count[4]_i_3_n_0\
-    );
-\DET_VSYNC.vsync_count[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(5),
-      O => \DET_VSYNC.vsync_count[4]_i_4_n_0\
-    );
-\DET_VSYNC.vsync_count[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(4),
-      O => \DET_VSYNC.vsync_count[4]_i_5_n_0\
-    );
-\DET_VSYNC.vsync_count[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(11),
-      O => \DET_VSYNC.vsync_count[8]_i_2_n_0\
-    );
-\DET_VSYNC.vsync_count[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(10),
-      O => \DET_VSYNC.vsync_count[8]_i_3_n_0\
-    );
-\DET_VSYNC.vsync_count[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(9),
-      O => \DET_VSYNC.vsync_count[8]_i_4_n_0\
-    );
-\DET_VSYNC.vsync_count[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \DET_VSYNC.vsync_count_reg\(8),
-      O => \DET_VSYNC.vsync_count[8]_i_5_n_0\
+      O => \DET_VSYNC.vsync_count[0]_i_4_n_0\
     );
 \DET_VSYNC.vsync_count_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -18729,10 +18372,8 @@ begin
       O(2) => \DET_VSYNC.vsync_count_reg[0]_i_3_n_5\,
       O(1) => \DET_VSYNC.vsync_count_reg[0]_i_3_n_6\,
       O(0) => \DET_VSYNC.vsync_count_reg[0]_i_3_n_7\,
-      S(3) => \DET_VSYNC.vsync_count[0]_i_4_n_0\,
-      S(2) => \DET_VSYNC.vsync_count[0]_i_5_n_0\,
-      S(1) => \DET_VSYNC.vsync_count[0]_i_6_n_0\,
-      S(0) => \DET_VSYNC.vsync_count[0]_i_7_n_0\
+      S(3 downto 1) => \DET_VSYNC.vsync_count_reg\(3 downto 1),
+      S(0) => \DET_VSYNC.vsync_count[0]_i_4_n_0\
     );
 \DET_VSYNC.vsync_count_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -18813,10 +18454,7 @@ begin
       O(2) => \DET_VSYNC.vsync_count_reg[4]_i_1_n_5\,
       O(1) => \DET_VSYNC.vsync_count_reg[4]_i_1_n_6\,
       O(0) => \DET_VSYNC.vsync_count_reg[4]_i_1_n_7\,
-      S(3) => \DET_VSYNC.vsync_count[4]_i_2_n_0\,
-      S(2) => \DET_VSYNC.vsync_count[4]_i_3_n_0\,
-      S(1) => \DET_VSYNC.vsync_count[4]_i_4_n_0\,
-      S(0) => \DET_VSYNC.vsync_count[4]_i_5_n_0\
+      S(3 downto 0) => \DET_VSYNC.vsync_count_reg\(7 downto 4)
     );
 \DET_VSYNC.vsync_count_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -18875,10 +18513,7 @@ begin
       O(2) => \DET_VSYNC.vsync_count_reg[8]_i_1_n_5\,
       O(1) => \DET_VSYNC.vsync_count_reg[8]_i_1_n_6\,
       O(0) => \DET_VSYNC.vsync_count_reg[8]_i_1_n_7\,
-      S(3) => \DET_VSYNC.vsync_count[8]_i_2_n_0\,
-      S(2) => \DET_VSYNC.vsync_count[8]_i_3_n_0\,
-      S(1) => \DET_VSYNC.vsync_count[8]_i_4_n_0\,
-      S(0) => \DET_VSYNC.vsync_count[8]_i_5_n_0\
+      S(3 downto 0) => \DET_VSYNC.vsync_count_reg\(11 downto 8)
     );
 \DET_VSYNC.vsync_count_reg[9]\: unisim.vcomponents.FDRE
     generic map(
@@ -19572,94 +19207,6 @@ all_lock_i_1: unisim.vcomponents.LUT6
       I0 => det_htotal_int(0),
       O => plusOp(0)
     );
-\det_htotal_int2[11]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(11),
-      O => \det_htotal_int2[11]_i_2_n_0\
-    );
-\det_htotal_int2[11]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(10),
-      O => \det_htotal_int2[11]_i_3_n_0\
-    );
-\det_htotal_int2[11]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(9),
-      O => \det_htotal_int2[11]_i_4_n_0\
-    );
-\det_htotal_int2[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(4),
-      O => \det_htotal_int2[4]_i_2_n_0\
-    );
-\det_htotal_int2[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(3),
-      O => \det_htotal_int2[4]_i_3_n_0\
-    );
-\det_htotal_int2[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(2),
-      O => \det_htotal_int2[4]_i_4_n_0\
-    );
-\det_htotal_int2[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(1),
-      O => \det_htotal_int2[4]_i_5_n_0\
-    );
-\det_htotal_int2[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(8),
-      O => \det_htotal_int2[8]_i_2_n_0\
-    );
-\det_htotal_int2[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(7),
-      O => \det_htotal_int2[8]_i_3_n_0\
-    );
-\det_htotal_int2[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(6),
-      O => \det_htotal_int2[8]_i_4_n_0\
-    );
-\det_htotal_int2[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_htotal_int(5),
-      O => \det_htotal_int2[8]_i_5_n_0\
-    );
 \det_htotal_int2_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
@@ -19695,9 +19242,7 @@ all_lock_i_1: unisim.vcomponents.LUT6
       O(3) => \NLW_det_htotal_int2_reg[11]_i_1_O_UNCONNECTED\(3),
       O(2 downto 0) => plusOp(11 downto 9),
       S(3) => '0',
-      S(2) => \det_htotal_int2[11]_i_2_n_0\,
-      S(1) => \det_htotal_int2[11]_i_3_n_0\,
-      S(0) => \det_htotal_int2[11]_i_4_n_0\
+      S(2 downto 0) => det_htotal_int(11 downto 9)
     );
 \det_htotal_int2_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -19741,10 +19286,7 @@ all_lock_i_1: unisim.vcomponents.LUT6
       CYINIT => det_htotal_int(0),
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => plusOp(4 downto 1),
-      S(3) => \det_htotal_int2[4]_i_2_n_0\,
-      S(2) => \det_htotal_int2[4]_i_3_n_0\,
-      S(1) => \det_htotal_int2[4]_i_4_n_0\,
-      S(0) => \det_htotal_int2[4]_i_5_n_0\
+      S(3 downto 0) => det_htotal_int(4 downto 1)
     );
 \det_htotal_int2_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -19788,10 +19330,7 @@ all_lock_i_1: unisim.vcomponents.LUT6
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => plusOp(8 downto 5),
-      S(3) => \det_htotal_int2[8]_i_2_n_0\,
-      S(2) => \det_htotal_int2[8]_i_3_n_0\,
-      S(1) => \det_htotal_int2[8]_i_4_n_0\,
-      S(0) => \det_htotal_int2[8]_i_5_n_0\
+      S(3 downto 0) => det_htotal_int(8 downto 5)
     );
 \det_htotal_int2_reg[9]\: unisim.vcomponents.FDRE
      port map (
@@ -21831,94 +21370,6 @@ all_lock_i_1: unisim.vcomponents.LUT6
       I0 => det_v0total_int(0),
       O => \det_v0total[0]_i_1_n_0\
     );
-\det_v0total[11]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(11),
-      O => \det_v0total[11]_i_2_n_0\
-    );
-\det_v0total[11]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(10),
-      O => \det_v0total[11]_i_3_n_0\
-    );
-\det_v0total[11]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(9),
-      O => \det_v0total[11]_i_4_n_0\
-    );
-\det_v0total[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(4),
-      O => \det_v0total[4]_i_2_n_0\
-    );
-\det_v0total[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(3),
-      O => \det_v0total[4]_i_3_n_0\
-    );
-\det_v0total[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(2),
-      O => \det_v0total[4]_i_4_n_0\
-    );
-\det_v0total[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(1),
-      O => \det_v0total[4]_i_5_n_0\
-    );
-\det_v0total[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(8),
-      O => \det_v0total[8]_i_2_n_0\
-    );
-\det_v0total[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(7),
-      O => \det_v0total[8]_i_3_n_0\
-    );
-\det_v0total[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(6),
-      O => \det_v0total[8]_i_4_n_0\
-    );
-\det_v0total[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => det_v0total_int(5),
-      O => \det_v0total[8]_i_5_n_0\
-    );
 \det_v0total_int[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"B8"
@@ -22220,9 +21671,7 @@ all_lock_i_1: unisim.vcomponents.LUT6
       O(1) => \det_v0total_reg[11]_i_1_n_6\,
       O(0) => \det_v0total_reg[11]_i_1_n_7\,
       S(3) => '0',
-      S(2) => \det_v0total[11]_i_2_n_0\,
-      S(1) => \det_v0total[11]_i_3_n_0\,
-      S(0) => \det_v0total[11]_i_4_n_0\
+      S(2 downto 0) => det_v0total_int(11 downto 9)
     );
 \det_v0total_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -22269,10 +21718,7 @@ all_lock_i_1: unisim.vcomponents.LUT6
       O(2) => \det_v0total_reg[4]_i_1_n_5\,
       O(1) => \det_v0total_reg[4]_i_1_n_6\,
       O(0) => \det_v0total_reg[4]_i_1_n_7\,
-      S(3) => \det_v0total[4]_i_2_n_0\,
-      S(2) => \det_v0total[4]_i_3_n_0\,
-      S(1) => \det_v0total[4]_i_4_n_0\,
-      S(0) => \det_v0total[4]_i_5_n_0\
+      S(3 downto 0) => det_v0total_int(4 downto 1)
     );
 \det_v0total_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -22319,10 +21765,7 @@ all_lock_i_1: unisim.vcomponents.LUT6
       O(2) => \det_v0total_reg[8]_i_1_n_5\,
       O(1) => \det_v0total_reg[8]_i_1_n_6\,
       O(0) => \det_v0total_reg[8]_i_1_n_7\,
-      S(3) => \det_v0total[8]_i_2_n_0\,
-      S(2) => \det_v0total[8]_i_3_n_0\,
-      S(1) => \det_v0total[8]_i_4_n_0\,
-      S(0) => \det_v0total[8]_i_5_n_0\
+      S(3 downto 0) => det_v0total_int(8 downto 5)
     );
 \det_v0total_reg[9]\: unisim.vcomponents.FDRE
      port map (
@@ -22334,15 +21777,15 @@ all_lock_i_1: unisim.vcomponents.LUT6
     );
 found_eof_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000EAAAAA"
+      INIT => X"0000550055405500"
     )
         port map (
-      I0 => found_eof_reg_n_0,
-      I1 => gtOp_0,
-      I2 => p_0_in16_in,
-      I3 => \h_count0__0\,
+      I0 => h_count1,
+      I1 => p_0_in16_in,
+      I2 => gtOp_0,
+      I3 => found_eof_reg_n_0,
       I4 => \^det_ce\,
-      I5 => h_count1,
+      I5 => \h_count0__0\,
       O => found_eof_i_1_n_0
     );
 found_eof_reg: unisim.vcomponents.FDRE
@@ -22683,42 +22126,18 @@ gtOp_carry_i_8: unisim.vcomponents.LUT3
       I1 => L(5),
       I2 => L(6),
       I3 => L(7),
-      I4 => \h_count[0]_i_9_n_0\,
+      I4 => \h_count[0]_i_6_n_0\,
       O => \h_count[0]_i_4_n_0\
     );
 \h_count[0]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(8),
-      O => \h_count[0]_i_5_n_0\
-    );
-\h_count[0]_i_6\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(9),
-      O => \h_count[0]_i_6_n_0\
-    );
-\h_count[0]_i_7\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(10),
-      O => \h_count[0]_i_7_n_0\
-    );
-\h_count[0]_i_8\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => L(11),
-      O => \h_count[0]_i_8_n_0\
+      O => \h_count[0]_i_5_n_0\
     );
-\h_count[0]_i_9\: unisim.vcomponents.LUT4
+\h_count[0]_i_6\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"7FFF"
     )
@@ -22727,71 +22146,7 @@ gtOp_carry_i_8: unisim.vcomponents.LUT3
       I1 => L(2),
       I2 => L(0),
       I3 => L(1),
-      O => \h_count[0]_i_9_n_0\
-    );
-\h_count[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(4),
-      O => \h_count[4]_i_2_n_0\
-    );
-\h_count[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(5),
-      O => \h_count[4]_i_3_n_0\
-    );
-\h_count[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(6),
-      O => \h_count[4]_i_4_n_0\
-    );
-\h_count[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(7),
-      O => \h_count[4]_i_5_n_0\
-    );
-\h_count[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(0),
-      O => \h_count[8]_i_2_n_0\
-    );
-\h_count[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(1),
-      O => \h_count[8]_i_3_n_0\
-    );
-\h_count[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(2),
-      O => \h_count[8]_i_4_n_0\
-    );
-\h_count[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => L(3),
-      O => \h_count[8]_i_5_n_0\
+      O => \h_count[0]_i_6_n_0\
     );
 \h_count_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -22817,10 +22172,10 @@ gtOp_carry_i_8: unisim.vcomponents.LUT3
       O(2) => \h_count_reg[0]_i_3_n_5\,
       O(1) => \h_count_reg[0]_i_3_n_6\,
       O(0) => \h_count_reg[0]_i_3_n_7\,
-      S(3) => \h_count[0]_i_5_n_0\,
-      S(2) => \h_count[0]_i_6_n_0\,
-      S(1) => \h_count[0]_i_7_n_0\,
-      S(0) => \h_count[0]_i_8_n_0\
+      S(3) => L(8),
+      S(2) => L(9),
+      S(1) => L(10),
+      S(0) => \h_count[0]_i_5_n_0\
     );
 \h_count_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -22901,10 +22256,10 @@ gtOp_carry_i_8: unisim.vcomponents.LUT3
       O(2) => \h_count_reg[4]_i_1_n_5\,
       O(1) => \h_count_reg[4]_i_1_n_6\,
       O(0) => \h_count_reg[4]_i_1_n_7\,
-      S(3) => \h_count[4]_i_2_n_0\,
-      S(2) => \h_count[4]_i_3_n_0\,
-      S(1) => \h_count[4]_i_4_n_0\,
-      S(0) => \h_count[4]_i_5_n_0\
+      S(3) => L(4),
+      S(2) => L(5),
+      S(1) => L(6),
+      S(0) => L(7)
     );
 \h_count_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -22963,10 +22318,10 @@ gtOp_carry_i_8: unisim.vcomponents.LUT3
       O(2) => \h_count_reg[8]_i_1_n_5\,
       O(1) => \h_count_reg[8]_i_1_n_6\,
       O(0) => \h_count_reg[8]_i_1_n_7\,
-      S(3) => \h_count[8]_i_2_n_0\,
-      S(2) => \h_count[8]_i_3_n_0\,
-      S(1) => \h_count[8]_i_4_n_0\,
-      S(0) => \h_count[8]_i_5_n_0\
+      S(3) => L(0),
+      S(2) => L(1),
+      S(1) => L(2),
+      S(0) => L(3)
     );
 \h_count_reg[9]\: unisim.vcomponents.FDRE
     generic map(
@@ -25354,99 +24709,11 @@ top_of_frame_reg: unisim.vcomponents.FDRE
     );
 \v_count[0]_i_5\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(3),
-      O => \v_count[0]_i_5_n_0\
-    );
-\v_count[0]_i_6\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(2),
-      O => \v_count[0]_i_6_n_0\
-    );
-\v_count[0]_i_7\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(1),
-      O => \v_count[0]_i_7_n_0\
-    );
-\v_count[0]_i_8\: unisim.vcomponents.LUT1
-    generic map(
       INIT => X"1"
     )
         port map (
       I0 => v_count_reg(0),
-      O => \v_count[0]_i_8_n_0\
-    );
-\v_count[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(7),
-      O => \v_count[4]_i_2_n_0\
-    );
-\v_count[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(6),
-      O => \v_count[4]_i_3_n_0\
-    );
-\v_count[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(5),
-      O => \v_count[4]_i_4_n_0\
-    );
-\v_count[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(4),
-      O => \v_count[4]_i_5_n_0\
-    );
-\v_count[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(11),
-      O => \v_count[8]_i_2_n_0\
-    );
-\v_count[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(10),
-      O => \v_count[8]_i_3_n_0\
-    );
-\v_count[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(9),
-      O => \v_count[8]_i_4_n_0\
-    );
-\v_count[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => v_count_reg(8),
-      O => \v_count[8]_i_5_n_0\
+      O => \v_count[0]_i_5_n_0\
     );
 \v_count_last_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -25604,10 +24871,8 @@ top_of_frame_reg: unisim.vcomponents.FDRE
       O(2) => \v_count_reg[0]_i_2_n_5\,
       O(1) => \v_count_reg[0]_i_2_n_6\,
       O(0) => \v_count_reg[0]_i_2_n_7\,
-      S(3) => \v_count[0]_i_5_n_0\,
-      S(2) => \v_count[0]_i_6_n_0\,
-      S(1) => \v_count[0]_i_7_n_0\,
-      S(0) => \v_count[0]_i_8_n_0\
+      S(3 downto 1) => v_count_reg(3 downto 1),
+      S(0) => \v_count[0]_i_5_n_0\
     );
 \v_count_reg[10]\: unisim.vcomponents.FDRE
     generic map(
@@ -25688,10 +24953,7 @@ top_of_frame_reg: unisim.vcomponents.FDRE
       O(2) => \v_count_reg[4]_i_1_n_5\,
       O(1) => \v_count_reg[4]_i_1_n_6\,
       O(0) => \v_count_reg[4]_i_1_n_7\,
-      S(3) => \v_count[4]_i_2_n_0\,
-      S(2) => \v_count[4]_i_3_n_0\,
-      S(1) => \v_count[4]_i_4_n_0\,
-      S(0) => \v_count[4]_i_5_n_0\
+      S(3 downto 0) => v_count_reg(7 downto 4)
     );
 \v_count_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -25750,10 +25012,7 @@ top_of_frame_reg: unisim.vcomponents.FDRE
       O(2) => \v_count_reg[8]_i_1_n_5\,
       O(1) => \v_count_reg[8]_i_1_n_6\,
       O(0) => \v_count_reg[8]_i_1_n_7\,
-      S(3) => \v_count[8]_i_2_n_0\,
-      S(2) => \v_count[8]_i_3_n_0\,
-      S(1) => \v_count[8]_i_4_n_0\,
-      S(0) => \v_count[8]_i_5_n_0\
+      S(3 downto 0) => v_count_reg(11 downto 8)
     );
 \v_count_reg[9]\: unisim.vcomponents.FDRE
     generic map(
@@ -26290,36 +25549,36 @@ entity system_v_tc_in_0_video_clock_cross is
     \AXI4_LITE_INTERFACE.ipif_RdData_reg[31]\ : out STD_LOGIC_VECTOR ( 31 downto 0 );
     ipif_Addr : out STD_LOGIC_VECTOR ( 8 downto 0 );
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[27][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[3][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[3][8]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[28][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[25][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[7][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[6][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[5][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[1][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[0][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[2][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[26][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[3][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[27][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[3][8]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[23][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[22][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][7]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[16][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[8][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[11][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[15][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[7][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[10][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[14][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[6][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[1][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[13][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[5][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[14][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][30]\ : out STD_LOGIC;
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][29]\ : out STD_LOGIC;
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][28]\ : out STD_LOGIC;
@@ -26352,9 +25611,9 @@ entity system_v_tc_in_0_video_clock_cross is
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][1]\ : out STD_LOGIC;
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][0]\ : out STD_LOGIC;
     \GEN_TREE.GEN_BRANCH[4].GEN_MUX_REG.data_out_reg_reg[4][22]\ : out STD_LOGIC;
-    \AXI4_LITE_INTERFACE.soft_resetn_reg\ : in STD_LOGIC;
-    D : in STD_LOGIC_VECTOR ( 21 downto 0 );
     vid_aclk_en : in STD_LOGIC;
+    D : in STD_LOGIC_VECTOR ( 21 downto 0 );
+    \AXI4_LITE_INTERFACE.soft_resetn_reg\ : in STD_LOGIC;
     \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0\ : in STD_LOGIC_VECTOR ( 5 downto 0 );
     \time_status_regs[27]\ : in STD_LOGIC_VECTOR ( 5 downto 0 );
     \time_status_regs[26]\ : in STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -26478,17 +25737,22 @@ end system_v_tc_in_0_video_clock_cross;
 
 architecture STRUCTURE of system_v_tc_in_0_video_clock_cross is
   signal \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0\ : STD_LOGIC;
-  signal \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2_n_0\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_2_n_0\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3_n_0\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_3_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0\ : STD_LOGIC;
-  signal \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0\ : STD_LOGIC;
-  signal \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_3_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0\ : STD_LOGIC;
   signal \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\ : STD_LOGIC;
@@ -26513,548 +25777,548 @@ architecture STRUCTURE of system_v_tc_in_0_video_clock_cross is
   attribute shreg_extract of \data_sync[2]_2\ : signal is "no";
   signal \^ipif_addr\ : STD_LOGIC_VECTOR ( 8 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[12][27]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[14][27]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[15][27]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[4][27]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[5][27]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[6][27]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[7][27]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[9][27]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[12][27]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[14][27]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[15][27]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[4][27]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[5][27]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[6][27]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[7][27]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.core_control_regs_int[9][27]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2\ : label is "soft_lutpair9";
   attribute IS_FANOUT_CONSTRAINED : integer;
-  attribute IS_FANOUT_CONSTRAINED of \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2\ : label is 1;
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[21][28]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[22][28]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[23][28]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[28][28]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][0]_i_1\ : label is "soft_lutpair260";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][10]_i_1\ : label is "soft_lutpair269";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][11]_i_1\ : label is "soft_lutpair269";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][12]_i_1\ : label is "soft_lutpair268";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][13]_i_1\ : label is "soft_lutpair268";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][14]_i_1\ : label is "soft_lutpair267";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][15]_i_1\ : label is "soft_lutpair259";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][16]_i_1\ : label is "soft_lutpair266";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][17]_i_1\ : label is "soft_lutpair266";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][18]_i_1\ : label is "soft_lutpair265";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][19]_i_1\ : label is "soft_lutpair265";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][1]_i_1\ : label is "soft_lutpair267";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][20]_i_1\ : label is "soft_lutpair264";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][21]_i_1\ : label is "soft_lutpair264";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][22]_i_1\ : label is "soft_lutpair263";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][23]_i_1\ : label is "soft_lutpair263";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][24]_i_1\ : label is "soft_lutpair262";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][25]_i_1\ : label is "soft_lutpair262";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][26]_i_1\ : label is "soft_lutpair261";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][27]_i_1\ : label is "soft_lutpair261";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][28]_i_1\ : label is "soft_lutpair260";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][29]_i_1\ : label is "soft_lutpair259";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][2]_i_1\ : label is "soft_lutpair273";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][30]_i_1\ : label is "soft_lutpair258";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][3]_i_1\ : label is "soft_lutpair273";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][4]_i_1\ : label is "soft_lutpair272";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][5]_i_1\ : label is "soft_lutpair272";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][6]_i_1\ : label is "soft_lutpair271";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][7]_i_1\ : label is "soft_lutpair271";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][8]_i_1\ : label is "soft_lutpair270";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][9]_i_1\ : label is "soft_lutpair270";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][0]_i_1\ : label is "soft_lutpair244";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][10]_i_1\ : label is "soft_lutpair254";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][11]_i_1\ : label is "soft_lutpair253";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][12]_i_1\ : label is "soft_lutpair253";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][13]_i_1\ : label is "soft_lutpair252";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][14]_i_1\ : label is "soft_lutpair252";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][15]_i_1\ : label is "soft_lutpair251";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][16]_i_1\ : label is "soft_lutpair251";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][17]_i_1\ : label is "soft_lutpair250";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][18]_i_1\ : label is "soft_lutpair250";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][19]_i_1\ : label is "soft_lutpair249";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][1]_i_1\ : label is "soft_lutpair243";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][20]_i_1\ : label is "soft_lutpair249";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][21]_i_1\ : label is "soft_lutpair248";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][22]_i_1\ : label is "soft_lutpair248";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][23]_i_1\ : label is "soft_lutpair247";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][24]_i_1\ : label is "soft_lutpair247";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][25]_i_1\ : label is "soft_lutpair246";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][26]_i_1\ : label is "soft_lutpair246";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][27]_i_1\ : label is "soft_lutpair245";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][28]_i_1\ : label is "soft_lutpair245";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][29]_i_1\ : label is "soft_lutpair244";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][2]_i_1\ : label is "soft_lutpair258";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][30]_i_1\ : label is "soft_lutpair243";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][31]_i_1\ : label is "soft_lutpair212";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][3]_i_1\ : label is "soft_lutpair257";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][4]_i_1\ : label is "soft_lutpair257";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][5]_i_1\ : label is "soft_lutpair256";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][6]_i_1\ : label is "soft_lutpair256";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][7]_i_1\ : label is "soft_lutpair255";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][8]_i_1\ : label is "soft_lutpair255";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][9]_i_1\ : label is "soft_lutpair254";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[33].GEN_MUX_REG.data_out_reg[33][26]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][0]_i_1\ : label is "soft_lutpair212";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][10]_i_1\ : label is "soft_lutpair238";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][11]_i_1\ : label is "soft_lutpair238";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][12]_i_1\ : label is "soft_lutpair237";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][13]_i_1\ : label is "soft_lutpair237";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][14]_i_1\ : label is "soft_lutpair236";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][15]_i_1\ : label is "soft_lutpair236";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][16]_i_1\ : label is "soft_lutpair235";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][17]_i_1\ : label is "soft_lutpair235";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][18]_i_1\ : label is "soft_lutpair234";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][19]_i_1\ : label is "soft_lutpair234";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][1]_i_1\ : label is "soft_lutpair242";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][20]_i_1\ : label is "soft_lutpair233";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][21]_i_1\ : label is "soft_lutpair233";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][22]_i_1\ : label is "soft_lutpair232";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][23]_i_1\ : label is "soft_lutpair232";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][24]_i_1\ : label is "soft_lutpair231";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][25]_i_1\ : label is "soft_lutpair231";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][26]_i_1\ : label is "soft_lutpair230";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][27]_i_1\ : label is "soft_lutpair230";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][28]_i_1\ : label is "soft_lutpair229";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][29]_i_1\ : label is "soft_lutpair229";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][2]_i_1\ : label is "soft_lutpair242";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][30]_i_1\ : label is "soft_lutpair228";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][31]_i_1\ : label is "soft_lutpair228";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][3]_i_1\ : label is "soft_lutpair211";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][4]_i_1\ : label is "soft_lutpair241";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][5]_i_1\ : label is "soft_lutpair241";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][6]_i_1\ : label is "soft_lutpair240";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][7]_i_1\ : label is "soft_lutpair240";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][8]_i_1\ : label is "soft_lutpair239";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][9]_i_1\ : label is "soft_lutpair239";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][0]_i_1\ : label is "soft_lutpair227";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][10]_i_1\ : label is "soft_lutpair222";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][11]_i_1\ : label is "soft_lutpair222";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][12]_i_1\ : label is "soft_lutpair221";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][13]_i_1\ : label is "soft_lutpair221";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][14]_i_1\ : label is "soft_lutpair220";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][15]_i_1\ : label is "soft_lutpair220";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][16]_i_1\ : label is "soft_lutpair219";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][17]_i_1\ : label is "soft_lutpair219";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][18]_i_1\ : label is "soft_lutpair218";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][19]_i_1\ : label is "soft_lutpair218";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][1]_i_1\ : label is "soft_lutpair227";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][20]_i_1\ : label is "soft_lutpair217";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][21]_i_1\ : label is "soft_lutpair217";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][22]_i_1\ : label is "soft_lutpair216";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][23]_i_1\ : label is "soft_lutpair216";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][24]_i_1\ : label is "soft_lutpair215";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][25]_i_1\ : label is "soft_lutpair215";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][26]_i_1\ : label is "soft_lutpair214";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][27]_i_1\ : label is "soft_lutpair214";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][28]_i_1\ : label is "soft_lutpair213";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][29]_i_1\ : label is "soft_lutpair213";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][2]_i_1\ : label is "soft_lutpair226";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][30]_i_1\ : label is "soft_lutpair211";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][31]_i_1\ : label is "soft_lutpair208";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][3]_i_1\ : label is "soft_lutpair226";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][4]_i_1\ : label is "soft_lutpair225";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][5]_i_1\ : label is "soft_lutpair225";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][6]_i_1\ : label is "soft_lutpair224";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][7]_i_1\ : label is "soft_lutpair224";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][8]_i_1\ : label is "soft_lutpair223";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][9]_i_1\ : label is "soft_lutpair223";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][0]_i_1\ : label is "soft_lutpair148";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][10]_i_1\ : label is "soft_lutpair206";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][11]_i_1\ : label is "soft_lutpair205";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][12]_i_1\ : label is "soft_lutpair205";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][13]_i_1\ : label is "soft_lutpair204";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][14]_i_1\ : label is "soft_lutpair204";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][15]_i_1\ : label is "soft_lutpair203";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][16]_i_1\ : label is "soft_lutpair203";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][17]_i_1\ : label is "soft_lutpair202";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][18]_i_1\ : label is "soft_lutpair202";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][19]_i_1\ : label is "soft_lutpair201";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][1]_i_1\ : label is "soft_lutpair210";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][20]_i_1\ : label is "soft_lutpair201";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][21]_i_1\ : label is "soft_lutpair200";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][22]_i_1\ : label is "soft_lutpair200";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][23]_i_1\ : label is "soft_lutpair199";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][24]_i_1\ : label is "soft_lutpair199";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][25]_i_1\ : label is "soft_lutpair198";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][26]_i_1\ : label is "soft_lutpair198";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][27]_i_1\ : label is "soft_lutpair197";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][28]_i_1\ : label is "soft_lutpair197";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][29]_i_1\ : label is "soft_lutpair196";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][2]_i_1\ : label is "soft_lutpair210";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][30]_i_1\ : label is "soft_lutpair196";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][31]_i_1\ : label is "soft_lutpair195";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][3]_i_1\ : label is "soft_lutpair209";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][4]_i_1\ : label is "soft_lutpair209";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][5]_i_1\ : label is "soft_lutpair208";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][6]_i_1\ : label is "soft_lutpair207";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][7]_i_1\ : label is "soft_lutpair147";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][8]_i_1\ : label is "soft_lutpair207";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][9]_i_1\ : label is "soft_lutpair206";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][0]_i_1\ : label is "soft_lutpair195";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][10]_i_1\ : label is "soft_lutpair190";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][11]_i_1\ : label is "soft_lutpair189";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][12]_i_1\ : label is "soft_lutpair189";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][13]_i_1\ : label is "soft_lutpair188";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][14]_i_1\ : label is "soft_lutpair188";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][15]_i_1\ : label is "soft_lutpair148";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_1\ : label is "soft_lutpair147";
+  attribute IS_FANOUT_CONSTRAINED of \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_3\ : label is 1;
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[22][28]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[23][28]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.time_control_regs_int[28][28]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][0]_i_1\ : label is "soft_lutpair263";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][10]_i_1\ : label is "soft_lutpair272";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][11]_i_1\ : label is "soft_lutpair272";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][12]_i_1\ : label is "soft_lutpair271";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][13]_i_1\ : label is "soft_lutpair271";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][14]_i_1\ : label is "soft_lutpair270";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][15]_i_1\ : label is "soft_lutpair262";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][16]_i_1\ : label is "soft_lutpair269";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][17]_i_1\ : label is "soft_lutpair269";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][18]_i_1\ : label is "soft_lutpair268";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][19]_i_1\ : label is "soft_lutpair268";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][1]_i_1\ : label is "soft_lutpair270";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][20]_i_1\ : label is "soft_lutpair267";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][21]_i_1\ : label is "soft_lutpair267";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][22]_i_1\ : label is "soft_lutpair266";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][23]_i_1\ : label is "soft_lutpair266";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][24]_i_1\ : label is "soft_lutpair265";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][25]_i_1\ : label is "soft_lutpair265";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][26]_i_1\ : label is "soft_lutpair264";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][27]_i_1\ : label is "soft_lutpair264";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][28]_i_1\ : label is "soft_lutpair263";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][29]_i_1\ : label is "soft_lutpair262";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][2]_i_1\ : label is "soft_lutpair276";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][30]_i_1\ : label is "soft_lutpair261";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][3]_i_1\ : label is "soft_lutpair276";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][4]_i_1\ : label is "soft_lutpair275";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][5]_i_1\ : label is "soft_lutpair275";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][6]_i_1\ : label is "soft_lutpair274";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][7]_i_1\ : label is "soft_lutpair274";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][8]_i_1\ : label is "soft_lutpair273";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][9]_i_1\ : label is "soft_lutpair273";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][0]_i_1\ : label is "soft_lutpair247";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][10]_i_1\ : label is "soft_lutpair257";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][11]_i_1\ : label is "soft_lutpair256";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][12]_i_1\ : label is "soft_lutpair256";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][13]_i_1\ : label is "soft_lutpair255";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][14]_i_1\ : label is "soft_lutpair255";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][15]_i_1\ : label is "soft_lutpair254";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][16]_i_1\ : label is "soft_lutpair254";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][17]_i_1\ : label is "soft_lutpair253";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][18]_i_1\ : label is "soft_lutpair253";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][19]_i_1\ : label is "soft_lutpair252";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][1]_i_1\ : label is "soft_lutpair246";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][20]_i_1\ : label is "soft_lutpair252";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][21]_i_1\ : label is "soft_lutpair251";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][22]_i_1\ : label is "soft_lutpair251";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][23]_i_1\ : label is "soft_lutpair250";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][24]_i_1\ : label is "soft_lutpair250";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][25]_i_1\ : label is "soft_lutpair249";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][26]_i_1\ : label is "soft_lutpair249";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][27]_i_1\ : label is "soft_lutpair248";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][28]_i_1\ : label is "soft_lutpair248";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][29]_i_1\ : label is "soft_lutpair247";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][2]_i_1\ : label is "soft_lutpair261";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][30]_i_1\ : label is "soft_lutpair246";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][31]_i_1\ : label is "soft_lutpair215";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][3]_i_1\ : label is "soft_lutpair260";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][4]_i_1\ : label is "soft_lutpair260";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][5]_i_1\ : label is "soft_lutpair259";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][6]_i_1\ : label is "soft_lutpair259";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][7]_i_1\ : label is "soft_lutpair258";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][8]_i_1\ : label is "soft_lutpair258";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][9]_i_1\ : label is "soft_lutpair257";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[33].GEN_MUX_REG.data_out_reg[33][26]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][0]_i_1\ : label is "soft_lutpair215";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][10]_i_1\ : label is "soft_lutpair241";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][11]_i_1\ : label is "soft_lutpair241";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][12]_i_1\ : label is "soft_lutpair240";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][13]_i_1\ : label is "soft_lutpair240";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][14]_i_1\ : label is "soft_lutpair239";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][15]_i_1\ : label is "soft_lutpair239";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][16]_i_1\ : label is "soft_lutpair238";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][17]_i_1\ : label is "soft_lutpair238";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][18]_i_1\ : label is "soft_lutpair237";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][19]_i_1\ : label is "soft_lutpair237";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][1]_i_1\ : label is "soft_lutpair245";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][20]_i_1\ : label is "soft_lutpair236";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][21]_i_1\ : label is "soft_lutpair236";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][22]_i_1\ : label is "soft_lutpair235";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][23]_i_1\ : label is "soft_lutpair235";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][24]_i_1\ : label is "soft_lutpair234";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][25]_i_1\ : label is "soft_lutpair234";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][26]_i_1\ : label is "soft_lutpair233";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][27]_i_1\ : label is "soft_lutpair233";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][28]_i_1\ : label is "soft_lutpair232";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][29]_i_1\ : label is "soft_lutpair232";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][2]_i_1\ : label is "soft_lutpair245";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][30]_i_1\ : label is "soft_lutpair231";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][31]_i_1\ : label is "soft_lutpair231";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][3]_i_1\ : label is "soft_lutpair214";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][4]_i_1\ : label is "soft_lutpair244";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][5]_i_1\ : label is "soft_lutpair244";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][6]_i_1\ : label is "soft_lutpair243";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][7]_i_1\ : label is "soft_lutpair243";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][8]_i_1\ : label is "soft_lutpair242";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][9]_i_1\ : label is "soft_lutpair242";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][0]_i_1\ : label is "soft_lutpair230";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][10]_i_1\ : label is "soft_lutpair225";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][11]_i_1\ : label is "soft_lutpair225";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][12]_i_1\ : label is "soft_lutpair224";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][13]_i_1\ : label is "soft_lutpair224";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][14]_i_1\ : label is "soft_lutpair223";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][15]_i_1\ : label is "soft_lutpair223";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][16]_i_1\ : label is "soft_lutpair222";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][17]_i_1\ : label is "soft_lutpair222";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][18]_i_1\ : label is "soft_lutpair221";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][19]_i_1\ : label is "soft_lutpair221";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][1]_i_1\ : label is "soft_lutpair230";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][20]_i_1\ : label is "soft_lutpair220";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][21]_i_1\ : label is "soft_lutpair220";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][22]_i_1\ : label is "soft_lutpair219";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][23]_i_1\ : label is "soft_lutpair219";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][24]_i_1\ : label is "soft_lutpair218";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][25]_i_1\ : label is "soft_lutpair218";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][26]_i_1\ : label is "soft_lutpair217";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][27]_i_1\ : label is "soft_lutpair217";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][28]_i_1\ : label is "soft_lutpair216";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][29]_i_1\ : label is "soft_lutpair216";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][2]_i_1\ : label is "soft_lutpair229";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][30]_i_1\ : label is "soft_lutpair214";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][31]_i_1\ : label is "soft_lutpair211";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][3]_i_1\ : label is "soft_lutpair229";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][4]_i_1\ : label is "soft_lutpair228";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][5]_i_1\ : label is "soft_lutpair228";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][6]_i_1\ : label is "soft_lutpair227";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][7]_i_1\ : label is "soft_lutpair227";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][8]_i_1\ : label is "soft_lutpair226";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][9]_i_1\ : label is "soft_lutpair226";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][0]_i_1\ : label is "soft_lutpair151";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][10]_i_1\ : label is "soft_lutpair209";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][11]_i_1\ : label is "soft_lutpair208";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][12]_i_1\ : label is "soft_lutpair208";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][13]_i_1\ : label is "soft_lutpair207";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][14]_i_1\ : label is "soft_lutpair207";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][15]_i_1\ : label is "soft_lutpair206";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][16]_i_1\ : label is "soft_lutpair206";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][17]_i_1\ : label is "soft_lutpair205";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][18]_i_1\ : label is "soft_lutpair205";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][19]_i_1\ : label is "soft_lutpair204";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][1]_i_1\ : label is "soft_lutpair213";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][20]_i_1\ : label is "soft_lutpair204";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][21]_i_1\ : label is "soft_lutpair203";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][22]_i_1\ : label is "soft_lutpair203";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][23]_i_1\ : label is "soft_lutpair202";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][24]_i_1\ : label is "soft_lutpair202";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][25]_i_1\ : label is "soft_lutpair201";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][26]_i_1\ : label is "soft_lutpair201";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][27]_i_1\ : label is "soft_lutpair200";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][28]_i_1\ : label is "soft_lutpair200";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][29]_i_1\ : label is "soft_lutpair199";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][2]_i_1\ : label is "soft_lutpair213";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][30]_i_1\ : label is "soft_lutpair199";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][31]_i_1\ : label is "soft_lutpair198";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][3]_i_1\ : label is "soft_lutpair212";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][4]_i_1\ : label is "soft_lutpair212";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][5]_i_1\ : label is "soft_lutpair211";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][6]_i_1\ : label is "soft_lutpair210";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][7]_i_1\ : label is "soft_lutpair150";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][8]_i_1\ : label is "soft_lutpair210";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][9]_i_1\ : label is "soft_lutpair209";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][0]_i_1\ : label is "soft_lutpair198";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][10]_i_1\ : label is "soft_lutpair193";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][11]_i_1\ : label is "soft_lutpair192";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][12]_i_1\ : label is "soft_lutpair192";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][13]_i_1\ : label is "soft_lutpair191";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][14]_i_1\ : label is "soft_lutpair191";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][15]_i_1\ : label is "soft_lutpair151";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_1\ : label is "soft_lutpair150";
   attribute IS_FANOUT_CONSTRAINED of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2\ : label is 1;
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][17]_i_1\ : label is "soft_lutpair187";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][18]_i_1\ : label is "soft_lutpair187";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][19]_i_1\ : label is "soft_lutpair186";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][1]_i_1\ : label is "soft_lutpair194";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][20]_i_1\ : label is "soft_lutpair186";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][21]_i_1\ : label is "soft_lutpair185";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][22]_i_1\ : label is "soft_lutpair185";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][23]_i_1\ : label is "soft_lutpair184";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][24]_i_1\ : label is "soft_lutpair184";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][25]_i_1\ : label is "soft_lutpair183";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][26]_i_1\ : label is "soft_lutpair183";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][27]_i_1\ : label is "soft_lutpair182";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][28]_i_1\ : label is "soft_lutpair182";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][29]_i_1\ : label is "soft_lutpair181";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][2]_i_1\ : label is "soft_lutpair194";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][30]_i_1\ : label is "soft_lutpair181";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][31]_i_1\ : label is "soft_lutpair180";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][3]_i_1\ : label is "soft_lutpair193";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][4]_i_1\ : label is "soft_lutpair193";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][5]_i_1\ : label is "soft_lutpair192";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][6]_i_1\ : label is "soft_lutpair192";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][7]_i_1\ : label is "soft_lutpair191";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][8]_i_1\ : label is "soft_lutpair191";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][9]_i_1\ : label is "soft_lutpair190";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][0]_i_1\ : label is "soft_lutpair180";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][10]_i_1\ : label is "soft_lutpair175";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][11]_i_1\ : label is "soft_lutpair174";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][12]_i_1\ : label is "soft_lutpair174";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][13]_i_1\ : label is "soft_lutpair173";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][14]_i_1\ : label is "soft_lutpair173";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][15]_i_1\ : label is "soft_lutpair172";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][16]_i_1\ : label is "soft_lutpair172";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][17]_i_1\ : label is "soft_lutpair171";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][18]_i_1\ : label is "soft_lutpair171";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][19]_i_1\ : label is "soft_lutpair170";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][1]_i_1\ : label is "soft_lutpair179";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][20]_i_1\ : label is "soft_lutpair170";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][21]_i_1\ : label is "soft_lutpair169";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][22]_i_1\ : label is "soft_lutpair169";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][23]_i_1\ : label is "soft_lutpair168";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][24]_i_1\ : label is "soft_lutpair168";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][25]_i_1\ : label is "soft_lutpair167";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][26]_i_1\ : label is "soft_lutpair167";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][27]_i_1\ : label is "soft_lutpair166";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][28]_i_1\ : label is "soft_lutpair166";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][29]_i_1\ : label is "soft_lutpair165";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][2]_i_1\ : label is "soft_lutpair179";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][30]_i_1\ : label is "soft_lutpair165";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][31]_i_1\ : label is "soft_lutpair164";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][3]_i_1\ : label is "soft_lutpair178";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][4]_i_1\ : label is "soft_lutpair178";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][5]_i_1\ : label is "soft_lutpair177";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][6]_i_1\ : label is "soft_lutpair177";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][7]_i_1\ : label is "soft_lutpair176";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][8]_i_1\ : label is "soft_lutpair176";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][9]_i_1\ : label is "soft_lutpair175";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][0]_i_1\ : label is "soft_lutpair164";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][10]_i_1\ : label is "soft_lutpair159";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][11]_i_1\ : label is "soft_lutpair158";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][12]_i_1\ : label is "soft_lutpair158";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][13]_i_1\ : label is "soft_lutpair157";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][14]_i_1\ : label is "soft_lutpair157";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][15]_i_1\ : label is "soft_lutpair156";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][16]_i_1\ : label is "soft_lutpair156";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][17]_i_1\ : label is "soft_lutpair155";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][18]_i_1\ : label is "soft_lutpair155";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][19]_i_1\ : label is "soft_lutpair154";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][1]_i_1\ : label is "soft_lutpair163";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][20]_i_1\ : label is "soft_lutpair154";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][21]_i_1\ : label is "soft_lutpair153";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][22]_i_1\ : label is "soft_lutpair153";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][23]_i_1\ : label is "soft_lutpair152";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][24]_i_1\ : label is "soft_lutpair152";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][25]_i_1\ : label is "soft_lutpair151";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][26]_i_1\ : label is "soft_lutpair151";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][27]_i_1\ : label is "soft_lutpair150";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][28]_i_1\ : label is "soft_lutpair150";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][29]_i_1\ : label is "soft_lutpair149";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][2]_i_1\ : label is "soft_lutpair163";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][30]_i_1\ : label is "soft_lutpair149";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][31]_i_1\ : label is "soft_lutpair140";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][3]_i_1\ : label is "soft_lutpair162";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][4]_i_1\ : label is "soft_lutpair162";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][5]_i_1\ : label is "soft_lutpair161";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][6]_i_1\ : label is "soft_lutpair161";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][7]_i_1\ : label is "soft_lutpair160";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][8]_i_1\ : label is "soft_lutpair160";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][9]_i_1\ : label is "soft_lutpair159";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][0]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][10]_i_1\ : label is "soft_lutpair142";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][11]_i_1\ : label is "soft_lutpair141";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][12]_i_1\ : label is "soft_lutpair141";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][13]_i_1\ : label is "soft_lutpair140";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][14]_i_1\ : label is "soft_lutpair139";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][15]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][16]_i_1\ : label is "soft_lutpair139";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][17]_i_1\ : label is "soft_lutpair138";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][18]_i_1\ : label is "soft_lutpair138";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][19]_i_1\ : label is "soft_lutpair137";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][1]_i_1\ : label is "soft_lutpair146";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][20]_i_1\ : label is "soft_lutpair137";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][21]_i_1\ : label is "soft_lutpair136";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][22]_i_1\ : label is "soft_lutpair136";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][23]_i_1\ : label is "soft_lutpair135";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][24]_i_1\ : label is "soft_lutpair135";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][25]_i_1\ : label is "soft_lutpair134";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][26]_i_1\ : label is "soft_lutpair134";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][27]_i_1\ : label is "soft_lutpair133";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][28]_i_1\ : label is "soft_lutpair133";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][29]_i_1\ : label is "soft_lutpair132";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][2]_i_1\ : label is "soft_lutpair146";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][30]_i_1\ : label is "soft_lutpair132";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][31]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][3]_i_1\ : label is "soft_lutpair145";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][4]_i_1\ : label is "soft_lutpair145";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][5]_i_1\ : label is "soft_lutpair144";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][6]_i_1\ : label is "soft_lutpair144";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][7]_i_1\ : label is "soft_lutpair143";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][8]_i_1\ : label is "soft_lutpair143";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][9]_i_1\ : label is "soft_lutpair142";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][17]_i_1\ : label is "soft_lutpair190";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][18]_i_1\ : label is "soft_lutpair190";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][19]_i_1\ : label is "soft_lutpair189";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][1]_i_1\ : label is "soft_lutpair197";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][20]_i_1\ : label is "soft_lutpair189";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][21]_i_1\ : label is "soft_lutpair188";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][22]_i_1\ : label is "soft_lutpair188";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][23]_i_1\ : label is "soft_lutpair187";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][24]_i_1\ : label is "soft_lutpair187";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][25]_i_1\ : label is "soft_lutpair186";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][26]_i_1\ : label is "soft_lutpair186";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][27]_i_1\ : label is "soft_lutpair185";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][28]_i_1\ : label is "soft_lutpair185";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][29]_i_1\ : label is "soft_lutpair184";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][2]_i_1\ : label is "soft_lutpair197";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][30]_i_1\ : label is "soft_lutpair184";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][31]_i_1\ : label is "soft_lutpair183";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][3]_i_1\ : label is "soft_lutpair196";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][4]_i_1\ : label is "soft_lutpair196";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][5]_i_1\ : label is "soft_lutpair195";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][6]_i_1\ : label is "soft_lutpair195";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][7]_i_1\ : label is "soft_lutpair194";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][8]_i_1\ : label is "soft_lutpair194";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][9]_i_1\ : label is "soft_lutpair193";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][0]_i_1\ : label is "soft_lutpair183";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][10]_i_1\ : label is "soft_lutpair178";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][11]_i_1\ : label is "soft_lutpair177";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][12]_i_1\ : label is "soft_lutpair177";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][13]_i_1\ : label is "soft_lutpair176";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][14]_i_1\ : label is "soft_lutpair176";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][15]_i_1\ : label is "soft_lutpair175";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][16]_i_1\ : label is "soft_lutpair175";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][17]_i_1\ : label is "soft_lutpair174";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][18]_i_1\ : label is "soft_lutpair174";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][19]_i_1\ : label is "soft_lutpair173";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][1]_i_1\ : label is "soft_lutpair182";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][20]_i_1\ : label is "soft_lutpair173";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][21]_i_1\ : label is "soft_lutpair172";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][22]_i_1\ : label is "soft_lutpair172";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][23]_i_1\ : label is "soft_lutpair171";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][24]_i_1\ : label is "soft_lutpair171";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][25]_i_1\ : label is "soft_lutpair170";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][26]_i_1\ : label is "soft_lutpair170";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][27]_i_1\ : label is "soft_lutpair169";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][28]_i_1\ : label is "soft_lutpair169";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][29]_i_1\ : label is "soft_lutpair168";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][2]_i_1\ : label is "soft_lutpair182";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][30]_i_1\ : label is "soft_lutpair168";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][31]_i_1\ : label is "soft_lutpair167";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][3]_i_1\ : label is "soft_lutpair181";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][4]_i_1\ : label is "soft_lutpair181";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][5]_i_1\ : label is "soft_lutpair180";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][6]_i_1\ : label is "soft_lutpair180";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][7]_i_1\ : label is "soft_lutpair179";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][8]_i_1\ : label is "soft_lutpair179";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][9]_i_1\ : label is "soft_lutpair178";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][0]_i_1\ : label is "soft_lutpair167";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][10]_i_1\ : label is "soft_lutpair162";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][11]_i_1\ : label is "soft_lutpair161";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][12]_i_1\ : label is "soft_lutpair161";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][13]_i_1\ : label is "soft_lutpair160";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][14]_i_1\ : label is "soft_lutpair160";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][15]_i_1\ : label is "soft_lutpair159";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][16]_i_1\ : label is "soft_lutpair159";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][17]_i_1\ : label is "soft_lutpair158";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][18]_i_1\ : label is "soft_lutpair158";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][19]_i_1\ : label is "soft_lutpair157";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][1]_i_1\ : label is "soft_lutpair166";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][20]_i_1\ : label is "soft_lutpair157";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][21]_i_1\ : label is "soft_lutpair156";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][22]_i_1\ : label is "soft_lutpair156";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][23]_i_1\ : label is "soft_lutpair155";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][24]_i_1\ : label is "soft_lutpair155";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][25]_i_1\ : label is "soft_lutpair154";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][26]_i_1\ : label is "soft_lutpair154";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][27]_i_1\ : label is "soft_lutpair153";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][28]_i_1\ : label is "soft_lutpair153";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][29]_i_1\ : label is "soft_lutpair152";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][2]_i_1\ : label is "soft_lutpair166";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][30]_i_1\ : label is "soft_lutpair152";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][31]_i_1\ : label is "soft_lutpair143";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][3]_i_1\ : label is "soft_lutpair165";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][4]_i_1\ : label is "soft_lutpair165";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][5]_i_1\ : label is "soft_lutpair164";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][6]_i_1\ : label is "soft_lutpair164";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][7]_i_1\ : label is "soft_lutpair163";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][8]_i_1\ : label is "soft_lutpair163";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][9]_i_1\ : label is "soft_lutpair162";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][0]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][10]_i_1\ : label is "soft_lutpair145";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][11]_i_1\ : label is "soft_lutpair144";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][12]_i_1\ : label is "soft_lutpair144";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][13]_i_1\ : label is "soft_lutpair143";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][14]_i_1\ : label is "soft_lutpair142";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][15]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][16]_i_1\ : label is "soft_lutpair142";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][17]_i_1\ : label is "soft_lutpair141";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][18]_i_1\ : label is "soft_lutpair141";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][19]_i_1\ : label is "soft_lutpair140";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][1]_i_1\ : label is "soft_lutpair149";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][20]_i_1\ : label is "soft_lutpair140";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][21]_i_1\ : label is "soft_lutpair139";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][22]_i_1\ : label is "soft_lutpair139";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][23]_i_1\ : label is "soft_lutpair138";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][24]_i_1\ : label is "soft_lutpair138";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][25]_i_1\ : label is "soft_lutpair137";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][26]_i_1\ : label is "soft_lutpair137";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][27]_i_1\ : label is "soft_lutpair136";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][28]_i_1\ : label is "soft_lutpair136";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][29]_i_1\ : label is "soft_lutpair135";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][2]_i_1\ : label is "soft_lutpair149";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][30]_i_1\ : label is "soft_lutpair135";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][31]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][3]_i_1\ : label is "soft_lutpair148";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][4]_i_1\ : label is "soft_lutpair148";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][5]_i_1\ : label is "soft_lutpair147";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][6]_i_1\ : label is "soft_lutpair147";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][7]_i_1\ : label is "soft_lutpair146";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][8]_i_1\ : label is "soft_lutpair146";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][9]_i_1\ : label is "soft_lutpair145";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_1\ : label is "soft_lutpair21";
   attribute IS_FANOUT_CONSTRAINED of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2\ : label is 1;
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][10]_i_1\ : label is "soft_lutpair127";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][11]_i_1\ : label is "soft_lutpair126";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][12]_i_1\ : label is "soft_lutpair126";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][13]_i_1\ : label is "soft_lutpair125";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][14]_i_1\ : label is "soft_lutpair125";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][15]_i_1\ : label is "soft_lutpair124";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][16]_i_1\ : label is "soft_lutpair124";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][17]_i_1\ : label is "soft_lutpair123";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][18]_i_1\ : label is "soft_lutpair123";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][19]_i_1\ : label is "soft_lutpair122";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][1]_i_1\ : label is "soft_lutpair131";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][20]_i_1\ : label is "soft_lutpair122";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][21]_i_1\ : label is "soft_lutpair121";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][22]_i_1\ : label is "soft_lutpair121";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][23]_i_1\ : label is "soft_lutpair120";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][24]_i_1\ : label is "soft_lutpair120";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][25]_i_1\ : label is "soft_lutpair119";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][26]_i_1\ : label is "soft_lutpair119";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][27]_i_1\ : label is "soft_lutpair118";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][28]_i_1\ : label is "soft_lutpair118";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][29]_i_1\ : label is "soft_lutpair117";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][2]_i_1\ : label is "soft_lutpair131";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][30]_i_1\ : label is "soft_lutpair117";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][31]_i_1\ : label is "soft_lutpair116";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][3]_i_1\ : label is "soft_lutpair130";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][4]_i_1\ : label is "soft_lutpair130";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][5]_i_1\ : label is "soft_lutpair129";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][6]_i_1\ : label is "soft_lutpair129";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][7]_i_1\ : label is "soft_lutpair128";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][8]_i_1\ : label is "soft_lutpair128";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][9]_i_1\ : label is "soft_lutpair127";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][0]_i_1\ : label is "soft_lutpair116";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][10]_i_1\ : label is "soft_lutpair111";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][11]_i_1\ : label is "soft_lutpair110";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][12]_i_1\ : label is "soft_lutpair110";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][13]_i_1\ : label is "soft_lutpair109";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][14]_i_1\ : label is "soft_lutpair109";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][15]_i_1\ : label is "soft_lutpair108";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][16]_i_1\ : label is "soft_lutpair108";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][17]_i_1\ : label is "soft_lutpair107";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][18]_i_1\ : label is "soft_lutpair107";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][19]_i_1\ : label is "soft_lutpair106";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][1]_i_1\ : label is "soft_lutpair115";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][20]_i_1\ : label is "soft_lutpair106";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][21]_i_1\ : label is "soft_lutpair105";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][22]_i_1\ : label is "soft_lutpair105";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][23]_i_1\ : label is "soft_lutpair104";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][24]_i_1\ : label is "soft_lutpair104";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][25]_i_1\ : label is "soft_lutpair103";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][26]_i_1\ : label is "soft_lutpair103";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][27]_i_1\ : label is "soft_lutpair102";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][28]_i_1\ : label is "soft_lutpair102";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][29]_i_1\ : label is "soft_lutpair101";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][2]_i_1\ : label is "soft_lutpair115";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][30]_i_1\ : label is "soft_lutpair101";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][31]_i_1\ : label is "soft_lutpair100";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][3]_i_1\ : label is "soft_lutpair114";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][4]_i_1\ : label is "soft_lutpair114";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][5]_i_1\ : label is "soft_lutpair113";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][6]_i_1\ : label is "soft_lutpair113";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][7]_i_1\ : label is "soft_lutpair112";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][8]_i_1\ : label is "soft_lutpair112";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][9]_i_1\ : label is "soft_lutpair111";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][0]_i_1\ : label is "soft_lutpair100";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][10]_i_1\ : label is "soft_lutpair95";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][11]_i_1\ : label is "soft_lutpair94";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][12]_i_1\ : label is "soft_lutpair94";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][13]_i_1\ : label is "soft_lutpair93";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][14]_i_1\ : label is "soft_lutpair93";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][15]_i_1\ : label is "soft_lutpair92";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][16]_i_1\ : label is "soft_lutpair92";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][17]_i_1\ : label is "soft_lutpair91";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][18]_i_1\ : label is "soft_lutpair91";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][19]_i_1\ : label is "soft_lutpair90";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][1]_i_1\ : label is "soft_lutpair99";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][20]_i_1\ : label is "soft_lutpair90";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][21]_i_1\ : label is "soft_lutpair89";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][22]_i_1\ : label is "soft_lutpair89";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][23]_i_1\ : label is "soft_lutpair88";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][24]_i_1\ : label is "soft_lutpair88";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][25]_i_1\ : label is "soft_lutpair87";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][26]_i_1\ : label is "soft_lutpair87";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][27]_i_1\ : label is "soft_lutpair86";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][28]_i_1\ : label is "soft_lutpair86";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][29]_i_1\ : label is "soft_lutpair85";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][2]_i_1\ : label is "soft_lutpair99";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][30]_i_1\ : label is "soft_lutpair85";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][31]_i_1\ : label is "soft_lutpair84";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][3]_i_1\ : label is "soft_lutpair98";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][4]_i_1\ : label is "soft_lutpair98";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][5]_i_1\ : label is "soft_lutpair97";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][6]_i_1\ : label is "soft_lutpair97";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][7]_i_1\ : label is "soft_lutpair96";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][8]_i_1\ : label is "soft_lutpair96";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][9]_i_1\ : label is "soft_lutpair95";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][0]_i_1\ : label is "soft_lutpair84";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][10]_i_1\ : label is "soft_lutpair79";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][11]_i_1\ : label is "soft_lutpair78";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][12]_i_1\ : label is "soft_lutpair78";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][13]_i_1\ : label is "soft_lutpair77";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][14]_i_1\ : label is "soft_lutpair77";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][15]_i_1\ : label is "soft_lutpair76";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_1\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][10]_i_1\ : label is "soft_lutpair130";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][11]_i_1\ : label is "soft_lutpair129";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][12]_i_1\ : label is "soft_lutpair129";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][13]_i_1\ : label is "soft_lutpair128";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][14]_i_1\ : label is "soft_lutpair128";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][15]_i_1\ : label is "soft_lutpair127";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][16]_i_1\ : label is "soft_lutpair127";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][17]_i_1\ : label is "soft_lutpair126";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][18]_i_1\ : label is "soft_lutpair126";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][19]_i_1\ : label is "soft_lutpair125";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][1]_i_1\ : label is "soft_lutpair134";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][20]_i_1\ : label is "soft_lutpair125";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][21]_i_1\ : label is "soft_lutpair124";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][22]_i_1\ : label is "soft_lutpair124";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][23]_i_1\ : label is "soft_lutpair123";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][24]_i_1\ : label is "soft_lutpair123";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][25]_i_1\ : label is "soft_lutpair122";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][26]_i_1\ : label is "soft_lutpair122";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][27]_i_1\ : label is "soft_lutpair121";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][28]_i_1\ : label is "soft_lutpair121";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][29]_i_1\ : label is "soft_lutpair120";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][2]_i_1\ : label is "soft_lutpair134";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][30]_i_1\ : label is "soft_lutpair120";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][31]_i_1\ : label is "soft_lutpair119";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][3]_i_1\ : label is "soft_lutpair133";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][4]_i_1\ : label is "soft_lutpair133";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][5]_i_1\ : label is "soft_lutpair132";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][6]_i_1\ : label is "soft_lutpair132";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][7]_i_1\ : label is "soft_lutpair131";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][8]_i_1\ : label is "soft_lutpair131";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][9]_i_1\ : label is "soft_lutpair130";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][0]_i_1\ : label is "soft_lutpair119";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][10]_i_1\ : label is "soft_lutpair114";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][11]_i_1\ : label is "soft_lutpair113";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][12]_i_1\ : label is "soft_lutpair113";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][13]_i_1\ : label is "soft_lutpair112";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][14]_i_1\ : label is "soft_lutpair112";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][15]_i_1\ : label is "soft_lutpair111";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][16]_i_1\ : label is "soft_lutpair111";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][17]_i_1\ : label is "soft_lutpair110";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][18]_i_1\ : label is "soft_lutpair110";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][19]_i_1\ : label is "soft_lutpair109";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][1]_i_1\ : label is "soft_lutpair118";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][20]_i_1\ : label is "soft_lutpair109";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][21]_i_1\ : label is "soft_lutpair108";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][22]_i_1\ : label is "soft_lutpair108";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][23]_i_1\ : label is "soft_lutpair107";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][24]_i_1\ : label is "soft_lutpair107";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][25]_i_1\ : label is "soft_lutpair106";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][26]_i_1\ : label is "soft_lutpair106";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][27]_i_1\ : label is "soft_lutpair105";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][28]_i_1\ : label is "soft_lutpair105";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][29]_i_1\ : label is "soft_lutpair104";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][2]_i_1\ : label is "soft_lutpair118";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][30]_i_1\ : label is "soft_lutpair104";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][31]_i_1\ : label is "soft_lutpair103";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][3]_i_1\ : label is "soft_lutpair117";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][4]_i_1\ : label is "soft_lutpair117";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][5]_i_1\ : label is "soft_lutpair116";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][6]_i_1\ : label is "soft_lutpair116";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][7]_i_1\ : label is "soft_lutpair115";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][8]_i_1\ : label is "soft_lutpair115";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][9]_i_1\ : label is "soft_lutpair114";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][0]_i_1\ : label is "soft_lutpair103";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][10]_i_1\ : label is "soft_lutpair98";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][11]_i_1\ : label is "soft_lutpair97";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][12]_i_1\ : label is "soft_lutpair97";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][13]_i_1\ : label is "soft_lutpair96";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][14]_i_1\ : label is "soft_lutpair96";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][15]_i_1\ : label is "soft_lutpair95";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][16]_i_1\ : label is "soft_lutpair95";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][17]_i_1\ : label is "soft_lutpair94";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][18]_i_1\ : label is "soft_lutpair94";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][19]_i_1\ : label is "soft_lutpair93";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][1]_i_1\ : label is "soft_lutpair102";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][20]_i_1\ : label is "soft_lutpair93";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][21]_i_1\ : label is "soft_lutpair92";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][22]_i_1\ : label is "soft_lutpair92";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][23]_i_1\ : label is "soft_lutpair91";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][24]_i_1\ : label is "soft_lutpair91";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][25]_i_1\ : label is "soft_lutpair90";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][26]_i_1\ : label is "soft_lutpair90";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][27]_i_1\ : label is "soft_lutpair89";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][28]_i_1\ : label is "soft_lutpair89";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][29]_i_1\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][2]_i_1\ : label is "soft_lutpair102";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][30]_i_1\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][31]_i_1\ : label is "soft_lutpair87";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][3]_i_1\ : label is "soft_lutpair101";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][4]_i_1\ : label is "soft_lutpair101";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][5]_i_1\ : label is "soft_lutpair100";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][6]_i_1\ : label is "soft_lutpair100";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][7]_i_1\ : label is "soft_lutpair99";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][8]_i_1\ : label is "soft_lutpair99";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][9]_i_1\ : label is "soft_lutpair98";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][0]_i_1\ : label is "soft_lutpair87";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][10]_i_1\ : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][11]_i_1\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][12]_i_1\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][13]_i_1\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][14]_i_1\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][15]_i_1\ : label is "soft_lutpair79";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_1\ : label is "soft_lutpair79";
   attribute IS_FANOUT_CONSTRAINED of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2\ : label is 1;
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][17]_i_1\ : label is "soft_lutpair75";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][18]_i_1\ : label is "soft_lutpair75";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][19]_i_1\ : label is "soft_lutpair74";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][1]_i_1\ : label is "soft_lutpair83";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][20]_i_1\ : label is "soft_lutpair74";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][21]_i_1\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][22]_i_1\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][23]_i_1\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][24]_i_1\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][25]_i_1\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][26]_i_1\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][27]_i_1\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][28]_i_1\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][29]_i_1\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][2]_i_1\ : label is "soft_lutpair83";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][30]_i_1\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][31]_i_1\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][3]_i_1\ : label is "soft_lutpair82";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][4]_i_1\ : label is "soft_lutpair82";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][5]_i_1\ : label is "soft_lutpair81";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][6]_i_1\ : label is "soft_lutpair81";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][7]_i_1\ : label is "soft_lutpair80";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][8]_i_1\ : label is "soft_lutpair80";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][9]_i_1\ : label is "soft_lutpair79";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][0]_i_1\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][10]_i_1\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][11]_i_1\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][12]_i_1\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][13]_i_1\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][14]_i_1\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][15]_i_1\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][16]_i_1\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][17]_i_1\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][18]_i_1\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][19]_i_1\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][1]_i_1\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][20]_i_1\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][21]_i_1\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][22]_i_1\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][23]_i_1\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][24]_i_1\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][25]_i_1\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][26]_i_1\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][27]_i_1\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][28]_i_1\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][29]_i_1\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][2]_i_1\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][30]_i_1\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][31]_i_1\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][3]_i_1\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][4]_i_1\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][5]_i_1\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][6]_i_1\ : label is "soft_lutpair65";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][7]_i_1\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][8]_i_1\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][9]_i_1\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][0]_i_1\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][10]_i_1\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][11]_i_1\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][12]_i_1\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][13]_i_1\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][14]_i_1\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][15]_i_1\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][16]_i_1\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][17]_i_1\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][18]_i_1\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][19]_i_1\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][1]_i_1\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][20]_i_1\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][21]_i_1\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][22]_i_1\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][23]_i_1\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][24]_i_1\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][25]_i_1\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][26]_i_1\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][27]_i_1\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][28]_i_1\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][29]_i_1\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][2]_i_1\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][30]_i_1\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][31]_i_1\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][3]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][4]_i_1\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][5]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][6]_i_1\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][7]_i_1\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][8]_i_1\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][9]_i_1\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][0]_i_1\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][10]_i_1\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][11]_i_1\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][12]_i_1\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][13]_i_1\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][14]_i_1\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][15]_i_1\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][16]_i_1\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][17]_i_1\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][18]_i_1\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][19]_i_1\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][1]_i_1\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][20]_i_1\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][21]_i_1\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][22]_i_1\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][23]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][24]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][25]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][26]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][27]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][28]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][29]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][2]_i_1\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][30]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][17]_i_1\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][18]_i_1\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][19]_i_1\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][1]_i_1\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][20]_i_1\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][21]_i_1\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][22]_i_1\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][23]_i_1\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][24]_i_1\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][25]_i_1\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][26]_i_1\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][27]_i_1\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][28]_i_1\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][29]_i_1\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][2]_i_1\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][30]_i_1\ : label is "soft_lutpair72";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][31]_i_1\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][3]_i_1\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][4]_i_1\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][5]_i_1\ : label is "soft_lutpair84";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][6]_i_1\ : label is "soft_lutpair84";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][7]_i_1\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][8]_i_1\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][9]_i_1\ : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][0]_i_1\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][10]_i_1\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][11]_i_1\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][12]_i_1\ : label is "soft_lutpair65";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][13]_i_1\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][14]_i_1\ : label is "soft_lutpair64";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][15]_i_1\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][16]_i_1\ : label is "soft_lutpair63";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][17]_i_1\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][18]_i_1\ : label is "soft_lutpair62";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][19]_i_1\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][1]_i_1\ : label is "soft_lutpair70";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][20]_i_1\ : label is "soft_lutpair61";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][21]_i_1\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][22]_i_1\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][23]_i_1\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][24]_i_1\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][25]_i_1\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][26]_i_1\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][27]_i_1\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][28]_i_1\ : label is "soft_lutpair57";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][29]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][2]_i_1\ : label is "soft_lutpair70";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][30]_i_1\ : label is "soft_lutpair56";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][31]_i_1\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][3]_i_1\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][4]_i_1\ : label is "soft_lutpair69";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][5]_i_1\ : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][6]_i_1\ : label is "soft_lutpair68";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][7]_i_1\ : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][8]_i_1\ : label is "soft_lutpair67";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][9]_i_1\ : label is "soft_lutpair66";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][0]_i_1\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][10]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][11]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][12]_i_1\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][13]_i_1\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][14]_i_1\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][15]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][16]_i_1\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][17]_i_1\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][18]_i_1\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][19]_i_1\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][1]_i_1\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][20]_i_1\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][21]_i_1\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][22]_i_1\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][23]_i_1\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][24]_i_1\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][25]_i_1\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][26]_i_1\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][27]_i_1\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][28]_i_1\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][29]_i_1\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][2]_i_1\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][30]_i_1\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][31]_i_1\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][3]_i_1\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][4]_i_1\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][5]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][6]_i_1\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][7]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][8]_i_1\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][9]_i_1\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][0]_i_1\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][10]_i_1\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][11]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][12]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][13]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][14]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][15]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][16]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][17]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][18]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][19]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][1]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][20]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][21]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][22]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][23]_i_1\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][24]_i_1\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][25]_i_1\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][26]_i_1\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][27]_i_1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][28]_i_1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][29]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][2]_i_1\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][30]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_1\ : label is "soft_lutpair23";
   attribute IS_FANOUT_CONSTRAINED of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2\ : label is 1;
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][3]_i_1\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][4]_i_1\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][5]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][6]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][7]_i_1\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][8]_i_1\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][9]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][3]_i_1\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][4]_i_1\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][5]_i_1\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][6]_i_1\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][7]_i_1\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][8]_i_1\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][9]_i_1\ : label is "soft_lutpair34";
   attribute IS_FANOUT_CONSTRAINED of \GEN_TREE.GEN_BRANCH[4].GEN_MUX_REG.data_out_reg[4][22]_i_4\ : label is 1;
   attribute ASYNC_REG_boolean : boolean;
   attribute ASYNC_REG_boolean of \data_sync_reg[0][0]\ : label is std.standard.true;
@@ -27608,69 +26872,101 @@ begin
       INIT => X"0000000000008000"
     )
         port map (
-      I0 => write_ack_int,
-      I1 => \data_sync[2]_2\(42),
-      I2 => \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2_n_0\,
-      I3 => vid_aclk_en,
+      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0\,
+      I1 => vid_aclk_en,
+      I2 => \data_sync[2]_2\(42),
+      I3 => write_ack_int,
       I4 => \^ipif_addr\(5),
       I5 => \^ipif_addr\(6),
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[0][0]\(0)
     );
-\AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_1\: unisim.vcomponents.LUT6
+\AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000000000200000"
+      INIT => X"20000000"
     )
         port map (
-      I0 => vid_aclk_en,
+      I0 => \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0\,
       I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I2 => \^ipif_addr\(3),
-      I3 => \^ipif_addr\(4),
-      I4 => \^ipif_addr\(5),
-      I5 => \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \^ipif_addr\(5),
+      I4 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[10][0]\(0)
     );
-\AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"BF"
-    )
-        port map (
-      I0 => \^ipif_addr\(6),
-      I1 => \data_sync[2]_2\(42),
-      I2 => write_ack_int,
-      O => \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0\
-    );
-\AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_1\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0008"
-    )
-        port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0\,
-      O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[11][0]\(0)
-    );
-\AXI4_LITE_INTERFACE.core_control_regs_int[12][27]_i_1\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0010"
-    )
-        port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0\,
-      O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0]\(0)
-    );
-\AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_1\: unisim.vcomponents.LUT4
+\AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"0040"
     )
         port map (
-      I0 => \^ipif_addr\(3),
-      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I0 => \^ipif_addr\(4),
+      I1 => write_ack_int,
+      I2 => \data_sync[2]_2\(42),
+      I3 => \^ipif_addr\(6),
+      O => \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0\
+    );
+\AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000001000000"
+    )
+        port map (
+      I0 => \^ipif_addr\(6),
+      I1 => \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_2_n_0\,
       I2 => \^ipif_addr\(4),
+      I3 => vid_aclk_en,
+      I4 => \^ipif_addr\(5),
+      I5 => \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3_n_0\,
+      O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[11][0]\(0)
+    );
+\AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"7"
+    )
+        port map (
+      I0 => write_ack_int,
+      I1 => \data_sync[2]_2\(42),
+      O => \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_2_n_0\
+    );
+\AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"7"
+    )
+        port map (
+      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I1 => \^ipif_addr\(3),
+      O => \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3_n_0\
+    );
+\AXI4_LITE_INTERFACE.core_control_regs_int[12][27]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0004"
+    )
+        port map (
+      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I1 => \^ipif_addr\(4),
+      I2 => \^ipif_addr\(3),
       I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0\,
+      O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0]\(0)
+    );
+\AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000000000080"
+    )
+        port map (
+      I0 => write_ack_int,
+      I1 => \data_sync[2]_2\(42),
+      I2 => vid_aclk_en,
+      I3 => \^ipif_addr\(3),
+      I4 => \^ipif_addr\(6),
+      I5 => \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2_n_0\,
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[13][0]\(0)
+    );
+\AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"7F"
+    )
+        port map (
+      I0 => \^ipif_addr\(5),
+      I1 => \^ipif_addr\(4),
+      I2 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      O => \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2_n_0\
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[14][27]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -27678,8 +26974,8 @@ begin
     )
         port map (
       I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^ipif_addr\(4),
+      I1 => \^ipif_addr\(4),
+      I2 => \^ipif_addr\(3),
       I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0\,
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[14][0]\(0)
     );
@@ -27696,53 +26992,43 @@ begin
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000080000000"
+      INIT => X"2000000000000000"
     )
         port map (
-      I0 => write_ack_int,
-      I1 => \data_sync[2]_2\(42),
-      I2 => \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2_n_0\,
-      I3 => vid_aclk_en,
-      I4 => \^ipif_addr\(6),
-      I5 => \^ipif_addr\(5),
+      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0\,
+      I1 => \^ipif_addr\(5),
+      I2 => \data_sync[2]_2\(42),
+      I3 => write_ack_int,
+      I4 => vid_aclk_en,
+      I5 => \^ipif_addr\(6),
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[16][0]\(0)
-    );
-\AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"01"
-    )
-        port map (
-      I0 => \^ipif_addr\(4),
-      I1 => \^ipif_addr\(3),
-      I2 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      O => \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2_n_0\
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0004"
+      INIT => X"0002"
     )
         port map (
-      I0 => \^ipif_addr\(3),
-      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\,
+      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I1 => \^ipif_addr\(4),
+      I2 => \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\,
+      I3 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[1][0]\(0)
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFF7FF"
+      INIT => X"EFFFFFFF"
     )
         port map (
-      I0 => write_ack_int,
-      I1 => \data_sync[2]_2\(42),
-      I2 => \^ipif_addr\(6),
-      I3 => vid_aclk_en,
-      I4 => \^ipif_addr\(5),
+      I0 => \^ipif_addr\(6),
+      I1 => \^ipif_addr\(5),
+      I2 => write_ack_int,
+      I3 => \data_sync[2]_2\(42),
+      I4 => vid_aclk_en,
       O => \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[2][27]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"80"
+      INIT => X"40"
     )
         port map (
       I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0\,
@@ -27750,36 +27036,49 @@ begin
       I2 => write_ack_int,
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[2][0]\(0)
     );
-\AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_1\: unisim.vcomponents.LUT3
+\AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"80"
+      INIT => X"1000000000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(42),
-      I2 => write_ack_int,
+      I0 => \^ipif_addr\(4),
+      I1 => \AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2_n_0\,
+      I2 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I3 => \^ipif_addr\(3),
+      I4 => \data_sync[2]_2\(42),
+      I5 => write_ack_int,
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[3][0]\(0)
+    );
+\AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"EF"
+    )
+        port map (
+      I0 => \^ipif_addr\(6),
+      I1 => \^ipif_addr\(5),
+      I2 => vid_aclk_en,
+      O => \AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2_n_0\
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[4][27]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0010"
+      INIT => X"0002"
     )
         port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\,
+      I0 => \^ipif_addr\(4),
+      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I2 => \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\,
+      I3 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0]\(0)
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[5][27]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0040"
+      INIT => X"0008"
     )
         port map (
-      I0 => \^ipif_addr\(3),
+      I0 => \^ipif_addr\(4),
       I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\,
+      I2 => \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\,
+      I3 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[5][0]\(0)
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[6][27]_i_1\: unisim.vcomponents.LUT4
@@ -27788,8 +27087,8 @@ begin
     )
         port map (
       I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^ipif_addr\(4),
+      I1 => \^ipif_addr\(4),
+      I2 => \^ipif_addr\(3),
       I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0\,
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[6][0]\(0)
     );
@@ -27817,14 +27116,14 @@ begin
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"F7FFFFFF"
+      INIT => X"FFFF7FFF"
     )
         port map (
-      I0 => write_ack_int,
-      I1 => \data_sync[2]_2\(42),
-      I2 => \^ipif_addr\(6),
-      I3 => \^ipif_addr\(5),
-      I4 => vid_aclk_en,
+      I0 => \^ipif_addr\(5),
+      I1 => vid_aclk_en,
+      I2 => write_ack_int,
+      I3 => \data_sync[2]_2\(42),
+      I4 => \^ipif_addr\(6),
       O => \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0\
     );
 \AXI4_LITE_INTERFACE.core_control_regs_int[9][27]_i_1\: unisim.vcomponents.LUT4
@@ -27832,32 +27131,316 @@ begin
       INIT => X"0004"
     )
         port map (
-      I0 => \^ipif_addr\(3),
+      I0 => \^ipif_addr\(4),
       I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I2 => \^ipif_addr\(4),
+      I2 => \^ipif_addr\(3),
       I3 => \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0\,
       O => \AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0]\(0)
     );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_1\: unisim.vcomponents.LUT4
+\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0100"
+      INIT => X"0000000000000200"
     )
         port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0\,
+      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0\,
+      I1 => \^ipif_addr\(6),
+      I2 => \^ipif_addr\(5),
+      I3 => vid_aclk_en,
+      I4 => \^ipif_addr\(7),
+      I5 => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0\,
       O => E(0)
     );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2\: unisim.vcomponents.LUT1
+\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"2"
+      INIT => X"01"
     )
         port map (
-      I0 => \data_sync[2]_2\(34),
-      O => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\
+      I0 => \^ipif_addr\(4),
+      I1 => \^ipif_addr\(3),
+      I2 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0\
     );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3\: unisim.vcomponents.LUT6
+\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"7"
+    )
+        port map (
+      I0 => write_ack_int,
+      I1 => \data_sync[2]_2\(41),
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][10]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(10),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(2),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][10]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][11]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(11),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(3),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][11]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][12]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(12),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(4),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][12]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][13]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(13),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(5),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][13]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][16]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(16),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(6),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][16]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][17]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(17),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(7),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][17]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][18]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(18),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(8),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][18]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][19]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(19),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(9),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][19]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][20]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(20),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(10),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][20]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][21]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(21),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(11),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][21]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][22]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(22),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(12),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][22]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][23]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(23),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(13),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][23]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][24]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(24),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(14),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][24]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][25]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(25),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(15),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][25]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][26]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(26),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(16),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][26]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][27]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(27),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(17),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][27]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][28]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(28),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(18),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][28]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][29]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(29),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(19),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][29]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][30]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(30),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(20),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][30]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"D0DDF00000000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(31),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
+      I4 => D(21),
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][31]\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0020"
+    )
+        port map (
+      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_3_n_0\,
+      I1 => \^ipif_addr\(4),
+      I2 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I3 => \^ipif_addr\(3),
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\
+    );
+\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0000000000000800"
     )
@@ -27868,386 +27451,115 @@ begin
       I3 => vid_aclk_en,
       I4 => \^ipif_addr\(5),
       I5 => \^ipif_addr\(6),
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][10]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(10),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(2),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][10]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][11]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(11),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(3),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][11]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][12]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(12),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(4),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][12]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][13]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(13),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(5),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][13]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][16]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(16),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(6),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][16]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][17]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(17),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(7),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][17]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][18]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(18),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(8),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][18]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][19]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(19),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(9),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][19]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][20]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(20),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(10),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][20]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][21]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(21),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(11),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][21]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][22]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(22),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(12),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][22]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][23]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(23),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(13),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][23]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][24]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(24),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(14),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][24]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][25]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(25),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(15),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][25]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][26]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(26),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(16),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][26]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][27]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(27),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(17),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][27]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][28]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(28),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(18),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][28]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][29]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(29),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(19),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][29]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][30]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(30),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(20),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][30]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D0008080D0D08080"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(31),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
-      I4 => D(21),
-      I5 => vid_aclk_en,
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][31]\
-    );
-\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0020"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I3 => \^ipif_addr\(4),
-      O => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\
+      O => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_3_n_0\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[1][8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"D0008080D0D08080"
+      INIT => X"D0DDF00000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(8),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(8),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
       I4 => D(0),
-      I5 => vid_aclk_en,
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][8]\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[1][9]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"D0008080D0D08080"
+      INIT => X"D0DDF00000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(9),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(9),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0\,
       I4 => D(1),
-      I5 => vid_aclk_en,
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][9]\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[2][16]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"D0008080D0D08080"
+      INIT => X"D0DDF00000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(16),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(16),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
       I4 => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0\(0),
-      I5 => vid_aclk_en,
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][16]\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[2][17]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"D0008080D0D08080"
+      INIT => X"D0DDF00000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(17),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(17),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
       I4 => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0\(1),
-      I5 => vid_aclk_en,
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][17]\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[2][18]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"D0008080D0D08080"
+      INIT => X"D0DDF00000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(18),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(18),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
       I4 => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0\(2),
-      I5 => vid_aclk_en,
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][18]\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[2][19]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"D0008080D0D08080"
+      INIT => X"D0DDF00000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(19),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(19),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
       I4 => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0\(3),
-      I5 => vid_aclk_en,
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][19]\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[2][20]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"D0008080D0D08080"
+      INIT => X"D0DDF00000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(20),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(20),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
       I4 => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0\(4),
-      I5 => vid_aclk_en,
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][20]\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"D0008080D0D08080"
+      INIT => X"D0DDF00000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
-      I1 => \data_sync[2]_2\(21),
-      I2 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
-      I3 => \data_sync[2]_2\(41),
+      I0 => vid_aclk_en,
+      I1 => \data_sync[2]_2\(41),
+      I2 => \data_sync[2]_2\(21),
+      I3 => \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0\,
       I4 => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0\(5),
-      I5 => vid_aclk_en,
+      I5 => \AXI4_LITE_INTERFACE.soft_resetn_reg\,
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]\
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0800"
+      INIT => X"0008"
     )
         port map (
       I0 => write_ack_int,
@@ -28269,15 +27581,15 @@ begin
     );
 \AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0100000000000000"
+      INIT => X"0000000000080000"
     )
         port map (
-      I0 => \^ipif_addr\(5),
-      I1 => \^ipif_addr\(6),
-      I2 => \^ipif_addr\(4),
-      I3 => vid_aclk_en,
-      I4 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I5 => \^ipif_addr\(3),
+      I0 => \^ipif_addr\(3),
+      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I2 => \^ipif_addr\(6),
+      I3 => \^ipif_addr\(5),
+      I4 => vid_aclk_en,
+      I5 => \^ipif_addr\(4),
       O => \AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0\
     );
 \AXI4_LITE_INTERFACE.ipif_RdData_reg[0]_i_1\: unisim.vcomponents.MUXF7
@@ -28528,153 +27840,168 @@ begin
     );
 \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0001"
+      INIT => X"0100"
     )
         port map (
       I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
       I1 => \^ipif_addr\(3),
       I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0\,
+      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0\,
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][0]\(0)
     );
-\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_1\: unisim.vcomponents.LUT6
+\AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0010000000000000"
+      INIT => X"0800000000000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0\,
-      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I2 => \^ipif_addr\(3),
-      I3 => \^ipif_addr\(4),
-      I4 => \data_sync[2]_2\(41),
-      I5 => write_ack_int,
-      O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][7]\(0)
-    );
-\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FF7F"
-    )
-        port map (
-      I0 => \^ipif_addr\(6),
-      I1 => vid_aclk_en,
-      I2 => \^ipif_addr\(5),
-      I3 => \^ipif_addr\(7),
-      O => \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0\
-    );
-\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_1\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0008"
-    )
-        port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0\,
-      O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0]\(0)
-    );
-\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"F7FFFFFFFFFFFFFF"
-    )
-        port map (
-      I0 => \data_sync[2]_2\(41),
-      I1 => write_ack_int,
+      I0 => write_ack_int,
+      I1 => \data_sync[2]_2\(41),
       I2 => \^ipif_addr\(7),
       I3 => \^ipif_addr\(5),
       I4 => vid_aclk_en,
       I5 => \^ipif_addr\(6),
-      O => \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0\
+      O => \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0\
     );
-\AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_1\: unisim.vcomponents.LUT4
+\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0010"
+      INIT => X"00002000"
     )
         port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
+      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0\,
+      I1 => \^ipif_addr\(4),
+      I2 => \data_sync[2]_2\(41),
+      I3 => write_ack_int,
+      I4 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][7]\(0)
+    );
+\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"08000000"
+    )
+        port map (
+      I0 => vid_aclk_en,
+      I1 => \^ipif_addr\(6),
+      I2 => \^ipif_addr\(7),
+      I3 => \^ipif_addr\(3),
+      I4 => \^ipif_addr\(5),
+      O => \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0\
+    );
+\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => \data_sync[2]_2\(34),
+      O => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\
+    );
+\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"08000000"
+    )
+        port map (
+      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0\,
+      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
       I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0\,
+      I3 => \data_sync[2]_2\(41),
+      I4 => write_ack_int,
+      O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0]\(0)
+    );
+\AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000000002000"
+    )
+        port map (
+      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2_n_0\,
+      I1 => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0\,
+      I2 => \^ipif_addr\(5),
+      I3 => \^ipif_addr\(4),
+      I4 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I5 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0]\(0)
     );
-\AXI4_LITE_INTERFACE.time_control_regs_int[21][28]_i_1\: unisim.vcomponents.LUT4
+\AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"0040"
+      INIT => X"40"
+    )
+        port map (
+      I0 => \^ipif_addr\(7),
+      I1 => \^ipif_addr\(6),
+      I2 => vid_aclk_en,
+      O => \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2_n_0\
+    );
+\AXI4_LITE_INTERFACE.time_control_regs_int[21][28]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"1000000000000000"
     )
         port map (
       I0 => \^ipif_addr\(3),
-      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0\,
+      I1 => \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0\,
+      I2 => \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2_n_0\,
+      I3 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I4 => \^ipif_addr\(4),
+      I5 => \^ipif_addr\(5),
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0]\(0)
     );
 \AXI4_LITE_INTERFACE.time_control_regs_int[22][28]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0040"
+      INIT => X"2000"
     )
         port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
+      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0\,
+      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
       I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0\,
+      I3 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[22][0]\(0)
     );
 \AXI4_LITE_INTERFACE.time_control_regs_int[23][28]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0080"
+      INIT => X"8000"
     )
         port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0\,
+      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0\,
+      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I2 => \^ipif_addr\(3),
+      I3 => \^ipif_addr\(4),
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[23][0]\(0)
     );
 \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000000040"
-    )
-        port map (
-      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0\,
-      I1 => \^ipif_addr\(7),
-      I2 => vid_aclk_en,
-      I3 => \^ipif_addr\(5),
-      I4 => \^ipif_addr\(6),
-      I5 => \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_3_n_0\,
-      O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0]\(0)
-    );
-\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
-      O => \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0\
-    );
-\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_3\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"BF"
-    )
-        port map (
-      I0 => \^ipif_addr\(4),
-      I1 => \data_sync[2]_2\(41),
-      I2 => write_ack_int,
-      O => \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_3_n_0\
-    );
-\AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_1\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0004"
+      INIT => X"0000000010000000"
     )
         port map (
       I0 => \^ipif_addr\(3),
       I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0\,
+      I2 => \data_sync[2]_2\(41),
+      I3 => write_ack_int,
+      I4 => \^ipif_addr\(7),
+      I5 => \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0\,
+      O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0]\(0)
+    );
+\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFB"
+    )
+        port map (
+      I0 => \^ipif_addr\(4),
+      I1 => vid_aclk_en,
+      I2 => \^ipif_addr\(5),
+      I3 => \^ipif_addr\(6),
+      O => \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0\
+    );
+\AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0020"
+    )
+        port map (
+      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0\,
+      I1 => \^ipif_addr\(4),
+      I2 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I3 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[25][0]\(0)
     );
 \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FDFFFFFFFFFFFFFF"
+      INIT => X"0200000000000000"
     )
         port map (
       I0 => vid_aclk_en,
@@ -28687,48 +28014,50 @@ begin
     );
 \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"8000"
+      INIT => X"0080"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0\,
-      I1 => \^ipif_addr\(7),
-      I2 => write_ack_int,
-      I3 => \data_sync[2]_2\(41),
+      I0 => \^ipif_addr\(7),
+      I1 => write_ack_int,
+      I2 => \data_sync[2]_2\(41),
+      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0\,
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[26][0]\(0)
     );
 \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000010000000000"
+      INIT => X"FFFFFEFFFFFFFFFF"
     )
         port map (
-      I0 => \^ipif_addr\(5),
-      I1 => \^ipif_addr\(6),
-      I2 => \^ipif_addr\(4),
+      I0 => \^ipif_addr\(6),
+      I1 => \^ipif_addr\(5),
+      I2 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
       I3 => vid_aclk_en,
-      I4 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I4 => \^ipif_addr\(4),
       I5 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0\
     );
-\AXI4_LITE_INTERFACE.time_control_regs_int[27][28]_i_1\: unisim.vcomponents.LUT4
+\AXI4_LITE_INTERFACE.time_control_regs_int[27][28]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"8000"
+      INIT => X"0000000080000000"
     )
         port map (
-      I0 => \AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0\,
-      I1 => \^ipif_addr\(7),
-      I2 => write_ack_int,
-      I3 => \data_sync[2]_2\(41),
+      I0 => \^ipif_addr\(3),
+      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
+      I2 => \data_sync[2]_2\(41),
+      I3 => write_ack_int,
+      I4 => \^ipif_addr\(7),
+      I5 => \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0\,
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[27][0]\(0)
     );
 \AXI4_LITE_INTERFACE.time_control_regs_int[28][28]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0010"
+      INIT => X"0020"
     )
         port map (
-      I0 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
-      I1 => \^ipif_addr\(3),
+      I0 => \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0\,
+      I1 => \^gen_tree.gen_branch[35].gen_mux_reg.data_out_reg_reg[35][0]_0\,
       I2 => \^ipif_addr\(4),
-      I3 => \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0\,
+      I3 => \^ipif_addr\(3),
       O => \AXI4_LITE_INTERFACE.time_control_regs_int_reg[28][0]\(0)
     );
 \AXI4_LITE_INTERFACE.write_ack_e1_i_2\: unisim.vcomponents.LUT3
@@ -35058,10 +34387,12 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \system_v_tc_in_0_video_clock_cross__parameterized0\ is
   port (
-    p_526_out : out STD_LOGIC;
+    D : out STD_LOGIC_VECTOR ( 1 downto 0 );
     out_data : out STD_LOGIC_VECTOR ( 33 downto 0 );
+    p_526_out : out STD_LOGIC;
     p_528_out : out STD_LOGIC;
     \AXI4_LITE_INTERFACE.ipif_Error_reg\ : out STD_LOGIC;
+    p_151_out : in STD_LOGIC_VECTOR ( 1 downto 0 );
     write_ack_d2 : in STD_LOGIC;
     write_ack_d1 : in STD_LOGIC;
     read_ack_d2 : in STD_LOGIC;
@@ -35533,6 +34864,26 @@ begin
       I1 => \data_sync[2]_2\(33),
       I2 => write_ack_d1,
       O => p_526_out
+    );
+\AXI4_LITE_INTERFACE.ipif_proc_Req_d1[0]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"02"
+    )
+        port map (
+      I0 => p_151_out(0),
+      I1 => \data_sync[2]_2\(33),
+      I2 => \data_sync[2]_2\(32),
+      O => D(0)
+    );
+\AXI4_LITE_INTERFACE.ipif_proc_Req_d1[1]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"02"
+    )
+        port map (
+      I0 => p_151_out(1),
+      I1 => \data_sync[2]_2\(33),
+      I2 => \data_sync[2]_2\(32),
+      O => D(1)
     );
 \data_sync_reg[0][0]\: unisim.vcomponents.FDRE
      port map (
@@ -36359,7 +35710,8 @@ entity system_v_tc_in_0_slave_attachment is
   port (
     rst_reg_0 : out STD_LOGIC;
     s_axi_rresp : out STD_LOGIC_VECTOR ( 0 to 0 );
-    D : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 9 downto 0 );
+    p_151_out : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bresp : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -36368,24 +35720,24 @@ entity system_v_tc_in_0_slave_attachment is
     s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     aclk : in STD_LOGIC;
     ipif_Error : in STD_LOGIC;
+    s_axi_arvalid : in STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
     aresetn : in STD_LOGIC;
-    s_axi_arvalid : in STD_LOGIC;
     s_axi_awvalid : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC;
     out_data : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
-    s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
     ipif_RdAck : in STD_LOGIC;
-    ipif_WrAck : in STD_LOGIC
+    ipif_WrAck : in STD_LOGIC;
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_v_tc_in_0_slave_attachment : entity is "slave_attachment";
 end system_v_tc_in_0_slave_attachment;
 
 architecture STRUCTURE of system_v_tc_in_0_slave_attachment is
-  signal \^d\ : STD_LOGIC_VECTOR ( 11 downto 0 );
+  signal \^d\ : STD_LOGIC_VECTOR ( 9 downto 0 );
   signal \INCLUDE_DPHASE_TIMER.dpto_cnt[9]_i_3_n_0\ : STD_LOGIC;
   signal \INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0\ : STD_LOGIC_VECTOR ( 9 downto 0 );
   signal \bus2ip_addr_i[0]_i_1_n_0\ : STD_LOGIC;
@@ -36398,7 +35750,6 @@ architecture STRUCTURE of system_v_tc_in_0_slave_attachment is
   signal \bus2ip_addr_i[7]_i_1_n_0\ : STD_LOGIC;
   signal \bus2ip_addr_i[8]_i_1_n_0\ : STD_LOGIC;
   signal \bus2ip_addr_i[8]_i_2_n_0\ : STD_LOGIC;
-  signal bus2ip_rnw_i06_out : STD_LOGIC;
   signal clear : STD_LOGIC;
   signal is_read : STD_LOGIC;
   signal is_read_i_1_n_0 : STD_LOGIC;
@@ -36424,20 +35775,26 @@ architecture STRUCTURE of system_v_tc_in_0_slave_attachment is
   signal \state1__2\ : STD_LOGIC;
   signal \state[1]_i_3_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[1]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[2]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[3]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[4]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[6]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[7]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[1]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[2]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[3]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[4]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[6]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[7]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[8]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \INCLUDE_DPHASE_TIMER.dpto_cnt[9]_i_2\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \bus2ip_addr_i[1]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of bus2ip_rnw_i_i_1 : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of start2_i_1 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \state[1]_i_3\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[0]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[1]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[2]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[4]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[5]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[6]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[7]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \bus2ip_addr_i[8]_i_2\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of start2_i_1 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \state[1]_i_3\ : label is "soft_lutpair1";
 begin
-  D(11 downto 0) <= \^d\(11 downto 0);
+  D(9 downto 0) <= \^d\(9 downto 0);
   rst_reg_0 <= \^rst_reg_0\;
   s_axi_arready <= \^s_axi_arready\;
   s_axi_awready <= \^s_axi_awready\;
@@ -36653,113 +36010,97 @@ begin
     );
 I_DECODER: entity work.system_v_tc_in_0_address_decoder
      port map (
-      D(1 downto 0) => \^d\(10 downto 9),
+      D(1 downto 0) => \^d\(8 downto 7),
       \INCLUDE_DPHASE_TIMER.dpto_cnt_reg[9]\(9 downto 0) => \INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0\(9 downto 0),
       Q => start2,
       aclk => aclk,
       aresetn => aresetn,
-      \bus2ip_addr_i_reg[8]\(1 downto 0) => \^d\(8 downto 7),
       ipif_RdAck => ipif_RdAck,
       ipif_WrAck => ipif_WrAck,
       is_read => is_read,
       is_write_reg => is_write_reg_n_0,
+      p_151_out(1 downto 0) => p_151_out(1 downto 0),
       s_axi_arready => \^s_axi_arready\,
       s_axi_awready => \^s_axi_awready\
     );
-\bus2ip_addr_i[0]_i_1\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(0),
       I1 => s_axi_awaddr(0),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[0]_i_1_n_0\
     );
-\bus2ip_addr_i[1]_i_1\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[1]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(1),
       I1 => s_axi_awaddr(1),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[1]_i_1_n_0\
     );
-\bus2ip_addr_i[2]_i_1\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(2),
       I1 => s_axi_awaddr(2),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[2]_i_1_n_0\
     );
-\bus2ip_addr_i[3]_i_1\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[3]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(3),
       I1 => s_axi_awaddr(3),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[3]_i_1_n_0\
     );
-\bus2ip_addr_i[4]_i_1\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[4]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(4),
       I1 => s_axi_awaddr(4),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[4]_i_1_n_0\
     );
-\bus2ip_addr_i[5]_i_1\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[5]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(5),
       I1 => s_axi_awaddr(5),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[5]_i_1_n_0\
     );
-\bus2ip_addr_i[6]_i_1\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[6]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(6),
       I1 => s_axi_awaddr(6),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[6]_i_1_n_0\
     );
-\bus2ip_addr_i[7]_i_1\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[7]_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(7),
       I1 => s_axi_awaddr(7),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[7]_i_1_n_0\
     );
 \bus2ip_addr_i[8]_i_1\: unisim.vcomponents.LUT5
@@ -36774,16 +36115,14 @@ I_DECODER: entity work.system_v_tc_in_0_address_decoder
       I4 => state(0),
       O => \bus2ip_addr_i[8]_i_1_n_0\
     );
-\bus2ip_addr_i[8]_i_2\: unisim.vcomponents.LUT5
+\bus2ip_addr_i[8]_i_2\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"CCCACCCC"
+      INIT => X"AC"
     )
         port map (
       I0 => s_axi_araddr(8),
       I1 => s_axi_awaddr(8),
-      I2 => state(0),
-      I3 => state(1),
-      I4 => s_axi_arvalid,
+      I2 => s_axi_arvalid,
       O => \bus2ip_addr_i[8]_i_2_n_0\
     );
 \bus2ip_addr_i_reg[0]\: unisim.vcomponents.FDRE
@@ -36858,22 +36197,12 @@ I_DECODER: entity work.system_v_tc_in_0_address_decoder
       Q => \^d\(8),
       R => rst
     );
-bus2ip_rnw_i_i_1: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"10"
-    )
-        port map (
-      I0 => state(0),
-      I1 => state(1),
-      I2 => s_axi_arvalid,
-      O => bus2ip_rnw_i06_out
-    );
 bus2ip_rnw_i_reg: unisim.vcomponents.FDRE
      port map (
       C => aclk,
       CE => \bus2ip_addr_i[8]_i_1_n_0\,
-      D => bus2ip_rnw_i06_out,
-      Q => \^d\(11),
+      D => s_axi_arvalid,
+      Q => \^d\(9),
       R => rst
     );
 is_read_i_1: unisim.vcomponents.LUT5
@@ -37537,18 +36866,18 @@ architecture STRUCTURE of system_v_tc_in_0_tc_top is
   signal reset : STD_LOGIC;
   signal vsync_lock_int : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of all_lock_d_i_1 : label is "soft_lutpair305";
-  attribute SOFT_HLUTNM of all_lock_i_2 : label is "soft_lutpair306";
+  attribute SOFT_HLUTNM of all_lock_d_i_1 : label is "soft_lutpair308";
+  attribute SOFT_HLUTNM of all_lock_i_2 : label is "soft_lutpair309";
   attribute srl_bus_name : string;
   attribute srl_bus_name of \detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3\ : label is "U0/\U_TC_TOP/detect_en_d_reg ";
   attribute srl_name : string;
   attribute srl_name of \detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3\ : label is "U0/\U_TC_TOP/detect_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3 ";
-  attribute SOFT_HLUTNM of detect_en_d_reg_gate : label is "soft_lutpair307";
+  attribute SOFT_HLUTNM of detect_en_d_reg_gate : label is "soft_lutpair310";
   attribute srl_bus_name of \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3\ : label is "U0/\U_TC_TOP/generate_en_d_reg ";
   attribute srl_name of \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3\ : label is "U0/\U_TC_TOP/generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3 ";
-  attribute SOFT_HLUTNM of \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3_i_1\ : label is "soft_lutpair306";
-  attribute SOFT_HLUTNM of generate_en_d_reg_gate : label is "soft_lutpair307";
-  attribute SOFT_HLUTNM of lost_lock_i_1 : label is "soft_lutpair305";
+  attribute SOFT_HLUTNM of \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3_i_1\ : label is "soft_lutpair309";
+  attribute SOFT_HLUTNM of generate_en_d_reg_gate : label is "soft_lutpair310";
+  attribute SOFT_HLUTNM of lost_lock_i_1 : label is "soft_lutpair308";
 begin
   intc_if(8 downto 0) <= \^intc_if\(8 downto 0);
 \GEN_DETECTION.U_tc_DET\: entity work.system_v_tc_in_0_tc_detector
@@ -37941,7 +37270,8 @@ entity system_v_tc_in_0_axi_lite_ipif is
   port (
     rst_reg : out STD_LOGIC;
     s_axi_rresp : out STD_LOGIC_VECTOR ( 0 to 0 );
-    D : out STD_LOGIC_VECTOR ( 11 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 9 downto 0 );
+    p_151_out : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bresp : out STD_LOGIC_VECTOR ( 0 to 0 );
@@ -37950,17 +37280,17 @@ entity system_v_tc_in_0_axi_lite_ipif is
     s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     aclk : in STD_LOGIC;
     ipif_Error : in STD_LOGIC;
+    s_axi_arvalid : in STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
     aresetn : in STD_LOGIC;
-    s_axi_arvalid : in STD_LOGIC;
     s_axi_awvalid : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC;
     out_data : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
-    s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
     ipif_RdAck : in STD_LOGIC;
-    ipif_WrAck : in STD_LOGIC
+    ipif_WrAck : in STD_LOGIC;
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of system_v_tc_in_0_axi_lite_ipif : entity is "axi_lite_ipif";
@@ -37970,13 +37300,14 @@ architecture STRUCTURE of system_v_tc_in_0_axi_lite_ipif is
 begin
 I_SLAVE_ATTACHMENT: entity work.system_v_tc_in_0_slave_attachment
      port map (
-      D(11 downto 0) => D(11 downto 0),
+      D(9 downto 0) => D(9 downto 0),
       aclk => aclk,
       aresetn => aresetn,
       ipif_Error => ipif_Error,
       ipif_RdAck => ipif_RdAck,
       ipif_WrAck => ipif_WrAck,
       out_data(31 downto 0) => out_data(31 downto 0),
+      p_151_out(1 downto 0) => p_151_out(1 downto 0),
       rst_reg_0 => rst_reg,
       s_axi_araddr(8 downto 0) => s_axi_araddr(8 downto 0),
       s_axi_arready => s_axi_arready,
@@ -38328,7 +37659,7 @@ architecture STRUCTURE of system_v_tc_in_0_video_ctrl is
   signal \AXI4_LITE_INTERFACE.GENR_MUX0_n_95\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.GENR_MUX0_n_96\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.GENR_MUX0_n_97\ : STD_LOGIC;
-  signal \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_36\ : STD_LOGIC;
+  signal \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_38\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.SYNC2VIDCLK_I_n_0\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.SYNC2VIDCLK_I_n_100\ : STD_LOGIC;
   signal \AXI4_LITE_INTERFACE.SYNC2VIDCLK_I_n_101\ : STD_LOGIC;
@@ -39094,8 +38425,9 @@ architecture STRUCTURE of system_v_tc_in_0_video_ctrl is
   signal ipif_WrAck : STD_LOGIC;
   signal \^ipif_data_out\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal ipif_proc_Addr_int : STD_LOGIC_VECTOR ( 8 downto 0 );
-  signal ipif_proc_CS : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal ipif_proc_RNW : STD_LOGIC;
+  signal ipif_proc_Req : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal ipif_proc_Req_d1 : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal p_0_in : STD_LOGIC;
   signal p_10_in : STD_LOGIC;
   signal p_11_in : STD_LOGIC;
@@ -39103,6 +38435,7 @@ architecture STRUCTURE of system_v_tc_in_0_video_ctrl is
   signal p_13_in : STD_LOGIC;
   signal p_144_out : STD_LOGIC_VECTOR ( 33 downto 0 );
   signal p_14_in : STD_LOGIC;
+  signal p_151_out : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal p_15_in : STD_LOGIC;
   signal p_16_in : STD_LOGIC;
   signal p_17_in : STD_LOGIC;
@@ -39183,8 +38516,8 @@ architecture STRUCTURE of system_v_tc_in_0_video_ctrl is
   attribute srl_name : string;
   attribute srl_name of \AXI4_LITE_INTERFACE.read_ack_d_reg[2]_srl4___AXI4_LITE_INTERFACE.read_ack_d_reg_r_1\ : label is "U0/U_VIDEO_CTRL/\AXI4_LITE_INTERFACE.read_ack_d_reg[2]_srl4___AXI4_LITE_INTERFACE.read_ack_d_reg_r_1 ";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.write_ack_i_1\ : label is "soft_lutpair274";
-  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.write_ack_int_i_1\ : label is "soft_lutpair274";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.write_ack_i_1\ : label is "soft_lutpair277";
+  attribute SOFT_HLUTNM of \AXI4_LITE_INTERFACE.write_ack_int_i_1\ : label is "soft_lutpair277";
 begin
   \core_control_regs[0]\(31) <= \<const0>\;
   \core_control_regs[0]\(30) <= \<const0>\;
@@ -40139,8 +39472,7 @@ begin
   \time_control_regs[9]\(0) <= \<const0>\;
 \AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I\: entity work.system_v_tc_in_0_axi_lite_ipif
      port map (
-      D(11) => ipif_proc_RNW,
-      D(10 downto 9) => ipif_proc_CS(1 downto 0),
+      D(9) => ipif_proc_RNW,
       D(8 downto 0) => ipif_proc_Addr_int(8 downto 0),
       aclk => aclk,
       aresetn => aresetn,
@@ -40148,6 +39480,7 @@ begin
       ipif_RdAck => ipif_RdAck,
       ipif_WrAck => ipif_WrAck,
       out_data(31 downto 0) => p_144_out(31 downto 0),
+      p_151_out(1 downto 0) => p_151_out(1 downto 0),
       rst_reg => \AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I_n_0\,
       s_axi_araddr(8 downto 0) => s_axi_araddr(8 downto 0),
       s_axi_arready => s_axi_arready,
@@ -40979,12 +40312,14 @@ begin
     );
 \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I\: entity work.\system_v_tc_in_0_video_clock_cross__parameterized0\
      port map (
-      \AXI4_LITE_INTERFACE.ipif_Error_reg\ => \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_36\,
+      \AXI4_LITE_INTERFACE.ipif_Error_reg\ => \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_38\,
+      D(1 downto 0) => ipif_proc_Req(1 downto 0),
       aclk => aclk,
       in_data(33) => write_ack,
       in_data(32) => read_ack_d(4),
       in_data(31 downto 0) => ipif_RdData(31 downto 0),
       out_data(33 downto 0) => p_144_out(33 downto 0),
+      p_151_out(1 downto 0) => p_151_out(1 downto 0),
       p_526_out => p_526_out,
       p_528_out => p_528_out,
       read_ack_d1 => read_ack_d1,
@@ -51332,7 +50667,7 @@ begin
         port map (
       C => aclk,
       CE => aclk_en,
-      D => \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_36\,
+      D => \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_38\,
       Q => ipif_Error,
       S => \AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I_n_0\
     );
@@ -51709,6 +51044,28 @@ begin
       D => p_526_out,
       Q => ipif_WrAck,
       R => \AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I_n_0\
+    );
+\AXI4_LITE_INTERFACE.ipif_proc_Req_d1_reg[0]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => aclk,
+      CE => '1',
+      D => ipif_proc_Req(0),
+      Q => ipif_proc_Req_d1(0),
+      R => '0'
+    );
+\AXI4_LITE_INTERFACE.ipif_proc_Req_d1_reg[1]\: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => aclk,
+      CE => '1',
+      D => ipif_proc_Req(1),
+      Q => ipif_proc_Req_d1(1),
+      R => '0'
     );
 \AXI4_LITE_INTERFACE.proc_sync1_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -52102,7 +51459,7 @@ begin
         port map (
       C => aclk,
       CE => '1',
-      D => ipif_proc_CS(0),
+      D => ipif_proc_Req_d1(0),
       Q => proc_sync1(41),
       R => '0'
     );
@@ -52113,7 +51470,7 @@ begin
         port map (
       C => aclk,
       CE => '1',
-      D => ipif_proc_CS(1),
+      D => ipif_proc_Req_d1(1),
       Q => proc_sync1(42),
       R => '0'
     );
@@ -58483,15 +57840,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_err[16]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => intr_err(16),
+      I0 => \genr_status_regs[2]\(16),
       I1 => intr_err_set_d(16),
-      I2 => \genr_status_regs[2]\(16),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_err[16]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_err[16]_i_2_n_0\,
+      I4 => intr_err(16),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_err[16]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_err[16]_i_2\: unisim.vcomponents.LUT2
@@ -58505,15 +57862,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_err[17]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => intr_err(17),
+      I0 => \genr_status_regs[2]\(17),
       I1 => intr_err_set_d(17),
-      I2 => \genr_status_regs[2]\(17),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_err[17]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_err[17]_i_2_n_0\,
+      I4 => intr_err(17),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_err[17]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_err[17]_i_2\: unisim.vcomponents.LUT2
@@ -58527,15 +57884,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_err[18]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => intr_err(18),
+      I0 => \genr_status_regs[2]\(18),
       I1 => intr_err_set_d(18),
-      I2 => \genr_status_regs[2]\(18),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_err[18]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_err[18]_i_2_n_0\,
+      I4 => intr_err(18),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_err[18]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_err[18]_i_2\: unisim.vcomponents.LUT2
@@ -58549,15 +57906,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_err[19]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => intr_err(19),
+      I0 => \genr_status_regs[2]\(19),
       I1 => intr_err_set_d(19),
-      I2 => \genr_status_regs[2]\(19),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_err[19]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_err[19]_i_2_n_0\,
+      I4 => intr_err(19),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_err[19]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_err[19]_i_2\: unisim.vcomponents.LUT2
@@ -58582,15 +57939,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_err[20]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => intr_err(20),
+      I0 => \genr_status_regs[2]\(20),
       I1 => intr_err_set_d(20),
-      I2 => \genr_status_regs[2]\(20),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_err[20]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_err[20]_i_2_n_0\,
+      I4 => intr_err(20),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_err[20]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_err[20]_i_2\: unisim.vcomponents.LUT2
@@ -58604,15 +57961,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_err[21]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => intr_err(21),
+      I0 => \genr_status_regs[2]\(21),
       I1 => intr_err_set_d(21),
-      I2 => \genr_status_regs[2]\(21),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_err[21]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_err[21]_i_2_n_0\,
+      I4 => intr_err(21),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_err[21]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_err[21]_i_2\: unisim.vcomponents.LUT2
@@ -59605,15 +58962,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[10]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(10),
+      I0 => \genr_status_regs[1]\(10),
       I1 => intr_stat_set_d(10),
-      I2 => \genr_status_regs[1]\(10),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[10]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[10]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(10),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[10]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[10]_i_2\: unisim.vcomponents.LUT2
@@ -59627,15 +58984,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[11]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(11),
+      I0 => \genr_status_regs[1]\(11),
       I1 => intr_stat_set_d(11),
-      I2 => \genr_status_regs[1]\(11),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[11]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[11]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(11),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[11]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[11]_i_2\: unisim.vcomponents.LUT2
@@ -59649,15 +59006,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[12]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(12),
+      I0 => \genr_status_regs[1]\(12),
       I1 => intr_stat_set_d(12),
-      I2 => \genr_status_regs[1]\(12),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[12]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[12]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(12),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[12]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[12]_i_2\: unisim.vcomponents.LUT2
@@ -59671,15 +59028,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[13]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(13),
+      I0 => \genr_status_regs[1]\(13),
       I1 => intr_stat_set_d(13),
-      I2 => \genr_status_regs[1]\(13),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[13]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[13]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(13),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[13]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[13]_i_2\: unisim.vcomponents.LUT2
@@ -59715,15 +59072,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[16]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(16),
+      I0 => \genr_status_regs[1]\(16),
       I1 => intr_stat_set_d(16),
-      I2 => \genr_status_regs[1]\(16),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[16]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[16]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(16),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[16]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[16]_i_2\: unisim.vcomponents.LUT2
@@ -59737,15 +59094,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[17]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(17),
+      I0 => \genr_status_regs[1]\(17),
       I1 => intr_stat_set_d(17),
-      I2 => \genr_status_regs[1]\(17),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[17]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[17]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(17),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[17]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[17]_i_2\: unisim.vcomponents.LUT2
@@ -59759,15 +59116,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[18]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(18),
+      I0 => \genr_status_regs[1]\(18),
       I1 => intr_stat_set_d(18),
-      I2 => \genr_status_regs[1]\(18),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[18]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[18]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(18),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[18]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[18]_i_2\: unisim.vcomponents.LUT2
@@ -59781,15 +59138,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[19]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(19),
+      I0 => \genr_status_regs[1]\(19),
       I1 => intr_stat_set_d(19),
-      I2 => \genr_status_regs[1]\(19),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[19]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[19]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(19),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[19]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[19]_i_2\: unisim.vcomponents.LUT2
@@ -59814,15 +59171,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[20]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(20),
+      I0 => \genr_status_regs[1]\(20),
       I1 => intr_stat_set_d(20),
-      I2 => \genr_status_regs[1]\(20),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[20]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[20]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(20),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[20]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[20]_i_2\: unisim.vcomponents.LUT2
@@ -59836,15 +59193,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[21]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(21),
+      I0 => \genr_status_regs[1]\(21),
       I1 => intr_stat_set_d(21),
-      I2 => \genr_status_regs[1]\(21),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[21]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[21]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(21),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[21]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[21]_i_2\: unisim.vcomponents.LUT2
@@ -59858,15 +59215,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[22]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(22),
+      I0 => \genr_status_regs[1]\(22),
       I1 => intr_stat_set_d(22),
-      I2 => \genr_status_regs[1]\(22),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[22]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[22]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(22),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[22]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[22]_i_2\: unisim.vcomponents.LUT2
@@ -59880,15 +59237,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[23]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(23),
+      I0 => \genr_status_regs[1]\(23),
       I1 => intr_stat_set_d(23),
-      I2 => \genr_status_regs[1]\(23),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[23]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[23]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(23),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[23]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[23]_i_2\: unisim.vcomponents.LUT2
@@ -59902,15 +59259,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[24]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(24),
+      I0 => \genr_status_regs[1]\(24),
       I1 => intr_stat_set_d(24),
-      I2 => \genr_status_regs[1]\(24),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[24]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[24]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(24),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[24]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[24]_i_2\: unisim.vcomponents.LUT2
@@ -59924,15 +59281,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[25]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(25),
+      I0 => \genr_status_regs[1]\(25),
       I1 => intr_stat_set_d(25),
-      I2 => \genr_status_regs[1]\(25),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[25]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[25]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(25),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[25]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[25]_i_2\: unisim.vcomponents.LUT2
@@ -59946,15 +59303,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[26]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(26),
+      I0 => \genr_status_regs[1]\(26),
       I1 => intr_stat_set_d(26),
-      I2 => \genr_status_regs[1]\(26),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[26]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[26]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(26),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[26]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[26]_i_2\: unisim.vcomponents.LUT2
@@ -59968,15 +59325,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[27]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(27),
+      I0 => \genr_status_regs[1]\(27),
       I1 => intr_stat_set_d(27),
-      I2 => \genr_status_regs[1]\(27),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[27]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[27]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(27),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[27]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[27]_i_2\: unisim.vcomponents.LUT2
@@ -59990,15 +59347,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[28]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(28),
+      I0 => \genr_status_regs[1]\(28),
       I1 => intr_stat_set_d(28),
-      I2 => \genr_status_regs[1]\(28),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[28]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[28]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(28),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[28]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[28]_i_2\: unisim.vcomponents.LUT2
@@ -60012,15 +59369,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[29]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(29),
+      I0 => \genr_status_regs[1]\(29),
       I1 => intr_stat_set_d(29),
-      I2 => \genr_status_regs[1]\(29),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[29]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[29]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(29),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[29]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[29]_i_2\: unisim.vcomponents.LUT2
@@ -60045,15 +59402,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[30]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(30),
+      I0 => \genr_status_regs[1]\(30),
       I1 => intr_stat_set_d(30),
-      I2 => \genr_status_regs[1]\(30),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[30]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[30]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(30),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[30]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[30]_i_2\: unisim.vcomponents.LUT2
@@ -60067,15 +59424,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[31]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \GEN_HAS_IRQ.intr_stat_reg_n_0_[31]\,
+      I0 => \genr_status_regs[1]\(31),
       I1 => intr_stat_set_d(31),
-      I2 => \genr_status_regs[1]\(31),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[31]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[31]_i_2_n_0\,
+      I4 => \GEN_HAS_IRQ.intr_stat_reg_n_0_[31]\,
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[31]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[31]_i_2\: unisim.vcomponents.LUT2
@@ -60144,15 +59501,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(8),
+      I0 => \genr_status_regs[1]\(8),
       I1 => intr_stat_set_d(8),
-      I2 => \genr_status_regs[1]\(8),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[8]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[8]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(8),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[8]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[8]_i_2\: unisim.vcomponents.LUT2
@@ -60166,15 +59523,15 @@ begin
     );
 \GEN_HAS_IRQ.intr_stat[9]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BA00AA000000AA00"
+      INIT => X"FF0F200000000000"
     )
         port map (
-      I0 => \genr_status_regs_int_reg[1]\(9),
+      I0 => \genr_status_regs[1]\(9),
       I1 => intr_stat_set_d(9),
-      I2 => \genr_status_regs[1]\(9),
-      I3 => \^resetn_out\,
-      I4 => vid_aclk_en,
-      I5 => \GEN_HAS_IRQ.intr_stat[9]_i_2_n_0\,
+      I2 => vid_aclk_en,
+      I3 => \GEN_HAS_IRQ.intr_stat[9]_i_2_n_0\,
+      I4 => \genr_status_regs_int_reg[1]\(9),
+      I5 => \^resetn_out\,
       O => \GEN_HAS_IRQ.intr_stat[9]_i_1_n_0\
     );
 \GEN_HAS_IRQ.intr_stat[9]_i_2\: unisim.vcomponents.LUT2
@@ -61723,6 +61080,12 @@ architecture STRUCTURE of system_v_tc_in_0_v_tc is
   attribute C_VERSION_REVISION : integer;
   attribute C_VERSION_REVISION of U_VIDEO_CTRL : label is 0;
   attribute downgradeipidentifiedwarnings of U_VIDEO_CTRL : label is "yes";
+  attribute sigis : string;
+  attribute sigis of clk : signal is "CLK";
+  attribute sigis of irq : signal is "INTR_LEVEL_HIGH";
+  attribute sigis of resetn : signal is "RST";
+  attribute sigis of s_axi_aclk : signal is "CLK";
+  attribute sigis of s_axi_aresetn : signal is "RST";
 begin
   active_chroma_out <= \<const0>\;
   active_video_out <= \<const0>\;
@@ -62048,15 +61411,15 @@ U_VIDEO_CTRL_i_1: unisim.vcomponents.LUT3
     );
 \gen_v0chroma_start[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"CA0A0A0A00000000"
+      INIT => X"A0C000C000C000C0"
     )
         port map (
-      I0 => gen_v0chroma_start(0),
-      I1 => \time_control_regs[18]\(8),
-      I2 => clken,
-      I3 => \time_control_regs[18]\(1),
-      I4 => \time_control_regs[18]\(0),
-      I5 => resetn,
+      I0 => \time_control_regs[18]\(8),
+      I1 => gen_v0chroma_start(0),
+      I2 => resetn,
+      I3 => clken,
+      I4 => \time_control_regs[18]\(1),
+      I5 => \time_control_regs[18]\(0),
       O => \gen_v0chroma_start[0]_i_1_n_0\
     );
 \gen_v0chroma_start_reg[0]\: unisim.vcomponents.FDRE
@@ -62111,7 +61474,7 @@ entity system_v_tc_in_0 is
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_v_tc_in_0 : entity is "yes";
   attribute x_core_info : string;
-  attribute x_core_info of system_v_tc_in_0 : entity is "v_tc,Vivado 2017.2.1";
+  attribute x_core_info of system_v_tc_in_0 : entity is "v_tc,Vivado 2017.4";
 end system_v_tc_in_0;
 
 architecture STRUCTURE of system_v_tc_in_0 is
@@ -62310,6 +61673,43 @@ architecture STRUCTURE of system_v_tc_in_0 is
   attribute C_S_AXI_DATA_WIDTH : integer;
   attribute C_S_AXI_DATA_WIDTH of U0 : label is 32;
   attribute downgradeipidentifiedwarnings of U0 : label is "yes";
+  attribute x_interface_info : string;
+  attribute x_interface_info of active_video_in : signal is "xilinx.com:interface:video_timing:2.0 vtiming_in ACTIVE_VIDEO";
+  attribute x_interface_info of clk : signal is "xilinx.com:signal:clock:1.0 clk_intf CLK";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of clk : signal is "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF vtiming_in:vtiming_out, ASSOCIATED_RESET resetn, ASSOCIATED_CLKEN clken, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_dvi2rgb_1_0_PixelClk";
+  attribute x_interface_info of clken : signal is "xilinx.com:signal:clockenable:1.0 clken_intf CE";
+  attribute x_interface_parameter of clken : signal is "XIL_INTERFACENAME clken_intf, POLARITY ACTIVE_LOW";
+  attribute x_interface_info of hsync_in : signal is "xilinx.com:interface:video_timing:2.0 vtiming_in HSYNC";
+  attribute x_interface_info of irq : signal is "xilinx.com:signal:interrupt:1.0 IRQ INTERRUPT";
+  attribute x_interface_parameter of irq : signal is "XIL_INTERFACENAME IRQ, SENSITIVITY LEVEL_HIGH, PortWidth 1";
+  attribute x_interface_info of resetn : signal is "xilinx.com:signal:reset:1.0 resetn_intf RST";
+  attribute x_interface_parameter of resetn : signal is "XIL_INTERFACENAME resetn_intf, POLARITY ACTIVE_LOW";
+  attribute x_interface_info of s_axi_aclk : signal is "xilinx.com:signal:clock:1.0 s_axi_aclk_intf CLK";
+  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME s_axi_aclk_intf, ASSOCIATED_BUSIF ctrl, ASSOCIATED_RESET s_axi_aresetn, ASSOCIATED_CLKEN s_axi_aclken, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0";
+  attribute x_interface_info of s_axi_aclken : signal is "xilinx.com:signal:clockenable:1.0 s_axi_aclken_intf CE";
+  attribute x_interface_parameter of s_axi_aclken : signal is "XIL_INTERFACENAME s_axi_aclken_intf, POLARITY ACTIVE_LOW";
+  attribute x_interface_info of s_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 s_axi_aresetn_intf RST";
+  attribute x_interface_parameter of s_axi_aresetn : signal is "XIL_INTERFACENAME s_axi_aresetn_intf, POLARITY ACTIVE_LOW";
+  attribute x_interface_info of s_axi_arready : signal is "xilinx.com:interface:aximm:1.0 ctrl ARREADY";
+  attribute x_interface_info of s_axi_arvalid : signal is "xilinx.com:interface:aximm:1.0 ctrl ARVALID";
+  attribute x_interface_info of s_axi_awready : signal is "xilinx.com:interface:aximm:1.0 ctrl AWREADY";
+  attribute x_interface_info of s_axi_awvalid : signal is "xilinx.com:interface:aximm:1.0 ctrl AWVALID";
+  attribute x_interface_info of s_axi_bready : signal is "xilinx.com:interface:aximm:1.0 ctrl BREADY";
+  attribute x_interface_info of s_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 ctrl BVALID";
+  attribute x_interface_info of s_axi_rready : signal is "xilinx.com:interface:aximm:1.0 ctrl RREADY";
+  attribute x_interface_info of s_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 ctrl RVALID";
+  attribute x_interface_info of s_axi_wready : signal is "xilinx.com:interface:aximm:1.0 ctrl WREADY";
+  attribute x_interface_info of s_axi_wvalid : signal is "xilinx.com:interface:aximm:1.0 ctrl WVALID";
+  attribute x_interface_info of vsync_in : signal is "xilinx.com:interface:video_timing:2.0 vtiming_in VSYNC";
+  attribute x_interface_info of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 ctrl ARADDR";
+  attribute x_interface_info of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 ctrl AWADDR";
+  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME ctrl, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute x_interface_info of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 ctrl BRESP";
+  attribute x_interface_info of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 ctrl RDATA";
+  attribute x_interface_info of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 ctrl RRESP";
+  attribute x_interface_info of s_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 ctrl WDATA";
+  attribute x_interface_info of s_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 ctrl WSTRB";
 begin
 U0: entity work.system_v_tc_in_0_v_tc
      port map (

@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -48,12 +48,12 @@
 
 
 // IP VLNV: xilinx.com:ip:axi_register_slice:2.1
-// IP Revision: 13
+// IP Revision: 15
 
-(* X_CORE_INFO = "axi_register_slice_v2_1_13_axi_register_slice,Vivado 2017.2.1" *)
-(* CHECK_LICENSE_TYPE = "system_s01_regslice_0,axi_register_slice_v2_1_13_axi_register_slice,{}" *)
-(* CORE_GENERATION_INFO = "system_s01_regslice_0,axi_register_slice_v2_1_13_axi_register_slice,{x_ipProduct=Vivado 2017.2.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_register_slice,x_ipVersion=2.1,x_ipCoreRevision=13,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_AXI_PROTOCOL=0,C_AXI_ID_WIDTH=1,C_AXI_ADDR_WIDTH=32,C_AXI_DATA_WIDTH=64,C_AXI_SUPPORTS_USER_SIGNALS=0,C_AXI_AWUSER_WIDTH=1,C_AXI_ARUSER_WIDTH=1,C_AXI_WUSER_WIDTH=1,C_AXI_RUSER_WIDTH=1,C_AXI_BUSER_WIDTH=1,C_REG_CONFIG_AW=7,C_REG_CONFIG_W=1,C_REG_C\
-ONFIG_B=7,C_REG_CONFIG_AR=0,C_REG_CONFIG_R=0}" *)
+(* X_CORE_INFO = "axi_register_slice_v2_1_15_axi_register_slice,Vivado 2017.4" *)
+(* CHECK_LICENSE_TYPE = "system_s01_regslice_0,axi_register_slice_v2_1_15_axi_register_slice,{}" *)
+(* CORE_GENERATION_INFO = "system_s01_regslice_0,axi_register_slice_v2_1_15_axi_register_slice,{x_ipProduct=Vivado 2017.4,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_register_slice,x_ipVersion=2.1,x_ipCoreRevision=15,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_AXI_PROTOCOL=0,C_AXI_ID_WIDTH=1,C_AXI_ADDR_WIDTH=32,C_AXI_DATA_WIDTH=64,C_AXI_SUPPORTS_USER_SIGNALS=0,C_AXI_AWUSER_WIDTH=1,C_AXI_ARUSER_WIDTH=1,C_AXI_WUSER_WIDTH=1,C_AXI_RUSER_WIDTH=1,C_AXI_BUSER_WIDTH=1,C_REG_CONFIG_AW=7,C_REG_CONFIG_W=1,C_REG_CON\
+FIG_B=7,C_REG_CONFIG_AR=0,C_REG_CONFIG_R=0,C_NUM_SLR_CROSSINGS=0,C_PIPELINES_MASTER_AW=0,C_PIPELINES_MASTER_W=0,C_PIPELINES_MASTER_B=0,C_PIPELINES_MASTER_AR=0,C_PIPELINES_MASTER_R=0,C_PIPELINES_SLAVE_AW=0,C_PIPELINES_SLAVE_W=0,C_PIPELINES_SLAVE_B=0,C_PIPELINES_SLAVE_AR=0,C_PIPELINES_SLAVE_R=0,C_PIPELINES_MIDDLE_AW=0,C_PIPELINES_MIDDLE_W=0,C_PIPELINES_MIDDLE_B=0,C_PIPELINES_MIDDLE_AR=0,C_PIPELINES_MIDDLE_R=0}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_s01_regslice_0 (
   aclk,
@@ -98,8 +98,10 @@ module system_s01_regslice_0 (
   m_axi_bready
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1, ASSOCIATED_BUSIF S_AXI:M_AXI, ASSOCIATED_RESET ARESETN" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK CLK" *)
 input wire aclk;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST, POLARITY ACTIVE_LOW, TYPE INTERCONNECT" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST RST" *)
 input wire aresetn;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *)
@@ -138,6 +140,7 @@ output wire s_axi_wready;
 output wire [1 : 0] s_axi_bresp;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *)
 output wire s_axi_bvalid;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 133333344, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE WRITE_ONLY, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 0, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 32, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *)
 input wire s_axi_bready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI AWADDR" *)
@@ -176,10 +179,11 @@ input wire m_axi_wready;
 input wire [1 : 0] m_axi_bresp;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI BVALID" *)
 input wire m_axi_bvalid;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXI, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 133333344, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE WRITE_ONLY, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 0, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 32, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI BREADY" *)
 output wire m_axi_bready;
 
-  axi_register_slice_v2_1_13_axi_register_slice #(
+  axi_register_slice_v2_1_15_axi_register_slice #(
     .C_FAMILY("zynq"),
     .C_AXI_PROTOCOL(0),
     .C_AXI_ID_WIDTH(1),
@@ -195,9 +199,26 @@ output wire m_axi_bready;
     .C_REG_CONFIG_W(1),
     .C_REG_CONFIG_B(7),
     .C_REG_CONFIG_AR(0),
-    .C_REG_CONFIG_R(0)
+    .C_REG_CONFIG_R(0),
+    .C_NUM_SLR_CROSSINGS(0),
+    .C_PIPELINES_MASTER_AW(0),
+    .C_PIPELINES_MASTER_W(0),
+    .C_PIPELINES_MASTER_B(0),
+    .C_PIPELINES_MASTER_AR(0),
+    .C_PIPELINES_MASTER_R(0),
+    .C_PIPELINES_SLAVE_AW(0),
+    .C_PIPELINES_SLAVE_W(0),
+    .C_PIPELINES_SLAVE_B(0),
+    .C_PIPELINES_SLAVE_AR(0),
+    .C_PIPELINES_SLAVE_R(0),
+    .C_PIPELINES_MIDDLE_AW(0),
+    .C_PIPELINES_MIDDLE_W(0),
+    .C_PIPELINES_MIDDLE_B(0),
+    .C_PIPELINES_MIDDLE_AR(0),
+    .C_PIPELINES_MIDDLE_R(0)
   ) inst (
     .aclk(aclk),
+    .aclk2x(1'H0),
     .aresetn(aresetn),
     .s_axi_awid(1'H0),
     .s_axi_awaddr(s_axi_awaddr),

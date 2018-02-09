@@ -1,8 +1,8 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2.1 (lin64) Build 1957588 Wed Aug  9 16:32:10 MDT 2017
-// Date        : Wed Oct 11 10:34:56 2017
-// Host        : ubuntu running 64-bit unknown
+// Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+// Date        : Thu Feb  8 18:33:08 2018
+// Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 // Command     : write_verilog -force -mode synth_stub
 //               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_axi_i2s_adi_0_0/system_axi_i2s_adi_0_0_stub.v
 // Design      : system_axi_i2s_adi_0_0
@@ -13,7 +13,7 @@
 // This empty module with port declaration file causes synthesis tools to infer a black box for IP.
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
-(* x_core_info = "axi_i2s_adi,Vivado 2017.2.1" *)
+(* x_core_info = "axi_i2s_adi,Vivado 2017.4" *)
 module system_axi_i2s_adi_0_0(DATA_CLK_I, BCLK_O, LRCLK_O, SDATA_O, SDATA_I, 
   DMA_REQ_TX_ACLK, DMA_REQ_TX_RSTN, DMA_REQ_TX_DAVALID, DMA_REQ_TX_DATYPE, 
   DMA_REQ_TX_DAREADY, DMA_REQ_TX_DRVALID, DMA_REQ_TX_DRTYPE, DMA_REQ_TX_DRLAST, 

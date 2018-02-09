@@ -1,8 +1,8 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2.1 (lin64) Build 1957588 Wed Aug  9 16:32:10 MDT 2017
-// Date        : Wed Oct 11 04:16:00 2017
-// Host        : ubuntu running 64-bit unknown
+// Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+// Date        : Thu Feb  8 18:34:21 2018
+// Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_v_tc_out_0/system_v_tc_out_0_sim_netlist.v
 // Design      : system_v_tc_out_0
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_v_tc_out_0,v_tc,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "v_tc,Vivado 2017.2.1" *) 
+(* CHECK_LICENSE_TYPE = "system_v_tc_out_0,v_tc,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "v_tc,Vivado 2017.4" *) 
 (* NotValidForBitStream *)
 module system_v_tc_out_0
    (clk,
@@ -47,19 +47,19 @@ module system_v_tc_out_0
     irq,
     fsync_in,
     fsync_out);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 clk_intf CLK" *) input clk;
-  (* x_interface_info = "xilinx.com:signal:clockenable:1.0 clken_intf CE" *) input clken;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 s_axi_aclk_intf CLK" *) input s_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:clockenable:1.0 s_axi_aclken_intf CE" *) input s_axi_aclken;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 clk_intf CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF vtiming_in:vtiming_out, ASSOCIATED_RESET resetn, ASSOCIATED_CLKEN clken, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_axi_dynclk_0_0_PXL_CLK_O" *) input clk;
+  (* x_interface_info = "xilinx.com:signal:clockenable:1.0 clken_intf CE" *) (* x_interface_parameter = "XIL_INTERFACENAME clken_intf, POLARITY ACTIVE_LOW" *) input clken;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 s_axi_aclk_intf CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aclk_intf, ASSOCIATED_BUSIF ctrl, ASSOCIATED_RESET s_axi_aresetn, ASSOCIATED_CLKEN s_axi_aclken, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input s_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:clockenable:1.0 s_axi_aclken_intf CE" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aclken_intf, POLARITY ACTIVE_LOW" *) input s_axi_aclken;
   input gen_clken;
   (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out HSYNC" *) output hsync_out;
   (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out HBLANK" *) output hblank_out;
   (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out VSYNC" *) output vsync_out;
   (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out VBLANK" *) output vblank_out;
   (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_out ACTIVE_VIDEO" *) output active_video_out;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 resetn_intf RST" *) input resetn;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 s_axi_aresetn_intf RST" *) input s_axi_aresetn;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWADDR" *) input [8:0]s_axi_awaddr;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 resetn_intf RST" *) (* x_interface_parameter = "XIL_INTERFACENAME resetn_intf, POLARITY ACTIVE_LOW" *) input resetn;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 s_axi_aresetn_intf RST" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aresetn_intf, POLARITY ACTIVE_LOW" *) input s_axi_aresetn;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME ctrl, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [8:0]s_axi_awaddr;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWVALID" *) input s_axi_awvalid;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWREADY" *) output s_axi_awready;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WDATA" *) input [31:0]s_axi_wdata;
@@ -76,7 +76,7 @@ module system_v_tc_out_0
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RRESP" *) output [1:0]s_axi_rresp;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RVALID" *) output s_axi_rvalid;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RREADY" *) input s_axi_rready;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 IRQ INTERRUPT" *) output irq;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 IRQ INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME IRQ, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output irq;
   input fsync_in;
   output [0:0]fsync_out;
 
@@ -258,25 +258,25 @@ endmodule
 
 (* ORIG_REF_NAME = "address_decoder" *) 
 module system_v_tc_out_0_address_decoder
-   (D,
+   (p_151_out,
     s_axi_arready,
     s_axi_awready,
     aclk,
     aresetn,
     Q,
-    \bus2ip_addr_i_reg[8] ,
+    D,
     ipif_RdAck,
     is_read,
     ipif_WrAck,
     is_write_reg,
     \INCLUDE_DPHASE_TIMER.dpto_cnt_reg[9] );
-  output [1:0]D;
+  output [1:0]p_151_out;
   output s_axi_arready;
   output s_axi_awready;
   input aclk;
   input aresetn;
   input Q;
-  input [1:0]\bus2ip_addr_i_reg[8] ;
+  input [1:0]D;
   input ipif_RdAck;
   input is_read;
   input ipif_WrAck;
@@ -291,11 +291,11 @@ module system_v_tc_out_0_address_decoder
   wire Q;
   wire aclk;
   wire aresetn;
-  wire [1:0]\bus2ip_addr_i_reg[8] ;
   wire ipif_RdAck;
   wire ipif_WrAck;
   wire is_read;
   wire is_write_reg;
+  wire [1:0]p_151_out;
   wire s_axi_arready;
   wire s_axi_awready;
   wire s_axi_wready_INST_0_i_1_n_0;
@@ -312,23 +312,23 @@ module system_v_tc_out_0_address_decoder
   LUT4 #(
     .INIT(16'h2F20)) 
     \MEM_DECODE_GEN[0].cs_out_i[0]_i_2 
-       (.I0(\bus2ip_addr_i_reg[8] [1]),
-        .I1(\bus2ip_addr_i_reg[8] [0]),
+       (.I0(D[1]),
+        .I1(D[0]),
         .I2(Q),
-        .I3(D[1]),
+        .I3(p_151_out[1]),
         .O(\MEM_DECODE_GEN[0].cs_out_i[0]_i_2_n_0 ));
   FDRE \MEM_DECODE_GEN[0].cs_out_i_reg[0] 
        (.C(aclk),
         .CE(1'b1),
         .D(\MEM_DECODE_GEN[0].cs_out_i[0]_i_1_n_0 ),
-        .Q(D[1]),
+        .Q(p_151_out[1]),
         .R(1'b0));
   LUT6 #(
     .INIT(64'h0000000000002E00)) 
     \MEM_DECODE_GEN[1].cs_out_i[1]_i_1 
-       (.I0(D[0]),
+       (.I0(p_151_out[0]),
         .I1(Q),
-        .I2(\bus2ip_addr_i_reg[8] [1]),
+        .I2(D[1]),
         .I3(aresetn),
         .I4(s_axi_arready),
         .I5(s_axi_awready),
@@ -337,7 +337,7 @@ module system_v_tc_out_0_address_decoder
        (.C(aclk),
         .CE(1'b1),
         .D(\MEM_DECODE_GEN[1].cs_out_i[1]_i_1_n_0 ),
-        .Q(D[0]),
+        .Q(p_151_out[0]),
         .R(1'b0));
   LUT4 #(
     .INIT(16'hAAEA)) 
@@ -380,6 +380,7 @@ module system_v_tc_out_0_axi_lite_ipif
    (rst_reg,
     s_axi_rresp,
     D,
+    p_151_out,
     s_axi_rvalid,
     s_axi_bvalid,
     s_axi_bresp,
@@ -388,20 +389,21 @@ module system_v_tc_out_0_axi_lite_ipif
     s_axi_rdata,
     aclk,
     ipif_Error,
+    s_axi_arvalid,
     s_axi_rready,
     s_axi_bready,
     aresetn,
-    s_axi_arvalid,
     s_axi_awvalid,
     s_axi_wvalid,
     out_data,
-    s_axi_araddr,
-    s_axi_awaddr,
     ipif_RdAck,
-    ipif_WrAck);
+    ipif_WrAck,
+    s_axi_araddr,
+    s_axi_awaddr);
   output rst_reg;
   output [0:0]s_axi_rresp;
-  output [11:0]D;
+  output [9:0]D;
+  output [1:0]p_151_out;
   output s_axi_rvalid;
   output s_axi_bvalid;
   output [0:0]s_axi_bresp;
@@ -410,25 +412,26 @@ module system_v_tc_out_0_axi_lite_ipif
   output [31:0]s_axi_rdata;
   input aclk;
   input ipif_Error;
+  input s_axi_arvalid;
   input s_axi_rready;
   input s_axi_bready;
   input aresetn;
-  input s_axi_arvalid;
   input s_axi_awvalid;
   input s_axi_wvalid;
   input [31:0]out_data;
-  input [8:0]s_axi_araddr;
-  input [8:0]s_axi_awaddr;
   input ipif_RdAck;
   input ipif_WrAck;
+  input [8:0]s_axi_araddr;
+  input [8:0]s_axi_awaddr;
 
-  wire [11:0]D;
+  wire [9:0]D;
   wire aclk;
   wire aresetn;
   wire ipif_Error;
   wire ipif_RdAck;
   wire ipif_WrAck;
   wire [31:0]out_data;
+  wire [1:0]p_151_out;
   wire rst_reg;
   wire [8:0]s_axi_araddr;
   wire s_axi_arready;
@@ -453,6 +456,7 @@ module system_v_tc_out_0_axi_lite_ipif
         .ipif_RdAck(ipif_RdAck),
         .ipif_WrAck(ipif_WrAck),
         .out_data(out_data),
+        .p_151_out(p_151_out),
         .rst_reg_0(rst_reg),
         .s_axi_araddr(s_axi_araddr),
         .s_axi_arready(s_axi_arready),
@@ -475,6 +479,7 @@ module system_v_tc_out_0_slave_attachment
    (rst_reg_0,
     s_axi_rresp,
     D,
+    p_151_out,
     s_axi_rvalid,
     s_axi_bvalid,
     s_axi_bresp,
@@ -483,20 +488,21 @@ module system_v_tc_out_0_slave_attachment
     s_axi_rdata,
     aclk,
     ipif_Error,
+    s_axi_arvalid,
     s_axi_rready,
     s_axi_bready,
     aresetn,
-    s_axi_arvalid,
     s_axi_awvalid,
     s_axi_wvalid,
     out_data,
-    s_axi_araddr,
-    s_axi_awaddr,
     ipif_RdAck,
-    ipif_WrAck);
+    ipif_WrAck,
+    s_axi_araddr,
+    s_axi_awaddr);
   output rst_reg_0;
   output [0:0]s_axi_rresp;
-  output [11:0]D;
+  output [9:0]D;
+  output [1:0]p_151_out;
   output s_axi_rvalid;
   output s_axi_bvalid;
   output [0:0]s_axi_bresp;
@@ -505,19 +511,19 @@ module system_v_tc_out_0_slave_attachment
   output [31:0]s_axi_rdata;
   input aclk;
   input ipif_Error;
+  input s_axi_arvalid;
   input s_axi_rready;
   input s_axi_bready;
   input aresetn;
-  input s_axi_arvalid;
   input s_axi_awvalid;
   input s_axi_wvalid;
   input [31:0]out_data;
-  input [8:0]s_axi_araddr;
-  input [8:0]s_axi_awaddr;
   input ipif_RdAck;
   input ipif_WrAck;
+  input [8:0]s_axi_araddr;
+  input [8:0]s_axi_awaddr;
 
-  wire [11:0]D;
+  wire [9:0]D;
   wire \INCLUDE_DPHASE_TIMER.dpto_cnt[9]_i_3_n_0 ;
   wire [9:0]\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 ;
   wire aclk;
@@ -532,7 +538,6 @@ module system_v_tc_out_0_slave_attachment
   wire \bus2ip_addr_i[7]_i_1_n_0 ;
   wire \bus2ip_addr_i[8]_i_1_n_0 ;
   wire \bus2ip_addr_i[8]_i_2_n_0 ;
-  wire bus2ip_rnw_i06_out;
   wire clear;
   wire ipif_Error;
   wire ipif_RdAck;
@@ -544,6 +549,7 @@ module system_v_tc_out_0_slave_attachment
   wire is_write_reg_n_0;
   wire [31:0]out_data;
   wire [1:0]p_0_out;
+  wire [1:0]p_151_out;
   wire [9:0]plusOp;
   wire rst;
   wire rst_reg_0;
@@ -576,14 +582,14 @@ module system_v_tc_out_0_slave_attachment
     \INCLUDE_DPHASE_TIMER.dpto_cnt[0]_i_1 
        (.I0(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [0]),
         .O(plusOp[0]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \INCLUDE_DPHASE_TIMER.dpto_cnt[1]_i_1 
        (.I0(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [0]),
         .I1(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [1]),
         .O(plusOp[1]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \INCLUDE_DPHASE_TIMER.dpto_cnt[2]_i_1 
@@ -591,7 +597,7 @@ module system_v_tc_out_0_slave_attachment
         .I1(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [1]),
         .I2(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [2]),
         .O(plusOp[2]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \INCLUDE_DPHASE_TIMER.dpto_cnt[3]_i_1 
@@ -600,7 +606,7 @@ module system_v_tc_out_0_slave_attachment
         .I2(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [2]),
         .I3(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [3]),
         .O(plusOp[3]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \INCLUDE_DPHASE_TIMER.dpto_cnt[4]_i_1 
@@ -620,14 +626,14 @@ module system_v_tc_out_0_slave_attachment
         .I4(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [4]),
         .I5(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [5]),
         .O(plusOp[5]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \INCLUDE_DPHASE_TIMER.dpto_cnt[6]_i_1 
        (.I0(\INCLUDE_DPHASE_TIMER.dpto_cnt[9]_i_3_n_0 ),
         .I1(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [6]),
         .O(plusOp[6]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \INCLUDE_DPHASE_TIMER.dpto_cnt[7]_i_1 
@@ -731,90 +737,80 @@ module system_v_tc_out_0_slave_attachment
         .Q(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 [9]),
         .R(clear));
   system_v_tc_out_0_address_decoder I_DECODER
-       (.D(D[10:9]),
+       (.D(D[8:7]),
         .\INCLUDE_DPHASE_TIMER.dpto_cnt_reg[9] (\INCLUDE_DPHASE_TIMER.dpto_cnt_reg__0 ),
         .Q(start2),
         .aclk(aclk),
         .aresetn(aresetn),
-        .\bus2ip_addr_i_reg[8] (D[8:7]),
         .ipif_RdAck(ipif_RdAck),
         .ipif_WrAck(ipif_WrAck),
         .is_read(is_read),
         .is_write_reg(is_write_reg_n_0),
+        .p_151_out(p_151_out),
         .s_axi_arready(s_axi_arready),
         .s_axi_awready(s_axi_awready));
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[0]_i_1 
        (.I0(s_axi_araddr[0]),
         .I1(s_axi_awaddr[0]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[1]_i_1 
        (.I0(s_axi_araddr[1]),
         .I1(s_axi_awaddr[1]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[1]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[2]_i_1 
        (.I0(s_axi_araddr[2]),
         .I1(s_axi_awaddr[2]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[2]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[3]_i_1 
        (.I0(s_axi_araddr[3]),
         .I1(s_axi_awaddr[3]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[3]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[4]_i_1 
        (.I0(s_axi_araddr[4]),
         .I1(s_axi_awaddr[4]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[4]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[5]_i_1 
        (.I0(s_axi_araddr[5]),
         .I1(s_axi_awaddr[5]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[5]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[6]_i_1 
        (.I0(s_axi_araddr[6]),
         .I1(s_axi_awaddr[6]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[6]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[7]_i_1 
        (.I0(s_axi_araddr[7]),
         .I1(s_axi_awaddr[7]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[7]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h000000EA)) 
@@ -825,14 +821,13 @@ module system_v_tc_out_0_slave_attachment
         .I3(state[1]),
         .I4(state[0]),
         .O(\bus2ip_addr_i[8]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hCCCACCCC)) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \bus2ip_addr_i[8]_i_2 
        (.I0(s_axi_araddr[8]),
         .I1(s_axi_awaddr[8]),
-        .I2(state[0]),
-        .I3(state[1]),
-        .I4(s_axi_arvalid),
+        .I2(s_axi_arvalid),
         .O(\bus2ip_addr_i[8]_i_2_n_0 ));
   FDRE \bus2ip_addr_i_reg[0] 
        (.C(aclk),
@@ -888,19 +883,11 @@ module system_v_tc_out_0_slave_attachment
         .D(\bus2ip_addr_i[8]_i_2_n_0 ),
         .Q(D[8]),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT3 #(
-    .INIT(8'h10)) 
-    bus2ip_rnw_i_i_1
-       (.I0(state[0]),
-        .I1(state[1]),
-        .I2(s_axi_arvalid),
-        .O(bus2ip_rnw_i06_out));
   FDRE bus2ip_rnw_i_reg
        (.C(aclk),
         .CE(\bus2ip_addr_i[8]_i_1_n_0 ),
-        .D(bus2ip_rnw_i06_out),
-        .Q(D[11]),
+        .D(s_axi_arvalid),
+        .Q(D[9]),
         .R(rst));
   LUT5 #(
     .INIT(32'h3FFA000A)) 
@@ -1274,7 +1261,7 @@ module system_v_tc_out_0_slave_attachment
         .D(s_axi_rvalid_i_i_1_n_0),
         .Q(s_axi_rvalid),
         .R(rst));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'h000000F8)) 
     start2_i_1
@@ -1316,7 +1303,7 @@ module system_v_tc_out_0_slave_attachment
         .I2(s_axi_rready),
         .I3(s_axi_rvalid),
         .O(state1__2));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \state[1]_i_3 
@@ -10701,7 +10688,7 @@ module system_v_tc_out_0_mux_tree
         .I1(core_regs[247]),
         .I2(\GEN_SEL_DELAY[1].sel_int_reg_n_0_[1][0] ),
         .I3(core_regs[224]),
-        .I4(\data_sync_reg[2][34]_0 ),
+        .I4(\data_sync_reg[2][34]_1 ),
         .I5(core_regs[201]),
         .O(\GEN_TREE.GEN_BRANCH[4].GEN_MUX_REG.data_out_reg[4][22]_i_2__0_n_0 ));
   LUT6 #(
@@ -14084,6 +14071,9 @@ module system_v_tc_out_0_tc_generator
   wire \eqOp_inferred__15/i__carry_n_1 ;
   wire \eqOp_inferred__15/i__carry_n_2 ;
   wire \eqOp_inferred__15/i__carry_n_3 ;
+  wire \eqOp_inferred__16/i__carry_n_1 ;
+  wire \eqOp_inferred__16/i__carry_n_2 ;
+  wire \eqOp_inferred__16/i__carry_n_3 ;
   wire \eqOp_inferred__2/i__carry_n_1 ;
   wire \eqOp_inferred__2/i__carry_n_2 ;
   wire \eqOp_inferred__2/i__carry_n_3 ;
@@ -14103,9 +14093,6 @@ module system_v_tc_out_0_tc_generator
   wire \eqOp_inferred__7/i__carry_n_1 ;
   wire \eqOp_inferred__7/i__carry_n_2 ;
   wire \eqOp_inferred__7/i__carry_n_3 ;
-  wire \eqOp_inferred__8/i__carry_n_1 ;
-  wire \eqOp_inferred__8/i__carry_n_2 ;
-  wire \eqOp_inferred__8/i__carry_n_3 ;
   wire \eqOp_inferred__9/i__carry_n_1 ;
   wire \eqOp_inferred__9/i__carry_n_2 ;
   wire \eqOp_inferred__9/i__carry_n_3 ;
@@ -14121,17 +14108,6 @@ module system_v_tc_out_0_tc_generator
   wire [2:0]\genr_control_regs[0] ;
   wire \h_count[0]_i_1_n_0 ;
   wire \h_count[0]_i_3_n_0 ;
-  wire \h_count[0]_i_4_n_0 ;
-  wire \h_count[0]_i_5_n_0 ;
-  wire \h_count[0]_i_6_n_0 ;
-  wire \h_count[4]_i_2_n_0 ;
-  wire \h_count[4]_i_3_n_0 ;
-  wire \h_count[4]_i_4_n_0 ;
-  wire \h_count[4]_i_5_n_0 ;
-  wire \h_count[8]_i_2_n_0 ;
-  wire \h_count[8]_i_3_n_0 ;
-  wire \h_count[8]_i_4_n_0 ;
-  wire \h_count[8]_i_5_n_0 ;
   wire [11:0]h_count_reg;
   wire \h_count_reg[0]_i_2_n_0 ;
   wire \h_count_reg[0]_i_2_n_1 ;
@@ -14177,7 +14153,6 @@ module system_v_tc_out_0_tc_generator
   wire \htotal_1[3]_i_2_n_0 ;
   wire \htotal_1[3]_i_3_n_0 ;
   wire \htotal_1[3]_i_4_n_0 ;
-  wire \htotal_1[3]_i_5_n_0 ;
   wire \htotal_1[7]_i_2_n_0 ;
   wire \htotal_1[7]_i_3_n_0 ;
   wire \htotal_1[7]_i_4_n_0 ;
@@ -14258,8 +14233,8 @@ module system_v_tc_out_0_tc_generator
   wire \intr_status_int_reg[12] ;
   wire \intr_status_int_reg[13] ;
   wire \intr_status_int_reg[16] ;
+  wire last_line;
   wire last_line_i_1_n_0;
-  wire last_line_reg_n_0;
   wire line_end;
   wire line_end_i_1_n_0;
   wire line_end_v;
@@ -14333,17 +14308,6 @@ module system_v_tc_out_0_tc_generator
   wire \v_count[0]_i_1_n_0 ;
   wire \v_count[0]_i_2_n_0 ;
   wire \v_count[0]_i_4_n_0 ;
-  wire \v_count[0]_i_5_n_0 ;
-  wire \v_count[0]_i_6_n_0 ;
-  wire \v_count[0]_i_7_n_0 ;
-  wire \v_count[4]_i_2_n_0 ;
-  wire \v_count[4]_i_3_n_0 ;
-  wire \v_count[4]_i_4_n_0 ;
-  wire \v_count[4]_i_5_n_0 ;
-  wire \v_count[8]_i_2_n_0 ;
-  wire \v_count[8]_i_3_n_0 ;
-  wire \v_count[8]_i_4_n_0 ;
-  wire \v_count[8]_i_5_n_0 ;
   wire [11:0]v_count_reg;
   wire \v_count_reg[0]_i_3_n_0 ;
   wire \v_count_reg[0]_i_3_n_1 ;
@@ -14384,13 +14348,13 @@ module system_v_tc_out_0_tc_generator
   wire [3:0]\NLW_eqOp_inferred__13/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__14/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__15/i__carry_O_UNCONNECTED ;
+  wire [3:0]\NLW_eqOp_inferred__16/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__2/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__3/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__4/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__5/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__6/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__7/i__carry_O_UNCONNECTED ;
-  wire [3:0]\NLW_eqOp_inferred__8/i__carry_O_UNCONNECTED ;
   wire [3:0]\NLW_eqOp_inferred__9/i__carry_O_UNCONNECTED ;
   wire [3:3]\NLW_h_count_reg[8]_i_1_CO_UNCONNECTED ;
   wire [3:3]\NLW_htotal_1_reg[11]_i_1_CO_UNCONNECTED ;
@@ -14400,7 +14364,7 @@ module system_v_tc_out_0_tc_generator
   wire [3:3]\NLW_v0total_reg[11]_i_1_O_UNCONNECTED ;
   wire [3:3]\NLW_v_count_reg[8]_i_1_CO_UNCONNECTED ;
 
-  (* SOFT_HLUTNM = "soft_lutpair275" *) 
+  (* SOFT_HLUTNM = "soft_lutpair278" *) 
   LUT4 #(
     .INIT(16'hEEEF)) 
     U_VIDEO_CTRL_i_1
@@ -14420,7 +14384,7 @@ module system_v_tc_out_0_tc_generator
         .D(active_chroma_i_1_n_0),
         .Q(active_chroma_out),
         .R(\fsync_out[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair277" *) 
+  (* SOFT_HLUTNM = "soft_lutpair280" *) 
   LUT3 #(
     .INIT(8'h2D)) 
     active_video_i_1
@@ -14432,8 +14396,8 @@ module system_v_tc_out_0_tc_generator
     .INIT(64'hFF7F7F7FAA000000)) 
     active_video_int_i_1
        (.I0(gen_ce),
-        .I1(eqOp9_out),
-        .I2(eqOp1_out),
+        .I1(eqOp1_out),
+        .I2(eqOp9_out),
         .I3(eqOp4_out),
         .I4(eqOp10_out),
         .I5(active_video_int_reg_n_0),
@@ -14522,45 +14486,52 @@ module system_v_tc_out_0_tc_generator
         .S({i__carry_i_1_n_0,i__carry_i_2_n_0,i__carry_i_3_n_0,i__carry_i_4_n_0}));
   CARRY4 \eqOp_inferred__10/i__carry 
        (.CI(1'b0),
-        .CO({eqOp7_out,\eqOp_inferred__10/i__carry_n_1 ,\eqOp_inferred__10/i__carry_n_2 ,\eqOp_inferred__10/i__carry_n_3 }),
+        .CO({eqOp6_out,\eqOp_inferred__10/i__carry_n_1 ,\eqOp_inferred__10/i__carry_n_2 ,\eqOp_inferred__10/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__10/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1__7_n_0,i__carry_i_2__7_n_0,i__carry_i_3__7_n_0,i__carry_i_4__7_n_0}));
+        .S({i__carry_i_1__6_n_0,i__carry_i_2__6_n_0,i__carry_i_3__6_n_0,i__carry_i_4__6_n_0}));
   CARRY4 \eqOp_inferred__11/i__carry 
        (.CI(1'b0),
-        .CO({eqOp8_out,\eqOp_inferred__11/i__carry_n_1 ,\eqOp_inferred__11/i__carry_n_2 ,\eqOp_inferred__11/i__carry_n_3 }),
+        .CO({eqOp7_out,\eqOp_inferred__11/i__carry_n_1 ,\eqOp_inferred__11/i__carry_n_2 ,\eqOp_inferred__11/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__11/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1__8_n_0,i__carry_i_2__8_n_0,i__carry_i_3__8_n_0,i__carry_i_4__8_n_0}));
+        .S({i__carry_i_1__7_n_0,i__carry_i_2__7_n_0,i__carry_i_3__7_n_0,i__carry_i_4__7_n_0}));
   CARRY4 \eqOp_inferred__12/i__carry 
        (.CI(1'b0),
-        .CO({eqOp2_out,\eqOp_inferred__12/i__carry_n_1 ,\eqOp_inferred__12/i__carry_n_2 ,\eqOp_inferred__12/i__carry_n_3 }),
+        .CO({eqOp8_out,\eqOp_inferred__12/i__carry_n_1 ,\eqOp_inferred__12/i__carry_n_2 ,\eqOp_inferred__12/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__12/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1__9_n_0,i__carry_i_2__9_n_0,i__carry_i_3__9_n_0,i__carry_i_4__9_n_0}));
+        .S({i__carry_i_1__8_n_0,i__carry_i_2__8_n_0,i__carry_i_3__8_n_0,i__carry_i_4__8_n_0}));
   CARRY4 \eqOp_inferred__13/i__carry 
        (.CI(1'b0),
-        .CO({eqOp4_out,\eqOp_inferred__13/i__carry_n_1 ,\eqOp_inferred__13/i__carry_n_2 ,\eqOp_inferred__13/i__carry_n_3 }),
+        .CO({eqOp2_out,\eqOp_inferred__13/i__carry_n_1 ,\eqOp_inferred__13/i__carry_n_2 ,\eqOp_inferred__13/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__13/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1__10_n_0,i__carry_i_2__10_n_0,i__carry_i_3__10_n_0,i__carry_i_4__10_n_0}));
+        .S({i__carry_i_1__9_n_0,i__carry_i_2__9_n_0,i__carry_i_3__9_n_0,i__carry_i_4__9_n_0}));
   CARRY4 \eqOp_inferred__14/i__carry 
        (.CI(1'b0),
-        .CO({eqOp3_out,\eqOp_inferred__14/i__carry_n_1 ,\eqOp_inferred__14/i__carry_n_2 ,\eqOp_inferred__14/i__carry_n_3 }),
+        .CO({eqOp4_out,\eqOp_inferred__14/i__carry_n_1 ,\eqOp_inferred__14/i__carry_n_2 ,\eqOp_inferred__14/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__14/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1__11_n_0,i__carry_i_2__11_n_0,i__carry_i_3__11_n_0,i__carry_i_4__11_n_0}));
+        .S({i__carry_i_1__10_n_0,i__carry_i_2__10_n_0,i__carry_i_3__10_n_0,i__carry_i_4__10_n_0}));
   CARRY4 \eqOp_inferred__15/i__carry 
        (.CI(1'b0),
-        .CO({eqOp1_out,\eqOp_inferred__15/i__carry_n_1 ,\eqOp_inferred__15/i__carry_n_2 ,\eqOp_inferred__15/i__carry_n_3 }),
+        .CO({eqOp3_out,\eqOp_inferred__15/i__carry_n_1 ,\eqOp_inferred__15/i__carry_n_2 ,\eqOp_inferred__15/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__15/i__carry_O_UNCONNECTED [3:0]),
+        .S({i__carry_i_1__11_n_0,i__carry_i_2__11_n_0,i__carry_i_3__11_n_0,i__carry_i_4__11_n_0}));
+  CARRY4 \eqOp_inferred__16/i__carry 
+       (.CI(1'b0),
+        .CO({eqOp1_out,\eqOp_inferred__16/i__carry_n_1 ,\eqOp_inferred__16/i__carry_n_2 ,\eqOp_inferred__16/i__carry_n_3 }),
+        .CYINIT(1'b1),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(\NLW_eqOp_inferred__16/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__13_n_0,i__carry_i_2__13_n_0,i__carry_i_3__13_n_0,i__carry_i_4__13_n_0}));
   CARRY4 \eqOp_inferred__2/i__carry 
        (.CI(1'b0),
@@ -14604,20 +14575,13 @@ module system_v_tc_out_0_tc_generator
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__7/i__carry_O_UNCONNECTED [3:0]),
         .S({i__carry_i_1__4_n_0,i__carry_i_2__4_n_0,i__carry_i_3__4_n_0,i__carry_i_4__4_n_0}));
-  CARRY4 \eqOp_inferred__8/i__carry 
-       (.CI(1'b0),
-        .CO({eqOp5_out,\eqOp_inferred__8/i__carry_n_1 ,\eqOp_inferred__8/i__carry_n_2 ,\eqOp_inferred__8/i__carry_n_3 }),
-        .CYINIT(1'b1),
-        .DI({1'b0,1'b0,1'b0,1'b0}),
-        .O(\NLW_eqOp_inferred__8/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1__5_n_0,i__carry_i_2__5_n_0,i__carry_i_3__5_n_0,i__carry_i_4__5_n_0}));
   CARRY4 \eqOp_inferred__9/i__carry 
        (.CI(1'b0),
-        .CO({eqOp6_out,\eqOp_inferred__9/i__carry_n_1 ,\eqOp_inferred__9/i__carry_n_2 ,\eqOp_inferred__9/i__carry_n_3 }),
+        .CO({eqOp5_out,\eqOp_inferred__9/i__carry_n_1 ,\eqOp_inferred__9/i__carry_n_2 ,\eqOp_inferred__9/i__carry_n_3 }),
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_eqOp_inferred__9/i__carry_O_UNCONNECTED [3:0]),
-        .S({i__carry_i_1__6_n_0,i__carry_i_2__6_n_0,i__carry_i_3__6_n_0,i__carry_i_4__6_n_0}));
+        .S({i__carry_i_1__5_n_0,i__carry_i_2__5_n_0,i__carry_i_3__5_n_0,i__carry_i_4__5_n_0}));
   LUT2 #(
     .INIT(4'hB)) 
     \fsync_out[0]_i_1 
@@ -14642,7 +14606,7 @@ module system_v_tc_out_0_tc_generator
         .D(fsync_out0),
         .Q(fsync_out),
         .R(\fsync_out[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair275" *) 
+  (* SOFT_HLUTNM = "soft_lutpair278" *) 
   LUT3 #(
     .INIT(8'h0E)) 
     \generate_en_d_reg[1]_srl2___U_TC_TOP_detect_en_d_reg_r_3_i_1 
@@ -14661,65 +14625,10 @@ module system_v_tc_out_0_tc_generator
         .I5(line_end),
         .O(\h_count[0]_i_1_n_0 ));
   LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[0]_i_3 
-       (.I0(h_count_reg[3]),
-        .O(\h_count[0]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[0]_i_4 
-       (.I0(h_count_reg[2]),
-        .O(\h_count[0]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[0]_i_5 
-       (.I0(h_count_reg[1]),
-        .O(\h_count[0]_i_5_n_0 ));
-  LUT1 #(
     .INIT(2'h1)) 
-    \h_count[0]_i_6 
+    \h_count[0]_i_3 
        (.I0(h_count_reg[0]),
-        .O(\h_count[0]_i_6_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[4]_i_2 
-       (.I0(h_count_reg[7]),
-        .O(\h_count[4]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[4]_i_3 
-       (.I0(h_count_reg[6]),
-        .O(\h_count[4]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[4]_i_4 
-       (.I0(h_count_reg[5]),
-        .O(\h_count[4]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[4]_i_5 
-       (.I0(h_count_reg[4]),
-        .O(\h_count[4]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[8]_i_2 
-       (.I0(h_count_reg[11]),
-        .O(\h_count[8]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[8]_i_3 
-       (.I0(h_count_reg[10]),
-        .O(\h_count[8]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[8]_i_4 
-       (.I0(h_count_reg[9]),
-        .O(\h_count[8]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \h_count[8]_i_5 
-       (.I0(h_count_reg[8]),
-        .O(\h_count[8]_i_5_n_0 ));
+        .O(\h_count[0]_i_3_n_0 ));
   FDRE \h_count_reg[0] 
        (.C(clk),
         .CE(gen_ce),
@@ -14732,7 +14641,7 @@ module system_v_tc_out_0_tc_generator
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\h_count_reg[0]_i_2_n_4 ,\h_count_reg[0]_i_2_n_5 ,\h_count_reg[0]_i_2_n_6 ,\h_count_reg[0]_i_2_n_7 }),
-        .S({\h_count[0]_i_3_n_0 ,\h_count[0]_i_4_n_0 ,\h_count[0]_i_5_n_0 ,\h_count[0]_i_6_n_0 }));
+        .S({h_count_reg[3:1],\h_count[0]_i_3_n_0 }));
   FDRE \h_count_reg[10] 
        (.C(clk),
         .CE(gen_ce),
@@ -14775,7 +14684,7 @@ module system_v_tc_out_0_tc_generator
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\h_count_reg[4]_i_1_n_4 ,\h_count_reg[4]_i_1_n_5 ,\h_count_reg[4]_i_1_n_6 ,\h_count_reg[4]_i_1_n_7 }),
-        .S({\h_count[4]_i_2_n_0 ,\h_count[4]_i_3_n_0 ,\h_count[4]_i_4_n_0 ,\h_count[4]_i_5_n_0 }));
+        .S(h_count_reg[7:4]));
   FDRE \h_count_reg[5] 
        (.C(clk),
         .CE(gen_ce),
@@ -14806,14 +14715,14 @@ module system_v_tc_out_0_tc_generator
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\h_count_reg[8]_i_1_n_4 ,\h_count_reg[8]_i_1_n_5 ,\h_count_reg[8]_i_1_n_6 ,\h_count_reg[8]_i_1_n_7 }),
-        .S({\h_count[8]_i_2_n_0 ,\h_count[8]_i_3_n_0 ,\h_count[8]_i_4_n_0 ,\h_count[8]_i_5_n_0 }));
+        .S(h_count_reg[11:8]));
   FDRE \h_count_reg[9] 
        (.C(clk),
         .CE(gen_ce),
         .D(\h_count_reg[8]_i_1_n_6 ),
         .Q(h_count_reg[9]),
         .R(\h_count[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair277" *) 
+  (* SOFT_HLUTNM = "soft_lutpair280" *) 
   LUT2 #(
     .INIT(4'h6)) 
     hblank_i_1
@@ -15126,11 +15035,6 @@ module system_v_tc_out_0_tc_generator
        (.I0(htotal[1]),
         .O(\htotal_1[3]_i_4_n_0 ));
   LUT1 #(
-    .INIT(2'h2)) 
-    \htotal_1[3]_i_5 
-       (.I0(htotal[0]),
-        .O(\htotal_1[3]_i_5_n_0 ));
-  LUT1 #(
     .INIT(2'h1)) 
     \htotal_1[7]_i_2 
        (.I0(htotal[7]),
@@ -15211,7 +15115,7 @@ module system_v_tc_out_0_tc_generator
         .CYINIT(1'b0),
         .DI({htotal[3:1],1'b0}),
         .O(minusOp[3:0]),
-        .S({\htotal_1[3]_i_2_n_0 ,\htotal_1[3]_i_3_n_0 ,\htotal_1[3]_i_4_n_0 ,\htotal_1[3]_i_5_n_0 }));
+        .S({\htotal_1[3]_i_2_n_0 ,\htotal_1[3]_i_3_n_0 ,\htotal_1[3]_i_4_n_0 ,htotal[0]}));
   FDSE #(
     .INIT(1'b0)) 
     \htotal_1_reg[4] 
@@ -15915,7 +15819,7 @@ module system_v_tc_out_0_tc_generator
         .I4(v0active_start_hori[1]),
         .I5(h_count_reg[1]),
         .O(i__carry_i_4__9_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair276" *) 
+  (* SOFT_HLUTNM = "soft_lutpair279" *) 
   LUT3 #(
     .INIT(8'h82)) 
     \intr_status_int[12]_i_1 
@@ -15932,7 +15836,7 @@ module system_v_tc_out_0_tc_generator
         .I3(active_video_out),
         .I4(gen_active_video_d),
         .O(\intr_status_int_reg[13] ));
-  (* SOFT_HLUTNM = "soft_lutpair276" *) 
+  (* SOFT_HLUTNM = "soft_lutpair279" *) 
   LUT4 #(
     .INIT(16'h8AA2)) 
     \intr_status_int[13]_i_2 
@@ -15943,14 +15847,14 @@ module system_v_tc_out_0_tc_generator
         .O(\intr_status_int[13]_i_2_n_0 ));
   LUT2 #(
     .INIT(4'h8)) 
-    \intr_status_int[16]_i_3 
+    \intr_status_int[16]_i_2 
        (.I0(generate_en_d),
         .I1(fsync_out),
         .O(\intr_status_int_reg[16] ));
   LUT6 #(
     .INIT(64'h0000000000E2E2E2)) 
     last_line_i_1
-       (.I0(last_line_reg_n_0),
+       (.I0(last_line),
         .I1(gen_ce),
         .I2(eqOp13_out),
         .I3(\genr_control_regs[0] [2]),
@@ -15961,7 +15865,7 @@ module system_v_tc_out_0_tc_generator
        (.C(clk),
         .CE(1'b1),
         .D(last_line_i_1_n_0),
-        .Q(last_line_reg_n_0),
+        .Q(last_line),
         .R(1'b0));
   LUT6 #(
     .INIT(64'h0000002C002C002C)) 
@@ -15998,7 +15902,7 @@ module system_v_tc_out_0_tc_generator
   FDRE \param_cfg_reg[4] 
        (.C(clk),
         .CE(gen_ce),
-        .D(gen_ce),
+        .D(1'b1),
         .Q(\param_cfg_reg_n_0_[4] ),
         .R(\htotal[11]_i_1_n_0 ));
   LUT5 #(
@@ -16006,7 +15910,7 @@ module system_v_tc_out_0_tc_generator
     sw_enable_d_i_1
        (.I0(sw_enable_d),
         .I1(line_end_v),
-        .I2(last_line_reg_n_0),
+        .I2(last_line),
         .I3(sw_enable_d_reg_0),
         .I4(resetn_out),
         .O(sw_enable_d_i_1_n_0));
@@ -16768,75 +16672,20 @@ module system_v_tc_out_0_tc_generator
         .I2(\fsync_out[0]_i_1_n_0 ),
         .I3(gen_ce),
         .I4(line_end_v),
-        .I5(last_line_reg_n_0),
+        .I5(last_line),
         .O(\v_count[0]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'h08)) 
     \v_count[0]_i_2 
        (.I0(gen_ce),
         .I1(line_end_v),
-        .I2(last_line_reg_n_0),
+        .I2(last_line),
         .O(\v_count[0]_i_2_n_0 ));
   LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[0]_i_4 
-       (.I0(v_count_reg[3]),
-        .O(\v_count[0]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[0]_i_5 
-       (.I0(v_count_reg[2]),
-        .O(\v_count[0]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[0]_i_6 
-       (.I0(v_count_reg[1]),
-        .O(\v_count[0]_i_6_n_0 ));
-  LUT1 #(
     .INIT(2'h1)) 
-    \v_count[0]_i_7 
+    \v_count[0]_i_4 
        (.I0(v_count_reg[0]),
-        .O(\v_count[0]_i_7_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[4]_i_2 
-       (.I0(v_count_reg[7]),
-        .O(\v_count[4]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[4]_i_3 
-       (.I0(v_count_reg[6]),
-        .O(\v_count[4]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[4]_i_4 
-       (.I0(v_count_reg[5]),
-        .O(\v_count[4]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[4]_i_5 
-       (.I0(v_count_reg[4]),
-        .O(\v_count[4]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[8]_i_2 
-       (.I0(v_count_reg[11]),
-        .O(\v_count[8]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[8]_i_3 
-       (.I0(v_count_reg[10]),
-        .O(\v_count[8]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[8]_i_4 
-       (.I0(v_count_reg[9]),
-        .O(\v_count[8]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \v_count[8]_i_5 
-       (.I0(v_count_reg[8]),
-        .O(\v_count[8]_i_5_n_0 ));
+        .O(\v_count[0]_i_4_n_0 ));
   FDRE \v_count_reg[0] 
        (.C(clk),
         .CE(\v_count[0]_i_2_n_0 ),
@@ -16849,7 +16698,7 @@ module system_v_tc_out_0_tc_generator
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\v_count_reg[0]_i_3_n_4 ,\v_count_reg[0]_i_3_n_5 ,\v_count_reg[0]_i_3_n_6 ,\v_count_reg[0]_i_3_n_7 }),
-        .S({\v_count[0]_i_4_n_0 ,\v_count[0]_i_5_n_0 ,\v_count[0]_i_6_n_0 ,\v_count[0]_i_7_n_0 }));
+        .S({v_count_reg[3:1],\v_count[0]_i_4_n_0 }));
   FDRE \v_count_reg[10] 
        (.C(clk),
         .CE(\v_count[0]_i_2_n_0 ),
@@ -16892,7 +16741,7 @@ module system_v_tc_out_0_tc_generator
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\v_count_reg[4]_i_1_n_4 ,\v_count_reg[4]_i_1_n_5 ,\v_count_reg[4]_i_1_n_6 ,\v_count_reg[4]_i_1_n_7 }),
-        .S({\v_count[4]_i_2_n_0 ,\v_count[4]_i_3_n_0 ,\v_count[4]_i_4_n_0 ,\v_count[4]_i_5_n_0 }));
+        .S(v_count_reg[7:4]));
   FDRE \v_count_reg[5] 
        (.C(clk),
         .CE(\v_count[0]_i_2_n_0 ),
@@ -16923,7 +16772,7 @@ module system_v_tc_out_0_tc_generator
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\v_count_reg[8]_i_1_n_4 ,\v_count_reg[8]_i_1_n_5 ,\v_count_reg[8]_i_1_n_6 ,\v_count_reg[8]_i_1_n_7 }),
-        .S({\v_count[8]_i_2_n_0 ,\v_count[8]_i_3_n_0 ,\v_count[8]_i_4_n_0 ,\v_count[8]_i_5_n_0 }));
+        .S(v_count_reg[11:8]));
   FDRE \v_count_reg[9] 
        (.C(clk),
         .CE(\v_count[0]_i_2_n_0 ),
@@ -16941,8 +16790,8 @@ module system_v_tc_out_0_tc_generator
     vblank_int_i_1
        (.I0(eqOp3_out),
         .I1(eqOp4_out),
-        .I2(eqOp2_out),
-        .I3(eqOp13_out),
+        .I2(last_line),
+        .I3(eqOp2_out),
         .I4(gen_ce),
         .I5(vblank_int_reg_n_0),
         .O(vblank_int_i_1_n_0));
@@ -17073,7 +16922,6 @@ module system_v_tc_out_0_tc_top
   wire hsync_out;
   wire [3:0]intc_if;
   wire \intr_status_int[16]_i_1_n_0 ;
-  wire \intr_status_int[16]_i_2_n_0 ;
   wire p_0_in;
   wire reg_update;
   wire resetn_out;
@@ -17150,7 +16998,7 @@ module system_v_tc_out_0_tc_top
         .D(detect_en_d_reg_gate_n_0),
         .Q(p_0_in),
         .R(\intr_status_int[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair278" *) 
+  (* SOFT_HLUTNM = "soft_lutpair281" *) 
   LUT2 #(
     .INIT(4'h8)) 
     detect_en_d_reg_gate
@@ -17210,7 +17058,7 @@ module system_v_tc_out_0_tc_top
         .D(generate_en_d_reg_gate_n_0),
         .Q(generate_en_d),
         .R(\intr_status_int[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair278" *) 
+  (* SOFT_HLUTNM = "soft_lutpair281" *) 
   LUT2 #(
     .INIT(4'h8)) 
     generate_en_d_reg_gate
@@ -17222,33 +17070,27 @@ module system_v_tc_out_0_tc_top
     \intr_status_int[16]_i_1 
        (.I0(resetn_out),
         .O(\intr_status_int[16]_i_1_n_0 ));
-  LUT2 #(
-    .INIT(4'hB)) 
-    \intr_status_int[16]_i_2 
-       (.I0(clken),
-        .I1(resetn_out),
-        .O(\intr_status_int[16]_i_2_n_0 ));
   FDRE \intr_status_int_reg[12] 
        (.C(clk),
-        .CE(\intr_status_int[16]_i_2_n_0 ),
+        .CE(clken),
         .D(\GEN_GENERATOR.U_TC_GEN_n_8 ),
         .Q(intc_if[1]),
         .R(\intr_status_int[16]_i_1_n_0 ));
   FDRE \intr_status_int_reg[13] 
        (.C(clk),
-        .CE(\intr_status_int[16]_i_2_n_0 ),
+        .CE(clken),
         .D(\GEN_GENERATOR.U_TC_GEN_n_7 ),
         .Q(intc_if[2]),
         .R(\intr_status_int[16]_i_1_n_0 ));
   FDRE \intr_status_int_reg[16] 
        (.C(clk),
-        .CE(\intr_status_int[16]_i_2_n_0 ),
+        .CE(clken),
         .D(\GEN_GENERATOR.U_TC_GEN_n_9 ),
         .Q(intc_if[3]),
         .R(\intr_status_int[16]_i_1_n_0 ));
   FDRE \intr_status_int_reg[9] 
        (.C(clk),
-        .CE(\intr_status_int[16]_i_2_n_0 ),
+        .CE(clken),
         .D(p_0_in),
         .Q(intc_if[0]),
         .R(\intr_status_int[16]_i_1_n_0 ));
@@ -17775,7 +17617,7 @@ module system_v_tc_out_0_v_tc
         .R(1'b0));
   LUT1 #(
     .INIT(2'h1)) 
-    i_65
+    i_69
        (.I0(vresetn),
         .O(reset));
 endmodule
@@ -18299,36 +18141,36 @@ module system_v_tc_out_0_video_clock_cross
     \AXI4_LITE_INTERFACE.ipif_RdData_reg[31] ,
     ipif_Addr,
     E,
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[27][0] ,
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[3][0] ,
+    \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[3][8] ,
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[28][0] ,
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[25][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[7][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[6][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[5][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[1][0] ,
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[0][0] ,
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0] ,
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[2][0] ,
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[26][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[3][0] ,
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[27][0] ,
-    \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[3][8] ,
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0] ,
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0] ,
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[23][0] ,
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[22][0] ,
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0] ,
-    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0] ,
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][0] ,
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0] ,
+    \AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0] ,
     \AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][7] ,
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[16][0] ,
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[8][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0] ,
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[11][0] ,
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[15][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[7][0] ,
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[10][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[14][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[6][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[1][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0] ,
     \AXI4_LITE_INTERFACE.core_control_regs_int_reg[13][0] ,
-    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[5][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[14][0] ,
+    \AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0] ,
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][30] ,
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][29] ,
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][28] ,
@@ -18361,9 +18203,9 @@ module system_v_tc_out_0_video_clock_cross
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][1] ,
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][0] ,
     \GEN_TREE.GEN_BRANCH[4].GEN_MUX_REG.data_out_reg_reg[4][22] ,
-    \AXI4_LITE_INTERFACE.soft_resetn_reg ,
-    D,
     vid_aclk_en,
+    D,
+    \AXI4_LITE_INTERFACE.soft_resetn_reg ,
     \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0 ,
     \time_status_regs[27] ,
     \time_status_regs[26] ,
@@ -18997,36 +18839,36 @@ module system_v_tc_out_0_video_clock_cross
   output [31:0]\AXI4_LITE_INTERFACE.ipif_RdData_reg[31] ;
   output [8:0]ipif_Addr;
   output [0:0]E;
+  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[27][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[3][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[3][8] ;
   output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[28][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[25][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[7][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[6][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[5][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[1][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[0][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[2][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[26][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[3][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[27][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[3][8] ;
-  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[23][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[22][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][7] ;
   output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[16][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[8][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[11][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[15][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[7][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[10][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[14][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[6][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[1][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0] ;
   output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[13][0] ;
-  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[5][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[14][0] ;
+  output [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0] ;
   output \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][30] ;
   output \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][29] ;
   output \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][28] ;
@@ -19059,9 +18901,9 @@ module system_v_tc_out_0_video_clock_cross
   output \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][1] ;
   output \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][0] ;
   output \GEN_TREE.GEN_BRANCH[4].GEN_MUX_REG.data_out_reg_reg[4][22] ;
-  input \AXI4_LITE_INTERFACE.soft_resetn_reg ;
-  input [21:0]D;
   input vid_aclk_en;
+  input [21:0]D;
+  input \AXI4_LITE_INTERFACE.soft_resetn_reg ;
   input [5:0]\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0 ;
   input [5:0]\time_status_regs[27] ;
   input [5:0]\time_status_regs[26] ;
@@ -19180,8 +19022,11 @@ module system_v_tc_out_0_video_clock_cross
   input vid_aclk;
 
   wire \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0 ;
-  wire \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2_n_0 ;
+  wire \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_2_n_0 ;
+  wire \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3_n_0 ;
+  wire \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2_n_0 ;
   wire \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ;
+  wire \AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2_n_0 ;
   wire \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ;
   wire [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[0][0] ;
   wire [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[10][0] ;
@@ -19200,8 +19045,10 @@ module system_v_tc_out_0_video_clock_cross
   wire [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[7][0] ;
   wire [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[8][0] ;
   wire [0:0]\AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0] ;
+  wire \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0 ;
   wire \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0 ;
   wire \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ;
+  wire \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_3_n_0 ;
   wire \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ;
   wire \AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0 ;
   wire \AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][10] ;
@@ -19237,10 +19084,10 @@ module system_v_tc_out_0_video_clock_cross
   wire [31:0]\AXI4_LITE_INTERFACE.ipif_RdData_reg[31] ;
   (* shreg_extract = "no" *) wire [44:0]\AXI4_LITE_INTERFACE.proc_sync1_reg[44] ;
   wire \AXI4_LITE_INTERFACE.soft_resetn_reg ;
+  wire \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0 ;
   wire \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0 ;
-  wire \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0 ;
+  wire \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2_n_0 ;
   wire \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0 ;
-  wire \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_3_n_0 ;
   wire \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0 ;
   wire \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0 ;
   wire [0:0]\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][0] ;
@@ -19903,67 +19750,91 @@ module system_v_tc_out_0_video_clock_cross
   LUT6 #(
     .INIT(64'h0000000000008000)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[0][27]_i_1 
-       (.I0(write_ack_int),
-        .I1(\data_sync[2]_2 [42]),
-        .I2(\AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2_n_0 ),
-        .I3(vid_aclk_en),
+       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0 ),
+        .I1(vid_aclk_en),
+        .I2(\data_sync[2]_2 [42]),
+        .I3(write_ack_int),
         .I4(ipif_Addr[5]),
         .I5(ipif_Addr[6]),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[0][0] ));
-  LUT6 #(
-    .INIT(64'h0000000000200000)) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT5 #(
+    .INIT(32'h20000000)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_1 
-       (.I0(vid_aclk_en),
+       (.I0(\AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0 ),
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I2(ipif_Addr[3]),
-        .I3(ipif_Addr[4]),
-        .I4(ipif_Addr[5]),
-        .I5(\AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(ipif_Addr[5]),
+        .I4(ipif_Addr[3]),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[10][0] ));
-  LUT3 #(
-    .INIT(8'hBF)) 
-    \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2 
-       (.I0(ipif_Addr[6]),
-        .I1(\data_sync[2]_2 [42]),
-        .I2(write_ack_int),
-        .O(\AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT4 #(
-    .INIT(16'h0008)) 
-    \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ),
-        .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[11][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT4 #(
-    .INIT(16'h0010)) 
-    \AXI4_LITE_INTERFACE.core_control_regs_int[12][27]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ),
-        .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT4 #(
     .INIT(16'h0040)) 
-    \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_1 
-       (.I0(ipif_Addr[3]),
-        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+    \AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2 
+       (.I0(ipif_Addr[4]),
+        .I1(write_ack_int),
+        .I2(\data_sync[2]_2 [42]),
+        .I3(ipif_Addr[6]),
+        .O(\AXI4_LITE_INTERFACE.core_control_regs_int[10][27]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000001000000)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_1 
+       (.I0(ipif_Addr[6]),
+        .I1(\AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_2_n_0 ),
         .I2(ipif_Addr[4]),
+        .I3(vid_aclk_en),
+        .I4(ipif_Addr[5]),
+        .I5(\AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3_n_0 ),
+        .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[11][0] ));
+  LUT2 #(
+    .INIT(4'h7)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_2 
+       (.I0(write_ack_int),
+        .I1(\data_sync[2]_2 [42]),
+        .O(\AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT2 #(
+    .INIT(4'h7)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3 
+       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I1(ipif_Addr[3]),
+        .O(\AXI4_LITE_INTERFACE.core_control_regs_int[11][27]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT4 #(
+    .INIT(16'h0004)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[12][27]_i_1 
+       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I1(ipif_Addr[4]),
+        .I2(ipif_Addr[3]),
         .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ),
+        .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[12][0] ));
+  LUT6 #(
+    .INIT(64'h0000000000000080)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_1 
+       (.I0(write_ack_int),
+        .I1(\data_sync[2]_2 [42]),
+        .I2(vid_aclk_en),
+        .I3(ipif_Addr[3]),
+        .I4(ipif_Addr[6]),
+        .I5(\AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[13][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  LUT3 #(
+    .INIT(8'h7F)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2 
+       (.I0(ipif_Addr[5]),
+        .I1(ipif_Addr[4]),
+        .I2(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .O(\AXI4_LITE_INTERFACE.core_control_regs_int[13][27]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h0040)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[14][27]_i_1 
        (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
+        .I1(ipif_Addr[4]),
+        .I2(ipif_Addr[3]),
         .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[14][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[15][27]_i_1 
@@ -19973,83 +19844,86 @@ module system_v_tc_out_0_video_clock_cross
         .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[15][0] ));
   LUT6 #(
-    .INIT(64'h0000000080000000)) 
+    .INIT(64'h2000000000000000)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_1 
-       (.I0(write_ack_int),
-        .I1(\data_sync[2]_2 [42]),
-        .I2(\AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2_n_0 ),
-        .I3(vid_aclk_en),
-        .I4(ipif_Addr[6]),
-        .I5(ipif_Addr[5]),
+       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0 ),
+        .I1(ipif_Addr[5]),
+        .I2(\data_sync[2]_2 [42]),
+        .I3(write_ack_int),
+        .I4(vid_aclk_en),
+        .I5(ipif_Addr[6]),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[16][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
-  LUT3 #(
-    .INIT(8'h01)) 
-    \AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2 
-       (.I0(ipif_Addr[4]),
-        .I1(ipif_Addr[3]),
-        .I2(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .O(\AXI4_LITE_INTERFACE.core_control_regs_int[16][27]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT4 #(
-    .INIT(16'h0004)) 
+    .INIT(16'h0002)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_1 
-       (.I0(ipif_Addr[3]),
-        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ),
+       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I1(ipif_Addr[4]),
+        .I2(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ),
+        .I3(ipif_Addr[3]),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[1][0] ));
   LUT5 #(
-    .INIT(32'hFFFFF7FF)) 
+    .INIT(32'hEFFFFFFF)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2 
-       (.I0(write_ack_int),
-        .I1(\data_sync[2]_2 [42]),
-        .I2(ipif_Addr[6]),
-        .I3(vid_aclk_en),
-        .I4(ipif_Addr[5]),
+       (.I0(ipif_Addr[6]),
+        .I1(ipif_Addr[5]),
+        .I2(write_ack_int),
+        .I3(\data_sync[2]_2 [42]),
+        .I4(vid_aclk_en),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ));
   LUT3 #(
-    .INIT(8'h80)) 
+    .INIT(8'h40)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[2][27]_i_1 
        (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0 ),
         .I1(\data_sync[2]_2 [42]),
         .I2(write_ack_int),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[2][0] ));
-  LUT3 #(
-    .INIT(8'h80)) 
+  LUT6 #(
+    .INIT(64'h1000000000000000)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [42]),
-        .I2(write_ack_int),
+       (.I0(ipif_Addr[4]),
+        .I1(\AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2_n_0 ),
+        .I2(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I3(ipif_Addr[3]),
+        .I4(\data_sync[2]_2 [42]),
+        .I5(write_ack_int),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[3][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT4 #(
-    .INIT(16'h0010)) 
-    \AXI4_LITE_INTERFACE.core_control_regs_int[4][27]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ),
-        .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0] ));
   (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT3 #(
+    .INIT(8'hEF)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2 
+       (.I0(ipif_Addr[6]),
+        .I1(ipif_Addr[5]),
+        .I2(vid_aclk_en),
+        .O(\AXI4_LITE_INTERFACE.core_control_regs_int[3][27]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT4 #(
-    .INIT(16'h0040)) 
-    \AXI4_LITE_INTERFACE.core_control_regs_int[5][27]_i_1 
-       (.I0(ipif_Addr[3]),
+    .INIT(16'h0002)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[4][27]_i_1 
+       (.I0(ipif_Addr[4]),
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ),
+        .I2(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ),
+        .I3(ipif_Addr[3]),
+        .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[4][0] ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT4 #(
+    .INIT(16'h0008)) 
+    \AXI4_LITE_INTERFACE.core_control_regs_int[5][27]_i_1 
+       (.I0(ipif_Addr[4]),
+        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I2(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ),
+        .I3(ipif_Addr[3]),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[5][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT4 #(
     .INIT(16'h0040)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[6][27]_i_1 
        (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
+        .I1(ipif_Addr[4]),
+        .I2(ipif_Addr[3]),
         .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[6][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[7][27]_i_1 
@@ -20058,7 +19932,7 @@ module system_v_tc_out_0_video_clock_cross
         .I2(ipif_Addr[4]),
         .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[1][27]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[7][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'h0001)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_1 
@@ -20068,339 +19942,348 @@ module system_v_tc_out_0_video_clock_cross
         .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[8][0] ));
   LUT5 #(
-    .INIT(32'hF7FFFFFF)) 
+    .INIT(32'hFFFF7FFF)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2 
-       (.I0(write_ack_int),
-        .I1(\data_sync[2]_2 [42]),
-        .I2(ipif_Addr[6]),
-        .I3(ipif_Addr[5]),
-        .I4(vid_aclk_en),
+       (.I0(ipif_Addr[5]),
+        .I1(vid_aclk_en),
+        .I2(write_ack_int),
+        .I3(\data_sync[2]_2 [42]),
+        .I4(ipif_Addr[6]),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     \AXI4_LITE_INTERFACE.core_control_regs_int[9][27]_i_1 
-       (.I0(ipif_Addr[3]),
+       (.I0(ipif_Addr[4]),
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I2(ipif_Addr[4]),
+        .I2(ipif_Addr[3]),
         .I3(\AXI4_LITE_INTERFACE.core_control_regs_int[8][27]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.core_control_regs_int_reg[9][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT4 #(
-    .INIT(16'h0100)) 
+  LUT6 #(
+    .INIT(64'h0000000000000200)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0 ),
+       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0 ),
+        .I1(ipif_Addr[6]),
+        .I2(ipif_Addr[5]),
+        .I3(vid_aclk_en),
+        .I4(ipif_Addr[7]),
+        .I5(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0 ),
         .O(E));
-  (* IS_FANOUT_CONSTRAINED = "1" *) 
-  LUT1 #(
-    .INIT(2'h2)) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  LUT3 #(
+    .INIT(8'h01)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2 
-       (.I0(\data_sync[2]_2 [34]),
-        .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ));
+       (.I0(ipif_Addr[4]),
+        .I1(ipif_Addr[3]),
+        .I2(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h7)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3 
+       (.I0(write_ack_int),
+        .I1(\data_sync[2]_2 [41]),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][10]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [10]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[2]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][10] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][11]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [11]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[3]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][11] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][12]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [12]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[4]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][12] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][13]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [13]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[5]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][13] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][16]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [16]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[6]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][16] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][17]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [17]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[7]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][17] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][18]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [18]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[8]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][18] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][19]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [19]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[9]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][19] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][20]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [20]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[10]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][20] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][21]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [21]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[11]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][21] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][22]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [22]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[12]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][22] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][23]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [23]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[13]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][23] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][24]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [24]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[14]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][24] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][25]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [25]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[15]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][25] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][26]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [26]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[16]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][26] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][27]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [27]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[17]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][27] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][28]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [28]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[18]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][28] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][29]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [29]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[19]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][29] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][30]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [30]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[20]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][30] ));
+  LUT6 #(
+    .INIT(64'hD0DDF00000000000)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_1 
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [31]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
+        .I4(D[21]),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][31] ));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT4 #(
+    .INIT(16'h0020)) 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2 
+       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_3_n_0 ),
+        .I1(ipif_Addr[4]),
+        .I2(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I3(ipif_Addr[3]),
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'h0000000000000800)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3 
+    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_3 
        (.I0(write_ack_int),
         .I1(\data_sync[2]_2 [41]),
         .I2(ipif_Addr[7]),
         .I3(vid_aclk_en),
         .I4(ipif_Addr[5]),
         .I5(ipif_Addr[6]),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0 ));
+        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][10]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [10]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[2]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][10] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][11]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [11]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[3]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][11] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][12]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [12]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[4]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][12] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][13]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [13]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[5]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][13] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][16]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [16]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[6]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][16] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][17]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [17]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[7]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][17] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][18]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [18]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[8]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][18] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][19]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [19]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[9]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][19] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][20]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [20]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[10]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][20] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][21]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [21]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[11]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][21] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][22]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [22]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[12]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][22] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][23]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [23]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[13]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][23] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][24]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [24]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[14]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][24] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][25]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [25]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[15]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][25] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][26]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [26]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[16]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][26] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][27]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [27]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[17]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][27] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][28]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [28]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[18]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][28] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][29]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [29]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[19]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][29] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][30]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [30]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[20]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][30] ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [31]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
-        .I4(D[21]),
-        .I5(vid_aclk_en),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT4 #(
-    .INIT(16'h0020)) 
-    \AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I3(ipif_Addr[4]),
-        .O(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
+    .INIT(64'hD0DDF00000000000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[1][8]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [8]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [8]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
         .I4(D[0]),
-        .I5(vid_aclk_en),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][8] ));
   LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
+    .INIT(64'hD0DDF00000000000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[1][9]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [9]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [9]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[1][31]_i_2_n_0 ),
         .I4(D[1]),
-        .I5(vid_aclk_en),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][9] ));
   LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
+    .INIT(64'hD0DDF00000000000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[2][16]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [16]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [16]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
         .I4(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0 [0]),
-        .I5(vid_aclk_en),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][16] ));
   LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
+    .INIT(64'hD0DDF00000000000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[2][17]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [17]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [17]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
         .I4(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0 [1]),
-        .I5(vid_aclk_en),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][17] ));
   LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
+    .INIT(64'hD0DDF00000000000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[2][18]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [18]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [18]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
         .I4(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0 [2]),
-        .I5(vid_aclk_en),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][18] ));
   LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
+    .INIT(64'hD0DDF00000000000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[2][19]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [19]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [19]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
         .I4(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0 [3]),
-        .I5(vid_aclk_en),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][19] ));
   LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
+    .INIT(64'hD0DDF00000000000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[2][20]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [20]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [20]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
         .I4(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0 [4]),
-        .I5(vid_aclk_en),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][20] ));
   LUT6 #(
-    .INIT(64'hD0008080D0D08080)) 
+    .INIT(64'hD0DDF00000000000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
-        .I1(\data_sync[2]_2 [21]),
-        .I2(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(vid_aclk_en),
+        .I1(\data_sync[2]_2 [41]),
+        .I2(\data_sync[2]_2 [21]),
+        .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2_n_0 ),
         .I4(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21]_0 [5]),
-        .I5(vid_aclk_en),
+        .I5(\AXI4_LITE_INTERFACE.soft_resetn_reg ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[2][21] ));
   LUT4 #(
-    .INIT(16'h0800)) 
+    .INIT(16'h0008)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[2][21]_i_2 
        (.I0(write_ack_int),
         .I1(\data_sync[2]_2 [41]),
@@ -20416,14 +20299,14 @@ module system_v_tc_out_0_video_clock_cross
         .I3(\AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[3][8] ));
   LUT6 #(
-    .INIT(64'h0100000000000000)) 
+    .INIT(64'h0000000000080000)) 
     \AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2 
-       (.I0(ipif_Addr[5]),
-        .I1(ipif_Addr[6]),
-        .I2(ipif_Addr[4]),
-        .I3(vid_aclk_en),
-        .I4(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I5(ipif_Addr[3]),
+       (.I0(ipif_Addr[3]),
+        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I2(ipif_Addr[6]),
+        .I3(ipif_Addr[5]),
+        .I4(vid_aclk_en),
+        .I5(ipif_Addr[4]),
         .O(\AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0 ));
   MUXF7 \AXI4_LITE_INTERFACE.ipif_RdData_reg[0]_i_1 
        (.I0(\GEN_TREE.GEN_BRANCH[5].GEN_MUX_REG.data_out_reg_reg[5][0] ),
@@ -20601,123 +20484,135 @@ module system_v_tc_out_0_video_clock_cross
         .I3(\genr_control_regs[0] [24]),
         .I4(\data_sync[2]_2 [44]),
         .O(p_456_out));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT4 #(
-    .INIT(16'h0001)) 
+    .INIT(16'h0100)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_1 
        (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I1(ipif_Addr[3]),
         .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0 ),
+        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][0] ));
   LUT6 #(
-    .INIT(64'h0010000000000000)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0 ),
-        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I2(ipif_Addr[3]),
-        .I3(ipif_Addr[4]),
-        .I4(\data_sync[2]_2 [41]),
-        .I5(write_ack_int),
-        .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][7] ));
-  LUT4 #(
-    .INIT(16'hFF7F)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2 
-       (.I0(ipif_Addr[6]),
-        .I1(vid_aclk_en),
-        .I2(ipif_Addr[5]),
-        .I3(ipif_Addr[7]),
-        .O(\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT4 #(
-    .INIT(16'h0008)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0 ),
-        .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0] ));
-  LUT6 #(
-    .INIT(64'hF7FFFFFFFFFFFFFF)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2 
-       (.I0(\data_sync[2]_2 [41]),
-        .I1(write_ack_int),
+    .INIT(64'h0800000000000000)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2 
+       (.I0(write_ack_int),
+        .I1(\data_sync[2]_2 [41]),
         .I2(ipif_Addr[7]),
         .I3(ipif_Addr[5]),
         .I4(vid_aclk_en),
         .I5(ipif_Addr[6]),
-        .O(\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT4 #(
-    .INIT(16'h0010)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
+        .O(\AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0 ));
+  LUT5 #(
+    .INIT(32'h00002000)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_1 
+       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0 ),
+        .I1(ipif_Addr[4]),
+        .I2(\data_sync[2]_2 [41]),
+        .I3(write_ack_int),
+        .I4(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][7] ));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT5 #(
+    .INIT(32'h08000000)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2 
+       (.I0(vid_aclk_en),
+        .I1(ipif_Addr[6]),
+        .I2(ipif_Addr[7]),
+        .I3(ipif_Addr[3]),
+        .I4(ipif_Addr[5]),
+        .O(\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0 ));
+  (* IS_FANOUT_CONSTRAINED = "1" *) 
+  LUT1 #(
+    .INIT(2'h2)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_3 
+       (.I0(\data_sync[2]_2 [34]),
+        .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ));
+  LUT5 #(
+    .INIT(32'h08000000)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_1 
+       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[18][6]_i_2_n_0 ),
+        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0 ),
+        .I3(\data_sync[2]_2 [41]),
+        .I4(write_ack_int),
+        .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[19][0] ));
+  LUT6 #(
+    .INIT(64'h0000000000002000)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_1 
+       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2_n_0 ),
+        .I1(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0 ),
+        .I2(ipif_Addr[5]),
+        .I3(ipif_Addr[4]),
+        .I4(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I5(ipif_Addr[3]),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT4 #(
-    .INIT(16'h0040)) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'h40)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2 
+       (.I0(ipif_Addr[7]),
+        .I1(ipif_Addr[6]),
+        .I2(vid_aclk_en),
+        .O(\AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h1000000000000000)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[21][28]_i_1 
        (.I0(ipif_Addr[3]),
+        .I1(\AXI4_LITE_INTERFACE.genr_control_regs_int[0][31]_i_3_n_0 ),
+        .I2(\AXI4_LITE_INTERFACE.time_control_regs_int[20][28]_i_2_n_0 ),
+        .I3(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I4(ipif_Addr[4]),
+        .I5(ipif_Addr[5]),
+        .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0] ));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT4 #(
+    .INIT(16'h2000)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[22][28]_i_1 
+       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0 ),
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0 ),
-        .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[21][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT4 #(
-    .INIT(16'h0040)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[22][28]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0 ),
+        .I3(ipif_Addr[3]),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[22][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT4 #(
-    .INIT(16'h0080)) 
+    .INIT(16'h8000)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[23][28]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[19][6]_i_2_n_0 ),
+       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[16][28]_i_2_n_0 ),
+        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I2(ipif_Addr[3]),
+        .I3(ipif_Addr[4]),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[23][0] ));
   LUT6 #(
-    .INIT(64'h0000000000000040)) 
+    .INIT(64'h0000000010000000)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0 ),
-        .I1(ipif_Addr[7]),
-        .I2(vid_aclk_en),
-        .I3(ipif_Addr[5]),
-        .I4(ipif_Addr[6]),
-        .I5(\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_3_n_0 ),
-        .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
-        .O(\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0 ));
-  LUT3 #(
-    .INIT(8'hBF)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_3 
-       (.I0(ipif_Addr[4]),
-        .I1(\data_sync[2]_2 [41]),
-        .I2(write_ack_int),
-        .O(\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT4 #(
-    .INIT(16'h0004)) 
-    \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_1 
        (.I0(ipif_Addr[3]),
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0 ),
+        .I2(\data_sync[2]_2 [41]),
+        .I3(write_ack_int),
+        .I4(ipif_Addr[7]),
+        .I5(\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0 ),
+        .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0] ));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT4 #(
+    .INIT(16'hFFFB)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2 
+       (.I0(ipif_Addr[4]),
+        .I1(vid_aclk_en),
+        .I2(ipif_Addr[5]),
+        .I3(ipif_Addr[6]),
+        .O(\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT4 #(
+    .INIT(16'h0020)) 
+    \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_1 
+       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0 ),
+        .I1(ipif_Addr[4]),
+        .I2(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I3(ipif_Addr[3]),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[25][0] ));
   LUT6 #(
-    .INIT(64'hFDFFFFFFFFFFFFFF)) 
+    .INIT(64'h0200000000000000)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2 
        (.I0(vid_aclk_en),
         .I1(ipif_Addr[5]),
@@ -20727,39 +20622,41 @@ module system_v_tc_out_0_video_clock_cross
         .I5(\data_sync[2]_2 [41]),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0 ));
   LUT4 #(
-    .INIT(16'h8000)) 
+    .INIT(16'h0080)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0 ),
-        .I1(ipif_Addr[7]),
-        .I2(write_ack_int),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(ipif_Addr[7]),
+        .I1(write_ack_int),
+        .I2(\data_sync[2]_2 [41]),
+        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[26][0] ));
   LUT6 #(
-    .INIT(64'h0000010000000000)) 
+    .INIT(64'hFFFFFEFFFFFFFFFF)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2 
-       (.I0(ipif_Addr[5]),
-        .I1(ipif_Addr[6]),
-        .I2(ipif_Addr[4]),
+       (.I0(ipif_Addr[6]),
+        .I1(ipif_Addr[5]),
+        .I2(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I3(vid_aclk_en),
-        .I4(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I4(ipif_Addr[4]),
         .I5(ipif_Addr[3]),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int[26][28]_i_2_n_0 ));
-  LUT4 #(
-    .INIT(16'h8000)) 
+  LUT6 #(
+    .INIT(64'h0000000080000000)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[27][28]_i_1 
-       (.I0(\AXI4_LITE_INTERFACE.genr_control_regs_int[3][31]_i_2_n_0 ),
-        .I1(ipif_Addr[7]),
-        .I2(write_ack_int),
-        .I3(\data_sync[2]_2 [41]),
+       (.I0(ipif_Addr[3]),
+        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
+        .I2(\data_sync[2]_2 [41]),
+        .I3(write_ack_int),
+        .I4(ipif_Addr[7]),
+        .I5(\AXI4_LITE_INTERFACE.time_control_regs_int[24][28]_i_2_n_0 ),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[27][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
-    .INIT(16'h0010)) 
+    .INIT(16'h0020)) 
     \AXI4_LITE_INTERFACE.time_control_regs_int[28][28]_i_1 
-       (.I0(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
-        .I1(ipif_Addr[3]),
+       (.I0(\AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0 ),
+        .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(ipif_Addr[4]),
-        .I3(\AXI4_LITE_INTERFACE.time_control_regs_int[25][28]_i_2_n_0 ),
+        .I3(ipif_Addr[3]),
         .O(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[28][0] ));
   LUT3 #(
     .INIT(8'h54)) 
@@ -20768,7 +20665,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\data_sync[2]_2 [42]),
         .I2(\data_sync[2]_2 [41]),
         .O(p_533_out));
-  (* SOFT_HLUTNM = "soft_lutpair260" *) 
+  (* SOFT_HLUTNM = "soft_lutpair263" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][0]_i_1 
@@ -20776,7 +20673,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [0]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair269" *) 
+  (* SOFT_HLUTNM = "soft_lutpair272" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][10]_i_1 
@@ -20784,7 +20681,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [7]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair269" *) 
+  (* SOFT_HLUTNM = "soft_lutpair272" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][11]_i_1 
@@ -20792,7 +20689,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [8]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair268" *) 
+  (* SOFT_HLUTNM = "soft_lutpair271" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][12]_i_1 
@@ -20800,7 +20697,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_status_regs[0] [3]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair268" *) 
+  (* SOFT_HLUTNM = "soft_lutpair271" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][13]_i_1 
@@ -20808,7 +20705,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [9]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair267" *) 
+  (* SOFT_HLUTNM = "soft_lutpair270" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][14]_i_1 
@@ -20816,7 +20713,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [10]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair259" *) 
+  (* SOFT_HLUTNM = "soft_lutpair262" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][15]_i_1 
@@ -20824,7 +20721,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [11]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair266" *) 
+  (* SOFT_HLUTNM = "soft_lutpair269" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][16]_i_1 
@@ -20832,7 +20729,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [12]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair266" *) 
+  (* SOFT_HLUTNM = "soft_lutpair269" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][17]_i_1 
@@ -20840,7 +20737,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [13]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair265" *) 
+  (* SOFT_HLUTNM = "soft_lutpair268" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][18]_i_1 
@@ -20848,7 +20745,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [14]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair265" *) 
+  (* SOFT_HLUTNM = "soft_lutpair268" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][19]_i_1 
@@ -20856,7 +20753,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [15]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair267" *) 
+  (* SOFT_HLUTNM = "soft_lutpair270" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][1]_i_1 
@@ -20864,7 +20761,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [1]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair264" *) 
+  (* SOFT_HLUTNM = "soft_lutpair267" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][20]_i_1 
@@ -20872,7 +20769,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [16]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair264" *) 
+  (* SOFT_HLUTNM = "soft_lutpair267" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][21]_i_1 
@@ -20880,7 +20777,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [17]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair263" *) 
+  (* SOFT_HLUTNM = "soft_lutpair266" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][22]_i_1 
@@ -20888,7 +20785,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [18]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair263" *) 
+  (* SOFT_HLUTNM = "soft_lutpair266" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][23]_i_1 
@@ -20896,7 +20793,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [19]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair262" *) 
+  (* SOFT_HLUTNM = "soft_lutpair265" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][24]_i_1 
@@ -20904,7 +20801,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [20]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair262" *) 
+  (* SOFT_HLUTNM = "soft_lutpair265" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][25]_i_1 
@@ -20912,7 +20809,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [21]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair261" *) 
+  (* SOFT_HLUTNM = "soft_lutpair264" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][26]_i_1 
@@ -20920,7 +20817,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [22]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair261" *) 
+  (* SOFT_HLUTNM = "soft_lutpair264" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][27]_i_1 
@@ -20928,7 +20825,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_status_regs[0] [4]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair260" *) 
+  (* SOFT_HLUTNM = "soft_lutpair263" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][28]_i_1 
@@ -20936,7 +20833,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_status_regs[0] [5]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair259" *) 
+  (* SOFT_HLUTNM = "soft_lutpair262" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][29]_i_1 
@@ -20944,7 +20841,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_status_regs[0] [6]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair273" *) 
+  (* SOFT_HLUTNM = "soft_lutpair276" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][2]_i_1 
@@ -20952,7 +20849,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [2]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair258" *) 
+  (* SOFT_HLUTNM = "soft_lutpair261" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][30]_i_1 
@@ -20960,7 +20857,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [23]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair273" *) 
+  (* SOFT_HLUTNM = "soft_lutpair276" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][3]_i_1 
@@ -20968,7 +20865,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [3]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair272" *) 
+  (* SOFT_HLUTNM = "soft_lutpair275" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][4]_i_1 
@@ -20976,7 +20873,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_status_regs[0] [0]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair272" *) 
+  (* SOFT_HLUTNM = "soft_lutpair275" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][5]_i_1 
@@ -20984,7 +20881,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [4]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair271" *) 
+  (* SOFT_HLUTNM = "soft_lutpair274" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][6]_i_1 
@@ -20992,7 +20889,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_status_regs[0] [1]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair271" *) 
+  (* SOFT_HLUTNM = "soft_lutpair274" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][7]_i_1 
@@ -21000,7 +20897,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_status_regs[0] [2]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair270" *) 
+  (* SOFT_HLUTNM = "soft_lutpair273" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][8]_i_1 
@@ -21008,7 +20905,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [5]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair270" *) 
+  (* SOFT_HLUTNM = "soft_lutpair273" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg[31][9]_i_1 
@@ -21016,7 +20913,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\genr_control_regs[0] [6]),
         .O(\GEN_TREE.GEN_BRANCH[31].GEN_MUX_REG.data_out_reg_reg[31][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair244" *) 
+  (* SOFT_HLUTNM = "soft_lutpair247" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][0]_i_1 
@@ -21024,7 +20921,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[0]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair254" *) 
+  (* SOFT_HLUTNM = "soft_lutpair257" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][10]_i_1 
@@ -21032,7 +20929,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[10]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair253" *) 
+  (* SOFT_HLUTNM = "soft_lutpair256" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][11]_i_1 
@@ -21040,7 +20937,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[11]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair253" *) 
+  (* SOFT_HLUTNM = "soft_lutpair256" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][12]_i_1 
@@ -21048,7 +20945,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[12]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair252" *) 
+  (* SOFT_HLUTNM = "soft_lutpair255" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][13]_i_1 
@@ -21056,7 +20953,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[13]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair252" *) 
+  (* SOFT_HLUTNM = "soft_lutpair255" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][14]_i_1 
@@ -21064,7 +20961,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[14]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair251" *) 
+  (* SOFT_HLUTNM = "soft_lutpair254" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][15]_i_1 
@@ -21072,7 +20969,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[15]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair251" *) 
+  (* SOFT_HLUTNM = "soft_lutpair254" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][16]_i_1 
@@ -21080,7 +20977,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[16]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair250" *) 
+  (* SOFT_HLUTNM = "soft_lutpair253" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][17]_i_1 
@@ -21088,7 +20985,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[17]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair250" *) 
+  (* SOFT_HLUTNM = "soft_lutpair253" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][18]_i_1 
@@ -21096,7 +20993,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[18]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair249" *) 
+  (* SOFT_HLUTNM = "soft_lutpair252" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][19]_i_1 
@@ -21104,7 +21001,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[19]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair243" *) 
+  (* SOFT_HLUTNM = "soft_lutpair246" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][1]_i_1 
@@ -21112,7 +21009,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[1]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair249" *) 
+  (* SOFT_HLUTNM = "soft_lutpair252" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][20]_i_1 
@@ -21120,7 +21017,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[20]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair248" *) 
+  (* SOFT_HLUTNM = "soft_lutpair251" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][21]_i_1 
@@ -21128,7 +21025,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[21]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair248" *) 
+  (* SOFT_HLUTNM = "soft_lutpair251" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][22]_i_1 
@@ -21136,7 +21033,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[22]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair247" *) 
+  (* SOFT_HLUTNM = "soft_lutpair250" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][23]_i_1 
@@ -21144,7 +21041,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[23]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair247" *) 
+  (* SOFT_HLUTNM = "soft_lutpair250" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][24]_i_1 
@@ -21152,7 +21049,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[24]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair246" *) 
+  (* SOFT_HLUTNM = "soft_lutpair249" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][25]_i_1 
@@ -21160,7 +21057,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[25]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair246" *) 
+  (* SOFT_HLUTNM = "soft_lutpair249" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][26]_i_1 
@@ -21168,7 +21065,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[26]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair245" *) 
+  (* SOFT_HLUTNM = "soft_lutpair248" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][27]_i_1 
@@ -21176,7 +21073,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[27]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair245" *) 
+  (* SOFT_HLUTNM = "soft_lutpair248" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][28]_i_1 
@@ -21184,7 +21081,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[28]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair244" *) 
+  (* SOFT_HLUTNM = "soft_lutpair247" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][29]_i_1 
@@ -21192,7 +21089,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[29]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair258" *) 
+  (* SOFT_HLUTNM = "soft_lutpair261" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][2]_i_1 
@@ -21200,7 +21097,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[2]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair243" *) 
+  (* SOFT_HLUTNM = "soft_lutpair246" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][30]_i_1 
@@ -21208,7 +21105,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[30]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair212" *) 
+  (* SOFT_HLUTNM = "soft_lutpair215" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][31]_i_1 
@@ -21216,7 +21113,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[31]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair257" *) 
+  (* SOFT_HLUTNM = "soft_lutpair260" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][3]_i_1 
@@ -21224,7 +21121,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[3]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair257" *) 
+  (* SOFT_HLUTNM = "soft_lutpair260" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][4]_i_1 
@@ -21232,7 +21129,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[4]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair256" *) 
+  (* SOFT_HLUTNM = "soft_lutpair259" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][5]_i_1 
@@ -21240,7 +21137,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[5]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair256" *) 
+  (* SOFT_HLUTNM = "soft_lutpair259" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][6]_i_1 
@@ -21248,7 +21145,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[6]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair255" *) 
+  (* SOFT_HLUTNM = "soft_lutpair258" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][7]_i_1 
@@ -21256,7 +21153,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[7]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair255" *) 
+  (* SOFT_HLUTNM = "soft_lutpair258" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][8]_i_1 
@@ -21264,7 +21161,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[8]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair254" *) 
+  (* SOFT_HLUTNM = "soft_lutpair257" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg[32][9]_i_1 
@@ -21272,13 +21169,13 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(intr_err[9]),
         .O(\GEN_TREE.GEN_BRANCH[32].GEN_MUX_REG.data_out_reg_reg[32][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \GEN_TREE.GEN_BRANCH[33].GEN_MUX_REG.data_out_reg[33][26]_i_1 
        (.I0(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .O(\GEN_TREE.GEN_BRANCH[33].GEN_MUX_REG.data_out_reg_reg[33][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair212" *) 
+  (* SOFT_HLUTNM = "soft_lutpair215" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][0]_i_1 
@@ -21286,7 +21183,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0]_0 ),
         .I2(\time_status_regs[0] [0]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair238" *) 
+  (* SOFT_HLUTNM = "soft_lutpair241" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][10]_i_1 
@@ -21294,7 +21191,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [10]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair238" *) 
+  (* SOFT_HLUTNM = "soft_lutpair241" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][11]_i_1 
@@ -21302,7 +21199,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [11]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair237" *) 
+  (* SOFT_HLUTNM = "soft_lutpair240" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][12]_i_1 
@@ -21310,7 +21207,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [12]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair237" *) 
+  (* SOFT_HLUTNM = "soft_lutpair240" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][13]_i_1 
@@ -21318,7 +21215,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [13]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair236" *) 
+  (* SOFT_HLUTNM = "soft_lutpair239" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][14]_i_1 
@@ -21326,7 +21223,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [14]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair236" *) 
+  (* SOFT_HLUTNM = "soft_lutpair239" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][15]_i_1 
@@ -21334,7 +21231,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [15]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair235" *) 
+  (* SOFT_HLUTNM = "soft_lutpair238" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][16]_i_1 
@@ -21342,7 +21239,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [16]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair235" *) 
+  (* SOFT_HLUTNM = "soft_lutpair238" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][17]_i_1 
@@ -21350,7 +21247,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [17]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair234" *) 
+  (* SOFT_HLUTNM = "soft_lutpair237" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][18]_i_1 
@@ -21358,7 +21255,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [18]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair234" *) 
+  (* SOFT_HLUTNM = "soft_lutpair237" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][19]_i_1 
@@ -21366,7 +21263,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [19]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair242" *) 
+  (* SOFT_HLUTNM = "soft_lutpair245" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][1]_i_1 
@@ -21374,7 +21271,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [1]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair233" *) 
+  (* SOFT_HLUTNM = "soft_lutpair236" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][20]_i_1 
@@ -21382,7 +21279,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [20]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair233" *) 
+  (* SOFT_HLUTNM = "soft_lutpair236" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][21]_i_1 
@@ -21390,7 +21287,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [21]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair232" *) 
+  (* SOFT_HLUTNM = "soft_lutpair235" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][22]_i_1 
@@ -21398,7 +21295,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [22]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair232" *) 
+  (* SOFT_HLUTNM = "soft_lutpair235" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][23]_i_1 
@@ -21406,7 +21303,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [23]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair231" *) 
+  (* SOFT_HLUTNM = "soft_lutpair234" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][24]_i_1 
@@ -21414,7 +21311,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [24]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair231" *) 
+  (* SOFT_HLUTNM = "soft_lutpair234" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][25]_i_1 
@@ -21422,7 +21319,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [25]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair230" *) 
+  (* SOFT_HLUTNM = "soft_lutpair233" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][26]_i_1 
@@ -21430,7 +21327,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [26]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair230" *) 
+  (* SOFT_HLUTNM = "soft_lutpair233" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][27]_i_1 
@@ -21438,7 +21335,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [27]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair229" *) 
+  (* SOFT_HLUTNM = "soft_lutpair232" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][28]_i_1 
@@ -21446,7 +21343,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [28]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair229" *) 
+  (* SOFT_HLUTNM = "soft_lutpair232" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][29]_i_1 
@@ -21454,7 +21351,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [29]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair242" *) 
+  (* SOFT_HLUTNM = "soft_lutpair245" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][2]_i_1 
@@ -21462,7 +21359,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [2]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair228" *) 
+  (* SOFT_HLUTNM = "soft_lutpair231" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][30]_i_1 
@@ -21470,7 +21367,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [30]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair228" *) 
+  (* SOFT_HLUTNM = "soft_lutpair231" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][31]_i_1 
@@ -21478,7 +21375,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [31]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair211" *) 
+  (* SOFT_HLUTNM = "soft_lutpair214" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][3]_i_1 
@@ -21486,7 +21383,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [3]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair241" *) 
+  (* SOFT_HLUTNM = "soft_lutpair244" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][4]_i_1 
@@ -21494,7 +21391,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [4]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair241" *) 
+  (* SOFT_HLUTNM = "soft_lutpair244" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][5]_i_1 
@@ -21502,7 +21399,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [5]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair240" *) 
+  (* SOFT_HLUTNM = "soft_lutpair243" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][6]_i_1 
@@ -21510,7 +21407,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [6]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair240" *) 
+  (* SOFT_HLUTNM = "soft_lutpair243" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][7]_i_1 
@@ -21518,7 +21415,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [7]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair239" *) 
+  (* SOFT_HLUTNM = "soft_lutpair242" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][8]_i_1 
@@ -21526,7 +21423,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [8]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair239" *) 
+  (* SOFT_HLUTNM = "soft_lutpair242" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg[35][9]_i_1 
@@ -21534,7 +21431,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[0] [9]),
         .O(\GEN_TREE.GEN_BRANCH[35].GEN_MUX_REG.data_out_reg_reg[35][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair227" *) 
+  (* SOFT_HLUTNM = "soft_lutpair230" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][0]_i_1 
@@ -21542,7 +21439,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [0]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair222" *) 
+  (* SOFT_HLUTNM = "soft_lutpair225" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][10]_i_1 
@@ -21550,7 +21447,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [10]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair222" *) 
+  (* SOFT_HLUTNM = "soft_lutpair225" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][11]_i_1 
@@ -21558,7 +21455,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [11]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair221" *) 
+  (* SOFT_HLUTNM = "soft_lutpair224" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][12]_i_1 
@@ -21566,7 +21463,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [12]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair221" *) 
+  (* SOFT_HLUTNM = "soft_lutpair224" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][13]_i_1 
@@ -21574,7 +21471,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [13]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair220" *) 
+  (* SOFT_HLUTNM = "soft_lutpair223" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][14]_i_1 
@@ -21582,7 +21479,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [14]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair220" *) 
+  (* SOFT_HLUTNM = "soft_lutpair223" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][15]_i_1 
@@ -21590,7 +21487,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [15]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair219" *) 
+  (* SOFT_HLUTNM = "soft_lutpair222" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][16]_i_1 
@@ -21598,7 +21495,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [16]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair219" *) 
+  (* SOFT_HLUTNM = "soft_lutpair222" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][17]_i_1 
@@ -21606,7 +21503,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [17]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair218" *) 
+  (* SOFT_HLUTNM = "soft_lutpair221" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][18]_i_1 
@@ -21614,7 +21511,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [18]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair218" *) 
+  (* SOFT_HLUTNM = "soft_lutpair221" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][19]_i_1 
@@ -21622,7 +21519,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [19]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair227" *) 
+  (* SOFT_HLUTNM = "soft_lutpair230" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][1]_i_1 
@@ -21630,7 +21527,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [1]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair217" *) 
+  (* SOFT_HLUTNM = "soft_lutpair220" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][20]_i_1 
@@ -21638,7 +21535,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [20]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair217" *) 
+  (* SOFT_HLUTNM = "soft_lutpair220" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][21]_i_1 
@@ -21646,7 +21543,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [21]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair216" *) 
+  (* SOFT_HLUTNM = "soft_lutpair219" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][22]_i_1 
@@ -21654,7 +21551,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [22]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair216" *) 
+  (* SOFT_HLUTNM = "soft_lutpair219" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][23]_i_1 
@@ -21662,7 +21559,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [23]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair215" *) 
+  (* SOFT_HLUTNM = "soft_lutpair218" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][24]_i_1 
@@ -21670,7 +21567,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [24]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair215" *) 
+  (* SOFT_HLUTNM = "soft_lutpair218" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][25]_i_1 
@@ -21678,7 +21575,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [25]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair214" *) 
+  (* SOFT_HLUTNM = "soft_lutpair217" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][26]_i_1 
@@ -21686,7 +21583,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [26]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair214" *) 
+  (* SOFT_HLUTNM = "soft_lutpair217" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][27]_i_1 
@@ -21694,7 +21591,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [27]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair213" *) 
+  (* SOFT_HLUTNM = "soft_lutpair216" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][28]_i_1 
@@ -21702,7 +21599,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [28]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair213" *) 
+  (* SOFT_HLUTNM = "soft_lutpair216" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][29]_i_1 
@@ -21710,7 +21607,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [29]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair226" *) 
+  (* SOFT_HLUTNM = "soft_lutpair229" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][2]_i_1 
@@ -21718,7 +21615,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [2]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair211" *) 
+  (* SOFT_HLUTNM = "soft_lutpair214" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][30]_i_1 
@@ -21726,7 +21623,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [30]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair208" *) 
+  (* SOFT_HLUTNM = "soft_lutpair211" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][31]_i_1 
@@ -21734,7 +21631,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [31]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair226" *) 
+  (* SOFT_HLUTNM = "soft_lutpair229" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][3]_i_1 
@@ -21742,7 +21639,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [3]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair225" *) 
+  (* SOFT_HLUTNM = "soft_lutpair228" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][4]_i_1 
@@ -21750,7 +21647,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [4]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair225" *) 
+  (* SOFT_HLUTNM = "soft_lutpair228" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][5]_i_1 
@@ -21758,7 +21655,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [5]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair224" *) 
+  (* SOFT_HLUTNM = "soft_lutpair227" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][6]_i_1 
@@ -21766,7 +21663,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [6]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair224" *) 
+  (* SOFT_HLUTNM = "soft_lutpair227" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][7]_i_1 
@@ -21774,7 +21671,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [7]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair223" *) 
+  (* SOFT_HLUTNM = "soft_lutpair226" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][8]_i_1 
@@ -21782,7 +21679,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [8]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair223" *) 
+  (* SOFT_HLUTNM = "soft_lutpair226" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg[36][9]_i_1 
@@ -21790,7 +21687,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[2] [9]),
         .O(\GEN_TREE.GEN_BRANCH[36].GEN_MUX_REG.data_out_reg_reg[36][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair148" *) 
+  (* SOFT_HLUTNM = "soft_lutpair151" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][0]_i_1 
@@ -21798,7 +21695,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [0]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair206" *) 
+  (* SOFT_HLUTNM = "soft_lutpair209" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][10]_i_1 
@@ -21806,7 +21703,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [10]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair205" *) 
+  (* SOFT_HLUTNM = "soft_lutpair208" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][11]_i_1 
@@ -21814,7 +21711,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [11]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair205" *) 
+  (* SOFT_HLUTNM = "soft_lutpair208" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][12]_i_1 
@@ -21822,7 +21719,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [12]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair204" *) 
+  (* SOFT_HLUTNM = "soft_lutpair207" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][13]_i_1 
@@ -21830,7 +21727,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [13]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair204" *) 
+  (* SOFT_HLUTNM = "soft_lutpair207" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][14]_i_1 
@@ -21838,7 +21735,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [14]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair203" *) 
+  (* SOFT_HLUTNM = "soft_lutpair206" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][15]_i_1 
@@ -21846,7 +21743,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [15]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair203" *) 
+  (* SOFT_HLUTNM = "soft_lutpair206" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][16]_i_1 
@@ -21854,7 +21751,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [16]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair202" *) 
+  (* SOFT_HLUTNM = "soft_lutpair205" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][17]_i_1 
@@ -21862,7 +21759,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [17]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair202" *) 
+  (* SOFT_HLUTNM = "soft_lutpair205" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][18]_i_1 
@@ -21870,7 +21767,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [18]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair201" *) 
+  (* SOFT_HLUTNM = "soft_lutpair204" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][19]_i_1 
@@ -21878,7 +21775,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [19]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair210" *) 
+  (* SOFT_HLUTNM = "soft_lutpair213" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][1]_i_1 
@@ -21886,7 +21783,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [1]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair201" *) 
+  (* SOFT_HLUTNM = "soft_lutpair204" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][20]_i_1 
@@ -21894,7 +21791,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [20]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair200" *) 
+  (* SOFT_HLUTNM = "soft_lutpair203" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][21]_i_1 
@@ -21902,7 +21799,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [21]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair200" *) 
+  (* SOFT_HLUTNM = "soft_lutpair203" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][22]_i_1 
@@ -21910,7 +21807,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [22]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair199" *) 
+  (* SOFT_HLUTNM = "soft_lutpair202" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][23]_i_1 
@@ -21918,7 +21815,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [23]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair199" *) 
+  (* SOFT_HLUTNM = "soft_lutpair202" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][24]_i_1 
@@ -21926,7 +21823,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [24]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair198" *) 
+  (* SOFT_HLUTNM = "soft_lutpair201" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][25]_i_1 
@@ -21934,7 +21831,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [25]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair198" *) 
+  (* SOFT_HLUTNM = "soft_lutpair201" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][26]_i_1 
@@ -21942,7 +21839,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [26]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair197" *) 
+  (* SOFT_HLUTNM = "soft_lutpair200" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][27]_i_1 
@@ -21950,7 +21847,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [27]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair197" *) 
+  (* SOFT_HLUTNM = "soft_lutpair200" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][28]_i_1 
@@ -21958,7 +21855,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [28]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair196" *) 
+  (* SOFT_HLUTNM = "soft_lutpair199" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][29]_i_1 
@@ -21966,7 +21863,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [29]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair210" *) 
+  (* SOFT_HLUTNM = "soft_lutpair213" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][2]_i_1 
@@ -21974,7 +21871,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [2]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair196" *) 
+  (* SOFT_HLUTNM = "soft_lutpair199" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][30]_i_1 
@@ -21982,7 +21879,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [30]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair195" *) 
+  (* SOFT_HLUTNM = "soft_lutpair198" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][31]_i_1 
@@ -21990,7 +21887,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [31]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair209" *) 
+  (* SOFT_HLUTNM = "soft_lutpair212" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][3]_i_1 
@@ -21998,7 +21895,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [3]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair209" *) 
+  (* SOFT_HLUTNM = "soft_lutpair212" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][4]_i_1 
@@ -22006,7 +21903,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [4]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair208" *) 
+  (* SOFT_HLUTNM = "soft_lutpair211" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][5]_i_1 
@@ -22014,7 +21911,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [5]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair207" *) 
+  (* SOFT_HLUTNM = "soft_lutpair210" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][6]_i_1 
@@ -22022,7 +21919,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [6]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair147" *) 
+  (* SOFT_HLUTNM = "soft_lutpair150" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][7]_i_1 
@@ -22030,7 +21927,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [7]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair207" *) 
+  (* SOFT_HLUTNM = "soft_lutpair210" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][8]_i_1 
@@ -22038,7 +21935,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [8]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair206" *) 
+  (* SOFT_HLUTNM = "soft_lutpair209" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg[37][9]_i_1 
@@ -22046,7 +21943,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[4] [9]),
         .O(\GEN_TREE.GEN_BRANCH[37].GEN_MUX_REG.data_out_reg_reg[37][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair195" *) 
+  (* SOFT_HLUTNM = "soft_lutpair198" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][0]_i_1 
@@ -22054,7 +21951,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [0]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair190" *) 
+  (* SOFT_HLUTNM = "soft_lutpair193" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][10]_i_1 
@@ -22062,7 +21959,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [10]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair189" *) 
+  (* SOFT_HLUTNM = "soft_lutpair192" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][11]_i_1 
@@ -22070,7 +21967,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [11]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair189" *) 
+  (* SOFT_HLUTNM = "soft_lutpair192" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][12]_i_1 
@@ -22078,7 +21975,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [12]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair188" *) 
+  (* SOFT_HLUTNM = "soft_lutpair191" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][13]_i_1 
@@ -22086,7 +21983,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [13]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair188" *) 
+  (* SOFT_HLUTNM = "soft_lutpair191" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][14]_i_1 
@@ -22094,7 +21991,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [14]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair148" *) 
+  (* SOFT_HLUTNM = "soft_lutpair151" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][15]_i_1 
@@ -22102,7 +21999,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [15]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair147" *) 
+  (* SOFT_HLUTNM = "soft_lutpair150" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_1 
@@ -22116,7 +22013,7 @@ module system_v_tc_out_0_video_clock_cross
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2 
        (.I0(\data_sync[2]_2 [34]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair187" *) 
+  (* SOFT_HLUTNM = "soft_lutpair190" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][17]_i_1 
@@ -22124,7 +22021,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [17]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair187" *) 
+  (* SOFT_HLUTNM = "soft_lutpair190" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][18]_i_1 
@@ -22132,7 +22029,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [18]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair186" *) 
+  (* SOFT_HLUTNM = "soft_lutpair189" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][19]_i_1 
@@ -22140,7 +22037,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [19]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair194" *) 
+  (* SOFT_HLUTNM = "soft_lutpair197" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][1]_i_1 
@@ -22148,7 +22045,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [1]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair186" *) 
+  (* SOFT_HLUTNM = "soft_lutpair189" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][20]_i_1 
@@ -22156,7 +22053,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [20]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair185" *) 
+  (* SOFT_HLUTNM = "soft_lutpair188" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][21]_i_1 
@@ -22164,7 +22061,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [21]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair185" *) 
+  (* SOFT_HLUTNM = "soft_lutpair188" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][22]_i_1 
@@ -22172,7 +22069,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [22]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair184" *) 
+  (* SOFT_HLUTNM = "soft_lutpair187" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][23]_i_1 
@@ -22180,7 +22077,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [23]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair184" *) 
+  (* SOFT_HLUTNM = "soft_lutpair187" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][24]_i_1 
@@ -22188,7 +22085,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [24]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair183" *) 
+  (* SOFT_HLUTNM = "soft_lutpair186" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][25]_i_1 
@@ -22196,7 +22093,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [25]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair183" *) 
+  (* SOFT_HLUTNM = "soft_lutpair186" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][26]_i_1 
@@ -22204,7 +22101,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [26]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair182" *) 
+  (* SOFT_HLUTNM = "soft_lutpair185" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][27]_i_1 
@@ -22212,7 +22109,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [27]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair182" *) 
+  (* SOFT_HLUTNM = "soft_lutpair185" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][28]_i_1 
@@ -22220,7 +22117,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [28]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair181" *) 
+  (* SOFT_HLUTNM = "soft_lutpair184" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][29]_i_1 
@@ -22228,7 +22125,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [29]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair194" *) 
+  (* SOFT_HLUTNM = "soft_lutpair197" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][2]_i_1 
@@ -22236,7 +22133,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [2]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair181" *) 
+  (* SOFT_HLUTNM = "soft_lutpair184" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][30]_i_1 
@@ -22244,7 +22141,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [30]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair180" *) 
+  (* SOFT_HLUTNM = "soft_lutpair183" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][31]_i_1 
@@ -22252,7 +22149,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[6] [31]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair193" *) 
+  (* SOFT_HLUTNM = "soft_lutpair196" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][3]_i_1 
@@ -22260,7 +22157,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [3]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair193" *) 
+  (* SOFT_HLUTNM = "soft_lutpair196" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][4]_i_1 
@@ -22268,7 +22165,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [4]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair192" *) 
+  (* SOFT_HLUTNM = "soft_lutpair195" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][5]_i_1 
@@ -22276,7 +22173,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [5]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair192" *) 
+  (* SOFT_HLUTNM = "soft_lutpair195" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][6]_i_1 
@@ -22284,7 +22181,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [6]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair191" *) 
+  (* SOFT_HLUTNM = "soft_lutpair194" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][7]_i_1 
@@ -22292,7 +22189,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [7]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair191" *) 
+  (* SOFT_HLUTNM = "soft_lutpair194" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][8]_i_1 
@@ -22300,7 +22197,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [8]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair190" *) 
+  (* SOFT_HLUTNM = "soft_lutpair193" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][9]_i_1 
@@ -22308,7 +22205,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg[38][16]_i_2_n_0 ),
         .I2(\time_status_regs[6] [9]),
         .O(\GEN_TREE.GEN_BRANCH[38].GEN_MUX_REG.data_out_reg_reg[38][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair180" *) 
+  (* SOFT_HLUTNM = "soft_lutpair183" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][0]_i_1 
@@ -22316,7 +22213,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [0]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair175" *) 
+  (* SOFT_HLUTNM = "soft_lutpair178" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][10]_i_1 
@@ -22324,7 +22221,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [10]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair174" *) 
+  (* SOFT_HLUTNM = "soft_lutpair177" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][11]_i_1 
@@ -22332,7 +22229,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [11]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair174" *) 
+  (* SOFT_HLUTNM = "soft_lutpair177" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][12]_i_1 
@@ -22340,7 +22237,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [12]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair173" *) 
+  (* SOFT_HLUTNM = "soft_lutpair176" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][13]_i_1 
@@ -22348,7 +22245,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [13]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair173" *) 
+  (* SOFT_HLUTNM = "soft_lutpair176" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][14]_i_1 
@@ -22356,7 +22253,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [14]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair172" *) 
+  (* SOFT_HLUTNM = "soft_lutpair175" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][15]_i_1 
@@ -22364,7 +22261,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [15]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair172" *) 
+  (* SOFT_HLUTNM = "soft_lutpair175" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][16]_i_1 
@@ -22372,7 +22269,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [16]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair171" *) 
+  (* SOFT_HLUTNM = "soft_lutpair174" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][17]_i_1 
@@ -22380,7 +22277,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [17]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair171" *) 
+  (* SOFT_HLUTNM = "soft_lutpair174" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][18]_i_1 
@@ -22388,7 +22285,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [18]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair170" *) 
+  (* SOFT_HLUTNM = "soft_lutpair173" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][19]_i_1 
@@ -22396,7 +22293,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [19]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair179" *) 
+  (* SOFT_HLUTNM = "soft_lutpair182" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][1]_i_1 
@@ -22404,7 +22301,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [1]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair170" *) 
+  (* SOFT_HLUTNM = "soft_lutpair173" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][20]_i_1 
@@ -22412,7 +22309,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [20]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair169" *) 
+  (* SOFT_HLUTNM = "soft_lutpair172" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][21]_i_1 
@@ -22420,7 +22317,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [21]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair169" *) 
+  (* SOFT_HLUTNM = "soft_lutpair172" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][22]_i_1 
@@ -22428,7 +22325,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [22]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair168" *) 
+  (* SOFT_HLUTNM = "soft_lutpair171" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][23]_i_1 
@@ -22436,7 +22333,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [23]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair168" *) 
+  (* SOFT_HLUTNM = "soft_lutpair171" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][24]_i_1 
@@ -22444,7 +22341,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [24]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair167" *) 
+  (* SOFT_HLUTNM = "soft_lutpair170" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][25]_i_1 
@@ -22452,7 +22349,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [25]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair167" *) 
+  (* SOFT_HLUTNM = "soft_lutpair170" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][26]_i_1 
@@ -22460,7 +22357,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [26]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair166" *) 
+  (* SOFT_HLUTNM = "soft_lutpair169" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][27]_i_1 
@@ -22468,7 +22365,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [27]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair166" *) 
+  (* SOFT_HLUTNM = "soft_lutpair169" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][28]_i_1 
@@ -22476,7 +22373,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [28]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair165" *) 
+  (* SOFT_HLUTNM = "soft_lutpair168" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][29]_i_1 
@@ -22484,7 +22381,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [29]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair179" *) 
+  (* SOFT_HLUTNM = "soft_lutpair182" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][2]_i_1 
@@ -22492,7 +22389,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [2]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair165" *) 
+  (* SOFT_HLUTNM = "soft_lutpair168" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][30]_i_1 
@@ -22500,7 +22397,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [30]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair164" *) 
+  (* SOFT_HLUTNM = "soft_lutpair167" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][31]_i_1 
@@ -22508,7 +22405,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [31]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair178" *) 
+  (* SOFT_HLUTNM = "soft_lutpair181" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][3]_i_1 
@@ -22516,7 +22413,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [3]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair178" *) 
+  (* SOFT_HLUTNM = "soft_lutpair181" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][4]_i_1 
@@ -22524,7 +22421,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [4]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair177" *) 
+  (* SOFT_HLUTNM = "soft_lutpair180" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][5]_i_1 
@@ -22532,7 +22429,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [5]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair177" *) 
+  (* SOFT_HLUTNM = "soft_lutpair180" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][6]_i_1 
@@ -22540,7 +22437,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [6]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair176" *) 
+  (* SOFT_HLUTNM = "soft_lutpair179" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][7]_i_1 
@@ -22548,7 +22445,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [7]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair176" *) 
+  (* SOFT_HLUTNM = "soft_lutpair179" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][8]_i_1 
@@ -22556,7 +22453,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [8]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair175" *) 
+  (* SOFT_HLUTNM = "soft_lutpair178" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg[39][9]_i_1 
@@ -22564,7 +22461,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[8] [9]),
         .O(\GEN_TREE.GEN_BRANCH[39].GEN_MUX_REG.data_out_reg_reg[39][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair164" *) 
+  (* SOFT_HLUTNM = "soft_lutpair167" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][0]_i_1 
@@ -22572,7 +22469,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [0]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair159" *) 
+  (* SOFT_HLUTNM = "soft_lutpair162" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][10]_i_1 
@@ -22580,7 +22477,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [10]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair158" *) 
+  (* SOFT_HLUTNM = "soft_lutpair161" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][11]_i_1 
@@ -22588,7 +22485,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [11]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair158" *) 
+  (* SOFT_HLUTNM = "soft_lutpair161" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][12]_i_1 
@@ -22596,7 +22493,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [12]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair157" *) 
+  (* SOFT_HLUTNM = "soft_lutpair160" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][13]_i_1 
@@ -22604,7 +22501,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [13]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair157" *) 
+  (* SOFT_HLUTNM = "soft_lutpair160" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][14]_i_1 
@@ -22612,7 +22509,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [14]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair156" *) 
+  (* SOFT_HLUTNM = "soft_lutpair159" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][15]_i_1 
@@ -22620,7 +22517,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [15]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair156" *) 
+  (* SOFT_HLUTNM = "soft_lutpair159" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][16]_i_1 
@@ -22628,7 +22525,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [16]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair155" *) 
+  (* SOFT_HLUTNM = "soft_lutpair158" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][17]_i_1 
@@ -22636,7 +22533,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [17]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair155" *) 
+  (* SOFT_HLUTNM = "soft_lutpair158" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][18]_i_1 
@@ -22644,7 +22541,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [18]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair154" *) 
+  (* SOFT_HLUTNM = "soft_lutpair157" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][19]_i_1 
@@ -22652,7 +22549,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [19]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair163" *) 
+  (* SOFT_HLUTNM = "soft_lutpair166" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][1]_i_1 
@@ -22660,7 +22557,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [1]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair154" *) 
+  (* SOFT_HLUTNM = "soft_lutpair157" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][20]_i_1 
@@ -22668,7 +22565,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [20]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair153" *) 
+  (* SOFT_HLUTNM = "soft_lutpair156" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][21]_i_1 
@@ -22676,7 +22573,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [21]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair153" *) 
+  (* SOFT_HLUTNM = "soft_lutpair156" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][22]_i_1 
@@ -22684,7 +22581,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [22]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair152" *) 
+  (* SOFT_HLUTNM = "soft_lutpair155" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][23]_i_1 
@@ -22692,7 +22589,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [23]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair152" *) 
+  (* SOFT_HLUTNM = "soft_lutpair155" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][24]_i_1 
@@ -22700,7 +22597,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [24]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair151" *) 
+  (* SOFT_HLUTNM = "soft_lutpair154" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][25]_i_1 
@@ -22708,7 +22605,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [25]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair151" *) 
+  (* SOFT_HLUTNM = "soft_lutpair154" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][26]_i_1 
@@ -22716,7 +22613,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [26]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair150" *) 
+  (* SOFT_HLUTNM = "soft_lutpair153" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][27]_i_1 
@@ -22724,7 +22621,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [27]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair150" *) 
+  (* SOFT_HLUTNM = "soft_lutpair153" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][28]_i_1 
@@ -22732,7 +22629,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [28]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair149" *) 
+  (* SOFT_HLUTNM = "soft_lutpair152" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][29]_i_1 
@@ -22740,7 +22637,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [29]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair163" *) 
+  (* SOFT_HLUTNM = "soft_lutpair166" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][2]_i_1 
@@ -22748,7 +22645,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [2]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair149" *) 
+  (* SOFT_HLUTNM = "soft_lutpair152" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][30]_i_1 
@@ -22756,7 +22653,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [30]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair140" *) 
+  (* SOFT_HLUTNM = "soft_lutpair143" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][31]_i_1 
@@ -22764,7 +22661,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [31]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair162" *) 
+  (* SOFT_HLUTNM = "soft_lutpair165" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][3]_i_1 
@@ -22772,7 +22669,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [3]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair162" *) 
+  (* SOFT_HLUTNM = "soft_lutpair165" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][4]_i_1 
@@ -22780,7 +22677,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [4]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair161" *) 
+  (* SOFT_HLUTNM = "soft_lutpair164" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][5]_i_1 
@@ -22788,7 +22685,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [5]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair161" *) 
+  (* SOFT_HLUTNM = "soft_lutpair164" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][6]_i_1 
@@ -22796,7 +22693,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [6]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair160" *) 
+  (* SOFT_HLUTNM = "soft_lutpair163" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][7]_i_1 
@@ -22804,7 +22701,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [7]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair160" *) 
+  (* SOFT_HLUTNM = "soft_lutpair163" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][8]_i_1 
@@ -22812,7 +22709,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [8]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair159" *) 
+  (* SOFT_HLUTNM = "soft_lutpair162" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg[40][9]_i_1 
@@ -22820,7 +22717,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[10] [9]),
         .O(\GEN_TREE.GEN_BRANCH[40].GEN_MUX_REG.data_out_reg_reg[40][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][0]_i_1 
@@ -22828,7 +22725,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [0]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair142" *) 
+  (* SOFT_HLUTNM = "soft_lutpair145" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][10]_i_1 
@@ -22836,7 +22733,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [10]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair141" *) 
+  (* SOFT_HLUTNM = "soft_lutpair144" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][11]_i_1 
@@ -22844,7 +22741,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [11]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair141" *) 
+  (* SOFT_HLUTNM = "soft_lutpair144" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][12]_i_1 
@@ -22852,7 +22749,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [12]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair140" *) 
+  (* SOFT_HLUTNM = "soft_lutpair143" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][13]_i_1 
@@ -22860,7 +22757,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [13]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair139" *) 
+  (* SOFT_HLUTNM = "soft_lutpair142" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][14]_i_1 
@@ -22868,7 +22765,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [14]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][15]_i_1 
@@ -22876,7 +22773,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [15]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair139" *) 
+  (* SOFT_HLUTNM = "soft_lutpair142" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][16]_i_1 
@@ -22884,7 +22781,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [16]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair138" *) 
+  (* SOFT_HLUTNM = "soft_lutpair141" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][17]_i_1 
@@ -22892,7 +22789,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [17]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair138" *) 
+  (* SOFT_HLUTNM = "soft_lutpair141" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][18]_i_1 
@@ -22900,7 +22797,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [18]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair137" *) 
+  (* SOFT_HLUTNM = "soft_lutpair140" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][19]_i_1 
@@ -22908,7 +22805,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [19]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair146" *) 
+  (* SOFT_HLUTNM = "soft_lutpair149" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][1]_i_1 
@@ -22916,7 +22813,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [1]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair137" *) 
+  (* SOFT_HLUTNM = "soft_lutpair140" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][20]_i_1 
@@ -22924,7 +22821,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [20]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair136" *) 
+  (* SOFT_HLUTNM = "soft_lutpair139" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][21]_i_1 
@@ -22932,7 +22829,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [21]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair136" *) 
+  (* SOFT_HLUTNM = "soft_lutpair139" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][22]_i_1 
@@ -22940,7 +22837,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [22]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair135" *) 
+  (* SOFT_HLUTNM = "soft_lutpair138" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][23]_i_1 
@@ -22948,7 +22845,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [23]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair135" *) 
+  (* SOFT_HLUTNM = "soft_lutpair138" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][24]_i_1 
@@ -22956,7 +22853,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [24]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair134" *) 
+  (* SOFT_HLUTNM = "soft_lutpair137" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][25]_i_1 
@@ -22964,7 +22861,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [25]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair134" *) 
+  (* SOFT_HLUTNM = "soft_lutpair137" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][26]_i_1 
@@ -22972,7 +22869,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [26]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair133" *) 
+  (* SOFT_HLUTNM = "soft_lutpair136" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][27]_i_1 
@@ -22980,7 +22877,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [27]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair133" *) 
+  (* SOFT_HLUTNM = "soft_lutpair136" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][28]_i_1 
@@ -22988,7 +22885,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [28]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair132" *) 
+  (* SOFT_HLUTNM = "soft_lutpair135" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][29]_i_1 
@@ -22996,7 +22893,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [29]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair146" *) 
+  (* SOFT_HLUTNM = "soft_lutpair149" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][2]_i_1 
@@ -23004,7 +22901,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [2]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair132" *) 
+  (* SOFT_HLUTNM = "soft_lutpair135" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][30]_i_1 
@@ -23012,7 +22909,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [30]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][31]_i_1 
@@ -23020,7 +22917,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [31]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair145" *) 
+  (* SOFT_HLUTNM = "soft_lutpair148" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][3]_i_1 
@@ -23028,7 +22925,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [3]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair145" *) 
+  (* SOFT_HLUTNM = "soft_lutpair148" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][4]_i_1 
@@ -23036,7 +22933,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [4]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair144" *) 
+  (* SOFT_HLUTNM = "soft_lutpair147" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][5]_i_1 
@@ -23044,7 +22941,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [5]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair144" *) 
+  (* SOFT_HLUTNM = "soft_lutpair147" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][6]_i_1 
@@ -23052,7 +22949,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [6]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair143" *) 
+  (* SOFT_HLUTNM = "soft_lutpair146" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][7]_i_1 
@@ -23060,7 +22957,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [7]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair143" *) 
+  (* SOFT_HLUTNM = "soft_lutpair146" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][8]_i_1 
@@ -23068,7 +22965,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [8]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair142" *) 
+  (* SOFT_HLUTNM = "soft_lutpair145" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg[41][9]_i_1 
@@ -23076,7 +22973,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ),
         .I2(\time_status_regs[12] [9]),
         .O(\GEN_TREE.GEN_BRANCH[41].GEN_MUX_REG.data_out_reg_reg[41][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_1 
@@ -23090,7 +22987,7 @@ module system_v_tc_out_0_video_clock_cross
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2 
        (.I0(\data_sync[2]_2 [34]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair127" *) 
+  (* SOFT_HLUTNM = "soft_lutpair130" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][10]_i_1 
@@ -23098,7 +22995,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [10]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair126" *) 
+  (* SOFT_HLUTNM = "soft_lutpair129" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][11]_i_1 
@@ -23106,7 +23003,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [11]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair126" *) 
+  (* SOFT_HLUTNM = "soft_lutpair129" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][12]_i_1 
@@ -23114,7 +23011,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [12]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair125" *) 
+  (* SOFT_HLUTNM = "soft_lutpair128" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][13]_i_1 
@@ -23122,7 +23019,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [13]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair125" *) 
+  (* SOFT_HLUTNM = "soft_lutpair128" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][14]_i_1 
@@ -23130,7 +23027,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [14]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair124" *) 
+  (* SOFT_HLUTNM = "soft_lutpair127" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][15]_i_1 
@@ -23138,7 +23035,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [15]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair124" *) 
+  (* SOFT_HLUTNM = "soft_lutpair127" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][16]_i_1 
@@ -23146,7 +23043,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [16]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair123" *) 
+  (* SOFT_HLUTNM = "soft_lutpair126" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][17]_i_1 
@@ -23154,7 +23051,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [17]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair123" *) 
+  (* SOFT_HLUTNM = "soft_lutpair126" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][18]_i_1 
@@ -23162,7 +23059,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [18]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair122" *) 
+  (* SOFT_HLUTNM = "soft_lutpair125" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][19]_i_1 
@@ -23170,7 +23067,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [19]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair131" *) 
+  (* SOFT_HLUTNM = "soft_lutpair134" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][1]_i_1 
@@ -23178,7 +23075,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [1]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair122" *) 
+  (* SOFT_HLUTNM = "soft_lutpair125" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][20]_i_1 
@@ -23186,7 +23083,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [20]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair121" *) 
+  (* SOFT_HLUTNM = "soft_lutpair124" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][21]_i_1 
@@ -23194,7 +23091,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [21]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair121" *) 
+  (* SOFT_HLUTNM = "soft_lutpair124" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][22]_i_1 
@@ -23202,7 +23099,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [22]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair120" *) 
+  (* SOFT_HLUTNM = "soft_lutpair123" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][23]_i_1 
@@ -23210,7 +23107,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [23]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair120" *) 
+  (* SOFT_HLUTNM = "soft_lutpair123" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][24]_i_1 
@@ -23218,7 +23115,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [24]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair119" *) 
+  (* SOFT_HLUTNM = "soft_lutpair122" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][25]_i_1 
@@ -23226,7 +23123,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [25]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair119" *) 
+  (* SOFT_HLUTNM = "soft_lutpair122" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][26]_i_1 
@@ -23234,7 +23131,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [26]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair118" *) 
+  (* SOFT_HLUTNM = "soft_lutpair121" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][27]_i_1 
@@ -23242,7 +23139,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [27]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair118" *) 
+  (* SOFT_HLUTNM = "soft_lutpair121" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][28]_i_1 
@@ -23250,7 +23147,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [28]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair117" *) 
+  (* SOFT_HLUTNM = "soft_lutpair120" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][29]_i_1 
@@ -23258,7 +23155,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [29]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair131" *) 
+  (* SOFT_HLUTNM = "soft_lutpair134" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][2]_i_1 
@@ -23266,7 +23163,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [2]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair117" *) 
+  (* SOFT_HLUTNM = "soft_lutpair120" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][30]_i_1 
@@ -23274,7 +23171,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [30]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair116" *) 
+  (* SOFT_HLUTNM = "soft_lutpair119" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][31]_i_1 
@@ -23282,7 +23179,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [31]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair130" *) 
+  (* SOFT_HLUTNM = "soft_lutpair133" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][3]_i_1 
@@ -23290,7 +23187,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [3]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair130" *) 
+  (* SOFT_HLUTNM = "soft_lutpair133" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][4]_i_1 
@@ -23298,7 +23195,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [4]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair129" *) 
+  (* SOFT_HLUTNM = "soft_lutpair132" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][5]_i_1 
@@ -23306,7 +23203,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [5]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair129" *) 
+  (* SOFT_HLUTNM = "soft_lutpair132" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][6]_i_1 
@@ -23314,7 +23211,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [6]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair128" *) 
+  (* SOFT_HLUTNM = "soft_lutpair131" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][7]_i_1 
@@ -23322,7 +23219,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [7]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair128" *) 
+  (* SOFT_HLUTNM = "soft_lutpair131" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][8]_i_1 
@@ -23330,7 +23227,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [8]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair127" *) 
+  (* SOFT_HLUTNM = "soft_lutpair130" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg[42][9]_i_1 
@@ -23338,7 +23235,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[14] [9]),
         .O(\GEN_TREE.GEN_BRANCH[42].GEN_MUX_REG.data_out_reg_reg[42][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair116" *) 
+  (* SOFT_HLUTNM = "soft_lutpair119" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][0]_i_1 
@@ -23346,7 +23243,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [0]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair111" *) 
+  (* SOFT_HLUTNM = "soft_lutpair114" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][10]_i_1 
@@ -23354,7 +23251,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [10]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair110" *) 
+  (* SOFT_HLUTNM = "soft_lutpair113" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][11]_i_1 
@@ -23362,7 +23259,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [11]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair110" *) 
+  (* SOFT_HLUTNM = "soft_lutpair113" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][12]_i_1 
@@ -23370,7 +23267,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [12]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair109" *) 
+  (* SOFT_HLUTNM = "soft_lutpair112" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][13]_i_1 
@@ -23378,7 +23275,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[16] [0]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair109" *) 
+  (* SOFT_HLUTNM = "soft_lutpair112" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][14]_i_1 
@@ -23386,7 +23283,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[16] [1]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair108" *) 
+  (* SOFT_HLUTNM = "soft_lutpair111" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][15]_i_1 
@@ -23394,7 +23291,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[16] [2]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair108" *) 
+  (* SOFT_HLUTNM = "soft_lutpair111" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][16]_i_1 
@@ -23402,7 +23299,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [13]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair107" *) 
+  (* SOFT_HLUTNM = "soft_lutpair110" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][17]_i_1 
@@ -23410,7 +23307,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [14]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair107" *) 
+  (* SOFT_HLUTNM = "soft_lutpair110" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][18]_i_1 
@@ -23418,7 +23315,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [15]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair106" *) 
+  (* SOFT_HLUTNM = "soft_lutpair109" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][19]_i_1 
@@ -23426,7 +23323,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [16]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair115" *) 
+  (* SOFT_HLUTNM = "soft_lutpair118" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][1]_i_1 
@@ -23434,7 +23331,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [1]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair106" *) 
+  (* SOFT_HLUTNM = "soft_lutpair109" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][20]_i_1 
@@ -23442,7 +23339,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [17]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair105" *) 
+  (* SOFT_HLUTNM = "soft_lutpair108" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][21]_i_1 
@@ -23450,7 +23347,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [18]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair105" *) 
+  (* SOFT_HLUTNM = "soft_lutpair108" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][22]_i_1 
@@ -23458,7 +23355,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [19]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+  (* SOFT_HLUTNM = "soft_lutpair107" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][23]_i_1 
@@ -23466,7 +23363,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [20]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+  (* SOFT_HLUTNM = "soft_lutpair107" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][24]_i_1 
@@ -23474,7 +23371,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [21]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair103" *) 
+  (* SOFT_HLUTNM = "soft_lutpair106" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][25]_i_1 
@@ -23482,7 +23379,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [22]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair103" *) 
+  (* SOFT_HLUTNM = "soft_lutpair106" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][26]_i_1 
@@ -23490,7 +23387,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [23]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair102" *) 
+  (* SOFT_HLUTNM = "soft_lutpair105" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][27]_i_1 
@@ -23498,7 +23395,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [24]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair102" *) 
+  (* SOFT_HLUTNM = "soft_lutpair105" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][28]_i_1 
@@ -23506,7 +23403,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [25]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair101" *) 
+  (* SOFT_HLUTNM = "soft_lutpair104" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][29]_i_1 
@@ -23514,7 +23411,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[16] [3]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair115" *) 
+  (* SOFT_HLUTNM = "soft_lutpair118" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][2]_i_1 
@@ -23522,7 +23419,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [2]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair101" *) 
+  (* SOFT_HLUTNM = "soft_lutpair104" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][30]_i_1 
@@ -23530,7 +23427,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[16] [4]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  (* SOFT_HLUTNM = "soft_lutpair103" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][31]_i_1 
@@ -23538,7 +23435,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[16] [5]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair114" *) 
+  (* SOFT_HLUTNM = "soft_lutpair117" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][3]_i_1 
@@ -23546,7 +23443,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [3]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair114" *) 
+  (* SOFT_HLUTNM = "soft_lutpair117" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][4]_i_1 
@@ -23554,7 +23451,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [4]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair113" *) 
+  (* SOFT_HLUTNM = "soft_lutpair116" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][5]_i_1 
@@ -23562,7 +23459,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [5]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair113" *) 
+  (* SOFT_HLUTNM = "soft_lutpair116" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][6]_i_1 
@@ -23570,7 +23467,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [6]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair112" *) 
+  (* SOFT_HLUTNM = "soft_lutpair115" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][7]_i_1 
@@ -23578,7 +23475,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [7]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair112" *) 
+  (* SOFT_HLUTNM = "soft_lutpair115" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][8]_i_1 
@@ -23586,7 +23483,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [8]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair111" *) 
+  (* SOFT_HLUTNM = "soft_lutpair114" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg[43][9]_i_1 
@@ -23594,7 +23491,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[16][28] [9]),
         .O(\GEN_TREE.GEN_BRANCH[43].GEN_MUX_REG.data_out_reg_reg[43][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  (* SOFT_HLUTNM = "soft_lutpair103" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][0]_i_1 
@@ -23602,7 +23499,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][9] [0]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  (* SOFT_HLUTNM = "soft_lutpair98" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][10]_i_1 
@@ -23610,7 +23507,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [2]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][11]_i_1 
@@ -23618,7 +23515,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [3]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][12]_i_1 
@@ -23626,7 +23523,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [4]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][13]_i_1 
@@ -23634,7 +23531,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [5]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][14]_i_1 
@@ -23642,7 +23539,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [6]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][15]_i_1 
@@ -23650,7 +23547,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [7]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][16]_i_1 
@@ -23658,7 +23555,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [8]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][17]_i_1 
@@ -23666,7 +23563,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [9]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][18]_i_1 
@@ -23674,7 +23571,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [10]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][19]_i_1 
@@ -23682,7 +23579,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [11]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  (* SOFT_HLUTNM = "soft_lutpair102" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][1]_i_1 
@@ -23690,7 +23587,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][9] [1]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][20]_i_1 
@@ -23698,7 +23595,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [12]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][21]_i_1 
@@ -23706,7 +23603,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [13]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][22]_i_1 
@@ -23714,7 +23611,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [14]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][23]_i_1 
@@ -23722,7 +23619,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [15]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][24]_i_1 
@@ -23730,7 +23627,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [16]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][25]_i_1 
@@ -23738,7 +23635,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [17]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][26]_i_1 
@@ -23746,7 +23643,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [18]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][27]_i_1 
@@ -23754,7 +23651,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [19]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][28]_i_1 
@@ -23762,7 +23659,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [20]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][29]_i_1 
@@ -23770,7 +23667,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [21]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  (* SOFT_HLUTNM = "soft_lutpair102" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][2]_i_1 
@@ -23778,7 +23675,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][9] [2]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][30]_i_1 
@@ -23786,7 +23683,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [22]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][31]_i_1 
@@ -23794,7 +23691,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [23]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  (* SOFT_HLUTNM = "soft_lutpair101" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][3]_i_1 
@@ -23802,7 +23699,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][9] [3]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  (* SOFT_HLUTNM = "soft_lutpair101" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][4]_i_1 
@@ -23810,7 +23707,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [0]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  (* SOFT_HLUTNM = "soft_lutpair100" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][5]_i_1 
@@ -23818,7 +23715,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[18] [1]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  (* SOFT_HLUTNM = "soft_lutpair100" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][6]_i_1 
@@ -23826,7 +23723,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][9] [4]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  (* SOFT_HLUTNM = "soft_lutpair99" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][7]_i_1 
@@ -23834,7 +23731,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][9] [5]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  (* SOFT_HLUTNM = "soft_lutpair99" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][8]_i_1 
@@ -23842,7 +23739,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][9] [6]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  (* SOFT_HLUTNM = "soft_lutpair98" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg[44][9]_i_1 
@@ -23850,7 +23747,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[18][9] [7]),
         .O(\GEN_TREE.GEN_BRANCH[44].GEN_MUX_REG.data_out_reg_reg[44][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][0]_i_1 
@@ -23858,7 +23755,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[20][0]_0 ),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][10]_i_1 
@@ -23866,7 +23763,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[9]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][11]_i_1 
@@ -23874,7 +23771,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[10]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][12]_i_1 
@@ -23882,7 +23779,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[11]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][13]_i_1 
@@ -23890,7 +23787,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[20] [0]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][14]_i_1 
@@ -23898,7 +23795,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[20] [1]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][15]_i_1 
@@ -23906,7 +23803,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(\time_status_regs[20] [2]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_1 
@@ -23920,7 +23817,7 @@ module system_v_tc_out_0_video_clock_cross
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2 
        (.I0(\data_sync[2]_2 [34]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][17]_i_1 
@@ -23928,7 +23825,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[13]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][18]_i_1 
@@ -23936,7 +23833,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[14]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][19]_i_1 
@@ -23944,7 +23841,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[15]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][1]_i_1 
@@ -23952,7 +23849,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[0]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][20]_i_1 
@@ -23960,7 +23857,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[16]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][21]_i_1 
@@ -23968,7 +23865,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[17]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][22]_i_1 
@@ -23976,7 +23873,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[18]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][23]_i_1 
@@ -23984,7 +23881,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[19]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][24]_i_1 
@@ -23992,7 +23889,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[20]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][25]_i_1 
@@ -24000,7 +23897,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[21]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][26]_i_1 
@@ -24008,7 +23905,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[22]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][27]_i_1 
@@ -24016,7 +23913,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[23]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][28]_i_1 
@@ -24024,7 +23921,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[24]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][29]_i_1 
@@ -24032,7 +23929,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[20] [3]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][2]_i_1 
@@ -24040,7 +23937,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[1]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][30]_i_1 
@@ -24048,7 +23945,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[20] [4]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][31]_i_1 
@@ -24056,7 +23953,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[20] [5]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][3]_i_1 
@@ -24064,7 +23961,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[2]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][4]_i_1 
@@ -24072,7 +23969,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[3]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][5]_i_1 
@@ -24080,7 +23977,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[4]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][6]_i_1 
@@ -24088,7 +23985,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[5]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][7]_i_1 
@@ -24096,7 +23993,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[6]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][8]_i_1 
@@ -24104,7 +24001,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[7]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][9]_i_1 
@@ -24112,7 +24009,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg[45][16]_i_2_n_0 ),
         .I2(genr_regs[8]),
         .O(\GEN_TREE.GEN_BRANCH[45].GEN_MUX_REG.data_out_reg_reg[45][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][0]_i_1 
@@ -24120,7 +24017,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[22][0]_0 ),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][10]_i_1 
@@ -24128,7 +24025,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[59]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][11]_i_1 
@@ -24136,7 +24033,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[60]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][12]_i_1 
@@ -24144,7 +24041,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[61]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][13]_i_1 
@@ -24152,7 +24049,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[22] [0]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][14]_i_1 
@@ -24160,7 +24057,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[22] [1]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][15]_i_1 
@@ -24168,7 +24065,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[22] [2]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][16]_i_1 
@@ -24176,7 +24073,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[62]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][17]_i_1 
@@ -24184,7 +24081,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[63]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][18]_i_1 
@@ -24192,7 +24089,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[64]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][19]_i_1 
@@ -24200,7 +24097,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[65]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][1]_i_1 
@@ -24208,7 +24105,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[50]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][20]_i_1 
@@ -24216,7 +24113,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[66]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][21]_i_1 
@@ -24224,7 +24121,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[67]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][22]_i_1 
@@ -24232,7 +24129,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[68]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][23]_i_1 
@@ -24240,7 +24137,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[69]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][24]_i_1 
@@ -24248,7 +24145,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[70]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][25]_i_1 
@@ -24256,7 +24153,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[71]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][26]_i_1 
@@ -24264,7 +24161,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[72]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][27]_i_1 
@@ -24272,7 +24169,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[73]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][28]_i_1 
@@ -24280,7 +24177,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[74]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][29]_i_1 
@@ -24288,7 +24185,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[22] [3]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][2]_i_1 
@@ -24296,7 +24193,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[51]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][30]_i_1 
@@ -24304,7 +24201,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[22] [4]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][31]_i_1 
@@ -24312,7 +24209,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[22] [5]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][3]_i_1 
@@ -24320,7 +24217,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[52]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][4]_i_1 
@@ -24328,7 +24225,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[53]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][5]_i_1 
@@ -24336,7 +24233,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[54]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][6]_i_1 
@@ -24344,7 +24241,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[55]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][7]_i_1 
@@ -24352,7 +24249,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[56]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][8]_i_1 
@@ -24360,7 +24257,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[57]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg[46][9]_i_1 
@@ -24368,7 +24265,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[58]),
         .O(\GEN_TREE.GEN_BRANCH[46].GEN_MUX_REG.data_out_reg_reg[46][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][0]_i_1 
@@ -24376,7 +24273,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[24][0]_0 ),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][10]_i_1 
@@ -24384,7 +24281,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[109]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][11]_i_1 
@@ -24392,7 +24289,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[110]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][12]_i_1 
@@ -24400,7 +24297,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[111]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][13]_i_1 
@@ -24408,7 +24305,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[24] [0]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][14]_i_1 
@@ -24416,7 +24313,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[24] [1]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][15]_i_1 
@@ -24424,7 +24321,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[24] [2]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][16]_i_1 
@@ -24432,7 +24329,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[112]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][17]_i_1 
@@ -24440,7 +24337,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[113]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][18]_i_1 
@@ -24448,7 +24345,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[114]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][19]_i_1 
@@ -24456,7 +24353,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[115]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][1]_i_1 
@@ -24464,7 +24361,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[100]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][20]_i_1 
@@ -24472,7 +24369,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[116]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][21]_i_1 
@@ -24480,7 +24377,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[117]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][22]_i_1 
@@ -24488,7 +24385,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[118]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][23]_i_1 
@@ -24496,7 +24393,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[119]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][24]_i_1 
@@ -24504,7 +24401,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[120]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][25]_i_1 
@@ -24512,7 +24409,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[121]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][26]_i_1 
@@ -24520,7 +24417,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[122]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][27]_i_1 
@@ -24528,7 +24425,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[123]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][28]_i_1 
@@ -24536,7 +24433,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[124]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][29]_i_1 
@@ -24544,7 +24441,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[24] [3]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][2]_i_1 
@@ -24552,7 +24449,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[101]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][30]_i_1 
@@ -24560,7 +24457,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[24] [4]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][31]_i_1 
@@ -24568,7 +24465,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[24] [5]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][31] ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][3]_i_1 
@@ -24576,7 +24473,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[102]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][4]_i_1 
@@ -24584,7 +24481,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[103]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][5]_i_1 
@@ -24592,7 +24489,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[104]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][6]_i_1 
@@ -24600,7 +24497,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[105]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][7]_i_1 
@@ -24608,7 +24505,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[106]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][8]_i_1 
@@ -24616,7 +24513,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[107]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg[47][9]_i_1 
@@ -24624,7 +24521,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[108]),
         .O(\GEN_TREE.GEN_BRANCH[47].GEN_MUX_REG.data_out_reg_reg[47][9] ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][0]_i_1 
@@ -24632,7 +24529,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\AXI4_LITE_INTERFACE.time_control_regs_int_reg[26][0]_0 ),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][0] ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][10]_i_1 
@@ -24640,7 +24537,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[159]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][10] ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][11]_i_1 
@@ -24648,7 +24545,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[160]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][11] ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][12]_i_1 
@@ -24656,7 +24553,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[161]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][12] ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][13]_i_1 
@@ -24664,7 +24561,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[26] [0]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][13] ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][14]_i_1 
@@ -24672,7 +24569,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[26] [1]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][14] ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][15]_i_1 
@@ -24680,7 +24577,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[26] [2]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][15] ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][16]_i_1 
@@ -24688,7 +24585,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[162]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][16] ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][17]_i_1 
@@ -24696,7 +24593,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[163]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][17] ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][18]_i_1 
@@ -24704,7 +24601,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[164]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][18] ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][19]_i_1 
@@ -24712,7 +24609,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[165]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][19] ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][1]_i_1 
@@ -24720,7 +24617,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[150]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][1] ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][20]_i_1 
@@ -24728,7 +24625,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[166]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][20] ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][21]_i_1 
@@ -24736,7 +24633,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[167]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][21] ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][22]_i_1 
@@ -24744,7 +24641,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[168]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][22] ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][23]_i_1 
@@ -24752,7 +24649,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[169]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][23] ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][24]_i_1 
@@ -24760,7 +24657,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[170]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][24] ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][25]_i_1 
@@ -24768,7 +24665,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[171]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][25] ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][26]_i_1 
@@ -24776,7 +24673,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[172]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][26] ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][27]_i_1 
@@ -24784,7 +24681,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[173]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][27] ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][28]_i_1 
@@ -24792,7 +24689,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[174]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][28] ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][29]_i_1 
@@ -24800,7 +24697,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[26] [3]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][29] ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][2]_i_1 
@@ -24808,7 +24705,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[151]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][2] ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][30]_i_1 
@@ -24816,7 +24713,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(\time_status_regs[26] [4]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][30] ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_1 
@@ -24830,7 +24727,7 @@ module system_v_tc_out_0_video_clock_cross
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2 
        (.I0(\data_sync[2]_2 [34]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][3]_i_1 
@@ -24838,7 +24735,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[152]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][3] ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][4]_i_1 
@@ -24846,7 +24743,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[153]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][4] ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][5]_i_1 
@@ -24854,7 +24751,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[154]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][5] ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][6]_i_1 
@@ -24862,7 +24759,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[155]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][6] ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][7]_i_1 
@@ -24870,7 +24767,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[156]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][7] ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][8]_i_1 
@@ -24878,7 +24775,7 @@ module system_v_tc_out_0_video_clock_cross
         .I1(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][31]_i_2_n_0 ),
         .I2(genr_regs[157]),
         .O(\GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg_reg[48][8] ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \GEN_TREE.GEN_BRANCH[48].GEN_MUX_REG.data_out_reg[48][9]_i_1 
@@ -26291,20 +26188,24 @@ endmodule
 
 (* ORIG_REF_NAME = "video_clock_cross" *) 
 module system_v_tc_out_0_video_clock_cross__parameterized0
-   (p_526_out,
+   (D,
     out_data,
+    p_526_out,
     p_528_out,
     \AXI4_LITE_INTERFACE.ipif_Error_reg ,
+    p_151_out,
     write_ack_d2,
     write_ack_d1,
     read_ack_d2,
     read_ack_d1,
     in_data,
     aclk);
-  output p_526_out;
+  output [1:0]D;
   output [33:0]out_data;
+  output p_526_out;
   output p_528_out;
   output \AXI4_LITE_INTERFACE.ipif_Error_reg ;
+  input [1:0]p_151_out;
   input write_ack_d2;
   input write_ack_d1;
   input read_ack_d2;
@@ -26313,11 +26214,13 @@ module system_v_tc_out_0_video_clock_cross__parameterized0
   input aclk;
 
   wire \AXI4_LITE_INTERFACE.ipif_Error_reg ;
+  wire [1:0]D;
   wire aclk;
   (* async_reg = "true" *) (* shift_extract = "NO" *) (* shreg_extract = "no" *) wire [33:0]\data_sync[0]_0 ;
   (* async_reg = "true" *) (* shift_extract = "NO" *) (* shreg_extract = "no" *) wire [33:0]\data_sync[1]_1 ;
   (* async_reg = "true" *) (* shift_extract = "NO" *) (* shreg_extract = "no" *) wire [33:0]\data_sync[2]_2 ;
   (* shreg_extract = "no" *) wire [33:0]in_data;
+  wire [1:0]p_151_out;
   wire p_526_out;
   wire p_528_out;
   wire read_ack_d1;
@@ -26350,6 +26253,20 @@ module system_v_tc_out_0_video_clock_cross__parameterized0
         .I1(\data_sync[2]_2 [33]),
         .I2(write_ack_d1),
         .O(p_526_out));
+  LUT3 #(
+    .INIT(8'h02)) 
+    \AXI4_LITE_INTERFACE.ipif_proc_Req_d1[0]_i_1 
+       (.I0(p_151_out[0]),
+        .I1(\data_sync[2]_2 [33]),
+        .I2(\data_sync[2]_2 [32]),
+        .O(D[0]));
+  LUT3 #(
+    .INIT(8'h02)) 
+    \AXI4_LITE_INTERFACE.ipif_proc_Req_d1[1]_i_1 
+       (.I0(p_151_out[1]),
+        .I1(\data_sync[2]_2 [33]),
+        .I2(\data_sync[2]_2 [32]),
+        .O(D[1]));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   (* SHREG_EXTRACT = "no" *) 
@@ -27783,7 +27700,7 @@ module system_v_tc_out_0_video_ctrl
   wire \AXI4_LITE_INTERFACE.GENR_MUX0_n_95 ;
   wire \AXI4_LITE_INTERFACE.GENR_MUX0_n_96 ;
   wire \AXI4_LITE_INTERFACE.GENR_MUX0_n_97 ;
-  wire \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_36 ;
+  wire \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_38 ;
   wire \AXI4_LITE_INTERFACE.SYNC2VIDCLK_I_n_0 ;
   wire \AXI4_LITE_INTERFACE.SYNC2VIDCLK_I_n_100 ;
   wire \AXI4_LITE_INTERFACE.SYNC2VIDCLK_I_n_101 ;
@@ -28570,8 +28487,9 @@ module system_v_tc_out_0_video_ctrl
   wire ipif_cs_out;
   wire [31:0]ipif_data_out;
   wire [8:0]ipif_proc_Addr_int;
-  wire [1:0]ipif_proc_CS;
   wire ipif_proc_RNW;
+  wire [1:0]ipif_proc_Req;
+  wire [1:0]ipif_proc_Req_d1;
   wire ipif_rnw_out;
   wire irq;
   wire p_0_in;
@@ -28581,6 +28499,7 @@ module system_v_tc_out_0_video_ctrl
   wire p_13_in;
   wire [33:0]p_144_out;
   wire p_14_in;
+  wire [1:0]p_151_out;
   wire p_15_in;
   wire p_16_in;
   wire p_17_in;
@@ -29651,13 +29570,14 @@ module system_v_tc_out_0_video_ctrl
   assign \time_control_regs[9] [1] = \<const0> ;
   assign \time_control_regs[9] [0] = \<const0> ;
   system_v_tc_out_0_axi_lite_ipif \AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I 
-       (.D({ipif_proc_RNW,ipif_proc_CS,ipif_proc_Addr_int}),
+       (.D({ipif_proc_RNW,ipif_proc_Addr_int}),
         .aclk(aclk),
         .aresetn(aresetn),
         .ipif_Error(ipif_Error),
         .ipif_RdAck(ipif_RdAck),
         .ipif_WrAck(ipif_WrAck),
         .out_data(p_144_out[31:0]),
+        .p_151_out(p_151_out),
         .rst_reg(\AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I_n_0 ),
         .s_axi_araddr(s_axi_araddr),
         .s_axi_arready(s_axi_arready),
@@ -30430,10 +30350,12 @@ module system_v_tc_out_0_video_ctrl
         .\time_status_regs[28] ({\time_status_regs[28] [31:29],\time_status_regs[28] [15:13]}),
         .vid_aclk(vid_aclk));
   system_v_tc_out_0_video_clock_cross__parameterized0 \AXI4_LITE_INTERFACE.SYNC2PROCCLK_I 
-       (.\AXI4_LITE_INTERFACE.ipif_Error_reg (\AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_36 ),
+       (.\AXI4_LITE_INTERFACE.ipif_Error_reg (\AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_38 ),
+        .D(ipif_proc_Req),
         .aclk(aclk),
         .in_data({write_ack,read_ack_d,ipif_RdData}),
         .out_data(p_144_out),
+        .p_151_out(p_151_out),
         .p_526_out(p_526_out),
         .p_528_out(p_528_out),
         .read_ack_d1(read_ack_d1),
@@ -38080,7 +38002,7 @@ module system_v_tc_out_0_video_ctrl
     \AXI4_LITE_INTERFACE.ipif_Error_reg 
        (.C(aclk),
         .CE(aclk_en),
-        .D(\AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_36 ),
+        .D(\AXI4_LITE_INTERFACE.SYNC2PROCCLK_I_n_38 ),
         .Q(ipif_Error),
         .S(\AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I_n_0 ));
   FDRE #(
@@ -38355,6 +38277,22 @@ module system_v_tc_out_0_video_ctrl
         .D(p_526_out),
         .Q(ipif_WrAck),
         .R(\AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \AXI4_LITE_INTERFACE.ipif_proc_Req_d1_reg[0] 
+       (.C(aclk),
+        .CE(1'b1),
+        .D(ipif_proc_Req[0]),
+        .Q(ipif_proc_Req_d1[0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \AXI4_LITE_INTERFACE.ipif_proc_Req_d1_reg[1] 
+       (.C(aclk),
+        .CE(1'b1),
+        .D(ipif_proc_Req[1]),
+        .Q(ipif_proc_Req_d1[1]),
+        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \AXI4_LITE_INTERFACE.proc_sync1_reg[0] 
@@ -38640,7 +38578,7 @@ module system_v_tc_out_0_video_ctrl
     \AXI4_LITE_INTERFACE.proc_sync1_reg[41] 
        (.C(aclk),
         .CE(1'b1),
-        .D(ipif_proc_CS[0]),
+        .D(ipif_proc_Req_d1[0]),
         .Q(proc_sync1[41]),
         .R(1'b0));
   FDRE #(
@@ -38648,7 +38586,7 @@ module system_v_tc_out_0_video_ctrl
     \AXI4_LITE_INTERFACE.proc_sync1_reg[42] 
        (.C(aclk),
         .CE(1'b1),
-        .D(ipif_proc_CS[1]),
+        .D(ipif_proc_Req_d1[1]),
         .Q(proc_sync1[42]),
         .R(1'b0));
   FDRE #(
@@ -43196,14 +43134,14 @@ module system_v_tc_out_0_video_ctrl
         .D(write_ack_e1),
         .Q(write_ack_e2),
         .R(\AXI4_LITE_INTERFACE.write_ack_e1_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair274" *) 
+  (* SOFT_HLUTNM = "soft_lutpair277" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \AXI4_LITE_INTERFACE.write_ack_i_1 
        (.I0(write_ack_e1),
         .I1(write_ack_e2),
         .O(p_534_out));
-  (* SOFT_HLUTNM = "soft_lutpair274" *) 
+  (* SOFT_HLUTNM = "soft_lutpair277" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \AXI4_LITE_INTERFACE.write_ack_int_i_1 
@@ -43284,14 +43222,14 @@ module system_v_tc_out_0_video_ctrl
         .I3(intr_err[15]),
         .O(\GEN_HAS_IRQ.intr_err[15]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_err[16]_i_1 
-       (.I0(intr_err[16]),
+       (.I0(\genr_status_regs[2] [16]),
         .I1(intr_err_set_d[16]),
-        .I2(\genr_status_regs[2] [16]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_err[16]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_err[16]_i_2_n_0 ),
+        .I4(intr_err[16]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_err[16]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -43300,14 +43238,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[2] [16]),
         .O(\GEN_HAS_IRQ.intr_err[16]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_err[17]_i_1 
-       (.I0(intr_err[17]),
+       (.I0(\genr_status_regs[2] [17]),
         .I1(intr_err_set_d[17]),
-        .I2(\genr_status_regs[2] [17]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_err[17]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_err[17]_i_2_n_0 ),
+        .I4(intr_err[17]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_err[17]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -43316,14 +43254,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[2] [17]),
         .O(\GEN_HAS_IRQ.intr_err[17]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_err[18]_i_1 
-       (.I0(intr_err[18]),
+       (.I0(\genr_status_regs[2] [18]),
         .I1(intr_err_set_d[18]),
-        .I2(\genr_status_regs[2] [18]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_err[18]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_err[18]_i_2_n_0 ),
+        .I4(intr_err[18]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_err[18]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -43332,14 +43270,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[2] [18]),
         .O(\GEN_HAS_IRQ.intr_err[18]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_err[19]_i_1 
-       (.I0(intr_err[19]),
+       (.I0(\genr_status_regs[2] [19]),
         .I1(intr_err_set_d[19]),
-        .I2(\genr_status_regs[2] [19]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_err[19]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_err[19]_i_2_n_0 ),
+        .I4(intr_err[19]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_err[19]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -43356,14 +43294,14 @@ module system_v_tc_out_0_video_ctrl
         .I3(intr_err[1]),
         .O(\GEN_HAS_IRQ.intr_err[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_err[20]_i_1 
-       (.I0(intr_err[20]),
+       (.I0(\genr_status_regs[2] [20]),
         .I1(intr_err_set_d[20]),
-        .I2(\genr_status_regs[2] [20]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_err[20]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_err[20]_i_2_n_0 ),
+        .I4(intr_err[20]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_err[20]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -43372,14 +43310,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[2] [20]),
         .O(\GEN_HAS_IRQ.intr_err[20]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_err[21]_i_1 
-       (.I0(intr_err[21]),
+       (.I0(\genr_status_regs[2] [21]),
         .I1(intr_err_set_d[21]),
-        .I2(\genr_status_regs[2] [21]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_err[21]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_err[21]_i_2_n_0 ),
+        .I4(intr_err[21]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_err[21]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44100,14 +44038,14 @@ module system_v_tc_out_0_video_ctrl
         .I3(\genr_status_regs_int_reg[1] [0]),
         .O(\GEN_HAS_IRQ.intr_stat[0]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[10]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [10]),
+       (.I0(\genr_status_regs[1] [10]),
         .I1(intr_stat_set_d[10]),
-        .I2(\genr_status_regs[1] [10]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[10]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[10]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [10]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[10]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44116,14 +44054,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [10]),
         .O(\GEN_HAS_IRQ.intr_stat[10]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[11]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [11]),
+       (.I0(\genr_status_regs[1] [11]),
         .I1(intr_stat_set_d[11]),
-        .I2(\genr_status_regs[1] [11]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[11]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[11]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [11]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[11]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44132,14 +44070,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [11]),
         .O(\GEN_HAS_IRQ.intr_stat[11]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[12]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [12]),
+       (.I0(\genr_status_regs[1] [12]),
         .I1(intr_stat_set_d[12]),
-        .I2(\genr_status_regs[1] [12]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[12]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[12]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [12]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[12]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44148,14 +44086,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [12]),
         .O(\GEN_HAS_IRQ.intr_stat[12]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[13]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [13]),
+       (.I0(\genr_status_regs[1] [13]),
         .I1(intr_stat_set_d[13]),
-        .I2(\genr_status_regs[1] [13]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[13]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[13]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [13]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[13]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44180,14 +44118,14 @@ module system_v_tc_out_0_video_ctrl
         .I3(\genr_status_regs_int_reg[1] [15]),
         .O(\GEN_HAS_IRQ.intr_stat[15]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[16]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [16]),
+       (.I0(\genr_status_regs[1] [16]),
         .I1(intr_stat_set_d[16]),
-        .I2(\genr_status_regs[1] [16]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[16]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[16]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [16]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[16]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44196,14 +44134,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [16]),
         .O(\GEN_HAS_IRQ.intr_stat[16]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[17]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [17]),
+       (.I0(\genr_status_regs[1] [17]),
         .I1(intr_stat_set_d[17]),
-        .I2(\genr_status_regs[1] [17]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[17]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[17]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [17]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[17]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44212,14 +44150,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [17]),
         .O(\GEN_HAS_IRQ.intr_stat[17]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[18]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [18]),
+       (.I0(\genr_status_regs[1] [18]),
         .I1(intr_stat_set_d[18]),
-        .I2(\genr_status_regs[1] [18]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[18]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[18]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [18]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[18]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44228,14 +44166,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [18]),
         .O(\GEN_HAS_IRQ.intr_stat[18]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[19]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [19]),
+       (.I0(\genr_status_regs[1] [19]),
         .I1(intr_stat_set_d[19]),
-        .I2(\genr_status_regs[1] [19]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[19]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[19]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [19]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[19]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44252,14 +44190,14 @@ module system_v_tc_out_0_video_ctrl
         .I3(\genr_status_regs_int_reg[1] [1]),
         .O(\GEN_HAS_IRQ.intr_stat[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[20]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [20]),
+       (.I0(\genr_status_regs[1] [20]),
         .I1(intr_stat_set_d[20]),
-        .I2(\genr_status_regs[1] [20]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[20]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[20]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [20]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[20]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44268,14 +44206,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [20]),
         .O(\GEN_HAS_IRQ.intr_stat[20]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[21]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [21]),
+       (.I0(\genr_status_regs[1] [21]),
         .I1(intr_stat_set_d[21]),
-        .I2(\genr_status_regs[1] [21]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[21]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[21]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [21]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[21]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44284,14 +44222,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [21]),
         .O(\GEN_HAS_IRQ.intr_stat[21]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[22]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [22]),
+       (.I0(\genr_status_regs[1] [22]),
         .I1(intr_stat_set_d[22]),
-        .I2(\genr_status_regs[1] [22]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[22]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[22]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [22]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[22]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44300,14 +44238,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [22]),
         .O(\GEN_HAS_IRQ.intr_stat[22]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[23]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [23]),
+       (.I0(\genr_status_regs[1] [23]),
         .I1(intr_stat_set_d[23]),
-        .I2(\genr_status_regs[1] [23]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[23]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[23]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [23]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[23]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44316,14 +44254,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [23]),
         .O(\GEN_HAS_IRQ.intr_stat[23]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[24]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [24]),
+       (.I0(\genr_status_regs[1] [24]),
         .I1(intr_stat_set_d[24]),
-        .I2(\genr_status_regs[1] [24]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[24]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[24]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [24]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[24]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44332,14 +44270,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [24]),
         .O(\GEN_HAS_IRQ.intr_stat[24]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[25]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [25]),
+       (.I0(\genr_status_regs[1] [25]),
         .I1(intr_stat_set_d[25]),
-        .I2(\genr_status_regs[1] [25]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[25]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[25]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [25]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[25]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44348,14 +44286,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [25]),
         .O(\GEN_HAS_IRQ.intr_stat[25]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[26]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [26]),
+       (.I0(\genr_status_regs[1] [26]),
         .I1(intr_stat_set_d[26]),
-        .I2(\genr_status_regs[1] [26]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[26]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[26]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [26]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[26]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44364,14 +44302,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [26]),
         .O(\GEN_HAS_IRQ.intr_stat[26]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[27]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [27]),
+       (.I0(\genr_status_regs[1] [27]),
         .I1(intr_stat_set_d[27]),
-        .I2(\genr_status_regs[1] [27]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[27]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[27]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [27]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[27]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44380,14 +44318,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [27]),
         .O(\GEN_HAS_IRQ.intr_stat[27]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[28]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [28]),
+       (.I0(\genr_status_regs[1] [28]),
         .I1(intr_stat_set_d[28]),
-        .I2(\genr_status_regs[1] [28]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[28]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[28]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [28]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[28]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44396,14 +44334,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [28]),
         .O(\GEN_HAS_IRQ.intr_stat[28]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[29]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [29]),
+       (.I0(\genr_status_regs[1] [29]),
         .I1(intr_stat_set_d[29]),
-        .I2(\genr_status_regs[1] [29]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[29]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[29]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [29]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[29]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44420,14 +44358,14 @@ module system_v_tc_out_0_video_ctrl
         .I3(\genr_status_regs_int_reg[1] [2]),
         .O(\GEN_HAS_IRQ.intr_stat[2]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[30]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [30]),
+       (.I0(\genr_status_regs[1] [30]),
         .I1(intr_stat_set_d[30]),
-        .I2(\genr_status_regs[1] [30]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[30]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[30]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [30]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[30]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44436,14 +44374,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [30]),
         .O(\GEN_HAS_IRQ.intr_stat[30]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[31]_i_1 
-       (.I0(\GEN_HAS_IRQ.intr_stat_reg_n_0_[31] ),
+       (.I0(\genr_status_regs[1] [31]),
         .I1(intr_stat_set_d[31]),
-        .I2(\genr_status_regs[1] [31]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[31]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[31]_i_2_n_0 ),
+        .I4(\GEN_HAS_IRQ.intr_stat_reg_n_0_[31] ),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[31]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44492,14 +44430,14 @@ module system_v_tc_out_0_video_ctrl
         .I3(\genr_status_regs_int_reg[1] [7]),
         .O(\GEN_HAS_IRQ.intr_stat[7]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[8]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [8]),
+       (.I0(\genr_status_regs[1] [8]),
         .I1(intr_stat_set_d[8]),
-        .I2(\genr_status_regs[1] [8]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[8]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[8]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [8]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[8]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 
@@ -44508,14 +44446,14 @@ module system_v_tc_out_0_video_ctrl
         .I1(\^genr_control_regs[1] [8]),
         .O(\GEN_HAS_IRQ.intr_stat[8]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hBA00AA000000AA00)) 
+    .INIT(64'hFF0F200000000000)) 
     \GEN_HAS_IRQ.intr_stat[9]_i_1 
-       (.I0(\genr_status_regs_int_reg[1] [9]),
+       (.I0(\genr_status_regs[1] [9]),
         .I1(intr_stat_set_d[9]),
-        .I2(\genr_status_regs[1] [9]),
-        .I3(resetn_out),
-        .I4(vid_aclk_en),
-        .I5(\GEN_HAS_IRQ.intr_stat[9]_i_2_n_0 ),
+        .I2(vid_aclk_en),
+        .I3(\GEN_HAS_IRQ.intr_stat[9]_i_2_n_0 ),
+        .I4(\genr_status_regs_int_reg[1] [9]),
+        .I5(resetn_out),
         .O(\GEN_HAS_IRQ.intr_stat[9]_i_1_n_0 ));
   LUT2 #(
     .INIT(4'hB)) 

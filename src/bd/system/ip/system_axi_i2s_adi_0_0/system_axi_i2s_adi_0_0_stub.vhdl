@@ -1,8 +1,8 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.2.1 (lin64) Build 1957588 Wed Aug  9 16:32:10 MDT 2017
--- Date        : Wed Oct 11 10:34:56 2017
--- Host        : ubuntu running 64-bit unknown
+-- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+-- Date        : Thu Feb  8 18:33:08 2018
+-- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_axi_i2s_adi_0_0/system_axi_i2s_adi_0_0_stub.vhdl
 -- Design      : system_axi_i2s_adi_0_0
@@ -66,6 +66,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "DATA_CLK_I,BCLK_O[0:0],LRCLK_O[0:0],SDATA_O[0:0],SDATA_I[0:0],DMA_REQ_TX_ACLK,DMA_REQ_TX_RSTN,DMA_REQ_TX_DAVALID,DMA_REQ_TX_DATYPE[1:0],DMA_REQ_TX_DAREADY,DMA_REQ_TX_DRVALID,DMA_REQ_TX_DRTYPE[1:0],DMA_REQ_TX_DRLAST,DMA_REQ_TX_DRREADY,DMA_REQ_RX_ACLK,DMA_REQ_RX_RSTN,DMA_REQ_RX_DAVALID,DMA_REQ_RX_DATYPE[1:0],DMA_REQ_RX_DAREADY,DMA_REQ_RX_DRVALID,DMA_REQ_RX_DRTYPE[1:0],DMA_REQ_RX_DRLAST,DMA_REQ_RX_DRREADY,S_AXI_ACLK,S_AXI_ARESETN,S_AXI_AWADDR[31:0],S_AXI_AWVALID,S_AXI_WDATA[31:0],S_AXI_WSTRB[3:0],S_AXI_WVALID,S_AXI_BREADY,S_AXI_ARADDR[31:0],S_AXI_ARVALID,S_AXI_RREADY,S_AXI_ARREADY,S_AXI_RDATA[31:0],S_AXI_RRESP[1:0],S_AXI_RVALID,S_AXI_WREADY,S_AXI_BRESP[1:0],S_AXI_BVALID,S_AXI_AWREADY";
 attribute x_core_info : string;
-attribute x_core_info of stub : architecture is "axi_i2s_adi,Vivado 2017.2.1";
+attribute x_core_info of stub : architecture is "axi_i2s_adi,Vivado 2017.4";
 begin
 end;

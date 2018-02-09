@@ -1,8 +1,8 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2.1 (lin64) Build 1957588 Wed Aug  9 16:32:10 MDT 2017
-// Date        : Wed Oct 11 04:24:23 2017
-// Host        : ubuntu running 64-bit unknown
+// Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+// Date        : Thu Feb  8 18:33:09 2018
+// Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_dvi2rgb_1_0/system_dvi2rgb_1_0_sim_netlist.v
 // Design      : system_dvi2rgb_1_0
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_dvi2rgb_1_0,dvi2rgb,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "dvi2rgb,Vivado 2017.2.1" *) 
+(* CHECK_LICENSE_TYPE = "system_dvi2rgb_1_0,dvi2rgb,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "dvi2rgb,Vivado 2017.4" *) 
 (* NotValidForBitStream *)
 module system_dvi2rgb_1_0
    (TMDS_Clk_p,
@@ -34,25 +34,25 @@ module system_dvi2rgb_1_0
     SCL_O,
     SCL_T,
     pRst_n);
-  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_P, xilinx.com:signal:clock:1.0 TMDS_Clk_p CLK" *) input TMDS_Clk_p;
-  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_N, xilinx.com:signal:clock:1.0 TMDS_Clk_n CLK" *) input TMDS_Clk_n;
+  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_P, xilinx.com:signal:clock:1.0 TMDS_Clk_p CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME TMDS, BOARD.ASSOCIATED_PARAM TMDS_BOARD_INTERFACE, XIL_INTERFACENAME TMDS_Clk_p, ASSOCIATED_RESET pRst, FREQ_HZ 100000000, PHASE 0.000" *) input TMDS_Clk_p;
+  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_N, xilinx.com:signal:clock:1.0 TMDS_Clk_n CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME TMDS_Clk_n, ASSOCIATED_RESET aRst_n, FREQ_HZ 100000000, PHASE 0.000" *) input TMDS_Clk_n;
   (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS DATA_P" *) input [2:0]TMDS_Data_p;
   (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS DATA_N" *) input [2:0]TMDS_Data_n;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 RefClk CLK" *) input RefClk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 AsyncRst_n RST" *) input aRst_n;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 RefClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME RefClk, FREQ_HZ 200000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK2" *) input RefClk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 AsyncRst_n RST" *) (* x_interface_parameter = "XIL_INTERFACENAME AsyncRst_n, POLARITY ACTIVE_LOW" *) input aRst_n;
   (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB DATA" *) output [23:0]vid_pData;
   (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB ACTIVE_VIDEO" *) output vid_pVDE;
   (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB HSYNC" *) output vid_pHSync;
   (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB VSYNC" *) output vid_pVSync;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 PixelClk CLK" *) output PixelClk;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 PixelClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME PixelClk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_dvi2rgb_1_0_PixelClk" *) output PixelClk;
   output aPixelClkLckd;
-  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_I" *) input SDA_I;
+  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_I" *) (* x_interface_parameter = "XIL_INTERFACENAME DDC, BOARD.ASSOCIATED_PARAM IIC_BOARD_INTERFACE" *) input SDA_I;
   (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_O" *) output SDA_O;
   (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_T" *) output SDA_T;
   (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_I" *) input SCL_I;
   (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_O" *) output SCL_O;
   (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_T" *) output SCL_T;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 SyncRst_n RST" *) input pRst_n;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 SyncRst_n RST" *) (* x_interface_parameter = "XIL_INTERFACENAME SyncRst_n, POLARITY ACTIVE_LOW" *) input pRst_n;
 
   wire PixelClk;
   wire RefClk;
@@ -147,6 +147,9 @@ module system_dvi2rgb_1_0_ChannelBond
   wire \pDataFIFO_reg_n_0_[9] ;
   wire [8:0]pDataInBnd;
   wire [9:0]pDataInRaw;
+  wire \pDataIn[7]_i_3_n_0 ;
+  wire \pDataIn[7]_i_4_n_0 ;
+  wire \pDataIn[7]_i_5_n_0 ;
   wire pMeRdy_int_i_1_n_0;
   wire pMeRdy_int_reg_0;
   wire [4:0]pRdA;
@@ -163,6 +166,7 @@ module system_dvi2rgb_1_0_ChannelBond
   wire pTokenFlag0;
   wire pTokenFlag_i_2__0_n_0;
   wire pTokenFlag_i_3__0_n_0;
+  wire pTokenFlag_i_4_n_0;
   wire pTokenFlag_q;
   wire [4:0]pWrA_reg__0;
   wire [4:0]p_0_in__0;
@@ -255,68 +259,69 @@ module system_dvi2rgb_1_0_ChannelBond
         .D(p_0_out__0[9]),
         .Q(\pDataFIFO_reg_n_0_[9] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
-    .INIT(8'h60)) 
+    .INIT(8'h06)) 
     \pDataIn[0]_i_1__0 
        (.I0(\pDataFIFO_reg_n_0_[9] ),
         .I1(pDataInBnd[0]),
-        .I2(pTokenFlag_i_2__0_n_0),
+        .I2(\pDataIn[7]_i_3_n_0 ),
         .O(D[0]));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT4 #(
-    .INIT(16'h2882)) 
+    .INIT(16'h1441)) 
     \pDataIn[1]_i_1__0 
-       (.I0(pTokenFlag_i_2__0_n_0),
+       (.I0(\pDataIn[7]_i_3_n_0 ),
         .I1(pDataInBnd[1]),
         .I2(pDataInBnd[0]),
         .I3(pDataInBnd[8]),
         .O(D[1]));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT4 #(
-    .INIT(16'h2882)) 
+    .INIT(16'h1441)) 
     \pDataIn[2]_i_1__0 
-       (.I0(pTokenFlag_i_2__0_n_0),
+       (.I0(\pDataIn[7]_i_3_n_0 ),
         .I1(pDataInBnd[1]),
         .I2(pDataInBnd[2]),
         .I3(pDataInBnd[8]),
         .O(D[2]));
   (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT4 #(
-    .INIT(16'h2882)) 
+    .INIT(16'h1441)) 
     \pDataIn[3]_i_1__0 
-       (.I0(pTokenFlag_i_2__0_n_0),
+       (.I0(\pDataIn[7]_i_3_n_0 ),
         .I1(pDataInBnd[3]),
         .I2(pDataInBnd[2]),
         .I3(pDataInBnd[8]),
         .O(D[3]));
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT4 #(
-    .INIT(16'h2882)) 
+    .INIT(16'h1441)) 
     \pDataIn[4]_i_1__0 
-       (.I0(pTokenFlag_i_2__0_n_0),
+       (.I0(\pDataIn[7]_i_3_n_0 ),
         .I1(pDataInBnd[3]),
         .I2(pDataInBnd[4]),
         .I3(pDataInBnd[8]),
         .O(D[4]));
   (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT4 #(
-    .INIT(16'h2882)) 
+    .INIT(16'h1441)) 
     \pDataIn[5]_i_1__0 
-       (.I0(pTokenFlag_i_2__0_n_0),
+       (.I0(\pDataIn[7]_i_3_n_0 ),
         .I1(pDataInBnd[5]),
         .I2(pDataInBnd[8]),
         .I3(pDataInBnd[4]),
         .O(D[5]));
   (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT4 #(
-    .INIT(16'h2882)) 
+    .INIT(16'h1441)) 
     \pDataIn[6]_i_1__0 
-       (.I0(pTokenFlag_i_2__0_n_0),
+       (.I0(\pDataIn[7]_i_3_n_0 ),
         .I1(pDataInBnd[5]),
         .I2(pDataInBnd[8]),
         .I3(pDataInBnd[6]),
         .O(D[6]));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'h7F)) 
     \pDataIn[7]_i_1__0 
@@ -324,15 +329,41 @@ module system_dvi2rgb_1_0_ChannelBond
         .I1(pRdy_0),
         .I2(pRdy_1),
         .O(SR));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT4 #(
-    .INIT(16'h2882)) 
+    .INIT(16'h0069)) 
     \pDataIn[7]_i_2__0 
-       (.I0(pTokenFlag_i_2__0_n_0),
-        .I1(pDataInBnd[7]),
-        .I2(pDataInBnd[6]),
-        .I3(pDataInBnd[8]),
+       (.I0(pDataInBnd[7]),
+        .I1(pDataInBnd[6]),
+        .I2(pDataInBnd[8]),
+        .I3(\pDataIn[7]_i_3_n_0 ),
         .O(D[7]));
+  LUT6 #(
+    .INIT(64'h0000002000080000)) 
+    \pDataIn[7]_i_3 
+       (.I0(\pDataIn[7]_i_4_n_0 ),
+        .I1(pDataInBnd[6]),
+        .I2(pDataInBnd[7]),
+        .I3(\pDataIn[7]_i_5_n_0 ),
+        .I4(pDataInBnd[4]),
+        .I5(pDataInBnd[5]),
+        .O(\pDataIn[7]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000044002200000)) 
+    \pDataIn[7]_i_4 
+       (.I0(pDataInBnd[3]),
+        .I1(pDataInBnd[4]),
+        .I2(pDataInBnd[7]),
+        .I3(pDataInBnd[8]),
+        .I4(pDataInBnd[1]),
+        .I5(pDataInBnd[2]),
+        .O(\pDataIn[7]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \pDataIn[7]_i_5 
+       (.I0(pDataInBnd[1]),
+        .I1(pDataInBnd[0]),
+        .O(\pDataIn[7]_i_5_n_0 ));
   (* METHODOLOGY_DRC_VIOS = "" *) 
   RAM32M pFIFO_reg_0_31_0_5
        (.ADDRA(pRdA),
@@ -365,7 +396,7 @@ module system_dvi2rgb_1_0_ChannelBond
         .DOD(NLW_pFIFO_reg_0_31_6_9_DOD_UNCONNECTED[1:0]),
         .WCLK(PixelClk_int),
         .WE(pAllVld));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT2 #(
     .INIT(4'hE)) 
     pMeRdy_int_i_1
@@ -383,14 +414,14 @@ module system_dvi2rgb_1_0_ChannelBond
     \pRdA[0]_i_1 
        (.I0(pRdA[0]),
         .O(\pRdA[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \pRdA[1]_i_1 
        (.I0(pRdA[0]),
         .I1(pRdA[1]),
         .O(\pRdA[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \pRdA[2]_i_1 
@@ -398,7 +429,7 @@ module system_dvi2rgb_1_0_ChannelBond
         .I1(pRdA[1]),
         .I2(pRdA[0]),
         .O(\pRdA[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \pRdA[3]_i_1 
@@ -407,7 +438,7 @@ module system_dvi2rgb_1_0_ChannelBond
         .I2(pRdA[1]),
         .I3(pRdA[2]),
         .O(\pRdA[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \pRdA[4]_i_1 
@@ -463,33 +494,44 @@ module system_dvi2rgb_1_0_ChannelBond
         .D(pRdEn_i_1_n_0),
         .Q(pRdEn),
         .R(pAligned_reg));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
-  LUT2 #(
-    .INIT(4'h7)) 
+  LUT5 #(
+    .INIT(32'hAAAAABAA)) 
     pTokenFlag_i_1__0
-       (.I0(pRdEn),
-        .I1(pTokenFlag_i_2__0_n_0),
+       (.I0(pTokenFlag_i_2__0_n_0),
+        .I1(pTokenFlag_i_3__0_n_0),
+        .I2(pDataInBnd[4]),
+        .I3(pDataInBnd[3]),
+        .I4(pDataInBnd[2]),
         .O(pTokenFlag0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFEFF7FF)) 
+  LUT5 #(
+    .INIT(32'h55555575)) 
     pTokenFlag_i_2__0
-       (.I0(pDataInBnd[2]),
-        .I1(pDataInBnd[4]),
-        .I2(pDataInBnd[3]),
-        .I3(pDataInBnd[6]),
-        .I4(pDataInBnd[5]),
-        .I5(pTokenFlag_i_3__0_n_0),
+       (.I0(pRdEn),
+        .I1(pDataInBnd[3]),
+        .I2(pDataInBnd[4]),
+        .I3(pDataInBnd[0]),
+        .I4(pTokenFlag_i_4_n_0),
         .O(pTokenFlag_i_2__0_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFDEFF7BFFFFF)) 
+    .INIT(64'hFDFFFFFFFFFFFFFF)) 
     pTokenFlag_i_3__0
-       (.I0(pDataInBnd[6]),
-        .I1(pDataInBnd[0]),
-        .I2(pDataInBnd[7]),
-        .I3(pDataInBnd[8]),
+       (.I0(pDataInBnd[7]),
+        .I1(pDataInBnd[6]),
+        .I2(pDataInBnd[8]),
+        .I3(pDataInBnd[5]),
         .I4(pDataInBnd[1]),
-        .I5(pDataInBnd[2]),
+        .I5(pDataInBnd[0]),
         .O(pTokenFlag_i_3__0_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFBFFFFFF)) 
+    pTokenFlag_i_4
+       (.I0(pDataInBnd[1]),
+        .I1(pDataInBnd[2]),
+        .I2(pDataInBnd[7]),
+        .I3(pDataInBnd[6]),
+        .I4(pDataInBnd[8]),
+        .I5(pDataInBnd[5]),
+        .O(pTokenFlag_i_4_n_0));
   FDRE pTokenFlag_q_reg
        (.C(PixelClk_int),
         .CE(1'b1),
@@ -507,14 +549,14 @@ module system_dvi2rgb_1_0_ChannelBond
     \pWrA[0]_i_1 
        (.I0(pWrA_reg__0[0]),
         .O(p_0_in__0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \pWrA[1]_i_1 
        (.I0(pWrA_reg__0[0]),
         .I1(pWrA_reg__0[1]),
         .O(p_0_in__0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \pWrA[2]_i_1 
@@ -522,7 +564,7 @@ module system_dvi2rgb_1_0_ChannelBond
         .I1(pWrA_reg__0[1]),
         .I2(pWrA_reg__0[0]),
         .O(p_0_in__0[2]));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \pWrA[3]_i_1 
@@ -531,7 +573,7 @@ module system_dvi2rgb_1_0_ChannelBond
         .I2(pWrA_reg__0[1]),
         .I3(pWrA_reg__0[2]),
         .O(p_0_in__0[3]));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \pWrA[4]_i_2 
@@ -623,7 +665,7 @@ module system_dvi2rgb_1_0_ChannelBond_10
   wire pTokenFlag0;
   wire pTokenFlag_i_2__1_n_0;
   wire pTokenFlag_i_3__1_n_0;
-  wire pTokenFlag_i_4_n_0;
+  wire pTokenFlag_i_4__0_n_0;
   wire pTokenFlag_q;
   wire [4:0]pWrA_reg__0;
   wire [4:0]p_0_in__0;
@@ -924,7 +966,7 @@ module system_dvi2rgb_1_0_ChannelBond_10
     .INIT(64'hFFFFFEFFFFEFFFFF)) 
     pTokenFlag_i_2__1
        (.I0(pTokenFlag_i_3__1_n_0),
-        .I1(pTokenFlag_i_4_n_0),
+        .I1(pTokenFlag_i_4__0_n_0),
         .I2(pDataInBnd[6]),
         .I3(pDataInBnd[7]),
         .I4(pDataInBnd[4]),
@@ -943,10 +985,10 @@ module system_dvi2rgb_1_0_ChannelBond_10
   (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    pTokenFlag_i_4
+    pTokenFlag_i_4__0
        (.I0(pDataInBnd[1]),
         .I1(pDataInBnd[0]),
-        .O(pTokenFlag_i_4_n_0));
+        .O(pTokenFlag_i_4__0_n_0));
   FDRE pTokenFlag_q_reg
        (.C(PixelClk_int),
         .CE(1'b1),
@@ -2241,7 +2283,7 @@ module system_dvi2rgb_1_0_EEPROM_8b
         .I1(\sI2C_DataOut[7]_i_7_n_0 ),
         .O(\sI2C_DataOut_reg[7]_i_3_n_0 ),
         .S(sAddr_0[3]));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
   LUT4 #(
     .INIT(16'h024E)) 
     \sState[0]_i_1 
@@ -2250,7 +2292,7 @@ module system_dvi2rgb_1_0_EEPROM_8b
         .I2(sState[1]),
         .I3(sI2C_End),
         .O(\sState[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
   LUT5 #(
     .INIT(32'h0004FF04)) 
     \sState[1]_i_1 
@@ -2300,20 +2342,20 @@ module system_dvi2rgb_1_0_GlitchFilter
   wire [0:0]out;
   wire [0:0]p_0_in__0;
 
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \Filter.cntPeriods[0]_i_1__0 
        (.I0(\Filter.cntPeriods_reg__0 [0]),
         .O(p_0_in__0));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \Filter.cntPeriods[1]_i_1__0 
        (.I0(\Filter.cntPeriods_reg__0 [0]),
         .I1(\Filter.cntPeriods_reg__0 [1]),
         .O(\Filter.cntPeriods[1]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT3 #(
     .INIT(8'hE1)) 
     \Filter.cntPeriods[2]_i_1__0 
@@ -2329,7 +2371,7 @@ module system_dvi2rgb_1_0_GlitchFilter
         .I2(\Filter.cntPeriods_reg__0 [2]),
         .I3(\Filter.cntPeriods_reg__0 [3]),
         .O(\Filter.cntPeriods[3]_i_2__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT4 #(
     .INIT(16'hFE01)) 
     \Filter.cntPeriods[3]_i_3__0 
@@ -2420,20 +2462,20 @@ module system_dvi2rgb_1_0_GlitchFilter_6
   wire sIn_q;
   wire sOut;
 
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \Filter.cntPeriods[0]_i_1 
        (.I0(\Filter.cntPeriods_reg__0 [0]),
         .O(p_0_in));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \Filter.cntPeriods[1]_i_1 
        (.I0(\Filter.cntPeriods_reg__0 [0]),
         .I1(\Filter.cntPeriods_reg__0 [1]),
         .O(\Filter.cntPeriods[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT3 #(
     .INIT(8'hE1)) 
     \Filter.cntPeriods[2]_i_1 
@@ -2449,7 +2491,7 @@ module system_dvi2rgb_1_0_GlitchFilter_6
         .I2(\Filter.cntPeriods_reg__0 [2]),
         .I3(\Filter.cntPeriods_reg__0 [3]),
         .O(\Filter.cntPeriods[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT4 #(
     .INIT(16'hFE01)) 
     \Filter.cntPeriods[3]_i_3 
@@ -3169,7 +3211,7 @@ module system_dvi2rgb_1_0_PhaseAlign
   wire [0:0]out;
   wire pAlignErr_q;
   wire pAlignErr_q_reg;
-  wire pAligned;
+  wire pAligned_i_1_n_0;
   wire pAligned_i_2_n_0;
   wire pAllVldBgnFlag0;
   wire pAllVld_q;
@@ -3193,7 +3235,6 @@ module system_dvi2rgb_1_0_PhaseAlign
   wire \pCenterTap_reg_n_0_[5] ;
   wire \pCtlTknCnt[6]_i_3_n_0 ;
   wire \pCtlTknCnt[6]_i_4_n_0 ;
-  wire \pCtlTknCnt[6]_i_5_n_0 ;
   wire [6:0]pCtlTknCnt_reg__0;
   wire pCtlTknOvf_i_1_n_0;
   wire pCtlTknOvf_reg_n_0;
@@ -3207,12 +3248,12 @@ module system_dvi2rgb_1_0_PhaseAlign
   wire [1:0]pDelayWaitCnt;
   wire \pDelayWaitCnt[0]_i_1_n_0 ;
   wire \pDelayWaitCnt[1]_i_1_n_0 ;
-  wire \pDelayWaitCnt[1]_i_2_n_0 ;
   wire \pDelayWaitCnt[1]_i_3_n_0 ;
   wire \pDelayWaitCnt[1]_i_4_n_0 ;
+  wire \pDelayWaitCnt[1]_i_5_n_0 ;
   wire pDelayWaitOvf;
   wire pDelayWaitOvf_i_1_n_0;
-  wire pError;
+  wire pError_i_1_n_0;
   wire \pEyeOpenCnt[0]_i_1_n_0 ;
   wire \pEyeOpenCnt[1]_i_1_n_0 ;
   wire \pEyeOpenCnt[2]_i_1_n_0 ;
@@ -3235,9 +3276,7 @@ module system_dvi2rgb_1_0_PhaseAlign
   wire pFoundJtrFlag_i_1_n_0;
   wire pFoundJtrFlag_i_2_n_0;
   wire pIDLY_CE;
-  wire pIDLY_CE_0;
-  wire pIDLY_CE_i_2_n_0;
-  wire pIDLY_CE_i_3_n_0;
+  wire pIDLY_CE_i_1_n_0;
   wire [4:0]pIDLY_CE_reg_0;
   wire \pIDLY_CNT_Q_reg_n_0_[0] ;
   wire \pIDLY_CNT_Q_reg_n_0_[1] ;
@@ -3245,10 +3284,11 @@ module system_dvi2rgb_1_0_PhaseAlign
   wire \pIDLY_CNT_Q_reg_n_0_[3] ;
   wire \pIDLY_CNT_Q_reg_n_0_[4] ;
   wire pIDLY_INC;
-  wire pIDLY_INC_2;
+  wire pIDLY_INC_1;
   wire pIDLY_INC_i_1_n_0;
+  wire pIDLY_INC_i_3_n_0;
   wire pIDLY_LD;
-  wire pIDLY_LD_1;
+  wire pIDLY_LD_i_1_n_0;
   wire [10:0]pState;
   wire pStateNxt__0_n_0;
   wire pStateNxt__1_n_0;
@@ -3259,9 +3299,11 @@ module system_dvi2rgb_1_0_PhaseAlign
   wire \pState[0]_i_1_n_0 ;
   wire \pState[10]_i_2_n_0 ;
   wire \pState[10]_i_3_n_0 ;
-  wire \pState[10]_i_4__0_n_0 ;
+  wire \pState[10]_i_4_n_0 ;
   wire \pState[10]_i_5_n_0 ;
   wire \pState[10]_i_6_n_0 ;
+  wire \pState[10]_i_7_n_0 ;
+  wire \pState[10]_i_8_n_0 ;
   wire \pState[1]_i_1_n_0 ;
   wire \pState[2]_i_1_n_0 ;
   wire \pState[3]_i_1_n_0 ;
@@ -3281,6 +3323,8 @@ module system_dvi2rgb_1_0_PhaseAlign
   wire pVld_1;
   wire pVld_2;
   wire [6:0]p_0_in;
+  wire p_0_in_0;
+  wire p_2_in;
 
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFEEF)) 
@@ -3311,13 +3355,13 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I3(pState[9]),
         .I4(pState[0]),
         .I5(pState[10]),
-        .O(pAligned));
+        .O(pAligned_i_1_n_0));
   LUT6 #(
     .INIT(64'h0000000000000001)) 
     pAligned_i_2
-       (.I0(pState[2]),
+       (.I0(pState[3]),
         .I1(pState[1]),
-        .I2(pState[3]),
+        .I2(pState[2]),
         .I3(pState[4]),
         .I4(pState[7]),
         .I5(pState[5]),
@@ -3325,7 +3369,7 @@ module system_dvi2rgb_1_0_PhaseAlign
   FDRE pAligned_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pAligned),
+        .D(pAligned_i_1_n_0),
         .Q(pVld_2),
         .R(1'b0));
   LUT4 #(
@@ -3354,7 +3398,7 @@ module system_dvi2rgb_1_0_PhaseAlign
         .D(pBlankBegin0),
         .Q(pBlankBegin),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT3 #(
     .INIT(8'hF6)) 
     \pCenterTap[0]_i_1 
@@ -3476,13 +3520,13 @@ module system_dvi2rgb_1_0_PhaseAlign
         .D(\pCenterTap[5]_i_2_n_0 ),
         .Q(\pCenterTap_reg_n_0_[5] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \pCtlTknCnt[0]_i_1 
        (.I0(pCtlTknCnt_reg__0[0]),
         .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \pCtlTknCnt[1]_i_1 
@@ -3499,77 +3543,70 @@ module system_dvi2rgb_1_0_PhaseAlign
         .O(p_0_in[2]));
   (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT4 #(
-    .INIT(16'h7F80)) 
+    .INIT(16'h6AAA)) 
     \pCtlTknCnt[3]_i_1 
-       (.I0(pCtlTknCnt_reg__0[1]),
-        .I1(pCtlTknCnt_reg__0[0]),
-        .I2(pCtlTknCnt_reg__0[2]),
-        .I3(pCtlTknCnt_reg__0[3]),
+       (.I0(pCtlTknCnt_reg__0[3]),
+        .I1(pCtlTknCnt_reg__0[1]),
+        .I2(pCtlTknCnt_reg__0[0]),
+        .I3(pCtlTknCnt_reg__0[2]),
         .O(p_0_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \pCtlTknCnt[4]_i_1 
        (.I0(pCtlTknCnt_reg__0[4]),
-        .I1(pCtlTknCnt_reg__0[1]),
+        .I1(pCtlTknCnt_reg__0[2]),
         .I2(pCtlTknCnt_reg__0[0]),
-        .I3(pCtlTknCnt_reg__0[2]),
+        .I3(pCtlTknCnt_reg__0[1]),
         .I4(pCtlTknCnt_reg__0[3]),
         .O(p_0_in[4]));
   LUT6 #(
     .INIT(64'h6AAAAAAAAAAAAAAA)) 
     \pCtlTknCnt[5]_i_1 
        (.I0(pCtlTknCnt_reg__0[5]),
-        .I1(pCtlTknCnt_reg__0[3]),
-        .I2(pCtlTknCnt_reg__0[2]),
-        .I3(pCtlTknCnt_reg__0[0]),
-        .I4(pCtlTknCnt_reg__0[1]),
-        .I5(pCtlTknCnt_reg__0[4]),
-        .O(p_0_in[5]));
-  LUT5 #(
-    .INIT(32'hFFFFFFEF)) 
-    \pCtlTknCnt[6]_i_1 
-       (.I0(\pCtlTknCnt[6]_i_3_n_0 ),
-        .I1(pState[1]),
-        .I2(pState[2]),
-        .I3(pState[10]),
-        .I4(\pCtlTknCnt[6]_i_4_n_0 ),
-        .O(pCtlTknRst));
-  LUT4 #(
-    .INIT(16'h6AAA)) 
-    \pCtlTknCnt[6]_i_2 
-       (.I0(pCtlTknCnt_reg__0[6]),
-        .I1(pCtlTknCnt_reg__0[4]),
-        .I2(\pCtlTknCnt[6]_i_5_n_0 ),
-        .I3(pCtlTknCnt_reg__0[5]),
-        .O(p_0_in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \pCtlTknCnt[6]_i_3 
-       (.I0(pState[5]),
-        .I1(pState[0]),
-        .I2(pState[4]),
-        .I3(pState[3]),
-        .O(\pCtlTknCnt[6]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \pCtlTknCnt[6]_i_4 
-       (.I0(pState[8]),
-        .I1(pState[6]),
-        .I2(pState[9]),
-        .I3(pState[7]),
-        .O(\pCtlTknCnt[6]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
-  LUT4 #(
-    .INIT(16'h8000)) 
-    \pCtlTknCnt[6]_i_5 
-       (.I0(pCtlTknCnt_reg__0[3]),
         .I1(pCtlTknCnt_reg__0[2]),
         .I2(pCtlTknCnt_reg__0[0]),
         .I3(pCtlTknCnt_reg__0[1]),
-        .O(\pCtlTknCnt[6]_i_5_n_0 ));
+        .I4(pCtlTknCnt_reg__0[3]),
+        .I5(pCtlTknCnt_reg__0[4]),
+        .O(p_0_in[5]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFD)) 
+    \pCtlTknCnt[6]_i_1 
+       (.I0(pState[2]),
+        .I1(pState[1]),
+        .I2(pState[3]),
+        .I3(pState[5]),
+        .I4(pState[4]),
+        .I5(\pCtlTknCnt[6]_i_3_n_0 ),
+        .O(pCtlTknRst));
+  LUT3 #(
+    .INIT(8'h6A)) 
+    \pCtlTknCnt[6]_i_2 
+       (.I0(pCtlTknCnt_reg__0[6]),
+        .I1(\pCtlTknCnt[6]_i_4_n_0 ),
+        .I2(pCtlTknCnt_reg__0[5]),
+        .O(p_0_in[6]));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+    \pCtlTknCnt[6]_i_3 
+       (.I0(pState[7]),
+        .I1(pState[8]),
+        .I2(pState[6]),
+        .I3(pState[9]),
+        .I4(pState[0]),
+        .I5(pState[10]),
+        .O(\pCtlTknCnt[6]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  LUT5 #(
+    .INIT(32'h80000000)) 
+    \pCtlTknCnt[6]_i_4 
+       (.I0(pCtlTknCnt_reg__0[4]),
+        .I1(pCtlTknCnt_reg__0[3]),
+        .I2(pCtlTknCnt_reg__0[1]),
+        .I3(pCtlTknCnt_reg__0[0]),
+        .I4(pCtlTknCnt_reg__0[2]),
+        .O(\pCtlTknCnt[6]_i_4_n_0 ));
   FDRE \pCtlTknCnt_reg[0] 
        (.C(PixelClk_int),
         .CE(1'b1),
@@ -3612,16 +3649,25 @@ module system_dvi2rgb_1_0_PhaseAlign
         .D(p_0_in[6]),
         .Q(pCtlTknCnt_reg__0[6]),
         .R(pCtlTknRst));
-  LUT6 #(
-    .INIT(64'hB888888888888888)) 
+  LUT5 #(
+    .INIT(32'hC000AAAA)) 
     pCtlTknOvf_i_1
        (.I0(pCtlTknOvf_reg_n_0),
-        .I1(pCtlTknRst),
-        .I2(pCtlTknCnt_reg__0[6]),
-        .I3(pCtlTknCnt_reg__0[4]),
-        .I4(\pCtlTknCnt[6]_i_5_n_0 ),
-        .I5(pCtlTknCnt_reg__0[5]),
+        .I1(pCtlTknCnt_reg__0[6]),
+        .I2(\pCtlTknCnt[6]_i_4_n_0 ),
+        .I3(pCtlTknCnt_reg__0[5]),
+        .I4(p_0_in_0),
         .O(pCtlTknOvf_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h0000000100000000)) 
+    pCtlTknOvf_i_2
+       (.I0(\pCtlTknCnt[6]_i_3_n_0 ),
+        .I1(pState[4]),
+        .I2(pState[5]),
+        .I3(pState[3]),
+        .I4(pState[1]),
+        .I5(pState[2]),
+        .O(p_0_in_0));
   FDRE pCtlTknOvf_reg
        (.C(PixelClk_int),
         .CE(1'b1),
@@ -3723,43 +3769,50 @@ module system_dvi2rgb_1_0_PhaseAlign
         .Q(pDelayOvf),
         .R(1'b0));
   LUT2 #(
-    .INIT(4'h1)) 
+    .INIT(4'h4)) 
     \pDelayWaitCnt[0]_i_1 
        (.I0(pDelayWaitCnt[0]),
-        .I1(\pDelayWaitCnt[1]_i_2_n_0 ),
+        .I1(p_2_in),
         .O(\pDelayWaitCnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT3 #(
-    .INIT(8'h06)) 
+    .INIT(8'h60)) 
     \pDelayWaitCnt[1]_i_1 
        (.I0(pDelayWaitCnt[1]),
         .I1(pDelayWaitCnt[0]),
-        .I2(\pDelayWaitCnt[1]_i_2_n_0 ),
+        .I2(p_2_in),
         .O(\pDelayWaitCnt[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFF9)) 
+    .INIT(64'h0000000000010100)) 
     \pDelayWaitCnt[1]_i_2 
-       (.I0(pState[6]),
-        .I1(pState[8]),
-        .I2(\pDelayWaitCnt[1]_i_3_n_0 ),
-        .I3(pState[3]),
-        .I4(\pDelayWaitCnt[1]_i_4_n_0 ),
-        .I5(pFoundEyeFlag_i_3_n_0),
-        .O(\pDelayWaitCnt[1]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+       (.I0(\pState[10]_i_7_n_0 ),
+        .I1(\pDelayWaitCnt[1]_i_3_n_0 ),
+        .I2(\pDelayWaitCnt[1]_i_4_n_0 ),
+        .I3(pState[8]),
+        .I4(pState[6]),
+        .I5(\pDelayWaitCnt[1]_i_5_n_0 ),
+        .O(p_2_in));
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \pDelayWaitCnt[1]_i_3 
        (.I0(pState[5]),
         .I1(pState[7]),
         .O(\pDelayWaitCnt[1]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \pDelayWaitCnt[1]_i_4 
        (.I0(pState[10]),
         .I1(pState[9]),
         .O(\pDelayWaitCnt[1]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \pDelayWaitCnt[1]_i_5 
+       (.I0(pState[3]),
+        .I1(pState[1]),
+        .I2(pState[2]),
+        .O(\pDelayWaitCnt[1]_i_5_n_0 ));
   FDRE \pDelayWaitCnt_reg[0] 
        (.C(PixelClk_int),
         .CE(1'b1),
@@ -3772,14 +3825,14 @@ module system_dvi2rgb_1_0_PhaseAlign
         .D(\pDelayWaitCnt[1]_i_1_n_0 ),
         .Q(pDelayWaitCnt[1]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT4 #(
-    .INIT(16'h88B8)) 
+    .INIT(16'h30AA)) 
     pDelayWaitOvf_i_1
        (.I0(pDelayWaitOvf),
-        .I1(\pDelayWaitCnt[1]_i_2_n_0 ),
+        .I1(pDelayWaitCnt[0]),
         .I2(pDelayWaitCnt[1]),
-        .I3(pDelayWaitCnt[0]),
+        .I3(p_2_in),
         .O(pDelayWaitOvf_i_1_n_0));
   FDRE pDelayWaitOvf_reg
        (.C(PixelClk_int),
@@ -3796,14 +3849,14 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I3(pState[0]),
         .I4(pState[10]),
         .I5(pState[9]),
-        .O(pError));
+        .O(pError_i_1_n_0));
   FDRE pError_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pError),
+        .D(pError_i_1_n_0),
         .Q(pAlignErr_q_reg),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT3 #(
     .INIT(8'h06)) 
     \pEyeOpenCnt[0]_i_1 
@@ -3811,32 +3864,32 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pEyeOpenRst),
         .O(\pEyeOpenCnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT4 #(
-    .INIT(16'h006A)) 
+    .INIT(16'h0078)) 
     \pEyeOpenCnt[1]_i_1 
-       (.I0(\pEyeOpenCnt_reg[3]_1 ),
-        .I1(\pCenterTap[5]_i_3_n_0 ),
-        .I2(\pEyeOpenCnt_reg[3]_2 ),
+       (.I0(\pCenterTap[5]_i_3_n_0 ),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
+        .I2(\pEyeOpenCnt_reg[3]_1 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT5 #(
-    .INIT(32'h00006CCC)) 
+    .INIT(32'h00007F80)) 
     \pEyeOpenCnt[2]_i_1 
        (.I0(\pCenterTap[5]_i_3_n_0 ),
-        .I1(\pEyeOpenCnt_reg[3]_0 ),
-        .I2(\pEyeOpenCnt_reg[3]_1 ),
-        .I3(\pEyeOpenCnt_reg[3]_2 ),
+        .I1(\pEyeOpenCnt_reg[3]_1 ),
+        .I2(\pEyeOpenCnt_reg[3]_2 ),
+        .I3(\pEyeOpenCnt_reg[3]_0 ),
         .I4(pEyeOpenRst),
         .O(\pEyeOpenCnt[2]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h000000006AAAAAAA)) 
     \pEyeOpenCnt[3]_i_1 
        (.I0(\pEyeOpenCnt_reg[4]_1 ),
-        .I1(\pEyeOpenCnt_reg[3]_2 ),
-        .I2(\pEyeOpenCnt_reg[3]_1 ),
-        .I3(\pEyeOpenCnt_reg[3]_0 ),
+        .I1(\pEyeOpenCnt_reg[3]_0 ),
+        .I2(\pEyeOpenCnt_reg[3]_2 ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
         .I4(\pCenterTap[5]_i_3_n_0 ),
         .I5(pEyeOpenRst),
         .O(\pEyeOpenCnt[3]_i_1_n_0 ));
@@ -3854,9 +3907,9 @@ module system_dvi2rgb_1_0_PhaseAlign
        (.I0(pFoundEyeFlag_i_3_n_0),
         .I1(pState[3]),
         .I2(iIn_q_i_2_n_0),
-        .I3(\pEyeOpenCnt_reg[3]_0 ),
-        .I4(\pEyeOpenCnt_reg[3]_1 ),
-        .I5(\pEyeOpenCnt_reg[3]_2 ),
+        .I3(\pEyeOpenCnt_reg[3]_1 ),
+        .I4(\pEyeOpenCnt_reg[3]_2 ),
+        .I5(\pEyeOpenCnt_reg[3]_0 ),
         .O(\pEyeOpenCnt[4]_i_2_n_0 ));
   FDRE \pEyeOpenCnt_reg[0] 
        (.C(PixelClk_int),
@@ -3899,16 +3952,16 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I5(pFoundEyeFlag),
         .O(pFoundEyeFlag_i_1_n_0));
   LUT6 #(
-    .INIT(64'h0000050008000000)) 
+    .INIT(64'h0000030008000000)) 
     pFoundEyeFlag_i_2
-       (.I0(\pEyeOpenCnt_reg[3]_2 ),
-        .I1(pFoundJtrFlag),
+       (.I0(pFoundJtrFlag),
+        .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pFoundEyeFlag_i_5_n_0),
         .I3(pState[3]),
         .I4(\pEyeOpenCnt_reg[3]_1 ),
         .I5(\pEyeOpenCnt_reg[4]_0 ),
         .O(pFoundEyeFlag_i_2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     pFoundEyeFlag_i_3
@@ -3917,16 +3970,16 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I2(pState[1]),
         .I3(pState[2]),
         .O(pFoundEyeFlag_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT4 #(
     .INIT(16'h0001)) 
     pFoundEyeFlag_i_4
        (.I0(pState[4]),
-        .I1(pState[3]),
+        .I1(pState[2]),
         .I2(pState[1]),
-        .I3(pState[2]),
+        .I3(pState[3]),
         .O(pFoundEyeFlag_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT2 #(
     .INIT(4'hE)) 
     pFoundEyeFlag_i_5
@@ -3949,6 +4002,7 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I4(pState[4]),
         .I5(pFoundJtrFlag_i_2_n_0),
         .O(pFoundJtrFlag_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT2 #(
     .INIT(4'hE)) 
     pFoundJtrFlag_i_2
@@ -3962,37 +4016,19 @@ module system_dvi2rgb_1_0_PhaseAlign
         .Q(pFoundJtrFlag),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hAAAAAABAAAAAAAAA)) 
+    .INIT(64'h5555030000000000)) 
     pIDLY_CE_i_1
-       (.I0(pIDLY_CE_i_2_n_0),
-        .I1(pIDLY_CE_i_3_n_0),
-        .I2(pState[7]),
-        .I3(pState[0]),
+       (.I0(\pCtlTknCnt[6]_i_3_n_0 ),
+        .I1(\pState[10]_i_3_n_0 ),
+        .I2(pState[0]),
+        .I3(pState[7]),
         .I4(pState[5]),
         .I5(pFoundEyeFlag_i_4_n_0),
-        .O(pIDLY_CE_0));
-  LUT5 #(
-    .INIT(32'h00000200)) 
-    pIDLY_CE_i_2
-       (.I0(pFoundEyeFlag_i_4_n_0),
-        .I1(pState[10]),
-        .I2(pState[0]),
-        .I3(pState[5]),
-        .I4(\pCtlTknCnt[6]_i_4_n_0 ),
-        .O(pIDLY_CE_i_2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    pIDLY_CE_i_3
-       (.I0(pState[8]),
-        .I1(pState[6]),
-        .I2(pState[9]),
-        .I3(pState[10]),
-        .O(pIDLY_CE_i_3_n_0));
+        .O(pIDLY_CE_i_1_n_0));
   FDRE pIDLY_CE_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pIDLY_CE_0),
+        .D(pIDLY_CE_i_1_n_0),
         .Q(pIDLY_CE),
         .R(1'b0));
   FDRE \pIDLY_CNT_Q_reg[0] 
@@ -4028,27 +4064,37 @@ module system_dvi2rgb_1_0_PhaseAlign
   LUT3 #(
     .INIT(8'hF4)) 
     pIDLY_INC_i_1
-       (.I0(pIDLY_INC_2),
+       (.I0(pIDLY_INC_1),
         .I1(pIDLY_INC),
-        .I2(pIDLY_CE_i_2_n_0),
+        .I2(pIDLY_INC_i_3_n_0),
         .O(pIDLY_INC_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT5 #(
-    .INIT(32'h00000200)) 
+    .INIT(32'h00000020)) 
     pIDLY_INC_i_2
        (.I0(pFoundEyeFlag_i_4_n_0),
         .I1(pState[5]),
-        .I2(pState[0]),
-        .I3(pState[7]),
-        .I4(pIDLY_CE_i_3_n_0),
-        .O(pIDLY_INC_2));
+        .I2(pState[7]),
+        .I3(pState[0]),
+        .I4(\pState[10]_i_3_n_0 ),
+        .O(pIDLY_INC_1));
+  LUT6 #(
+    .INIT(64'h0000000000010000)) 
+    pIDLY_INC_i_3
+       (.I0(pState[3]),
+        .I1(pState[1]),
+        .I2(pState[2]),
+        .I3(pState[4]),
+        .I4(pState[5]),
+        .I5(\pCtlTknCnt[6]_i_3_n_0 ),
+        .O(pIDLY_INC_i_3_n_0));
   FDRE pIDLY_INC_reg
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(pIDLY_INC_i_1_n_0),
         .Q(pIDLY_INC),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT5 #(
     .INIT(32'h00001000)) 
     pIDLY_LD_i_1
@@ -4056,15 +4102,15 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I1(pState[7]),
         .I2(pFoundEyeFlag_i_4_n_0),
         .I3(pState[0]),
-        .I4(pIDLY_CE_i_3_n_0),
-        .O(pIDLY_LD_1));
+        .I4(\pState[10]_i_3_n_0 ),
+        .O(pIDLY_LD_i_1_n_0));
   FDRE pIDLY_LD_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pIDLY_LD_1),
+        .D(pIDLY_LD_i_1_n_0),
         .Q(pIDLY_LD),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT5 #(
     .INIT(32'h00010116)) 
     pStateNxt
@@ -4074,7 +4120,7 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I3(pState[3]),
         .I4(pState[4]),
         .O(pStateNxt_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT5 #(
     .INIT(32'hFFFEFEE8)) 
     pStateNxt__0
@@ -4117,16 +4163,17 @@ module system_dvi2rgb_1_0_PhaseAlign
     \pState[0]_i_1 
        (.I0(pStateNxt__3_n_0),
         .O(\pState[0]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFFFEEEA)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFA8)) 
     \pState[10]_i_1 
        (.I0(\pState[10]_i_3_n_0 ),
-        .I1(\pState[10]_i_4__0_n_0 ),
-        .I2(pState[7]),
-        .I3(pState[8]),
+        .I1(pState[2]),
+        .I2(pState[1]),
+        .I3(\pState[10]_i_4_n_0 ),
         .I4(\pState[10]_i_5_n_0 ),
+        .I5(\pState[10]_i_6_n_0 ),
         .O(pStateNxt__4));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[10]_i_2 
@@ -4134,45 +4181,61 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I1(pState[6]),
         .I2(pDelayOvf),
         .O(\pState[10]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFAF8888)) 
-    \pState[10]_i_3 
-       (.I0(pIDLY_CE_i_3_n_0),
-        .I1(pState[1]),
-        .I2(pTknFlagQ),
-        .I3(pCtlTknOvf_reg_n_0),
-        .I4(pState[2]),
-        .I5(\pCtlTknCnt[6]_i_3_n_0 ),
-        .O(\pState[10]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT4 #(
-    .INIT(16'hFFF8)) 
-    \pState[10]_i_4__0 
-       (.I0(pState[9]),
-        .I1(pState[10]),
-        .I2(pState[7]),
-        .I3(pState[6]),
-        .O(\pState[10]_i_4__0_n_0 ));
+    .INIT(16'hFFFE)) 
+    \pState[10]_i_3 
+       (.I0(pState[8]),
+        .I1(pState[6]),
+        .I2(pState[9]),
+        .I3(pState[10]),
+        .O(\pState[10]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFF55005455)) 
+    .INIT(64'hFFFFFFFFFFFFECFC)) 
+    \pState[10]_i_4 
+       (.I0(pCtlTknOvf_reg_n_0),
+        .I1(\pState[10]_i_7_n_0 ),
+        .I2(pState[2]),
+        .I3(pTknFlagQ),
+        .I4(pState[3]),
+        .I5(pState[5]),
+        .O(\pState[10]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  LUT5 #(
+    .INIT(32'hFFFFAA80)) 
     \pState[10]_i_5 
-       (.I0(pIDLY_CE_i_3_n_0),
-        .I1(out),
-        .I2(pBlankBegin),
-        .I3(pState[1]),
-        .I4(pState[2]),
-        .I5(\pState[10]_i_6_n_0 ),
+       (.I0(pState[8]),
+        .I1(pState[10]),
+        .I2(pState[9]),
+        .I3(pState[6]),
+        .I4(pState[7]),
         .O(\pState[10]_i_5_n_0 ));
   LUT6 #(
-    .INIT(64'hFEFEFEFEFEFEFEC0)) 
+    .INIT(64'hBBABBBABBBABBAAB)) 
     \pState[10]_i_6 
-       (.I0(pDelayWaitOvf),
-        .I1(pState[9]),
-        .I2(pState[10]),
-        .I3(pState[7]),
-        .I4(pState[6]),
-        .I5(pState[8]),
+       (.I0(\pState[10]_i_8_n_0 ),
+        .I1(\pState[10]_i_3_n_0 ),
+        .I2(pState[2]),
+        .I3(pState[1]),
+        .I4(pBlankBegin),
+        .I5(out),
         .O(\pState[10]_i_6_n_0 ));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \pState[10]_i_7 
+       (.I0(pState[0]),
+        .I1(pState[4]),
+        .O(\pState[10]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFAAFFFCFCA8)) 
+    \pState[10]_i_8 
+       (.I0(pDelayWaitOvf),
+        .I1(pState[7]),
+        .I2(pState[6]),
+        .I3(pState[9]),
+        .I4(pState[10]),
+        .I5(pState[8]),
+        .O(\pState[10]_i_8_n_0 ));
   LUT6 #(
     .INIT(64'hAA08AAAAAA08AA08)) 
     \pState[1]_i_1 
@@ -4183,7 +4246,7 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I4(pDelayOvf),
         .I5(pState[6]),
         .O(\pState[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[2]_i_1 
@@ -4191,7 +4254,7 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I1(pState[1]),
         .I2(pBlankBegin),
         .O(\pState[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[3]_i_1 
@@ -4199,7 +4262,7 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I1(pTknFlagQ),
         .I2(pState[2]),
         .O(\pState[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair72" *) 
   LUT5 #(
     .INIT(32'h08AA0808)) 
     \pState[4]_i_1 
@@ -4218,7 +4281,7 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I3(pFoundEyeFlag),
         .I4(pState[4]),
         .O(\pState[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
   LUT5 #(
     .INIT(32'hFFFFFFEF)) 
     \pState[5]_i_2 
@@ -4228,7 +4291,7 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I3(\pEyeOpenCnt_reg[3]_1 ),
         .I4(\pEyeOpenCnt_reg[3]_2 ),
         .O(\pState[5]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \pState[6]_i_1 
@@ -4245,7 +4308,6 @@ module system_dvi2rgb_1_0_PhaseAlign
         .I3(pFoundEyeFlag),
         .I4(pState[4]),
         .O(\pState[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \pState[8]_i_1 
@@ -4422,7 +4484,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
   wire [0:0]out;
   wire pAlignErr_q;
   wire pAlignErr_q_reg;
-  wire pAligned;
+  wire pAligned_i_1__0_n_0;
   wire pAligned_i_2__0_n_0;
   wire pBitslip_reg;
   wire pBlankBegin;
@@ -4442,10 +4504,8 @@ module system_dvi2rgb_1_0_PhaseAlign_12
   wire \pCenterTap_reg_n_0_[3] ;
   wire \pCenterTap_reg_n_0_[4] ;
   wire \pCenterTap_reg_n_0_[5] ;
-  wire \pCtlTknCnt[6]_i_3__0_n_0 ;
   wire \pCtlTknCnt[6]_i_4__0_n_0 ;
-  wire \pCtlTknCnt[6]_i_5__0_n_0 ;
-  wire \pCtlTknCnt[6]_i_6_n_0 ;
+  wire \pCtlTknCnt[6]_i_5_n_0 ;
   wire [6:0]pCtlTknCnt_reg__0;
   wire pCtlTknOvf_i_1__0_n_0;
   wire pCtlTknOvf_reg_n_0;
@@ -4467,13 +4527,11 @@ module system_dvi2rgb_1_0_PhaseAlign_12
   wire [1:0]pDelayWaitCnt;
   wire \pDelayWaitCnt[0]_i_1_n_0 ;
   wire \pDelayWaitCnt[1]_i_1_n_0 ;
-  wire \pDelayWaitCnt[1]_i_2__0_n_0 ;
   wire \pDelayWaitCnt[1]_i_3__0_n_0 ;
   wire \pDelayWaitCnt[1]_i_4__0_n_0 ;
-  wire \pDelayWaitCnt[1]_i_5_n_0 ;
   wire pDelayWaitOvf_i_1__0_n_0;
   wire pDelayWaitOvf_reg_n_0;
-  wire pError;
+  wire pError_i_1__0_n_0;
   wire \pEyeOpenCnt[0]_i_1__0_n_0 ;
   wire \pEyeOpenCnt[1]_i_1__0_n_0 ;
   wire \pEyeOpenCnt[2]_i_1__0_n_0 ;
@@ -4496,8 +4554,9 @@ module system_dvi2rgb_1_0_PhaseAlign_12
   wire pFoundJtrFlag_i_1__0_n_0;
   wire pFoundJtrFlag_i_2__0_n_0;
   wire pIDLY_CE;
-  wire pIDLY_CE_0;
-  wire pIDLY_CE_i_2__0_n_0;
+  wire pIDLY_CE_i_1__0_n_0;
+  wire pIDLY_CE_i_2_n_0;
+  wire pIDLY_CE_i_3_n_0;
   wire [4:0]pIDLY_CE_reg_0;
   wire \pIDLY_CNT_Q_reg_n_0_[0] ;
   wire \pIDLY_CNT_Q_reg_n_0_[1] ;
@@ -4505,10 +4564,10 @@ module system_dvi2rgb_1_0_PhaseAlign_12
   wire \pIDLY_CNT_Q_reg_n_0_[3] ;
   wire \pIDLY_CNT_Q_reg_n_0_[4] ;
   wire pIDLY_INC;
-  wire pIDLY_INC_2;
+  wire pIDLY_INC_1;
   wire pIDLY_INC_i_1__0_n_0;
   wire pIDLY_LD;
-  wire pIDLY_LD_1;
+  wire pIDLY_LD_i_1__0_n_0;
   wire pMeRdy_int_reg;
   wire [10:0]pState;
   wire pStateNxt__0_n_0;
@@ -4520,11 +4579,10 @@ module system_dvi2rgb_1_0_PhaseAlign_12
   wire \pState[0]_i_1__0_n_0 ;
   wire \pState[10]_i_2__0_n_0 ;
   wire \pState[10]_i_3__0_n_0 ;
-  wire \pState[10]_i_4_n_0 ;
+  wire \pState[10]_i_4__0_n_0 ;
   wire \pState[10]_i_5__0_n_0 ;
   wire \pState[10]_i_6__0_n_0 ;
-  wire \pState[10]_i_7_n_0 ;
-  wire \pState[10]_i_8_n_0 ;
+  wire \pState[10]_i_7__0_n_0 ;
   wire \pState[1]_i_1__0_n_0 ;
   wire \pState[2]_i_1__0_n_0 ;
   wire \pState[3]_i_1__0_n_0 ;
@@ -4544,6 +4602,8 @@ module system_dvi2rgb_1_0_PhaseAlign_12
   wire pVld_1;
   wire pVld_2;
   wire [6:0]p_0_in;
+  wire p_0_in_0;
+  wire p_2_in;
 
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFEEF)) 
@@ -4574,21 +4634,21 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I3(pState[9]),
         .I4(pState[0]),
         .I5(pState[10]),
-        .O(pAligned));
+        .O(pAligned_i_1__0_n_0));
   LUT6 #(
     .INIT(64'h0000000000000001)) 
     pAligned_i_2__0
        (.I0(pState[3]),
-        .I1(pState[1]),
+        .I1(pState[4]),
         .I2(pState[2]),
-        .I3(pState[4]),
+        .I3(pState[1]),
         .I4(pState[7]),
         .I5(pState[5]),
         .O(pAligned_i_2__0_n_0));
   FDRE pAligned_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pAligned),
+        .D(pAligned_i_1__0_n_0),
         .Q(pVld_1),
         .R(1'b0));
   LUT2 #(
@@ -4609,7 +4669,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .D(pBlankBegin0),
         .Q(pBlankBegin),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'hF6)) 
     \pCenterTap[0]_i_1 
@@ -4678,7 +4738,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I5(pState[2]),
         .O(\pCenterTap[5]_i_3__0_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000000000310)) 
+    .INIT(64'h0000000000000C40)) 
     \pCenterTap[5]_i_4__0 
        (.I0(pFoundEyeFlag),
         .I1(pFoundJtrFlag_i_2__0_n_0),
@@ -4731,20 +4791,20 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .D(\pCenterTap[5]_i_2__0_n_0 ),
         .Q(\pCenterTap_reg_n_0_[5] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \pCtlTknCnt[0]_i_1__0 
        (.I0(pCtlTknCnt_reg__0[0]),
         .O(p_0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \pCtlTknCnt[1]_i_1__0 
        (.I0(pCtlTknCnt_reg__0[0]),
         .I1(pCtlTknCnt_reg__0[1]),
         .O(p_0_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \pCtlTknCnt[2]_i_1__0 
@@ -4752,7 +4812,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I1(pCtlTknCnt_reg__0[0]),
         .I2(pCtlTknCnt_reg__0[1]),
         .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \pCtlTknCnt[3]_i_1__0 
@@ -4761,15 +4821,15 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I2(pCtlTknCnt_reg__0[0]),
         .I3(pCtlTknCnt_reg__0[2]),
         .O(p_0_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT5 #(
-    .INIT(32'h7FFF8000)) 
+    .INIT(32'h6AAAAAAA)) 
     \pCtlTknCnt[4]_i_1__0 
-       (.I0(pCtlTknCnt_reg__0[2]),
-        .I1(pCtlTknCnt_reg__0[0]),
-        .I2(pCtlTknCnt_reg__0[1]),
-        .I3(pCtlTknCnt_reg__0[3]),
-        .I4(pCtlTknCnt_reg__0[4]),
+       (.I0(pCtlTknCnt_reg__0[4]),
+        .I1(pCtlTknCnt_reg__0[2]),
+        .I2(pCtlTknCnt_reg__0[0]),
+        .I3(pCtlTknCnt_reg__0[1]),
+        .I4(pCtlTknCnt_reg__0[3]),
         .O(p_0_in[4]));
   LUT6 #(
     .INIT(64'h6AAAAAAAAAAAAAAA)) 
@@ -4781,55 +4841,47 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I4(pCtlTknCnt_reg__0[3]),
         .I5(pCtlTknCnt_reg__0[4]),
         .O(p_0_in[5]));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+  LUT1 #(
+    .INIT(2'h1)) 
     \pCtlTknCnt[6]_i_1__0 
-       (.I0(\pCtlTknCnt[6]_i_3__0_n_0 ),
-        .I1(\pCtlTknCnt[6]_i_4__0_n_0 ),
-        .I2(\pCtlTknCnt[6]_i_5__0_n_0 ),
-        .I3(pState[4]),
-        .I4(pState[5]),
-        .I5(pState[3]),
+       (.I0(p_0_in_0),
         .O(pCtlTknRst));
   LUT3 #(
     .INIT(8'h6A)) 
     \pCtlTknCnt[6]_i_2__0 
        (.I0(pCtlTknCnt_reg__0[6]),
-        .I1(\pCtlTknCnt[6]_i_6_n_0 ),
+        .I1(\pCtlTknCnt[6]_i_4__0_n_0 ),
         .I2(pCtlTknCnt_reg__0[5]),
         .O(p_0_in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  LUT5 #(
+    .INIT(32'h00000010)) 
     \pCtlTknCnt[6]_i_3__0 
-       (.I0(pState[7]),
-        .I1(pState[8]),
-        .I2(pState[9]),
-        .I3(pState[6]),
-        .O(\pCtlTknCnt[6]_i_3__0_n_0 ));
-  LUT2 #(
-    .INIT(4'hB)) 
-    \pCtlTknCnt[6]_i_4__0 
-       (.I0(pState[1]),
-        .I1(pState[2]),
-        .O(\pCtlTknCnt[6]_i_4__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    \pCtlTknCnt[6]_i_5__0 
-       (.I0(pState[0]),
-        .I1(pState[10]),
-        .O(\pCtlTknCnt[6]_i_5__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+       (.I0(\pState[10]_i_6__0_n_0 ),
+        .I1(pState[1]),
+        .I2(pState[2]),
+        .I3(pState[10]),
+        .I4(\pCtlTknCnt[6]_i_5_n_0 ),
+        .O(p_0_in_0));
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
-    \pCtlTknCnt[6]_i_6 
+    \pCtlTknCnt[6]_i_4__0 
        (.I0(pCtlTknCnt_reg__0[4]),
         .I1(pCtlTknCnt_reg__0[3]),
         .I2(pCtlTknCnt_reg__0[1]),
         .I3(pCtlTknCnt_reg__0[0]),
         .I4(pCtlTknCnt_reg__0[2]),
-        .O(\pCtlTknCnt[6]_i_6_n_0 ));
+        .O(\pCtlTknCnt[6]_i_4__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \pCtlTknCnt[6]_i_5 
+       (.I0(pState[8]),
+        .I1(pState[6]),
+        .I2(pState[9]),
+        .I3(pState[7]),
+        .O(\pCtlTknCnt[6]_i_5_n_0 ));
   FDRE \pCtlTknCnt_reg[0] 
        (.C(PixelClk_int),
         .CE(1'b1),
@@ -4873,13 +4925,13 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .Q(pCtlTknCnt_reg__0[6]),
         .R(pCtlTknRst));
   LUT5 #(
-    .INIT(32'hB8888888)) 
+    .INIT(32'hC000AAAA)) 
     pCtlTknOvf_i_1__0
        (.I0(pCtlTknOvf_reg_n_0),
-        .I1(pCtlTknRst),
-        .I2(pCtlTknCnt_reg__0[6]),
-        .I3(\pCtlTknCnt[6]_i_6_n_0 ),
-        .I4(pCtlTknCnt_reg__0[5]),
+        .I1(pCtlTknCnt_reg__0[6]),
+        .I2(\pCtlTknCnt[6]_i_4__0_n_0 ),
+        .I3(pCtlTknCnt_reg__0[5]),
+        .I4(p_0_in_0),
         .O(pCtlTknOvf_i_1__0_n_0));
   FDRE pCtlTknOvf_reg
        (.C(PixelClk_int),
@@ -4982,50 +5034,42 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .Q(pDelayOvf_reg_n_0),
         .R(1'b0));
   LUT2 #(
-    .INIT(4'h1)) 
+    .INIT(4'h4)) 
     \pDelayWaitCnt[0]_i_1 
        (.I0(pDelayWaitCnt[0]),
-        .I1(\pDelayWaitCnt[1]_i_2__0_n_0 ),
+        .I1(p_2_in),
         .O(\pDelayWaitCnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
-    .INIT(8'h06)) 
+    .INIT(8'h60)) 
     \pDelayWaitCnt[1]_i_1 
        (.I0(pDelayWaitCnt[1]),
         .I1(pDelayWaitCnt[0]),
-        .I2(\pDelayWaitCnt[1]_i_2__0_n_0 ),
+        .I2(p_2_in),
         .O(\pDelayWaitCnt[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFEFEFF)) 
+    .INIT(64'h0000000000000006)) 
     \pDelayWaitCnt[1]_i_2__0 
-       (.I0(\pState[10]_i_7_n_0 ),
-        .I1(\pDelayWaitCnt[1]_i_3__0_n_0 ),
-        .I2(\pDelayWaitCnt[1]_i_4__0_n_0 ),
-        .I3(pState[8]),
-        .I4(pState[6]),
-        .I5(\pDelayWaitCnt[1]_i_5_n_0 ),
-        .O(\pDelayWaitCnt[1]_i_2__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+       (.I0(pState[8]),
+        .I1(pState[6]),
+        .I2(\pDelayWaitCnt[1]_i_3__0_n_0 ),
+        .I3(pState[3]),
+        .I4(\pDelayWaitCnt[1]_i_4__0_n_0 ),
+        .I5(pFoundEyeFlag_i_3__0_n_0),
+        .O(p_2_in));
   LUT2 #(
     .INIT(4'hE)) 
     \pDelayWaitCnt[1]_i_3__0 
        (.I0(pState[5]),
         .I1(pState[7]),
         .O(\pDelayWaitCnt[1]_i_3__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \pDelayWaitCnt[1]_i_4__0 
        (.I0(pState[10]),
         .I1(pState[9]),
         .O(\pDelayWaitCnt[1]_i_4__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
-  LUT3 #(
-    .INIT(8'hFE)) 
-    \pDelayWaitCnt[1]_i_5 
-       (.I0(pState[3]),
-        .I1(pState[1]),
-        .I2(pState[2]),
-        .O(\pDelayWaitCnt[1]_i_5_n_0 ));
   FDRE \pDelayWaitCnt_reg[0] 
        (.C(PixelClk_int),
         .CE(1'b1),
@@ -5038,14 +5082,14 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .D(\pDelayWaitCnt[1]_i_1_n_0 ),
         .Q(pDelayWaitCnt[1]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT4 #(
-    .INIT(16'h88B8)) 
+    .INIT(16'h30AA)) 
     pDelayWaitOvf_i_1__0
        (.I0(pDelayWaitOvf_reg_n_0),
-        .I1(\pDelayWaitCnt[1]_i_2__0_n_0 ),
+        .I1(pDelayWaitCnt[0]),
         .I2(pDelayWaitCnt[1]),
-        .I3(pDelayWaitCnt[0]),
+        .I3(p_2_in),
         .O(pDelayWaitOvf_i_1__0_n_0));
   FDRE pDelayWaitOvf_reg
        (.C(PixelClk_int),
@@ -5062,14 +5106,14 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I3(pState[0]),
         .I4(pState[10]),
         .I5(pState[9]),
-        .O(pError));
+        .O(pError_i_1__0_n_0));
   FDRE pError_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pError),
+        .D(pError_i_1__0_n_0),
         .Q(pAlignErr_q_reg),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'h06)) 
     \pEyeOpenCnt[0]_i_1__0 
@@ -5077,7 +5121,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pEyeOpenRst),
         .O(\pEyeOpenCnt[0]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'h0078)) 
     \pEyeOpenCnt[1]_i_1__0 
@@ -5086,7 +5130,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I2(\pEyeOpenCnt_reg[3]_1 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[1]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT5 #(
     .INIT(32'h00007F80)) 
     \pEyeOpenCnt[2]_i_1__0 
@@ -5174,7 +5218,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I4(\pEyeOpenCnt_reg[3]_1 ),
         .I5(\pEyeOpenCnt_reg[4]_0 ),
         .O(pFoundEyeFlag_i_2__0_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     pFoundEyeFlag_i_3__0
@@ -5183,16 +5227,16 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I2(pState[1]),
         .I3(pState[2]),
         .O(pFoundEyeFlag_i_3__0_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT4 #(
     .INIT(16'h0001)) 
     pFoundEyeFlag_i_4__0
-       (.I0(pState[4]),
+       (.I0(pState[1]),
         .I1(pState[2]),
-        .I2(pState[1]),
+        .I2(pState[4]),
         .I3(pState[3]),
         .O(pFoundEyeFlag_i_4__0_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT2 #(
     .INIT(4'hE)) 
     pFoundEyeFlag_i_5__0
@@ -5206,7 +5250,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .Q(pFoundEyeFlag),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hAAAAAAAAAAABA8AA)) 
+    .INIT(64'hAAABA8AAAAAAAAAA)) 
     pFoundJtrFlag_i_1__0
        (.I0(pFoundJtrFlag),
         .I1(iIn_q_i_2__0_n_0),
@@ -5215,9 +5259,9 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I4(pState[4]),
         .I5(pFoundJtrFlag_i_2__0_n_0),
         .O(pFoundJtrFlag_i_1__0_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT2 #(
-    .INIT(4'hE)) 
+    .INIT(4'h1)) 
     pFoundJtrFlag_i_2__0
        (.I0(pState[2]),
         .I1(pState[1]),
@@ -5229,29 +5273,37 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .Q(pFoundJtrFlag),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hAAAAABAAAAAAAAAA)) 
+    .INIT(64'hAAAAAABAAAAAAAAA)) 
     pIDLY_CE_i_1__0
-       (.I0(pIDLY_CE_i_2__0_n_0),
-        .I1(\pState[10]_i_3__0_n_0 ),
-        .I2(pState[0]),
-        .I3(pState[7]),
+       (.I0(pIDLY_CE_i_2_n_0),
+        .I1(pIDLY_CE_i_3_n_0),
+        .I2(pState[7]),
+        .I3(pState[0]),
         .I4(pState[5]),
         .I5(pFoundEyeFlag_i_4__0_n_0),
-        .O(pIDLY_CE_0));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+        .O(pIDLY_CE_i_1__0_n_0));
   LUT5 #(
     .INIT(32'h00000200)) 
-    pIDLY_CE_i_2__0
+    pIDLY_CE_i_2
        (.I0(pFoundEyeFlag_i_4__0_n_0),
         .I1(pState[10]),
         .I2(pState[0]),
         .I3(pState[5]),
-        .I4(\pCtlTknCnt[6]_i_3__0_n_0 ),
-        .O(pIDLY_CE_i_2__0_n_0));
+        .I4(\pCtlTknCnt[6]_i_5_n_0 ),
+        .O(pIDLY_CE_i_2_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    pIDLY_CE_i_3
+       (.I0(pState[8]),
+        .I1(pState[6]),
+        .I2(pState[9]),
+        .I3(pState[10]),
+        .O(pIDLY_CE_i_3_n_0));
   FDRE pIDLY_CE_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pIDLY_CE_0),
+        .D(pIDLY_CE_i_1__0_n_0),
         .Q(pIDLY_CE),
         .R(1'b0));
   FDRE \pIDLY_CNT_Q_reg[0] 
@@ -5287,27 +5339,27 @@ module system_dvi2rgb_1_0_PhaseAlign_12
   LUT3 #(
     .INIT(8'hF4)) 
     pIDLY_INC_i_1__0
-       (.I0(pIDLY_INC_2),
+       (.I0(pIDLY_INC_1),
         .I1(pIDLY_INC),
-        .I2(pIDLY_CE_i_2__0_n_0),
+        .I2(pIDLY_CE_i_2_n_0),
         .O(pIDLY_INC_i_1__0_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT5 #(
-    .INIT(32'h00000020)) 
+    .INIT(32'h00000200)) 
     pIDLY_INC_i_2__0
        (.I0(pFoundEyeFlag_i_4__0_n_0),
         .I1(pState[5]),
-        .I2(pState[7]),
-        .I3(pState[0]),
-        .I4(\pState[10]_i_3__0_n_0 ),
-        .O(pIDLY_INC_2));
+        .I2(pState[0]),
+        .I3(pState[7]),
+        .I4(pIDLY_CE_i_3_n_0),
+        .O(pIDLY_INC_1));
   FDRE pIDLY_INC_reg
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(pIDLY_INC_i_1__0_n_0),
         .Q(pIDLY_INC),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT5 #(
     .INIT(32'h00001000)) 
     pIDLY_LD_i_1__0
@@ -5315,15 +5367,15 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I1(pState[7]),
         .I2(pFoundEyeFlag_i_4__0_n_0),
         .I3(pState[0]),
-        .I4(\pState[10]_i_3__0_n_0 ),
-        .O(pIDLY_LD_1));
+        .I4(pIDLY_CE_i_3_n_0),
+        .O(pIDLY_LD_i_1__0_n_0));
   FDRE pIDLY_LD_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pIDLY_LD_1),
+        .D(pIDLY_LD_i_1__0_n_0),
         .Q(pIDLY_LD),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT5 #(
     .INIT(32'h00010116)) 
     pStateNxt
@@ -5333,7 +5385,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I3(pState[3]),
         .I4(pState[4]),
         .O(pStateNxt_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT5 #(
     .INIT(32'hFFFEFEE8)) 
     pStateNxt__0
@@ -5376,17 +5428,16 @@ module system_dvi2rgb_1_0_PhaseAlign_12
     \pState[0]_i_1__0 
        (.I0(pStateNxt__3_n_0),
         .O(\pState[0]_i_1__0_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFA8)) 
+  LUT5 #(
+    .INIT(32'hFFFFEEEA)) 
     \pState[10]_i_1__0 
        (.I0(\pState[10]_i_3__0_n_0 ),
-        .I1(pState[2]),
-        .I2(pState[1]),
-        .I3(\pState[10]_i_4_n_0 ),
+        .I1(\pState[10]_i_4__0_n_0 ),
+        .I2(pState[7]),
+        .I3(pState[8]),
         .I4(\pState[10]_i_5__0_n_0 ),
-        .I5(\pState[10]_i_6__0_n_0 ),
         .O(pStateNxt__4));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[10]_i_2__0 
@@ -5394,61 +5445,54 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I1(pState[6]),
         .I2(pDelayOvf_reg_n_0),
         .O(\pState[10]_i_2__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFCF8888)) 
+    \pState[10]_i_3__0 
+       (.I0(pState[1]),
+        .I1(pIDLY_CE_i_3_n_0),
+        .I2(pTknFlagQ),
+        .I3(pCtlTknOvf_reg_n_0),
+        .I4(pState[2]),
+        .I5(\pState[10]_i_6__0_n_0 ),
+        .O(\pState[10]_i_3__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  LUT4 #(
+    .INIT(16'hFFF8)) 
+    \pState[10]_i_4__0 
+       (.I0(pState[9]),
+        .I1(pState[10]),
+        .I2(pState[7]),
+        .I3(pState[6]),
+        .O(\pState[10]_i_4__0_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF55005455)) 
+    \pState[10]_i_5__0 
+       (.I0(pIDLY_CE_i_3_n_0),
+        .I1(out),
+        .I2(pBlankBegin),
+        .I3(pState[1]),
+        .I4(pState[2]),
+        .I5(\pState[10]_i_7__0_n_0 ),
+        .O(\pState[10]_i_5__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
-    \pState[10]_i_3__0 
-       (.I0(pState[8]),
-        .I1(pState[6]),
-        .I2(pState[9]),
-        .I3(pState[10]),
-        .O(\pState[10]_i_3__0_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFECFC)) 
-    \pState[10]_i_4 
-       (.I0(pCtlTknOvf_reg_n_0),
-        .I1(\pState[10]_i_7_n_0 ),
-        .I2(pState[2]),
-        .I3(pTknFlagQ),
-        .I4(pState[3]),
-        .I5(pState[5]),
-        .O(\pState[10]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
-  LUT5 #(
-    .INIT(32'hFAF8F8F8)) 
-    \pState[10]_i_5__0 
-       (.I0(pState[8]),
-        .I1(pState[6]),
-        .I2(pState[7]),
-        .I3(pState[10]),
-        .I4(pState[9]),
-        .O(\pState[10]_i_5__0_n_0 ));
-  LUT6 #(
-    .INIT(64'hBBABBBABBBABBAAB)) 
     \pState[10]_i_6__0 
-       (.I0(\pState[10]_i_8_n_0 ),
-        .I1(\pState[10]_i_3__0_n_0 ),
-        .I2(pState[2]),
-        .I3(pState[1]),
-        .I4(pBlankBegin),
-        .I5(out),
+       (.I0(pState[5]),
+        .I1(pState[0]),
+        .I2(pState[4]),
+        .I3(pState[3]),
         .O(\pState[10]_i_6__0_n_0 ));
-  LUT2 #(
-    .INIT(4'hE)) 
-    \pState[10]_i_7 
-       (.I0(pState[0]),
-        .I1(pState[4]),
-        .O(\pState[10]_i_7_n_0 ));
   LUT6 #(
     .INIT(64'hFEFEFEFEFEFEFEC0)) 
-    \pState[10]_i_8 
+    \pState[10]_i_7__0 
        (.I0(pDelayWaitOvf_reg_n_0),
         .I1(pState[9]),
         .I2(pState[10]),
         .I3(pState[7]),
         .I4(pState[6]),
         .I5(pState[8]),
-        .O(\pState[10]_i_8_n_0 ));
+        .O(\pState[10]_i_7__0_n_0 ));
   LUT6 #(
     .INIT(64'hAA08AAAAAA08AA08)) 
     \pState[1]_i_1__0 
@@ -5459,7 +5503,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I4(pDelayOvf_reg_n_0),
         .I5(pState[6]),
         .O(\pState[1]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[2]_i_1__0 
@@ -5467,7 +5511,6 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I1(pState[1]),
         .I2(pBlankBegin),
         .O(\pState[2]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[3]_i_1__0 
@@ -5475,7 +5518,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I1(pTknFlagQ),
         .I2(pState[2]),
         .O(\pState[3]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT5 #(
     .INIT(32'h08AA0808)) 
     \pState[4]_i_1__0 
@@ -5494,7 +5537,7 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I3(pFoundEyeFlag),
         .I4(pState[4]),
         .O(\pState[5]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT5 #(
     .INIT(32'hFFFFFFEF)) 
     \pState[5]_i_2__0 
@@ -5504,14 +5547,14 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I3(\pEyeOpenCnt_reg[3]_1 ),
         .I4(\pEyeOpenCnt_reg[3]_2 ),
         .O(\pState[5]_i_2__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \pState[6]_i_1__0 
        (.I0(pStateNxt__3_n_0),
         .I1(pState[5]),
         .O(\pState[6]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT5 #(
     .INIT(32'hAA080808)) 
     \pState[7]_i_1__0 
@@ -5521,14 +5564,14 @@ module system_dvi2rgb_1_0_PhaseAlign_12
         .I3(pFoundEyeFlag),
         .I4(pState[4]),
         .O(\pState[7]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \pState[8]_i_1__0 
        (.I0(pStateNxt__3_n_0),
         .I1(pState[7]),
         .O(\pState[8]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[9]_i_1__0 
@@ -5705,7 +5748,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   wire [0:0]out;
   wire pAlignErr_q;
   wire pAlignErr_q_reg;
-  wire pAligned;
+  wire pAligned_i_1__1_n_0;
   wire pAligned_i_2__1_n_0;
   wire pAllVld;
   wire pBitslip_reg;
@@ -5726,9 +5769,8 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   wire \pCenterTap_reg_n_0_[3] ;
   wire \pCenterTap_reg_n_0_[4] ;
   wire \pCenterTap_reg_n_0_[5] ;
-  wire \pCtlTknCnt[6]_i_3__1_n_0 ;
   wire \pCtlTknCnt[6]_i_4__1_n_0 ;
-  wire \pCtlTknCnt[6]_i_5__1_n_0 ;
+  wire \pCtlTknCnt[6]_i_5__0_n_0 ;
   wire [6:0]pCtlTknCnt_reg__0;
   wire pCtlTknOvf_i_1__1_n_0;
   wire pCtlTknOvf_reg_n_0;
@@ -5750,12 +5792,11 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   wire [1:0]pDelayWaitCnt;
   wire \pDelayWaitCnt[0]_i_1_n_0 ;
   wire \pDelayWaitCnt[1]_i_1_n_0 ;
-  wire \pDelayWaitCnt[1]_i_2__1_n_0 ;
   wire \pDelayWaitCnt[1]_i_3__1_n_0 ;
   wire \pDelayWaitCnt[1]_i_4__1_n_0 ;
   wire pDelayWaitOvf_i_1__1_n_0;
   wire pDelayWaitOvf_reg_n_0;
-  wire pError;
+  wire pError_i_1__1_n_0;
   wire \pEyeOpenCnt[0]_i_1__1_n_0 ;
   wire \pEyeOpenCnt[1]_i_1__1_n_0 ;
   wire \pEyeOpenCnt[2]_i_1__1_n_0 ;
@@ -5778,8 +5819,8 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   wire pFoundJtrFlag_i_1__1_n_0;
   wire pFoundJtrFlag_i_2__1_n_0;
   wire pIDLY_CE;
-  wire pIDLY_CE_0;
-  wire pIDLY_CE_i_2__1_n_0;
+  wire pIDLY_CE_i_1__1_n_0;
+  wire pIDLY_CE_i_2__0_n_0;
   wire pIDLY_CE_i_3__0_n_0;
   wire [4:0]pIDLY_CE_reg_0;
   wire \pIDLY_CNT_Q_reg_n_0_[0] ;
@@ -5788,10 +5829,10 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   wire \pIDLY_CNT_Q_reg_n_0_[3] ;
   wire \pIDLY_CNT_Q_reg_n_0_[4] ;
   wire pIDLY_INC;
-  wire pIDLY_INC_2;
+  wire pIDLY_INC_1;
   wire pIDLY_INC_i_1__1_n_0;
   wire pIDLY_LD;
-  wire pIDLY_LD_1;
+  wire pIDLY_LD_i_1__1_n_0;
   wire [10:0]pState;
   wire pStateNxt__0_n_0;
   wire pStateNxt__1_n_0;
@@ -5805,6 +5846,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   wire \pState[10]_i_4__1_n_0 ;
   wire \pState[10]_i_5__1_n_0 ;
   wire \pState[10]_i_6__1_n_0 ;
+  wire \pState[10]_i_7__1_n_0 ;
   wire \pState[1]_i_1__1_n_0 ;
   wire \pState[2]_i_1__1_n_0 ;
   wire \pState[3]_i_1__1_n_0 ;
@@ -5824,6 +5866,8 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   wire pVld_1;
   wire pVld_2;
   wire [6:0]p_0_in;
+  wire p_0_in_0;
+  wire p_2_in;
 
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFEEF)) 
@@ -5854,7 +5898,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I3(pState[9]),
         .I4(pState[0]),
         .I5(pState[10]),
-        .O(pAligned));
+        .O(pAligned_i_1__1_n_0));
   LUT6 #(
     .INIT(64'h0000000000000001)) 
     pAligned_i_2__1
@@ -5868,7 +5912,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   FDRE pAligned_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pAligned),
+        .D(pAligned_i_1__1_n_0),
         .Q(pVld_0),
         .R(1'b0));
   LUT2 #(
@@ -6024,7 +6068,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
        (.I0(pCtlTknCnt_reg__0[0]),
         .I1(pCtlTknCnt_reg__0[1]),
         .O(p_0_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \pCtlTknCnt[2]_i_1__1 
@@ -6032,7 +6076,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I1(pCtlTknCnt_reg__0[0]),
         .I2(pCtlTknCnt_reg__0[1]),
         .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \pCtlTknCnt[3]_i_1__1 
@@ -6041,15 +6085,15 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I2(pCtlTknCnt_reg__0[0]),
         .I3(pCtlTknCnt_reg__0[2]),
         .O(p_0_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
-    .INIT(32'h7FFF8000)) 
+    .INIT(32'h6AAAAAAA)) 
     \pCtlTknCnt[4]_i_1__1 
-       (.I0(pCtlTknCnt_reg__0[2]),
-        .I1(pCtlTknCnt_reg__0[0]),
-        .I2(pCtlTknCnt_reg__0[1]),
-        .I3(pCtlTknCnt_reg__0[3]),
-        .I4(pCtlTknCnt_reg__0[4]),
+       (.I0(pCtlTknCnt_reg__0[4]),
+        .I1(pCtlTknCnt_reg__0[2]),
+        .I2(pCtlTknCnt_reg__0[0]),
+        .I3(pCtlTknCnt_reg__0[1]),
+        .I4(pCtlTknCnt_reg__0[3]),
         .O(p_0_in[4]));
   LUT6 #(
     .INIT(64'h6AAAAAAAAAAAAAAA)) 
@@ -6061,50 +6105,47 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I4(pCtlTknCnt_reg__0[3]),
         .I5(pCtlTknCnt_reg__0[4]),
         .O(p_0_in[5]));
-  LUT5 #(
-    .INIT(32'hFFFFFFEF)) 
+  LUT1 #(
+    .INIT(2'h1)) 
     \pCtlTknCnt[6]_i_1__1 
-       (.I0(\pCtlTknCnt[6]_i_3__1_n_0 ),
-        .I1(pState[1]),
-        .I2(pState[2]),
-        .I3(pState[10]),
-        .I4(\pCtlTknCnt[6]_i_4__1_n_0 ),
+       (.I0(p_0_in_0),
         .O(pCtlTknRst));
   LUT3 #(
     .INIT(8'h6A)) 
     \pCtlTknCnt[6]_i_2__1 
        (.I0(pCtlTknCnt_reg__0[6]),
-        .I1(\pCtlTknCnt[6]_i_5__1_n_0 ),
+        .I1(\pCtlTknCnt[6]_i_4__1_n_0 ),
         .I2(pCtlTknCnt_reg__0[5]),
         .O(p_0_in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT5 #(
+    .INIT(32'h00000010)) 
     \pCtlTknCnt[6]_i_3__1 
-       (.I0(pState[5]),
-        .I1(pState[0]),
-        .I2(pState[4]),
-        .I3(pState[3]),
-        .O(\pCtlTknCnt[6]_i_3__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \pCtlTknCnt[6]_i_4__1 
-       (.I0(pState[8]),
-        .I1(pState[6]),
-        .I2(pState[9]),
-        .I3(pState[7]),
-        .O(\pCtlTknCnt[6]_i_4__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+       (.I0(\pState[10]_i_6__1_n_0 ),
+        .I1(pState[1]),
+        .I2(pState[2]),
+        .I3(pState[10]),
+        .I4(\pCtlTknCnt[6]_i_5__0_n_0 ),
+        .O(p_0_in_0));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
-    \pCtlTknCnt[6]_i_5__1 
+    \pCtlTknCnt[6]_i_4__1 
        (.I0(pCtlTknCnt_reg__0[4]),
         .I1(pCtlTknCnt_reg__0[3]),
         .I2(pCtlTknCnt_reg__0[1]),
         .I3(pCtlTknCnt_reg__0[0]),
         .I4(pCtlTknCnt_reg__0[2]),
-        .O(\pCtlTknCnt[6]_i_5__1_n_0 ));
+        .O(\pCtlTknCnt[6]_i_4__1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \pCtlTknCnt[6]_i_5__0 
+       (.I0(pState[8]),
+        .I1(pState[6]),
+        .I2(pState[9]),
+        .I3(pState[7]),
+        .O(\pCtlTknCnt[6]_i_5__0_n_0 ));
   FDRE \pCtlTknCnt_reg[0] 
        (.C(PixelClk_int),
         .CE(1'b1),
@@ -6148,13 +6189,13 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .Q(pCtlTknCnt_reg__0[6]),
         .R(pCtlTknRst));
   LUT5 #(
-    .INIT(32'hB8888888)) 
+    .INIT(32'hC000AAAA)) 
     pCtlTknOvf_i_1__1
        (.I0(pCtlTknOvf_reg_n_0),
-        .I1(pCtlTknRst),
-        .I2(pCtlTknCnt_reg__0[6]),
-        .I3(\pCtlTknCnt[6]_i_5__1_n_0 ),
-        .I4(pCtlTknCnt_reg__0[5]),
+        .I1(pCtlTknCnt_reg__0[6]),
+        .I2(\pCtlTknCnt[6]_i_4__1_n_0 ),
+        .I3(pCtlTknCnt_reg__0[5]),
+        .I4(p_0_in_0),
         .O(pCtlTknOvf_i_1__1_n_0));
   FDRE pCtlTknOvf_reg
        (.C(PixelClk_int),
@@ -6217,13 +6258,13 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .Q(\pDataQ_reg_n_0_[8] ),
         .R(1'b0));
   LUT5 #(
-    .INIT(32'h00009009)) 
+    .INIT(32'h41000041)) 
     pDelayCenter_i_1__1
-       (.I0(\pIDLY_CNT_Q_reg_n_0_[3] ),
-        .I1(\pCenterTap_reg_n_0_[4] ),
-        .I2(\pIDLY_CNT_Q_reg_n_0_[4] ),
-        .I3(\pCenterTap_reg_n_0_[5] ),
-        .I4(pDelayCenter_i_2__1_n_0),
+       (.I0(pDelayCenter_i_2__1_n_0),
+        .I1(\pIDLY_CNT_Q_reg_n_0_[4] ),
+        .I2(\pCenterTap_reg_n_0_[5] ),
+        .I3(\pCenterTap_reg_n_0_[4] ),
+        .I4(\pIDLY_CNT_Q_reg_n_0_[3] ),
         .O(pDelayCenter_i_1__1_n_0));
   LUT6 #(
     .INIT(64'h6FF6FFFFFFFF6FF6)) 
@@ -6257,41 +6298,41 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .Q(pDelayOvf_reg_n_0),
         .R(1'b0));
   LUT2 #(
-    .INIT(4'h1)) 
+    .INIT(4'h4)) 
     \pDelayWaitCnt[0]_i_1 
        (.I0(pDelayWaitCnt[0]),
-        .I1(\pDelayWaitCnt[1]_i_2__1_n_0 ),
+        .I1(p_2_in),
         .O(\pDelayWaitCnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
-    .INIT(8'h06)) 
+    .INIT(8'h60)) 
     \pDelayWaitCnt[1]_i_1 
        (.I0(pDelayWaitCnt[1]),
         .I1(pDelayWaitCnt[0]),
-        .I2(\pDelayWaitCnt[1]_i_2__1_n_0 ),
+        .I2(p_2_in),
         .O(\pDelayWaitCnt[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFEFFFEFFFF)) 
+    .INIT(64'h0000000000000014)) 
     \pDelayWaitCnt[1]_i_2__1 
-       (.I0(pState[3]),
-        .I1(\pDelayWaitCnt[1]_i_3__1_n_0 ),
-        .I2(pFoundEyeFlag_i_3__1_n_0),
-        .I3(\pDelayWaitCnt[1]_i_4__1_n_0 ),
-        .I4(pState[6]),
-        .I5(pState[8]),
-        .O(\pDelayWaitCnt[1]_i_2__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+       (.I0(\pDelayWaitCnt[1]_i_3__1_n_0 ),
+        .I1(pState[6]),
+        .I2(pState[8]),
+        .I3(pState[3]),
+        .I4(\pDelayWaitCnt[1]_i_4__1_n_0 ),
+        .I5(pFoundEyeFlag_i_3__1_n_0),
+        .O(p_2_in));
   LUT2 #(
     .INIT(4'hE)) 
     \pDelayWaitCnt[1]_i_3__1 
-       (.I0(pState[10]),
-        .I1(pState[9]),
+       (.I0(pState[5]),
+        .I1(pState[7]),
         .O(\pDelayWaitCnt[1]_i_3__1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \pDelayWaitCnt[1]_i_4__1 
-       (.I0(pState[5]),
-        .I1(pState[7]),
+       (.I0(pState[10]),
+        .I1(pState[9]),
         .O(\pDelayWaitCnt[1]_i_4__1_n_0 ));
   FDRE \pDelayWaitCnt_reg[0] 
        (.C(PixelClk_int),
@@ -6305,14 +6346,14 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .D(\pDelayWaitCnt[1]_i_1_n_0 ),
         .Q(pDelayWaitCnt[1]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
-    .INIT(16'h88B8)) 
+    .INIT(16'h30AA)) 
     pDelayWaitOvf_i_1__1
        (.I0(pDelayWaitOvf_reg_n_0),
-        .I1(\pDelayWaitCnt[1]_i_2__1_n_0 ),
+        .I1(pDelayWaitCnt[0]),
         .I2(pDelayWaitCnt[1]),
-        .I3(pDelayWaitCnt[0]),
+        .I3(p_2_in),
         .O(pDelayWaitOvf_i_1__1_n_0));
   FDRE pDelayWaitOvf_reg
        (.C(PixelClk_int),
@@ -6329,11 +6370,11 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I3(pState[0]),
         .I4(pState[10]),
         .I5(pState[9]),
-        .O(pError));
+        .O(pError_i_1__1_n_0));
   FDRE pError_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pError),
+        .D(pError_i_1__1_n_0),
         .Q(pAlignErr_q_reg),
         .R(1'b0));
   (* SOFT_HLUTNM = "soft_lutpair25" *) 
@@ -6344,7 +6385,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I1(\pEyeOpenCnt_reg[3]_2 ),
         .I2(pEyeOpenRst),
         .O(\pEyeOpenCnt[0]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
     .INIT(16'h0078)) 
     \pEyeOpenCnt[1]_i_1__1 
@@ -6353,7 +6394,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I2(\pEyeOpenCnt_reg[3]_1 ),
         .I3(pEyeOpenRst),
         .O(\pEyeOpenCnt[1]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT5 #(
     .INIT(32'h00007F80)) 
     \pEyeOpenCnt[2]_i_1__1 
@@ -6448,7 +6489,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I4(\pEyeOpenCnt_reg[3]_1 ),
         .I5(\pEyeOpenCnt_reg[4]_0 ),
         .O(pFoundEyeFlag_i_2__1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     pFoundEyeFlag_i_3__1
@@ -6457,7 +6498,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I2(pState[1]),
         .I3(pState[2]),
         .O(pFoundEyeFlag_i_3__1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
     .INIT(16'h0001)) 
     pFoundEyeFlag_i_4__1
@@ -6466,7 +6507,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I2(pState[4]),
         .I3(pState[3]),
         .O(pFoundEyeFlag_i_4__1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'hE)) 
     pFoundEyeFlag_i_5__1
@@ -6489,7 +6530,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I4(pState[4]),
         .I5(pFoundJtrFlag_i_2__1_n_0),
         .O(pFoundJtrFlag_i_1__1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'h1)) 
     pFoundJtrFlag_i_2__1
@@ -6505,23 +6546,23 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   LUT6 #(
     .INIT(64'hAAAAAABAAAAAAAAA)) 
     pIDLY_CE_i_1__1
-       (.I0(pIDLY_CE_i_2__1_n_0),
+       (.I0(pIDLY_CE_i_2__0_n_0),
         .I1(pIDLY_CE_i_3__0_n_0),
         .I2(pState[7]),
         .I3(pState[0]),
         .I4(pState[5]),
         .I5(pFoundEyeFlag_i_4__1_n_0),
-        .O(pIDLY_CE_0));
+        .O(pIDLY_CE_i_1__1_n_0));
   LUT5 #(
     .INIT(32'h00000200)) 
-    pIDLY_CE_i_2__1
+    pIDLY_CE_i_2__0
        (.I0(pFoundEyeFlag_i_4__1_n_0),
         .I1(pState[10]),
         .I2(pState[0]),
         .I3(pState[5]),
-        .I4(\pCtlTknCnt[6]_i_4__1_n_0 ),
-        .O(pIDLY_CE_i_2__1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+        .I4(\pCtlTknCnt[6]_i_5__0_n_0 ),
+        .O(pIDLY_CE_i_2__0_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     pIDLY_CE_i_3__0
@@ -6533,7 +6574,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   FDRE pIDLY_CE_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pIDLY_CE_0),
+        .D(pIDLY_CE_i_1__1_n_0),
         .Q(pIDLY_CE),
         .R(1'b0));
   FDRE \pIDLY_CNT_Q_reg[0] 
@@ -6569,11 +6610,11 @@ module system_dvi2rgb_1_0_PhaseAlign_19
   LUT3 #(
     .INIT(8'hF4)) 
     pIDLY_INC_i_1__1
-       (.I0(pIDLY_INC_2),
+       (.I0(pIDLY_INC_1),
         .I1(pIDLY_INC),
-        .I2(pIDLY_CE_i_2__1_n_0),
+        .I2(pIDLY_CE_i_2__0_n_0),
         .O(pIDLY_INC_i_1__1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT5 #(
     .INIT(32'h00000200)) 
     pIDLY_INC_i_2__1
@@ -6582,14 +6623,14 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I2(pState[0]),
         .I3(pState[7]),
         .I4(pIDLY_CE_i_3__0_n_0),
-        .O(pIDLY_INC_2));
+        .O(pIDLY_INC_1));
   FDRE pIDLY_INC_reg
        (.C(PixelClk_int),
         .CE(1'b1),
         .D(pIDLY_INC_i_1__1_n_0),
         .Q(pIDLY_INC),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT5 #(
     .INIT(32'h00001000)) 
     pIDLY_LD_i_1__1
@@ -6598,14 +6639,14 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I2(pFoundEyeFlag_i_4__1_n_0),
         .I3(pState[0]),
         .I4(pIDLY_CE_i_3__0_n_0),
-        .O(pIDLY_LD_1));
+        .O(pIDLY_LD_i_1__1_n_0));
   FDRE pIDLY_LD_reg
        (.C(PixelClk_int),
         .CE(1'b1),
-        .D(pIDLY_LD_1),
+        .D(pIDLY_LD_i_1__1_n_0),
         .Q(pIDLY_LD),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT5 #(
     .INIT(32'h00010116)) 
     pStateNxt
@@ -6615,7 +6656,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I3(pState[3]),
         .I4(pState[4]),
         .O(pStateNxt_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT5 #(
     .INIT(32'hFFFEFEE8)) 
     pStateNxt__0
@@ -6667,7 +6708,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I3(pState[8]),
         .I4(\pState[10]_i_5__1_n_0 ),
         .O(pStateNxt__4));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[10]_i_2__1 
@@ -6683,9 +6724,9 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I2(pTknFlagQ),
         .I3(pCtlTknOvf_reg_n_0),
         .I4(pState[2]),
-        .I5(\pCtlTknCnt[6]_i_3__1_n_0 ),
+        .I5(\pState[10]_i_6__1_n_0 ),
         .O(\pState[10]_i_3__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT4 #(
     .INIT(16'hFFF8)) 
     \pState[10]_i_4__1 
@@ -6702,18 +6743,27 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I2(pBlankBegin),
         .I3(pState[1]),
         .I4(pState[2]),
-        .I5(\pState[10]_i_6__1_n_0 ),
+        .I5(\pState[10]_i_7__1_n_0 ),
         .O(\pState[10]_i_5__1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \pState[10]_i_6__1 
+       (.I0(pState[5]),
+        .I1(pState[0]),
+        .I2(pState[4]),
+        .I3(pState[3]),
+        .O(\pState[10]_i_6__1_n_0 ));
   LUT6 #(
     .INIT(64'hFEFEFEFEFEFEFEC0)) 
-    \pState[10]_i_6__1 
+    \pState[10]_i_7__1 
        (.I0(pDelayWaitOvf_reg_n_0),
         .I1(pState[9]),
         .I2(pState[10]),
         .I3(pState[7]),
         .I4(pState[6]),
         .I5(pState[8]),
-        .O(\pState[10]_i_6__1_n_0 ));
+        .O(\pState[10]_i_7__1_n_0 ));
   LUT6 #(
     .INIT(64'hAA08AAAAAA08AA08)) 
     \pState[1]_i_1__1 
@@ -6732,7 +6782,6 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I1(pState[1]),
         .I2(pBlankBegin),
         .O(\pState[2]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \pState[3]_i_1__1 
@@ -6759,7 +6808,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I3(pFoundEyeFlag),
         .I4(pState[4]),
         .O(\pState[5]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT5 #(
     .INIT(32'hFFFFFFEF)) 
     \pState[5]_i_2__1 
@@ -6769,7 +6818,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I3(\pEyeOpenCnt_reg[3]_1 ),
         .I4(\pEyeOpenCnt_reg[3]_2 ),
         .O(\pState[5]_i_2__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \pState[6]_i_1__1 
@@ -6786,7 +6835,7 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .I3(pFoundEyeFlag),
         .I4(pState[4]),
         .O(\pState[7]_i_1__1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \pState[8]_i_1__1 
@@ -8301,14 +8350,14 @@ module system_dvi2rgb_1_0_TMDS_Clocking
     \rDlyRstCnt[0]_i_1 
        (.I0(rDlyRstCnt_reg__0[0]),
         .O(rDlyRstCnt0));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \rDlyRstCnt[1]_i_1 
        (.I0(rDlyRstCnt_reg__0[0]),
         .I1(rDlyRstCnt_reg__0[1]),
         .O(\rDlyRstCnt[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
   LUT3 #(
     .INIT(8'hE1)) 
     \rDlyRstCnt[2]_i_1 
@@ -8316,7 +8365,7 @@ module system_dvi2rgb_1_0_TMDS_Clocking
         .I1(rDlyRstCnt_reg__0[0]),
         .I2(rDlyRstCnt_reg__0[2]),
         .O(\rDlyRstCnt[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT4 #(
     .INIT(16'hFE01)) 
     \rDlyRstCnt[3]_i_1 
@@ -8334,7 +8383,7 @@ module system_dvi2rgb_1_0_TMDS_Clocking
         .I3(rDlyRstCnt_reg__0[3]),
         .I4(rDlyRstCnt_reg__0[4]),
         .O(\rDlyRstCnt[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT5 #(
     .INIT(32'hFFFE0001)) 
     \rDlyRstCnt[4]_i_2 
@@ -8535,29 +8584,6 @@ module system_dvi2rgb_1_0_TMDS_Decoder
   wire \rMMCM_Reset_q_reg[0] ;
   wire \rTimeoutCnt[0]_i_1__1_n_0 ;
   wire \rTimeoutCnt[0]_i_3__1_n_0 ;
-  wire \rTimeoutCnt[0]_i_4__1_n_0 ;
-  wire \rTimeoutCnt[0]_i_5__1_n_0 ;
-  wire \rTimeoutCnt[0]_i_6__1_n_0 ;
-  wire \rTimeoutCnt[12]_i_2__1_n_0 ;
-  wire \rTimeoutCnt[12]_i_3__1_n_0 ;
-  wire \rTimeoutCnt[12]_i_4__1_n_0 ;
-  wire \rTimeoutCnt[12]_i_5__1_n_0 ;
-  wire \rTimeoutCnt[16]_i_2__1_n_0 ;
-  wire \rTimeoutCnt[16]_i_3__1_n_0 ;
-  wire \rTimeoutCnt[16]_i_4__1_n_0 ;
-  wire \rTimeoutCnt[16]_i_5__1_n_0 ;
-  wire \rTimeoutCnt[20]_i_2__1_n_0 ;
-  wire \rTimeoutCnt[20]_i_3__1_n_0 ;
-  wire \rTimeoutCnt[20]_i_4__1_n_0 ;
-  wire \rTimeoutCnt[20]_i_5__1_n_0 ;
-  wire \rTimeoutCnt[4]_i_2__1_n_0 ;
-  wire \rTimeoutCnt[4]_i_3__1_n_0 ;
-  wire \rTimeoutCnt[4]_i_4__1_n_0 ;
-  wire \rTimeoutCnt[4]_i_5__1_n_0 ;
-  wire \rTimeoutCnt[8]_i_2__1_n_0 ;
-  wire \rTimeoutCnt[8]_i_3__1_n_0 ;
-  wire \rTimeoutCnt[8]_i_4__1_n_0 ;
-  wire \rTimeoutCnt[8]_i_5__1_n_0 ;
   wire [23:0]rTimeoutCnt_reg;
   wire \rTimeoutCnt_reg[0]_i_2__1_n_0 ;
   wire \rTimeoutCnt_reg[0]_i_2__1_n_1 ;
@@ -8810,125 +8836,10 @@ module system_dvi2rgb_1_0_TMDS_Decoder
         .I3(SyncBaseOvf_n_4),
         .O(\rTimeoutCnt[0]_i_1__1_n_0 ));
   LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_3__1 
-       (.I0(rTimeoutCnt_reg[3]),
-        .O(\rTimeoutCnt[0]_i_3__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_4__1 
-       (.I0(rTimeoutCnt_reg[2]),
-        .O(\rTimeoutCnt[0]_i_4__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_5__1 
-       (.I0(rTimeoutCnt_reg[1]),
-        .O(\rTimeoutCnt[0]_i_5__1_n_0 ));
-  LUT1 #(
     .INIT(2'h1)) 
-    \rTimeoutCnt[0]_i_6__1 
+    \rTimeoutCnt[0]_i_3__1 
        (.I0(rTimeoutCnt_reg[0]),
-        .O(\rTimeoutCnt[0]_i_6__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_2__1 
-       (.I0(rTimeoutCnt_reg[15]),
-        .O(\rTimeoutCnt[12]_i_2__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_3__1 
-       (.I0(rTimeoutCnt_reg[14]),
-        .O(\rTimeoutCnt[12]_i_3__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_4__1 
-       (.I0(rTimeoutCnt_reg[13]),
-        .O(\rTimeoutCnt[12]_i_4__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_5__1 
-       (.I0(rTimeoutCnt_reg[12]),
-        .O(\rTimeoutCnt[12]_i_5__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_2__1 
-       (.I0(rTimeoutCnt_reg[19]),
-        .O(\rTimeoutCnt[16]_i_2__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_3__1 
-       (.I0(rTimeoutCnt_reg[18]),
-        .O(\rTimeoutCnt[16]_i_3__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_4__1 
-       (.I0(rTimeoutCnt_reg[17]),
-        .O(\rTimeoutCnt[16]_i_4__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_5__1 
-       (.I0(rTimeoutCnt_reg[16]),
-        .O(\rTimeoutCnt[16]_i_5__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_2__1 
-       (.I0(rTimeoutCnt_reg[23]),
-        .O(\rTimeoutCnt[20]_i_2__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_3__1 
-       (.I0(rTimeoutCnt_reg[22]),
-        .O(\rTimeoutCnt[20]_i_3__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_4__1 
-       (.I0(rTimeoutCnt_reg[21]),
-        .O(\rTimeoutCnt[20]_i_4__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_5__1 
-       (.I0(rTimeoutCnt_reg[20]),
-        .O(\rTimeoutCnt[20]_i_5__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_2__1 
-       (.I0(rTimeoutCnt_reg[7]),
-        .O(\rTimeoutCnt[4]_i_2__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_3__1 
-       (.I0(rTimeoutCnt_reg[6]),
-        .O(\rTimeoutCnt[4]_i_3__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_4__1 
-       (.I0(rTimeoutCnt_reg[5]),
-        .O(\rTimeoutCnt[4]_i_4__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_5__1 
-       (.I0(rTimeoutCnt_reg[4]),
-        .O(\rTimeoutCnt[4]_i_5__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_2__1 
-       (.I0(rTimeoutCnt_reg[11]),
-        .O(\rTimeoutCnt[8]_i_2__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_3__1 
-       (.I0(rTimeoutCnt_reg[10]),
-        .O(\rTimeoutCnt[8]_i_3__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_4__1 
-       (.I0(rTimeoutCnt_reg[9]),
-        .O(\rTimeoutCnt[8]_i_4__1_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_5__1 
-       (.I0(rTimeoutCnt_reg[8]),
-        .O(\rTimeoutCnt[8]_i_5__1_n_0 ));
+        .O(\rTimeoutCnt[0]_i_3__1_n_0 ));
   FDRE \rTimeoutCnt_reg[0] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__1_n_0 ),
@@ -8941,7 +8852,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\rTimeoutCnt_reg[0]_i_2__1_n_4 ,\rTimeoutCnt_reg[0]_i_2__1_n_5 ,\rTimeoutCnt_reg[0]_i_2__1_n_6 ,\rTimeoutCnt_reg[0]_i_2__1_n_7 }),
-        .S({\rTimeoutCnt[0]_i_3__1_n_0 ,\rTimeoutCnt[0]_i_4__1_n_0 ,\rTimeoutCnt[0]_i_5__1_n_0 ,\rTimeoutCnt[0]_i_6__1_n_0 }));
+        .S({rTimeoutCnt_reg[3:1],\rTimeoutCnt[0]_i_3__1_n_0 }));
   FDRE \rTimeoutCnt_reg[10] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__1_n_0 ),
@@ -8966,7 +8877,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[12]_i_1__1_n_4 ,\rTimeoutCnt_reg[12]_i_1__1_n_5 ,\rTimeoutCnt_reg[12]_i_1__1_n_6 ,\rTimeoutCnt_reg[12]_i_1__1_n_7 }),
-        .S({\rTimeoutCnt[12]_i_2__1_n_0 ,\rTimeoutCnt[12]_i_3__1_n_0 ,\rTimeoutCnt[12]_i_4__1_n_0 ,\rTimeoutCnt[12]_i_5__1_n_0 }));
+        .S(rTimeoutCnt_reg[15:12]));
   FDRE \rTimeoutCnt_reg[13] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__1_n_0 ),
@@ -8997,7 +8908,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[16]_i_1__1_n_4 ,\rTimeoutCnt_reg[16]_i_1__1_n_5 ,\rTimeoutCnt_reg[16]_i_1__1_n_6 ,\rTimeoutCnt_reg[16]_i_1__1_n_7 }),
-        .S({\rTimeoutCnt[16]_i_2__1_n_0 ,\rTimeoutCnt[16]_i_3__1_n_0 ,\rTimeoutCnt[16]_i_4__1_n_0 ,\rTimeoutCnt[16]_i_5__1_n_0 }));
+        .S(rTimeoutCnt_reg[19:16]));
   FDRE \rTimeoutCnt_reg[17] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__1_n_0 ),
@@ -9034,7 +8945,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[20]_i_1__1_n_4 ,\rTimeoutCnt_reg[20]_i_1__1_n_5 ,\rTimeoutCnt_reg[20]_i_1__1_n_6 ,\rTimeoutCnt_reg[20]_i_1__1_n_7 }),
-        .S({\rTimeoutCnt[20]_i_2__1_n_0 ,\rTimeoutCnt[20]_i_3__1_n_0 ,\rTimeoutCnt[20]_i_4__1_n_0 ,\rTimeoutCnt[20]_i_5__1_n_0 }));
+        .S(rTimeoutCnt_reg[23:20]));
   FDRE \rTimeoutCnt_reg[21] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__1_n_0 ),
@@ -9077,7 +8988,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[4]_i_1__1_n_4 ,\rTimeoutCnt_reg[4]_i_1__1_n_5 ,\rTimeoutCnt_reg[4]_i_1__1_n_6 ,\rTimeoutCnt_reg[4]_i_1__1_n_7 }),
-        .S({\rTimeoutCnt[4]_i_2__1_n_0 ,\rTimeoutCnt[4]_i_3__1_n_0 ,\rTimeoutCnt[4]_i_4__1_n_0 ,\rTimeoutCnt[4]_i_5__1_n_0 }));
+        .S(rTimeoutCnt_reg[7:4]));
   FDRE \rTimeoutCnt_reg[5] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__1_n_0 ),
@@ -9108,7 +9019,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[8]_i_1__1_n_4 ,\rTimeoutCnt_reg[8]_i_1__1_n_5 ,\rTimeoutCnt_reg[8]_i_1__1_n_6 ,\rTimeoutCnt_reg[8]_i_1__1_n_7 }),
-        .S({\rTimeoutCnt[8]_i_2__1_n_0 ,\rTimeoutCnt[8]_i_3__1_n_0 ,\rTimeoutCnt[8]_i_4__1_n_0 ,\rTimeoutCnt[8]_i_5__1_n_0 }));
+        .S(rTimeoutCnt_reg[11:8]));
   FDRE \rTimeoutCnt_reg[9] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__1_n_0 ),
@@ -9206,29 +9117,6 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
   wire \rMMCM_Reset_q_reg[0] ;
   wire \rTimeoutCnt[0]_i_1__0_n_0 ;
   wire \rTimeoutCnt[0]_i_3__0_n_0 ;
-  wire \rTimeoutCnt[0]_i_4__0_n_0 ;
-  wire \rTimeoutCnt[0]_i_5__0_n_0 ;
-  wire \rTimeoutCnt[0]_i_6__0_n_0 ;
-  wire \rTimeoutCnt[12]_i_2__0_n_0 ;
-  wire \rTimeoutCnt[12]_i_3__0_n_0 ;
-  wire \rTimeoutCnt[12]_i_4__0_n_0 ;
-  wire \rTimeoutCnt[12]_i_5__0_n_0 ;
-  wire \rTimeoutCnt[16]_i_2__0_n_0 ;
-  wire \rTimeoutCnt[16]_i_3__0_n_0 ;
-  wire \rTimeoutCnt[16]_i_4__0_n_0 ;
-  wire \rTimeoutCnt[16]_i_5__0_n_0 ;
-  wire \rTimeoutCnt[20]_i_2__0_n_0 ;
-  wire \rTimeoutCnt[20]_i_3__0_n_0 ;
-  wire \rTimeoutCnt[20]_i_4__0_n_0 ;
-  wire \rTimeoutCnt[20]_i_5__0_n_0 ;
-  wire \rTimeoutCnt[4]_i_2__0_n_0 ;
-  wire \rTimeoutCnt[4]_i_3__0_n_0 ;
-  wire \rTimeoutCnt[4]_i_4__0_n_0 ;
-  wire \rTimeoutCnt[4]_i_5__0_n_0 ;
-  wire \rTimeoutCnt[8]_i_2__0_n_0 ;
-  wire \rTimeoutCnt[8]_i_3__0_n_0 ;
-  wire \rTimeoutCnt[8]_i_4__0_n_0 ;
-  wire \rTimeoutCnt[8]_i_5__0_n_0 ;
   wire [23:0]rTimeoutCnt_reg;
   wire \rTimeoutCnt_reg[0]_i_2__0_n_0 ;
   wire \rTimeoutCnt_reg[0]_i_2__0_n_1 ;
@@ -9363,7 +9251,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .D(pAlignRst_i_1__0_n_0),
         .PRE(AS),
         .Q(pAlignRst_reg_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'h04)) 
     \pBitslipCnt[0]_i_1 
@@ -9371,7 +9259,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .I1(pBitslipCnt[1]),
         .I2(pBitslip),
         .O(\pBitslipCnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \pBitslipCnt[1]_i_1 
@@ -9458,125 +9346,10 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .I3(SyncBaseOvf_n_4),
         .O(\rTimeoutCnt[0]_i_1__0_n_0 ));
   LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_3__0 
-       (.I0(rTimeoutCnt_reg[3]),
-        .O(\rTimeoutCnt[0]_i_3__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_4__0 
-       (.I0(rTimeoutCnt_reg[2]),
-        .O(\rTimeoutCnt[0]_i_4__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_5__0 
-       (.I0(rTimeoutCnt_reg[1]),
-        .O(\rTimeoutCnt[0]_i_5__0_n_0 ));
-  LUT1 #(
     .INIT(2'h1)) 
-    \rTimeoutCnt[0]_i_6__0 
+    \rTimeoutCnt[0]_i_3__0 
        (.I0(rTimeoutCnt_reg[0]),
-        .O(\rTimeoutCnt[0]_i_6__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_2__0 
-       (.I0(rTimeoutCnt_reg[15]),
-        .O(\rTimeoutCnt[12]_i_2__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_3__0 
-       (.I0(rTimeoutCnt_reg[14]),
-        .O(\rTimeoutCnt[12]_i_3__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_4__0 
-       (.I0(rTimeoutCnt_reg[13]),
-        .O(\rTimeoutCnt[12]_i_4__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_5__0 
-       (.I0(rTimeoutCnt_reg[12]),
-        .O(\rTimeoutCnt[12]_i_5__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_2__0 
-       (.I0(rTimeoutCnt_reg[19]),
-        .O(\rTimeoutCnt[16]_i_2__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_3__0 
-       (.I0(rTimeoutCnt_reg[18]),
-        .O(\rTimeoutCnt[16]_i_3__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_4__0 
-       (.I0(rTimeoutCnt_reg[17]),
-        .O(\rTimeoutCnt[16]_i_4__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_5__0 
-       (.I0(rTimeoutCnt_reg[16]),
-        .O(\rTimeoutCnt[16]_i_5__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_2__0 
-       (.I0(rTimeoutCnt_reg[23]),
-        .O(\rTimeoutCnt[20]_i_2__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_3__0 
-       (.I0(rTimeoutCnt_reg[22]),
-        .O(\rTimeoutCnt[20]_i_3__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_4__0 
-       (.I0(rTimeoutCnt_reg[21]),
-        .O(\rTimeoutCnt[20]_i_4__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_5__0 
-       (.I0(rTimeoutCnt_reg[20]),
-        .O(\rTimeoutCnt[20]_i_5__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_2__0 
-       (.I0(rTimeoutCnt_reg[7]),
-        .O(\rTimeoutCnt[4]_i_2__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_3__0 
-       (.I0(rTimeoutCnt_reg[6]),
-        .O(\rTimeoutCnt[4]_i_3__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_4__0 
-       (.I0(rTimeoutCnt_reg[5]),
-        .O(\rTimeoutCnt[4]_i_4__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_5__0 
-       (.I0(rTimeoutCnt_reg[4]),
-        .O(\rTimeoutCnt[4]_i_5__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_2__0 
-       (.I0(rTimeoutCnt_reg[11]),
-        .O(\rTimeoutCnt[8]_i_2__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_3__0 
-       (.I0(rTimeoutCnt_reg[10]),
-        .O(\rTimeoutCnt[8]_i_3__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_4__0 
-       (.I0(rTimeoutCnt_reg[9]),
-        .O(\rTimeoutCnt[8]_i_4__0_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_5__0 
-       (.I0(rTimeoutCnt_reg[8]),
-        .O(\rTimeoutCnt[8]_i_5__0_n_0 ));
+        .O(\rTimeoutCnt[0]_i_3__0_n_0 ));
   FDRE \rTimeoutCnt_reg[0] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__0_n_0 ),
@@ -9589,7 +9362,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\rTimeoutCnt_reg[0]_i_2__0_n_4 ,\rTimeoutCnt_reg[0]_i_2__0_n_5 ,\rTimeoutCnt_reg[0]_i_2__0_n_6 ,\rTimeoutCnt_reg[0]_i_2__0_n_7 }),
-        .S({\rTimeoutCnt[0]_i_3__0_n_0 ,\rTimeoutCnt[0]_i_4__0_n_0 ,\rTimeoutCnt[0]_i_5__0_n_0 ,\rTimeoutCnt[0]_i_6__0_n_0 }));
+        .S({rTimeoutCnt_reg[3:1],\rTimeoutCnt[0]_i_3__0_n_0 }));
   FDRE \rTimeoutCnt_reg[10] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__0_n_0 ),
@@ -9614,7 +9387,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[12]_i_1__0_n_4 ,\rTimeoutCnt_reg[12]_i_1__0_n_5 ,\rTimeoutCnt_reg[12]_i_1__0_n_6 ,\rTimeoutCnt_reg[12]_i_1__0_n_7 }),
-        .S({\rTimeoutCnt[12]_i_2__0_n_0 ,\rTimeoutCnt[12]_i_3__0_n_0 ,\rTimeoutCnt[12]_i_4__0_n_0 ,\rTimeoutCnt[12]_i_5__0_n_0 }));
+        .S(rTimeoutCnt_reg[15:12]));
   FDRE \rTimeoutCnt_reg[13] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__0_n_0 ),
@@ -9645,7 +9418,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[16]_i_1__0_n_4 ,\rTimeoutCnt_reg[16]_i_1__0_n_5 ,\rTimeoutCnt_reg[16]_i_1__0_n_6 ,\rTimeoutCnt_reg[16]_i_1__0_n_7 }),
-        .S({\rTimeoutCnt[16]_i_2__0_n_0 ,\rTimeoutCnt[16]_i_3__0_n_0 ,\rTimeoutCnt[16]_i_4__0_n_0 ,\rTimeoutCnt[16]_i_5__0_n_0 }));
+        .S(rTimeoutCnt_reg[19:16]));
   FDRE \rTimeoutCnt_reg[17] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__0_n_0 ),
@@ -9682,7 +9455,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[20]_i_1__0_n_4 ,\rTimeoutCnt_reg[20]_i_1__0_n_5 ,\rTimeoutCnt_reg[20]_i_1__0_n_6 ,\rTimeoutCnt_reg[20]_i_1__0_n_7 }),
-        .S({\rTimeoutCnt[20]_i_2__0_n_0 ,\rTimeoutCnt[20]_i_3__0_n_0 ,\rTimeoutCnt[20]_i_4__0_n_0 ,\rTimeoutCnt[20]_i_5__0_n_0 }));
+        .S(rTimeoutCnt_reg[23:20]));
   FDRE \rTimeoutCnt_reg[21] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__0_n_0 ),
@@ -9725,7 +9498,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[4]_i_1__0_n_4 ,\rTimeoutCnt_reg[4]_i_1__0_n_5 ,\rTimeoutCnt_reg[4]_i_1__0_n_6 ,\rTimeoutCnt_reg[4]_i_1__0_n_7 }),
-        .S({\rTimeoutCnt[4]_i_2__0_n_0 ,\rTimeoutCnt[4]_i_3__0_n_0 ,\rTimeoutCnt[4]_i_4__0_n_0 ,\rTimeoutCnt[4]_i_5__0_n_0 }));
+        .S(rTimeoutCnt_reg[7:4]));
   FDRE \rTimeoutCnt_reg[5] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__0_n_0 ),
@@ -9756,7 +9529,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[8]_i_1__0_n_4 ,\rTimeoutCnt_reg[8]_i_1__0_n_5 ,\rTimeoutCnt_reg[8]_i_1__0_n_6 ,\rTimeoutCnt_reg[8]_i_1__0_n_7 }),
-        .S({\rTimeoutCnt[8]_i_2__0_n_0 ,\rTimeoutCnt[8]_i_3__0_n_0 ,\rTimeoutCnt[8]_i_4__0_n_0 ,\rTimeoutCnt[8]_i_5__0_n_0 }));
+        .S(rTimeoutCnt_reg[11:8]));
   FDRE \rTimeoutCnt_reg[9] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1__0_n_0 ),
@@ -9856,29 +9629,6 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
   wire \rMMCM_Reset_q_reg[0] ;
   wire \rTimeoutCnt[0]_i_1_n_0 ;
   wire \rTimeoutCnt[0]_i_3_n_0 ;
-  wire \rTimeoutCnt[0]_i_4_n_0 ;
-  wire \rTimeoutCnt[0]_i_5_n_0 ;
-  wire \rTimeoutCnt[0]_i_6_n_0 ;
-  wire \rTimeoutCnt[12]_i_2_n_0 ;
-  wire \rTimeoutCnt[12]_i_3_n_0 ;
-  wire \rTimeoutCnt[12]_i_4_n_0 ;
-  wire \rTimeoutCnt[12]_i_5_n_0 ;
-  wire \rTimeoutCnt[16]_i_2_n_0 ;
-  wire \rTimeoutCnt[16]_i_3_n_0 ;
-  wire \rTimeoutCnt[16]_i_4_n_0 ;
-  wire \rTimeoutCnt[16]_i_5_n_0 ;
-  wire \rTimeoutCnt[20]_i_2_n_0 ;
-  wire \rTimeoutCnt[20]_i_3_n_0 ;
-  wire \rTimeoutCnt[20]_i_4_n_0 ;
-  wire \rTimeoutCnt[20]_i_5_n_0 ;
-  wire \rTimeoutCnt[4]_i_2_n_0 ;
-  wire \rTimeoutCnt[4]_i_3_n_0 ;
-  wire \rTimeoutCnt[4]_i_4_n_0 ;
-  wire \rTimeoutCnt[4]_i_5_n_0 ;
-  wire \rTimeoutCnt[8]_i_2_n_0 ;
-  wire \rTimeoutCnt[8]_i_3_n_0 ;
-  wire \rTimeoutCnt[8]_i_4_n_0 ;
-  wire \rTimeoutCnt[8]_i_5_n_0 ;
   wire [23:0]rTimeoutCnt_reg;
   wire \rTimeoutCnt_reg[0]_i_2_n_0 ;
   wire \rTimeoutCnt_reg[0]_i_2_n_1 ;
@@ -10016,7 +9766,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .D(pAlignRst_i_1_n_0),
         .PRE(out),
         .Q(pAlignRst));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT3 #(
     .INIT(8'h04)) 
     \pBitslipCnt[0]_i_1 
@@ -10024,7 +9774,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .I1(pBitslipCnt[1]),
         .I2(pBitslip),
         .O(\pBitslipCnt[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \pBitslipCnt[1]_i_1 
@@ -10111,125 +9861,10 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .I3(SyncBaseOvf_n_4),
         .O(\rTimeoutCnt[0]_i_1_n_0 ));
   LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_3 
-       (.I0(rTimeoutCnt_reg[3]),
-        .O(\rTimeoutCnt[0]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_4 
-       (.I0(rTimeoutCnt_reg[2]),
-        .O(\rTimeoutCnt[0]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[0]_i_5 
-       (.I0(rTimeoutCnt_reg[1]),
-        .O(\rTimeoutCnt[0]_i_5_n_0 ));
-  LUT1 #(
     .INIT(2'h1)) 
-    \rTimeoutCnt[0]_i_6 
+    \rTimeoutCnt[0]_i_3 
        (.I0(rTimeoutCnt_reg[0]),
-        .O(\rTimeoutCnt[0]_i_6_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_2 
-       (.I0(rTimeoutCnt_reg[15]),
-        .O(\rTimeoutCnt[12]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_3 
-       (.I0(rTimeoutCnt_reg[14]),
-        .O(\rTimeoutCnt[12]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_4 
-       (.I0(rTimeoutCnt_reg[13]),
-        .O(\rTimeoutCnt[12]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[12]_i_5 
-       (.I0(rTimeoutCnt_reg[12]),
-        .O(\rTimeoutCnt[12]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_2 
-       (.I0(rTimeoutCnt_reg[19]),
-        .O(\rTimeoutCnt[16]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_3 
-       (.I0(rTimeoutCnt_reg[18]),
-        .O(\rTimeoutCnt[16]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_4 
-       (.I0(rTimeoutCnt_reg[17]),
-        .O(\rTimeoutCnt[16]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[16]_i_5 
-       (.I0(rTimeoutCnt_reg[16]),
-        .O(\rTimeoutCnt[16]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_2 
-       (.I0(rTimeoutCnt_reg[23]),
-        .O(\rTimeoutCnt[20]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_3 
-       (.I0(rTimeoutCnt_reg[22]),
-        .O(\rTimeoutCnt[20]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_4 
-       (.I0(rTimeoutCnt_reg[21]),
-        .O(\rTimeoutCnt[20]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[20]_i_5 
-       (.I0(rTimeoutCnt_reg[20]),
-        .O(\rTimeoutCnt[20]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_2 
-       (.I0(rTimeoutCnt_reg[7]),
-        .O(\rTimeoutCnt[4]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_3 
-       (.I0(rTimeoutCnt_reg[6]),
-        .O(\rTimeoutCnt[4]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_4 
-       (.I0(rTimeoutCnt_reg[5]),
-        .O(\rTimeoutCnt[4]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[4]_i_5 
-       (.I0(rTimeoutCnt_reg[4]),
-        .O(\rTimeoutCnt[4]_i_5_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_2 
-       (.I0(rTimeoutCnt_reg[11]),
-        .O(\rTimeoutCnt[8]_i_2_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_3 
-       (.I0(rTimeoutCnt_reg[10]),
-        .O(\rTimeoutCnt[8]_i_3_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_4 
-       (.I0(rTimeoutCnt_reg[9]),
-        .O(\rTimeoutCnt[8]_i_4_n_0 ));
-  LUT1 #(
-    .INIT(2'h2)) 
-    \rTimeoutCnt[8]_i_5 
-       (.I0(rTimeoutCnt_reg[8]),
-        .O(\rTimeoutCnt[8]_i_5_n_0 ));
+        .O(\rTimeoutCnt[0]_i_3_n_0 ));
   FDRE \rTimeoutCnt_reg[0] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1_n_0 ),
@@ -10242,7 +9877,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b1}),
         .O({\rTimeoutCnt_reg[0]_i_2_n_4 ,\rTimeoutCnt_reg[0]_i_2_n_5 ,\rTimeoutCnt_reg[0]_i_2_n_6 ,\rTimeoutCnt_reg[0]_i_2_n_7 }),
-        .S({\rTimeoutCnt[0]_i_3_n_0 ,\rTimeoutCnt[0]_i_4_n_0 ,\rTimeoutCnt[0]_i_5_n_0 ,\rTimeoutCnt[0]_i_6_n_0 }));
+        .S({rTimeoutCnt_reg[3:1],\rTimeoutCnt[0]_i_3_n_0 }));
   FDRE \rTimeoutCnt_reg[10] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1_n_0 ),
@@ -10267,7 +9902,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[12]_i_1_n_4 ,\rTimeoutCnt_reg[12]_i_1_n_5 ,\rTimeoutCnt_reg[12]_i_1_n_6 ,\rTimeoutCnt_reg[12]_i_1_n_7 }),
-        .S({\rTimeoutCnt[12]_i_2_n_0 ,\rTimeoutCnt[12]_i_3_n_0 ,\rTimeoutCnt[12]_i_4_n_0 ,\rTimeoutCnt[12]_i_5_n_0 }));
+        .S(rTimeoutCnt_reg[15:12]));
   FDRE \rTimeoutCnt_reg[13] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1_n_0 ),
@@ -10298,7 +9933,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[16]_i_1_n_4 ,\rTimeoutCnt_reg[16]_i_1_n_5 ,\rTimeoutCnt_reg[16]_i_1_n_6 ,\rTimeoutCnt_reg[16]_i_1_n_7 }),
-        .S({\rTimeoutCnt[16]_i_2_n_0 ,\rTimeoutCnt[16]_i_3_n_0 ,\rTimeoutCnt[16]_i_4_n_0 ,\rTimeoutCnt[16]_i_5_n_0 }));
+        .S(rTimeoutCnt_reg[19:16]));
   FDRE \rTimeoutCnt_reg[17] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1_n_0 ),
@@ -10335,7 +9970,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[20]_i_1_n_4 ,\rTimeoutCnt_reg[20]_i_1_n_5 ,\rTimeoutCnt_reg[20]_i_1_n_6 ,\rTimeoutCnt_reg[20]_i_1_n_7 }),
-        .S({\rTimeoutCnt[20]_i_2_n_0 ,\rTimeoutCnt[20]_i_3_n_0 ,\rTimeoutCnt[20]_i_4_n_0 ,\rTimeoutCnt[20]_i_5_n_0 }));
+        .S(rTimeoutCnt_reg[23:20]));
   FDRE \rTimeoutCnt_reg[21] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1_n_0 ),
@@ -10378,7 +10013,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[4]_i_1_n_4 ,\rTimeoutCnt_reg[4]_i_1_n_5 ,\rTimeoutCnt_reg[4]_i_1_n_6 ,\rTimeoutCnt_reg[4]_i_1_n_7 }),
-        .S({\rTimeoutCnt[4]_i_2_n_0 ,\rTimeoutCnt[4]_i_3_n_0 ,\rTimeoutCnt[4]_i_4_n_0 ,\rTimeoutCnt[4]_i_5_n_0 }));
+        .S(rTimeoutCnt_reg[7:4]));
   FDRE \rTimeoutCnt_reg[5] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1_n_0 ),
@@ -10409,7 +10044,7 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({\rTimeoutCnt_reg[8]_i_1_n_4 ,\rTimeoutCnt_reg[8]_i_1_n_5 ,\rTimeoutCnt_reg[8]_i_1_n_6 ,\rTimeoutCnt_reg[8]_i_1_n_7 }),
-        .S({\rTimeoutCnt[8]_i_2_n_0 ,\rTimeoutCnt[8]_i_3_n_0 ,\rTimeoutCnt[8]_i_4_n_0 ,\rTimeoutCnt[8]_i_5_n_0 }));
+        .S(rTimeoutCnt_reg[11:8]));
   FDRE \rTimeoutCnt_reg[9] 
        (.C(RefClk),
         .CE(\rTimeoutCnt[0]_i_1_n_0 ),
@@ -10429,8 +10064,8 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
     RefClk,
     Q,
     sState,
-    \sAddr_reg[7] ,
     \sState_reg[0] ,
+    \sAddr_reg[7] ,
     \sAddr_reg[2] ,
     \sAddr_reg[5] ,
     SDA_I,
@@ -10444,8 +10079,8 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
   input RefClk;
   input [7:0]Q;
   input [1:0]sState;
-  input [7:0]\sAddr_reg[7] ;
   input \sState_reg[0] ;
+  input [7:0]\sAddr_reg[7] ;
   input \sAddr_reg[2] ;
   input \sAddr_reg[5] ;
   input SDA_I;
@@ -10559,7 +10194,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
        (.I0(state[2]),
         .I1(state[1]),
         .O(DONE_O_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     DONE_O_i_4
@@ -10700,7 +10335,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I4(\dataByte_reg_n_0_[1] ),
         .I5(\dataByte_reg_n_0_[0] ),
         .O(\FSM_gray_state[1]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \FSM_gray_state[1]_i_7 
@@ -10708,7 +10343,6 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I1(dScl),
         .I2(dSda),
         .O(fStart));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \FSM_gray_state[1]_i_8 
@@ -10771,6 +10405,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
        (.I0(state[2]),
         .I1(state[1]),
         .O(\FSM_gray_state[2]_i_6_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
   LUT3 #(
     .INIT(8'h48)) 
     \FSM_gray_state[2]_i_7 
@@ -10778,6 +10413,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I1(dScl),
         .I2(ddSda),
         .O(\FSM_gray_state[2]_i_7_n_0 ));
+  (* FSM_ENCODED_STATES = "stidle:000,staddress:001,stturnaround:011,stsack:010,stwrite:110,stmack:100,stread:111" *) 
   (* KEEP = "yes" *) 
   FDRE \FSM_gray_state_reg[0] 
        (.C(RefClk),
@@ -10785,6 +10421,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .D(\FSM_gray_state[0]_i_1_n_0 ),
         .Q(state[0]),
         .R(1'b0));
+  (* FSM_ENCODED_STATES = "stidle:000,staddress:001,stturnaround:011,stsack:010,stwrite:110,stmack:100,stread:111" *) 
   (* KEEP = "yes" *) 
   FDRE \FSM_gray_state_reg[1] 
        (.C(RefClk),
@@ -10792,6 +10429,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .D(\FSM_gray_state[1]_i_1_n_0 ),
         .Q(state[1]),
         .R(1'b0));
+  (* FSM_ENCODED_STATES = "stidle:000,staddress:001,stturnaround:011,stsack:010,stwrite:110,stmack:100,stread:111" *) 
   (* KEEP = "yes" *) 
   FDRE \FSM_gray_state_reg[2] 
        (.C(RefClk),
@@ -10838,7 +10476,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I1(\bitCount[2]_i_2_n_0 ),
         .I2(\dataByte[7]_i_3_n_0 ),
         .O(\bitCount[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT4 #(
     .INIT(16'hA6FF)) 
     \bitCount[1]_i_1 
@@ -10847,7 +10485,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I2(\bitCount_reg_n_0_[0] ),
         .I3(\dataByte[7]_i_3_n_0 ),
         .O(\bitCount[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT5 #(
     .INIT(32'hAAA6FFFF)) 
     \bitCount[2]_i_1 
@@ -10902,7 +10540,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .D(sOut),
         .Q(dSda),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \dataByte[0]_i_1 
@@ -10910,7 +10548,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I1(\dataByte[7]_i_3_n_0 ),
         .I2(Q[0]),
         .O(\dataByte[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \dataByte[1]_i_1 
@@ -10918,7 +10556,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I1(\dataByte[7]_i_3_n_0 ),
         .I2(Q[1]),
         .O(\dataByte[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \dataByte[2]_i_1 
@@ -10926,7 +10564,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I1(\dataByte[7]_i_3_n_0 ),
         .I2(Q[2]),
         .O(\dataByte[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \dataByte[3]_i_1 
@@ -10934,7 +10572,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I1(\dataByte[7]_i_3_n_0 ),
         .I2(Q[3]),
         .O(\dataByte[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \dataByte[4]_i_1 
@@ -10942,7 +10580,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I1(\dataByte[7]_i_3_n_0 ),
         .I2(Q[4]),
         .O(\dataByte[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \dataByte[5]_i_1 
@@ -10968,7 +10606,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I4(state[2]),
         .I5(\dataByte[7]_i_3_n_0 ),
         .O(\dataByte[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \dataByte[7]_i_2 
@@ -11065,7 +10703,7 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I4(rd_wrn_i_2_n_0),
         .I5(rd_wrn_reg_0),
         .O(rd_wrn_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT5 #(
     .INIT(32'h00000004)) 
     rd_wrn_i_2
@@ -11081,33 +10719,31 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .D(rd_wrn_i_1_n_0),
         .Q(rd_wrn_reg_0),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
-  LUT4 #(
-    .INIT(16'h80BF)) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  LUT3 #(
+    .INIT(8'h8B)) 
     \sAddr_rep[0]_i_1 
        (.I0(\dataByte_reg_n_0_[0] ),
-        .I1(sState[0]),
-        .I2(sState[1]),
-        .I3(\sAddr_reg[7] [0]),
+        .I1(sState[1]),
+        .I2(\sAddr_reg[7] [0]),
         .O(D[0]));
-  LUT5 #(
-    .INIT(32'h80BFBF80)) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  LUT4 #(
+    .INIT(16'h8BB8)) 
     \sAddr_rep[1]_i_1 
        (.I0(\dataByte_reg_n_0_[1] ),
-        .I1(sState[0]),
-        .I2(sState[1]),
-        .I3(\sAddr_reg[7] [1]),
-        .I4(\sAddr_reg[7] [0]),
+        .I1(sState[1]),
+        .I2(\sAddr_reg[7] [1]),
+        .I3(\sAddr_reg[7] [0]),
         .O(D[1]));
-  LUT6 #(
-    .INIT(64'h80BFBFBFBF808080)) 
+  LUT5 #(
+    .INIT(32'h8BBBB888)) 
     \sAddr_rep[2]_i_1 
        (.I0(\dataByte_reg_n_0_[2] ),
-        .I1(sState[0]),
-        .I2(sState[1]),
-        .I3(\sAddr_reg[7] [1]),
-        .I4(\sAddr_reg[7] [0]),
-        .I5(\sAddr_reg[7] [2]),
+        .I1(sState[1]),
+        .I2(\sAddr_reg[7] [1]),
+        .I3(\sAddr_reg[7] [0]),
+        .I4(\sAddr_reg[7] [2]),
         .O(D[2]));
   LUT6 #(
     .INIT(64'h8BB8B8B8B8B8B8B8)) 
@@ -11119,15 +10755,14 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I4(\sAddr_reg[7] [0]),
         .I5(\sAddr_reg[7] [2]),
         .O(D[3]));
-  LUT6 #(
-    .INIT(64'h80BFBF80BF80BF80)) 
+  LUT5 #(
+    .INIT(32'h8BB8B8B8)) 
     \sAddr_rep[4]_i_1 
        (.I0(\dataByte_reg_n_0_[4] ),
-        .I1(sState[0]),
-        .I2(sState[1]),
-        .I3(\sAddr_reg[7] [4]),
-        .I4(\sAddr_reg[2] ),
-        .I5(\sAddr_reg[7] [3]),
+        .I1(sState[1]),
+        .I2(\sAddr_reg[7] [4]),
+        .I3(\sAddr_reg[2] ),
+        .I4(\sAddr_reg[7] [3]),
         .O(D[4]));
   LUT6 #(
     .INIT(64'h8BB8B8B8B8B8B8B8)) 
@@ -11139,31 +10774,28 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .I4(\sAddr_reg[2] ),
         .I5(\sAddr_reg[7] [4]),
         .O(D[5]));
-  LUT5 #(
-    .INIT(32'h80BFBF80)) 
+  LUT4 #(
+    .INIT(16'h8BB8)) 
     \sAddr_rep[6]_i_1 
        (.I0(\dataByte_reg_n_0_[6] ),
-        .I1(sState[0]),
-        .I2(sState[1]),
-        .I3(\sAddr_reg[7] [6]),
-        .I4(\sAddr_reg[5] ),
+        .I1(sState[1]),
+        .I2(\sAddr_reg[7] [6]),
+        .I3(\sAddr_reg[5] ),
         .O(D[6]));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \sAddr_rep[7]_i_1 
        (.I0(sState[0]),
         .I1(sI2C_Done),
         .O(E));
-  LUT6 #(
-    .INIT(64'h80BFBF80BF80BF80)) 
+  LUT5 #(
+    .INIT(32'h8BB8B8B8)) 
     \sAddr_rep[7]_i_2 
        (.I0(\dataByte_reg_n_0_[7] ),
-        .I1(sState[0]),
-        .I2(sState[1]),
-        .I3(\sAddr_reg[7] [7]),
-        .I4(\sAddr_reg[5] ),
-        .I5(\sAddr_reg[7] [6]),
+        .I1(sState[1]),
+        .I2(\sAddr_reg[7] [7]),
+        .I3(\sAddr_reg[5] ),
+        .I4(\sAddr_reg[7] [6]),
         .O(D[7]));
 endmodule
 

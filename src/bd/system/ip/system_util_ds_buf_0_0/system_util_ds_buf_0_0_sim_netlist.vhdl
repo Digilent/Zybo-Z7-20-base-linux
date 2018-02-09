@@ -1,8 +1,8 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.2.1 (lin64) Build 1957588 Wed Aug  9 16:32:10 MDT 2017
--- Date        : Wed Oct 11 10:52:36 2017
--- Host        : ubuntu running 64-bit unknown
+-- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+-- Date        : Thu Feb  8 18:34:53 2018
+-- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0_sim_netlist.vhdl
 -- Design      : system_util_ds_buf_0_0
@@ -94,7 +94,7 @@ entity system_util_ds_buf_0_0 is
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_util_ds_buf_0_0 : entity is "yes";
   attribute x_core_info : string;
-  attribute x_core_info of system_util_ds_buf_0_0 : entity is "util_ds_buf,Vivado 2017.2.1";
+  attribute x_core_info of system_util_ds_buf_0_0 : entity is "util_ds_buf,Vivado 2017.4";
 end system_util_ds_buf_0_0;
 
 architecture STRUCTURE of system_util_ds_buf_0_0 is
@@ -113,6 +113,12 @@ architecture STRUCTURE of system_util_ds_buf_0_0 is
   attribute C_BUF_TYPE of U0 : label is "BUFG";
   attribute C_SIZE : integer;
   attribute C_SIZE of U0 : label is 1;
+  attribute x_interface_info : string;
+  attribute x_interface_info of BUFG_I : signal is "xilinx.com:signal:clock:1.0 BUFG_I CLK";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of BUFG_I : signal is "XIL_INTERFACENAME BUFG_I, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1";
+  attribute x_interface_info of BUFG_O : signal is "xilinx.com:signal:clock:1.0 BUFG_O CLK";
+  attribute x_interface_parameter of BUFG_O : signal is "XIL_INTERFACENAME BUFG_O, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1";
 begin
 U0: entity work.system_util_ds_buf_0_0_util_ds_buf
      port map (

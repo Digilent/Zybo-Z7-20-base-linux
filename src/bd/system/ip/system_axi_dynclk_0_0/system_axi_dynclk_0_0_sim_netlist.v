@@ -1,8 +1,8 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.2.1 (lin64) Build 1957588 Wed Aug  9 16:32:10 MDT 2017
-// Date        : Wed Oct 11 04:15:47 2017
-// Host        : ubuntu running 64-bit unknown
+// Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+// Date        : Thu Feb  8 18:32:07 2018
+// Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_axi_dynclk_0_0/system_axi_dynclk_0_0_sim_netlist.v
 // Design      : system_axi_dynclk_0_0
@@ -12,7 +12,7 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_axi_dynclk_0_0,axi_dynclk,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_dynclk,Vivado 2017.2.1" *) 
+(* CHECK_LICENSE_TYPE = "system_axi_dynclk_0_0,axi_dynclk,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_dynclk,Vivado 2017.4" *) 
 (* NotValidForBitStream *)
 module system_axi_dynclk_0_0
    (REF_CLK_I,
@@ -40,13 +40,13 @@ module system_axi_dynclk_0_0
     s00_axi_rresp,
     s00_axi_rvalid,
     s00_axi_rready);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 REF_CLK_I CLK" *) input REF_CLK_I;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 PXL_CLK_O CLK" *) output PXL_CLK_O;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 PXL_CLK_5X_O CLK" *) output PXL_CLK_5X_O;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 REF_CLK_I CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME REF_CLK_I, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input REF_CLK_I;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 PXL_CLK_O CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME PXL_CLK_O, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_axi_dynclk_0_0_PXL_CLK_O" *) output PXL_CLK_O;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 PXL_CLK_5X_O CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME PXL_CLK_5X_O, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_axi_dynclk_0_0_PXL_CLK_5X_O" *) output PXL_CLK_5X_O;
   output LOCKED_O;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 s00_axi_signal_clock CLK" *) input s00_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 s00_axi_signal_reset RST" *) input s00_axi_aresetn;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 s00_axi AWADDR" *) input [4:0]s00_axi_awaddr;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 s00_axi_signal_clock CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME s00_axi_signal_clock, ASSOCIATED_BUSIF s00_axi, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input s00_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 s00_axi_signal_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME s00_axi_signal_reset, POLARITY ACTIVE_LOW" *) input s00_axi_aresetn;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 s00_axi AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME s00_axi, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [4:0]s00_axi_awaddr;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 s00_axi AWPROT" *) input [2:0]s00_axi_awprot;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 s00_axi AWVALID" *) input s00_axi_awvalid;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 s00_axi AWREADY" *) output s00_axi_awready;
@@ -229,6 +229,7 @@ module system_axi_dynclk_0_0_axi_dynclk
        (.I0(\FSM_onehot_clk_state_reg_n_0_[1] ),
         .I1(STAT_REG),
         .O(\FSM_onehot_clk_state[2]_i_1_n_0 ));
+  (* FSM_ENCODED_STATES = "reset:00001,wait_locked:00010,wait_en:00100,wait_srdy:01000,enabled:10000" *) 
   (* KEEP = "yes" *) 
   FDSE #(
     .INIT(1'b1)) 
@@ -238,6 +239,7 @@ module system_axi_dynclk_0_0_axi_dynclk
         .D(1'b0),
         .Q(\FSM_onehot_clk_state_reg_n_0_[0] ),
         .S(RST));
+  (* FSM_ENCODED_STATES = "reset:00001,wait_locked:00010,wait_en:00100,wait_srdy:01000,enabled:10000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -247,6 +249,7 @@ module system_axi_dynclk_0_0_axi_dynclk
         .D(\FSM_onehot_clk_state_reg_n_0_[0] ),
         .Q(\FSM_onehot_clk_state_reg_n_0_[1] ),
         .R(RST));
+  (* FSM_ENCODED_STATES = "reset:00001,wait_locked:00010,wait_en:00100,wait_srdy:01000,enabled:10000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -256,6 +259,7 @@ module system_axi_dynclk_0_0_axi_dynclk
         .D(\FSM_onehot_clk_state[2]_i_1_n_0 ),
         .Q(\FSM_onehot_clk_state_reg_n_0_[2] ),
         .R(RST));
+  (* FSM_ENCODED_STATES = "reset:00001,wait_locked:00010,wait_en:00100,wait_srdy:01000,enabled:10000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -265,6 +269,7 @@ module system_axi_dynclk_0_0_axi_dynclk
         .D(\FSM_onehot_clk_state_reg_n_0_[2] ),
         .Q(\FSM_onehot_clk_state_reg_n_0_[3] ),
         .R(RST));
+  (* FSM_ENCODED_STATES = "reset:00001,wait_locked:00010,wait_en:00100,wait_srdy:01000,enabled:10000" *) 
   (* KEEP = "yes" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -4484,6 +4489,7 @@ module system_axi_dynclk_0_0_mmcme2_drp
         .I3(DRDY),
         .I4(current_state[0]),
         .O(\FSM_sequential_current_state[3]_i_1_n_0 ));
+  (* FSM_ENCODED_STATES = "RESTART:0000,WAIT_LOCK:0001,WAIT_SEN:0010,ADDRESS:0011,WAIT_A_DRDY:0100,BITMASK:0101,BITSET:0110,WRITE:0111,WAIT_DRDY:1000" *) 
   (* KEEP = "yes" *) 
   FDRE \FSM_sequential_current_state_reg[0] 
        (.C(s00_axi_aclk),
@@ -4491,6 +4497,7 @@ module system_axi_dynclk_0_0_mmcme2_drp
         .D(\FSM_sequential_current_state[0]_i_1_n_0 ),
         .Q(current_state[0]),
         .R(SR));
+  (* FSM_ENCODED_STATES = "RESTART:0000,WAIT_LOCK:0001,WAIT_SEN:0010,ADDRESS:0011,WAIT_A_DRDY:0100,BITMASK:0101,BITSET:0110,WRITE:0111,WAIT_DRDY:1000" *) 
   (* KEEP = "yes" *) 
   FDRE \FSM_sequential_current_state_reg[1] 
        (.C(s00_axi_aclk),
@@ -4498,6 +4505,7 @@ module system_axi_dynclk_0_0_mmcme2_drp
         .D(\FSM_sequential_current_state[1]_i_1_n_0 ),
         .Q(current_state[1]),
         .R(SR));
+  (* FSM_ENCODED_STATES = "RESTART:0000,WAIT_LOCK:0001,WAIT_SEN:0010,ADDRESS:0011,WAIT_A_DRDY:0100,BITMASK:0101,BITSET:0110,WRITE:0111,WAIT_DRDY:1000" *) 
   (* KEEP = "yes" *) 
   FDRE \FSM_sequential_current_state_reg[2] 
        (.C(s00_axi_aclk),
@@ -4505,6 +4513,7 @@ module system_axi_dynclk_0_0_mmcme2_drp
         .D(\FSM_sequential_current_state[2]_i_1_n_0 ),
         .Q(current_state[2]),
         .R(SR));
+  (* FSM_ENCODED_STATES = "RESTART:0000,WAIT_LOCK:0001,WAIT_SEN:0010,ADDRESS:0011,WAIT_A_DRDY:0100,BITMASK:0101,BITSET:0110,WRITE:0111,WAIT_DRDY:1000" *) 
   (* KEEP = "yes" *) 
   FDRE \FSM_sequential_current_state_reg[3] 
        (.C(s00_axi_aclk),
