@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
 // Date        : Thu Feb  8 18:32:28 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_xbar_0/system_xbar_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top system_xbar_0 -prefix
+//               system_xbar_0_ system_xbar_0_stub.v
 // Design      : system_xbar_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1

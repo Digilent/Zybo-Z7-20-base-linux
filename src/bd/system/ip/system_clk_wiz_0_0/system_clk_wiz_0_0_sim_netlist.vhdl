@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Thu Feb  8 18:34:01 2018
+-- Date        : Sat Mar 31 13:24:22 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_sim_netlist.vhdl
@@ -17,6 +17,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz is
   port (
     clk_out1 : out STD_LOGIC;
+    clk_out2 : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -28,7 +29,6 @@ architecture STRUCTURE of system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz is
   signal clk_out1_system_clk_wiz_0_0 : STD_LOGIC;
   signal clkfbout_buf_system_clk_wiz_0_0 : STD_LOGIC;
   signal clkfbout_system_clk_wiz_0_0 : STD_LOGIC;
-  signal NLW_plle2_adv_inst_CLKOUT1_UNCONNECTED : STD_LOGIC;
   signal NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED : STD_LOGIC;
   signal NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED : STD_LOGIC;
   signal NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED : STD_LOGIC;
@@ -69,14 +69,14 @@ clkout1_buf: unisim.vcomponents.BUFG
 plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
     generic map(
       BANDWIDTH => "OPTIMIZED",
-      CLKFBOUT_MULT => 36,
+      CLKFBOUT_MULT => 48,
       CLKFBOUT_PHASE => 0.000000,
       CLKIN1_PERIOD => 8.000000,
       CLKIN2_PERIOD => 0.000000,
-      CLKOUT0_DIVIDE => 75,
+      CLKOUT0_DIVIDE => 100,
       CLKOUT0_DUTY_CYCLE => 0.500000,
       CLKOUT0_PHASE => 0.000000,
-      CLKOUT1_DIVIDE => 1,
+      CLKOUT1_DIVIDE => 6,
       CLKOUT1_DUTY_CYCLE => 0.500000,
       CLKOUT1_PHASE => 0.000000,
       CLKOUT2_DIVIDE => 1,
@@ -107,7 +107,7 @@ plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
       CLKIN2 => '0',
       CLKINSEL => '1',
       CLKOUT0 => clk_out1_system_clk_wiz_0_0,
-      CLKOUT1 => NLW_plle2_adv_inst_CLKOUT1_UNCONNECTED,
+      CLKOUT1 => clk_out2,
       CLKOUT2 => NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED,
       CLKOUT3 => NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED,
       CLKOUT4 => NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED,
@@ -131,6 +131,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity system_clk_wiz_0_0 is
   port (
     clk_out1 : out STD_LOGIC;
+    clk_out2 : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
@@ -142,6 +143,7 @@ begin
 inst: entity work.system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz
      port map (
       clk_in1 => clk_in1,
-      clk_out1 => clk_out1
+      clk_out1 => clk_out1,
+      clk_out2 => clk_out2
     );
 end STRUCTURE;
