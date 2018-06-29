@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
 -- Date        : Sat Mar 10 04:43:21 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_PS_GPIO_0_0/system_PS_GPIO_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_PS_GPIO_0_0 -prefix
+--               system_PS_GPIO_0_0_ system_PS_GPIO_0_0_sim_netlist.vhdl
 -- Design      : system_PS_GPIO_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

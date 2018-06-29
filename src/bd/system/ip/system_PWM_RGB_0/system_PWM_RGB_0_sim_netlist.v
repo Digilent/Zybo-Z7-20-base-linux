@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Thu Feb  8 18:32:08 2018
+// Date        : Thu Feb  8 18:32:07 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_PWM_RGB_0/system_PWM_RGB_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_PWM_RGB_0 -prefix
+//               system_PWM_RGB_0_ system_PWM_RGB_0_sim_netlist.v
 // Design      : system_PWM_RGB_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,102 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_PWM_RGB_0,PWM_v2_0,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "PWM_v2_0,Vivado 2017.4" *) 
-(* NotValidForBitStream *)
-module system_PWM_RGB_0
-   (pwm,
-    pwm_axi_awaddr,
-    pwm_axi_awprot,
-    pwm_axi_awvalid,
-    pwm_axi_awready,
-    pwm_axi_wdata,
-    pwm_axi_wstrb,
-    pwm_axi_wvalid,
-    pwm_axi_wready,
-    pwm_axi_bresp,
-    pwm_axi_bvalid,
-    pwm_axi_bready,
-    pwm_axi_araddr,
-    pwm_axi_arprot,
-    pwm_axi_arvalid,
-    pwm_axi_arready,
-    pwm_axi_rdata,
-    pwm_axi_rresp,
-    pwm_axi_rvalid,
-    pwm_axi_rready,
-    pwm_axi_aclk,
-    pwm_axi_aresetn);
-  output [5:0]pwm;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWADDR" *) input [6:0]pwm_axi_awaddr;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWPROT" *) input [2:0]pwm_axi_awprot;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWVALID" *) input pwm_axi_awvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWREADY" *) output pwm_axi_awready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WDATA" *) input [31:0]pwm_axi_wdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WSTRB" *) input [3:0]pwm_axi_wstrb;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WVALID" *) input pwm_axi_wvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WREADY" *) output pwm_axi_wready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BRESP" *) output [1:0]pwm_axi_bresp;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BVALID" *) output pwm_axi_bvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BREADY" *) input pwm_axi_bready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARADDR" *) input [6:0]pwm_axi_araddr;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARPROT" *) input [2:0]pwm_axi_arprot;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARVALID" *) input pwm_axi_arvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARREADY" *) output pwm_axi_arready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RDATA" *) output [31:0]pwm_axi_rdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RRESP" *) output [1:0]pwm_axi_rresp;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RVALID" *) output pwm_axi_rvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input pwm_axi_rready;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 PWM_AXI_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI_CLK, ASSOCIATED_BUSIF PWM_AXI, ASSOCIATED_RESET pwm_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input pwm_axi_aclk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 PWM_AXI_RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI_RST, POLARITY ACTIVE_LOW" *) input pwm_axi_aresetn;
-
-  wire \<const0> ;
-  wire [5:0]pwm;
-  wire pwm_axi_aclk;
-  wire [6:0]pwm_axi_araddr;
-  wire pwm_axi_aresetn;
-  wire pwm_axi_arready;
-  wire pwm_axi_arvalid;
-  wire [6:0]pwm_axi_awaddr;
-  wire pwm_axi_awready;
-  wire pwm_axi_awvalid;
-  wire pwm_axi_bready;
-  wire pwm_axi_bvalid;
-  wire [31:0]pwm_axi_rdata;
-  wire pwm_axi_rready;
-  wire pwm_axi_rvalid;
-  wire [31:0]pwm_axi_wdata;
-  wire pwm_axi_wready;
-  wire [3:0]pwm_axi_wstrb;
-  wire pwm_axi_wvalid;
-
-  assign pwm_axi_bresp[1] = \<const0> ;
-  assign pwm_axi_bresp[0] = \<const0> ;
-  assign pwm_axi_rresp[1] = \<const0> ;
-  assign pwm_axi_rresp[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  system_PWM_RGB_0_PWM_v2_0 inst
-       (.pwm(pwm),
-        .pwm_axi_aclk(pwm_axi_aclk),
-        .pwm_axi_araddr(pwm_axi_araddr[6:2]),
-        .pwm_axi_aresetn(pwm_axi_aresetn),
-        .pwm_axi_arready(pwm_axi_arready),
-        .pwm_axi_arvalid(pwm_axi_arvalid),
-        .pwm_axi_awaddr(pwm_axi_awaddr[6:2]),
-        .pwm_axi_awready(pwm_axi_awready),
-        .pwm_axi_awvalid(pwm_axi_awvalid),
-        .pwm_axi_bready(pwm_axi_bready),
-        .pwm_axi_bvalid(pwm_axi_bvalid),
-        .pwm_axi_rdata(pwm_axi_rdata),
-        .pwm_axi_rready(pwm_axi_rready),
-        .pwm_axi_rvalid(pwm_axi_rvalid),
-        .pwm_axi_wdata(pwm_axi_wdata),
-        .pwm_axi_wready(pwm_axi_wready),
-        .pwm_axi_wstrb(pwm_axi_wstrb),
-        .pwm_axi_wvalid(pwm_axi_wvalid));
-endmodule
-
-(* ORIG_REF_NAME = "PWM_AXI" *) 
 module system_PWM_RGB_0_PWM_AXI
    (pwm_axi_awready,
     pwm_axi_wready,
@@ -4191,7 +4095,6 @@ module system_PWM_RGB_0_PWM_AXI
         .R(SR));
 endmodule
 
-(* ORIG_REF_NAME = "PWM_v2_0" *) 
 module system_PWM_RGB_0_PWM_v2_0
    (pwm_axi_arready,
     pwm_axi_awready,
@@ -8860,6 +8763,101 @@ module system_PWM_RGB_0_PWM_v2_0
        (.I0(pwm18_in),
         .I1(enable),
         .O(pwm[5]));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_PWM_RGB_0,PWM_v2_0,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "PWM_v2_0,Vivado 2017.4" *) 
+(* NotValidForBitStream *)
+module system_PWM_RGB_0
+   (pwm,
+    pwm_axi_awaddr,
+    pwm_axi_awprot,
+    pwm_axi_awvalid,
+    pwm_axi_awready,
+    pwm_axi_wdata,
+    pwm_axi_wstrb,
+    pwm_axi_wvalid,
+    pwm_axi_wready,
+    pwm_axi_bresp,
+    pwm_axi_bvalid,
+    pwm_axi_bready,
+    pwm_axi_araddr,
+    pwm_axi_arprot,
+    pwm_axi_arvalid,
+    pwm_axi_arready,
+    pwm_axi_rdata,
+    pwm_axi_rresp,
+    pwm_axi_rvalid,
+    pwm_axi_rready,
+    pwm_axi_aclk,
+    pwm_axi_aresetn);
+  output [5:0]pwm;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWADDR" *) input [6:0]pwm_axi_awaddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWPROT" *) input [2:0]pwm_axi_awprot;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWVALID" *) input pwm_axi_awvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI AWREADY" *) output pwm_axi_awready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WDATA" *) input [31:0]pwm_axi_wdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WSTRB" *) input [3:0]pwm_axi_wstrb;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WVALID" *) input pwm_axi_wvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI WREADY" *) output pwm_axi_wready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BRESP" *) output [1:0]pwm_axi_bresp;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BVALID" *) output pwm_axi_bvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI BREADY" *) input pwm_axi_bready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARADDR" *) input [6:0]pwm_axi_araddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARPROT" *) input [2:0]pwm_axi_arprot;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARVALID" *) input pwm_axi_arvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI ARREADY" *) output pwm_axi_arready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RDATA" *) output [31:0]pwm_axi_rdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RRESP" *) output [1:0]pwm_axi_rresp;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RVALID" *) output pwm_axi_rvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 PWM_AXI RREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 7, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input pwm_axi_rready;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 PWM_AXI_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI_CLK, ASSOCIATED_BUSIF PWM_AXI, ASSOCIATED_RESET pwm_axi_aresetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input pwm_axi_aclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 PWM_AXI_RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME PWM_AXI_RST, POLARITY ACTIVE_LOW" *) input pwm_axi_aresetn;
+
+  wire \<const0> ;
+  wire [5:0]pwm;
+  wire pwm_axi_aclk;
+  wire [6:0]pwm_axi_araddr;
+  wire pwm_axi_aresetn;
+  wire pwm_axi_arready;
+  wire pwm_axi_arvalid;
+  wire [6:0]pwm_axi_awaddr;
+  wire pwm_axi_awready;
+  wire pwm_axi_awvalid;
+  wire pwm_axi_bready;
+  wire pwm_axi_bvalid;
+  wire [31:0]pwm_axi_rdata;
+  wire pwm_axi_rready;
+  wire pwm_axi_rvalid;
+  wire [31:0]pwm_axi_wdata;
+  wire pwm_axi_wready;
+  wire [3:0]pwm_axi_wstrb;
+  wire pwm_axi_wvalid;
+
+  assign pwm_axi_bresp[1] = \<const0> ;
+  assign pwm_axi_bresp[0] = \<const0> ;
+  assign pwm_axi_rresp[1] = \<const0> ;
+  assign pwm_axi_rresp[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  system_PWM_RGB_0_PWM_v2_0 inst
+       (.pwm(pwm),
+        .pwm_axi_aclk(pwm_axi_aclk),
+        .pwm_axi_araddr(pwm_axi_araddr[6:2]),
+        .pwm_axi_aresetn(pwm_axi_aresetn),
+        .pwm_axi_arready(pwm_axi_arready),
+        .pwm_axi_arvalid(pwm_axi_arvalid),
+        .pwm_axi_awaddr(pwm_axi_awaddr[6:2]),
+        .pwm_axi_awready(pwm_axi_awready),
+        .pwm_axi_awvalid(pwm_axi_awvalid),
+        .pwm_axi_bready(pwm_axi_bready),
+        .pwm_axi_bvalid(pwm_axi_bvalid),
+        .pwm_axi_rdata(pwm_axi_rdata),
+        .pwm_axi_rready(pwm_axi_rready),
+        .pwm_axi_rvalid(pwm_axi_rvalid),
+        .pwm_axi_wdata(pwm_axi_wdata),
+        .pwm_axi_wready(pwm_axi_wready),
+        .pwm_axi_wstrb(pwm_axi_wstrb),
+        .pwm_axi_wvalid(pwm_axi_wvalid));
 endmodule
 `ifndef GLBL
 `define GLBL

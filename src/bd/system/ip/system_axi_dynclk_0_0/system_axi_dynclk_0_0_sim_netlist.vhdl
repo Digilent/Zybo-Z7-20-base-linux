@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Thu Feb  8 18:32:07 2018
+-- Date        : Thu Feb  8 18:32:06 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_axi_dynclk_0_0/system_axi_dynclk_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axi_dynclk_0_0 -prefix
+--               system_axi_dynclk_0_0_ system_axi_dynclk_0_0_sim_netlist.vhdl
 -- Design      : system_axi_dynclk_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -49,8 +49,6 @@ entity system_axi_dynclk_0_0_axi_dynclk_S00_AXI is
     s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     s00_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_dynclk_0_0_axi_dynclk_S00_AXI : entity is "axi_dynclk_S00_AXI";
 end system_axi_dynclk_0_0_axi_dynclk_S00_AXI;
 
 architecture STRUCTURE of system_axi_dynclk_0_0_axi_dynclk_S00_AXI is
@@ -4602,8 +4600,6 @@ entity system_axi_dynclk_0_0_mmcme2_drp is
     SR : in STD_LOGIC_VECTOR ( 0 to 0 );
     sen_reg : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_dynclk_0_0_mmcme2_drp : entity is "mmcme2_drp";
 end system_axi_dynclk_0_0_mmcme2_drp;
 
 architecture STRUCTURE of system_axi_dynclk_0_0_mmcme2_drp is
@@ -6263,8 +6259,6 @@ entity system_axi_dynclk_0_0_axi_dynclk is
     s00_axi_bready : in STD_LOGIC;
     s00_axi_rready : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_dynclk_0_0_axi_dynclk : entity is "axi_dynclk";
 end system_axi_dynclk_0_0_axi_dynclk;
 
 architecture STRUCTURE of system_axi_dynclk_0_0_axi_dynclk is

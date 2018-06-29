@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Tue Mar 13 17:49:26 2018
+// Date        : Tue Mar 13 17:49:25 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_PS_GPIO_2_0/system_PS_GPIO_2_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_PS_GPIO_2_0 -prefix
+//               system_PS_GPIO_2_0_ system_PS_GPIO_2_0_sim_netlist.v
 // Design      : system_PS_GPIO_2_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.

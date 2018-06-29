@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Thu Feb  8 18:33:09 2018
+// Date        : Thu Feb  8 18:33:08 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_dvi2rgb_1_0/system_dvi2rgb_1_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_dvi2rgb_1_0 -prefix
+//               system_dvi2rgb_1_0_ system_dvi2rgb_1_0_sim_netlist.v
 // Design      : system_dvi2rgb_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,102 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_dvi2rgb_1_0,dvi2rgb,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "dvi2rgb,Vivado 2017.4" *) 
-(* NotValidForBitStream *)
-module system_dvi2rgb_1_0
-   (TMDS_Clk_p,
-    TMDS_Clk_n,
-    TMDS_Data_p,
-    TMDS_Data_n,
-    RefClk,
-    aRst_n,
-    vid_pData,
-    vid_pVDE,
-    vid_pHSync,
-    vid_pVSync,
-    PixelClk,
-    aPixelClkLckd,
-    SDA_I,
-    SDA_O,
-    SDA_T,
-    SCL_I,
-    SCL_O,
-    SCL_T,
-    pRst_n);
-  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_P, xilinx.com:signal:clock:1.0 TMDS_Clk_p CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME TMDS, BOARD.ASSOCIATED_PARAM TMDS_BOARD_INTERFACE, XIL_INTERFACENAME TMDS_Clk_p, ASSOCIATED_RESET pRst, FREQ_HZ 100000000, PHASE 0.000" *) input TMDS_Clk_p;
-  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_N, xilinx.com:signal:clock:1.0 TMDS_Clk_n CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME TMDS_Clk_n, ASSOCIATED_RESET aRst_n, FREQ_HZ 100000000, PHASE 0.000" *) input TMDS_Clk_n;
-  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS DATA_P" *) input [2:0]TMDS_Data_p;
-  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS DATA_N" *) input [2:0]TMDS_Data_n;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 RefClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME RefClk, FREQ_HZ 200000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK2" *) input RefClk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 AsyncRst_n RST" *) (* x_interface_parameter = "XIL_INTERFACENAME AsyncRst_n, POLARITY ACTIVE_LOW" *) input aRst_n;
-  (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB DATA" *) output [23:0]vid_pData;
-  (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB ACTIVE_VIDEO" *) output vid_pVDE;
-  (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB HSYNC" *) output vid_pHSync;
-  (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB VSYNC" *) output vid_pVSync;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 PixelClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME PixelClk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_dvi2rgb_1_0_PixelClk" *) output PixelClk;
-  output aPixelClkLckd;
-  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_I" *) (* x_interface_parameter = "XIL_INTERFACENAME DDC, BOARD.ASSOCIATED_PARAM IIC_BOARD_INTERFACE" *) input SDA_I;
-  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_O" *) output SDA_O;
-  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_T" *) output SDA_T;
-  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_I" *) input SCL_I;
-  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_O" *) output SCL_O;
-  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_T" *) output SCL_T;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 SyncRst_n RST" *) (* x_interface_parameter = "XIL_INTERFACENAME SyncRst_n, POLARITY ACTIVE_LOW" *) input pRst_n;
-
-  wire PixelClk;
-  wire RefClk;
-  wire SCL_I;
-  wire SCL_O;
-  wire SCL_T;
-  wire SDA_I;
-  wire SDA_O;
-  wire SDA_T;
-  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) (* IOSTANDARD = "TMDS_33" *) wire TMDS_Clk_n;
-  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) (* IOSTANDARD = "TMDS_33" *) wire TMDS_Clk_p;
-  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) (* IOSTANDARD = "TMDS_33" *) wire [2:0]TMDS_Data_n;
-  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) (* IOSTANDARD = "TMDS_33" *) wire [2:0]TMDS_Data_p;
-  wire aPixelClkLckd;
-  wire aRst_n;
-  wire pRst_n;
-  wire [23:0]vid_pData;
-  wire vid_pHSync;
-  wire vid_pVDE;
-  wire vid_pVSync;
-  wire NLW_U0_SerialClk_UNCONNECTED;
-
-  (* kAddBUFG = "TRUE" *) 
-  (* kClkRange = "2" *) 
-  (* kEdidFileName = "dgl_720p_cea.data" *) 
-  (* kEmulateDDC = "TRUE" *) 
-  (* kIDLY_TapValuePs = "78" *) 
-  (* kIDLY_TapWidth = "5" *) 
-  (* kRstActiveHigh = "FALSE" *) 
-  system_dvi2rgb_1_0_dvi2rgb U0
-       (.PixelClk(PixelClk),
-        .RefClk(RefClk),
-        .SCL_I(SCL_I),
-        .SCL_O(SCL_O),
-        .SCL_T(SCL_T),
-        .SDA_I(SDA_I),
-        .SDA_O(SDA_O),
-        .SDA_T(SDA_T),
-        .SerialClk(NLW_U0_SerialClk_UNCONNECTED),
-        .TMDS_Clk_n(TMDS_Clk_n),
-        .TMDS_Clk_p(TMDS_Clk_p),
-        .TMDS_Data_n(TMDS_Data_n),
-        .TMDS_Data_p(TMDS_Data_p),
-        .aPixelClkLckd(aPixelClkLckd),
-        .aRst(1'b0),
-        .aRst_n(aRst_n),
-        .pRst(1'b0),
-        .pRst_n(pRst_n),
-        .vid_pData(vid_pData),
-        .vid_pHSync(vid_pHSync),
-        .vid_pVDE(vid_pVDE),
-        .vid_pVSync(vid_pVSync));
-endmodule
-
-(* ORIG_REF_NAME = "ChannelBond" *) 
 module system_dvi2rgb_1_0_ChannelBond
    (pAllVld_q,
     pAllVldBgnFlag,
@@ -1559,7 +1463,6 @@ module system_dvi2rgb_1_0_ChannelBond_17
         .R(pAligned_reg));
 endmodule
 
-(* ORIG_REF_NAME = "EEPROM_8b" *) 
 module system_dvi2rgb_1_0_EEPROM_8b
    (SDA_T,
     RefClk,
@@ -2316,7 +2219,6 @@ module system_dvi2rgb_1_0_EEPROM_8b
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "GlitchFilter" *) 
 module system_dvi2rgb_1_0_GlitchFilter
    (\Filter.sOut_reg_0 ,
     dScl_reg,
@@ -2556,7 +2458,6 @@ module system_dvi2rgb_1_0_GlitchFilter_6
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "InputSERDES" *) 
 module system_dvi2rgb_1_0_InputSERDES
    (D,
     pDataInRaw,
@@ -3156,7 +3057,6 @@ module system_dvi2rgb_1_0_InputSERDES_18
         .REGRST(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "PhaseAlign" *) 
 module system_dvi2rgb_1_0_PhaseAlign
    (\pEyeOpenCnt_reg[4]_0 ,
     \pEyeOpenCnt_reg[4]_1 ,
@@ -6959,7 +6859,6 @@ module system_dvi2rgb_1_0_PhaseAlign_19
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "ResetBridge" *) 
 module system_dvi2rgb_1_0_ResetBridge
    (out,
     in0,
@@ -7041,7 +6940,6 @@ module system_dvi2rgb_1_0_ResetBridge_3
         .O(aRst_int));
 endmodule
 
-(* ORIG_REF_NAME = "ResyncToBUFG" *) 
 module system_dvi2rgb_1_0_ResyncToBUFG
    (CLK,
     vid_pVDE,
@@ -7243,7 +7141,6 @@ module system_dvi2rgb_1_0_ResyncToBUFG
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "SyncAsync" *) 
 module system_dvi2rgb_1_0_SyncAsync
    (out,
     RefClk,
@@ -7754,7 +7651,6 @@ module system_dvi2rgb_1_0_SyncAsync__parameterized1_23
         .Q(oSyncStages[1]));
 endmodule
 
-(* ORIG_REF_NAME = "SyncBase" *) 
 module system_dvi2rgb_1_0_SyncBase
    (out,
     iIn_q_reg_0,
@@ -8135,7 +8031,6 @@ module system_dvi2rgb_1_0_SyncBase__parameterized0_21
         .Q(iIn_q_reg_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "TMDS_Clocking" *) 
 module system_dvi2rgb_1_0_TMDS_Clocking
    (\pDataQ_reg[8] ,
     PixelClk_int,
@@ -8483,7 +8378,6 @@ module system_dvi2rgb_1_0_TMDS_Clocking
         .Q(rMMCM_Reset_q[1]));
 endmodule
 
-(* ORIG_REF_NAME = "TMDS_Decoder" *) 
 module system_dvi2rgb_1_0_TMDS_Decoder
    (pVde,
     \pEyeSize[0] ,
@@ -10053,7 +9947,6 @@ module system_dvi2rgb_1_0_TMDS_Decoder_1
         .R(rTimeoutRst));
 endmodule
 
-(* ORIG_REF_NAME = "TWI_SlaveCtl" *) 
 module system_dvi2rgb_1_0_TWI_SlaveCtl
    (sI2C_End,
     sI2C_Done,
@@ -10799,9 +10692,9 @@ module system_dvi2rgb_1_0_TWI_SlaveCtl
         .O(D[7]));
 endmodule
 
-(* ORIG_REF_NAME = "dvi2rgb" *) (* kAddBUFG = "TRUE" *) (* kClkRange = "2" *) 
-(* kEdidFileName = "dgl_720p_cea.data" *) (* kEmulateDDC = "TRUE" *) (* kIDLY_TapValuePs = "78" *) 
-(* kIDLY_TapWidth = "5" *) (* kRstActiveHigh = "FALSE" *) 
+(* kAddBUFG = "TRUE" *) (* kClkRange = "2" *) (* kEdidFileName = "dgl_720p_cea.data" *) 
+(* kEmulateDDC = "TRUE" *) (* kIDLY_TapValuePs = "78" *) (* kIDLY_TapWidth = "5" *) 
+(* kRstActiveHigh = "FALSE" *) 
 module system_dvi2rgb_1_0_dvi2rgb
    (TMDS_Clk_p,
     TMDS_Clk_n,
@@ -10996,6 +10889,101 @@ module system_dvi2rgb_1_0_dvi2rgb
         .\pDataQ_reg[8] (SerialClk));
   VCC VCC
        (.P(\<const1> ));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_dvi2rgb_1_0,dvi2rgb,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "dvi2rgb,Vivado 2017.4" *) 
+(* NotValidForBitStream *)
+module system_dvi2rgb_1_0
+   (TMDS_Clk_p,
+    TMDS_Clk_n,
+    TMDS_Data_p,
+    TMDS_Data_n,
+    RefClk,
+    aRst_n,
+    vid_pData,
+    vid_pVDE,
+    vid_pHSync,
+    vid_pVSync,
+    PixelClk,
+    aPixelClkLckd,
+    SDA_I,
+    SDA_O,
+    SDA_T,
+    SCL_I,
+    SCL_O,
+    SCL_T,
+    pRst_n);
+  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_P, xilinx.com:signal:clock:1.0 TMDS_Clk_p CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME TMDS, BOARD.ASSOCIATED_PARAM TMDS_BOARD_INTERFACE, XIL_INTERFACENAME TMDS_Clk_p, ASSOCIATED_RESET pRst, FREQ_HZ 100000000, PHASE 0.000" *) input TMDS_Clk_p;
+  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS CLK_N, xilinx.com:signal:clock:1.0 TMDS_Clk_n CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME TMDS_Clk_n, ASSOCIATED_RESET aRst_n, FREQ_HZ 100000000, PHASE 0.000" *) input TMDS_Clk_n;
+  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS DATA_P" *) input [2:0]TMDS_Data_p;
+  (* x_interface_info = "digilentinc.com:interface:tmds:1.0 TMDS DATA_N" *) input [2:0]TMDS_Data_n;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 RefClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME RefClk, FREQ_HZ 200000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK2" *) input RefClk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 AsyncRst_n RST" *) (* x_interface_parameter = "XIL_INTERFACENAME AsyncRst_n, POLARITY ACTIVE_LOW" *) input aRst_n;
+  (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB DATA" *) output [23:0]vid_pData;
+  (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB ACTIVE_VIDEO" *) output vid_pVDE;
+  (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB HSYNC" *) output vid_pHSync;
+  (* x_interface_info = "xilinx.com:interface:vid_io:1.0 RGB VSYNC" *) output vid_pVSync;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 PixelClk CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME PixelClk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_dvi2rgb_1_0_PixelClk" *) output PixelClk;
+  output aPixelClkLckd;
+  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_I" *) (* x_interface_parameter = "XIL_INTERFACENAME DDC, BOARD.ASSOCIATED_PARAM IIC_BOARD_INTERFACE" *) input SDA_I;
+  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_O" *) output SDA_O;
+  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SDA_T" *) output SDA_T;
+  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_I" *) input SCL_I;
+  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_O" *) output SCL_O;
+  (* x_interface_info = "xilinx.com:interface:iic:1.0 DDC SCL_T" *) output SCL_T;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 SyncRst_n RST" *) (* x_interface_parameter = "XIL_INTERFACENAME SyncRst_n, POLARITY ACTIVE_LOW" *) input pRst_n;
+
+  wire PixelClk;
+  wire RefClk;
+  wire SCL_I;
+  wire SCL_O;
+  wire SCL_T;
+  wire SDA_I;
+  wire SDA_O;
+  wire SDA_T;
+  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) (* IOSTANDARD = "TMDS_33" *) wire TMDS_Clk_n;
+  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) (* IOSTANDARD = "TMDS_33" *) wire TMDS_Clk_p;
+  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) (* IOSTANDARD = "TMDS_33" *) wire [2:0]TMDS_Data_n;
+  (* DIFF_TERM = 0 *) (* IBUF_LOW_PWR *) (* IOSTANDARD = "TMDS_33" *) wire [2:0]TMDS_Data_p;
+  wire aPixelClkLckd;
+  wire aRst_n;
+  wire pRst_n;
+  wire [23:0]vid_pData;
+  wire vid_pHSync;
+  wire vid_pVDE;
+  wire vid_pVSync;
+  wire NLW_U0_SerialClk_UNCONNECTED;
+
+  (* kAddBUFG = "TRUE" *) 
+  (* kClkRange = "2" *) 
+  (* kEdidFileName = "dgl_720p_cea.data" *) 
+  (* kEmulateDDC = "TRUE" *) 
+  (* kIDLY_TapValuePs = "78" *) 
+  (* kIDLY_TapWidth = "5" *) 
+  (* kRstActiveHigh = "FALSE" *) 
+  system_dvi2rgb_1_0_dvi2rgb U0
+       (.PixelClk(PixelClk),
+        .RefClk(RefClk),
+        .SCL_I(SCL_I),
+        .SCL_O(SCL_O),
+        .SCL_T(SCL_T),
+        .SDA_I(SDA_I),
+        .SDA_O(SDA_O),
+        .SDA_T(SDA_T),
+        .SerialClk(NLW_U0_SerialClk_UNCONNECTED),
+        .TMDS_Clk_n(TMDS_Clk_n),
+        .TMDS_Clk_p(TMDS_Clk_p),
+        .TMDS_Data_n(TMDS_Data_n),
+        .TMDS_Data_p(TMDS_Data_p),
+        .aPixelClkLckd(aPixelClkLckd),
+        .aRst(1'b0),
+        .aRst_n(aRst_n),
+        .pRst(1'b0),
+        .pRst_n(pRst_n),
+        .vid_pData(vid_pData),
+        .vid_pHSync(vid_pHSync),
+        .vid_pVDE(vid_pVDE),
+        .vid_pVSync(vid_pVSync));
 endmodule
 `ifndef GLBL
 `define GLBL

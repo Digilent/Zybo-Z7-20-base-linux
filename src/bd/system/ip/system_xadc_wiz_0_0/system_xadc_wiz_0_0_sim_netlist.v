@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
 // Date        : Thu Feb  8 18:34:17 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_xadc_wiz_0_0/system_xadc_wiz_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_xadc_wiz_0_0 -prefix
+//               system_xadc_wiz_0_0_ system_xadc_wiz_0_0_sim_netlist.v
 // Design      : system_xadc_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -169,7 +169,6 @@ module system_xadc_wiz_0_0
         .vp_in(vp_in));
 endmodule
 
-(* ORIG_REF_NAME = "system_xadc_wiz_0_0_address_decoder" *) 
 module system_xadc_wiz_0_0_system_xadc_wiz_0_0_address_decoder
    (dwe_d1_reg,
     hard_macro_rst_reg_reg,
@@ -1684,7 +1683,6 @@ module system_xadc_wiz_0_0_system_xadc_wiz_0_0_address_decoder
         .O(sw_rst_cond));
 endmodule
 
-(* ORIG_REF_NAME = "system_xadc_wiz_0_0_axi_lite_ipif" *) 
 module system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_lite_ipif
    (dwe_d1_reg,
     bus2ip_reset_active_high,
@@ -2108,8 +2106,7 @@ endmodule
 
 (* C_FAMILY = "virtex7" *) (* C_INCLUDE_INTR = "1" *) (* C_INSTANCE = "system_xadc_wiz_0_0_axi_xadc" *) 
 (* C_SIM_MONITOR_FILE = "design.txt" *) (* C_S_AXI_ADDR_WIDTH = "11" *) (* C_S_AXI_DATA_WIDTH = "32" *) 
-(* ORIG_REF_NAME = "system_xadc_wiz_0_0_axi_xadc" *) (* hdl = "VHDL" *) (* ip_group = "LOGICORE" *) 
-(* iptype = "PERIPHERAL" *) 
+(* hdl = "VHDL" *) (* ip_group = "LOGICORE" *) (* iptype = "PERIPHERAL" *) 
 module system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_xadc
    (s_axi_aclk,
     s_axi_aresetn,
@@ -2812,7 +2809,6 @@ module system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_xadc
         .R(reset2ip_reset));
 endmodule
 
-(* ORIG_REF_NAME = "system_xadc_wiz_0_0_interrupt_control" *) 
 module system_xadc_wiz_0_0_system_xadc_wiz_0_0_interrupt_control
    (irpt_wrack_d1,
     \GEN_IP_IRPT_STATUS_REG[0].GEN_REG_STATUS.ip_irpt_status_reg_reg[0]_0 ,
@@ -3657,7 +3653,6 @@ module system_xadc_wiz_0_0_system_xadc_wiz_0_0_interrupt_control
         .R(reset2ip_reset));
 endmodule
 
-(* ORIG_REF_NAME = "system_xadc_wiz_0_0_slave_attachment" *) 
 module system_xadc_wiz_0_0_system_xadc_wiz_0_0_slave_attachment
    (dwe_d1_reg,
     SR,
@@ -4512,7 +4507,6 @@ module system_xadc_wiz_0_0_system_xadc_wiz_0_0_slave_attachment
         .R(SR));
 endmodule
 
-(* ORIG_REF_NAME = "system_xadc_wiz_0_0_soft_reset" *) 
 module system_xadc_wiz_0_0_system_xadc_wiz_0_0_soft_reset
    (sw_rst_cond_d1,
     wrack,
@@ -4941,7 +4935,6 @@ module system_xadc_wiz_0_0_system_xadc_wiz_0_0_soft_reset
         .R(bus2ip_reset_active_high));
 endmodule
 
-(* ORIG_REF_NAME = "system_xadc_wiz_0_0_xadc_core_drp" *) 
 module system_xadc_wiz_0_0_system_xadc_wiz_0_0_xadc_core_drp
    (D,
     eoc_out,

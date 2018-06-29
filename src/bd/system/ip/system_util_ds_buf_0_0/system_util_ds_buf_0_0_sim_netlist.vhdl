@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Thu Feb  8 18:34:53 2018
+-- Date        : Thu Feb  8 18:34:52 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_util_ds_buf_0_0/system_util_ds_buf_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_util_ds_buf_0_0 -prefix
+--               system_util_ds_buf_0_0_ system_util_ds_buf_0_0_sim_netlist.vhdl
 -- Design      : system_util_ds_buf_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -50,8 +50,6 @@ entity system_util_ds_buf_0_0_util_ds_buf is
   attribute C_BUF_TYPE of system_util_ds_buf_0_0_util_ds_buf : entity is "BUFG";
   attribute C_SIZE : integer;
   attribute C_SIZE of system_util_ds_buf_0_0_util_ds_buf : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_util_ds_buf_0_0_util_ds_buf : entity is "util_ds_buf";
 end system_util_ds_buf_0_0_util_ds_buf;
 
 architecture STRUCTURE of system_util_ds_buf_0_0_util_ds_buf is

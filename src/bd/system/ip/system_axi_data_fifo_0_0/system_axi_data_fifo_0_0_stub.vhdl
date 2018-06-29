@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Tue Mar 13 17:50:51 2018
+-- Date        : Sat Apr 14 01:36:21 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_axi_data_fifo_0_0/system_axi_data_fifo_0_0_stub.vhdl

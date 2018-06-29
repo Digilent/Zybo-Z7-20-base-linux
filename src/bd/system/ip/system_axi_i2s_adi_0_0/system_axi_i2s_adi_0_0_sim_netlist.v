@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
 // Date        : Thu Feb  8 18:33:08 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_axi_i2s_adi_0_0/system_axi_i2s_adi_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_axi_i2s_adi_0_0 -prefix
+//               system_axi_i2s_adi_0_0_ system_axi_i2s_adi_0_0_sim_netlist.v
 // Design      : system_axi_i2s_adi_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,186 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_axi_i2s_adi_0_0,axi_i2s_adi,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_i2s_adi,Vivado 2017.4" *) 
-(* NotValidForBitStream *)
-module system_axi_i2s_adi_0_0
-   (DATA_CLK_I,
-    BCLK_O,
-    LRCLK_O,
-    SDATA_O,
-    SDATA_I,
-    DMA_REQ_TX_ACLK,
-    DMA_REQ_TX_RSTN,
-    DMA_REQ_TX_DAVALID,
-    DMA_REQ_TX_DATYPE,
-    DMA_REQ_TX_DAREADY,
-    DMA_REQ_TX_DRVALID,
-    DMA_REQ_TX_DRTYPE,
-    DMA_REQ_TX_DRLAST,
-    DMA_REQ_TX_DRREADY,
-    DMA_REQ_RX_ACLK,
-    DMA_REQ_RX_RSTN,
-    DMA_REQ_RX_DAVALID,
-    DMA_REQ_RX_DATYPE,
-    DMA_REQ_RX_DAREADY,
-    DMA_REQ_RX_DRVALID,
-    DMA_REQ_RX_DRTYPE,
-    DMA_REQ_RX_DRLAST,
-    DMA_REQ_RX_DRREADY,
-    S_AXI_ACLK,
-    S_AXI_ARESETN,
-    S_AXI_AWADDR,
-    S_AXI_AWVALID,
-    S_AXI_WDATA,
-    S_AXI_WSTRB,
-    S_AXI_WVALID,
-    S_AXI_BREADY,
-    S_AXI_ARADDR,
-    S_AXI_ARVALID,
-    S_AXI_RREADY,
-    S_AXI_ARREADY,
-    S_AXI_RDATA,
-    S_AXI_RRESP,
-    S_AXI_RVALID,
-    S_AXI_WREADY,
-    S_AXI_BRESP,
-    S_AXI_BVALID,
-    S_AXI_AWREADY);
-  input DATA_CLK_I;
-  output [0:0]BCLK_O;
-  output [0:0]LRCLK_O;
-  output [0:0]SDATA_O;
-  input [0:0]SDATA_I;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 DMA_REQ_TX_signal_clock CLK, xilinx.com:signal:clock:1.0 DMA_REQ_TX_DMA_ACK_TX_signal_clock CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_TX_signal_clock, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, ASSOCIATED_BUSIF DMA_REQ_TX:DMA_ACK_TX, ASSOCIATED_RESET DMA_REQ_TX_RSTN, XIL_INTERFACENAME DMA_REQ_TX_DMA_ACK_TX_signal_clock, ASSOCIATED_BUSIF DMA_REQ_TX:DMA_ACK_TX, ASSOCIATED_RESET DMA_REQ_TX_RSTN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input DMA_REQ_TX_ACLK;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 DMA_REQ_TX_DMA_ACK_TX_signal_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_TX_DMA_ACK_TX_signal_reset, POLARITY ACTIVE_LOW" *) input DMA_REQ_TX_RSTN;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_TX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_ACK_TX, TDATA_NUM_BYTES 0, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) input DMA_REQ_TX_DAVALID;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_TX TUSER" *) input [1:0]DMA_REQ_TX_DATYPE;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_TX TREADY" *) output DMA_REQ_TX_DAREADY;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_TX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_TX, TDATA_NUM_BYTES 0, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) output DMA_REQ_TX_DRVALID;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_TX TUSER" *) output [1:0]DMA_REQ_TX_DRTYPE;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_TX TLAST" *) output DMA_REQ_TX_DRLAST;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_TX TREADY" *) input DMA_REQ_TX_DRREADY;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 DMA_REQ_RX_signal_clock CLK, xilinx.com:signal:clock:1.0 DMA_REQ_RX_DMA_ACK_RX_signal_clock CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_RX_signal_clock, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, ASSOCIATED_BUSIF DMA_REQ_RX:DMA_ACK_RX, ASSOCIATED_RESET DMA_REQ_RX_RSTN, XIL_INTERFACENAME DMA_REQ_RX_DMA_ACK_RX_signal_clock, ASSOCIATED_BUSIF DMA_REQ_RX:DMA_ACK_RX, ASSOCIATED_RESET DMA_REQ_RX_RSTN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input DMA_REQ_RX_ACLK;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 DMA_REQ_RX_DMA_ACK_RX_signal_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_RX_DMA_ACK_RX_signal_reset, POLARITY ACTIVE_LOW" *) input DMA_REQ_RX_RSTN;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_RX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_ACK_RX, TDATA_NUM_BYTES 0, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) input DMA_REQ_RX_DAVALID;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_RX TUSER" *) input [1:0]DMA_REQ_RX_DATYPE;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_RX TREADY" *) output DMA_REQ_RX_DAREADY;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_RX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_RX, TDATA_NUM_BYTES 0, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) output DMA_REQ_RX_DRVALID;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_RX TUSER" *) output [1:0]DMA_REQ_RX_DRTYPE;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_RX TLAST" *) output DMA_REQ_RX_DRLAST;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_RX TREADY" *) input DMA_REQ_RX_DRREADY;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_signal_clock CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_signal_clock, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input S_AXI_ACLK;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 S_AXI_signal_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_signal_reset, POLARITY ACTIVE_LOW" *) input S_AXI_ARESETN;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [31:0]S_AXI_AWADDR;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input S_AXI_AWVALID;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]S_AXI_WDATA;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]S_AXI_WSTRB;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input S_AXI_WVALID;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input S_AXI_BREADY;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [31:0]S_AXI_ARADDR;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input S_AXI_ARVALID;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input S_AXI_RREADY;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output S_AXI_ARREADY;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]S_AXI_RDATA;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]S_AXI_RRESP;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output S_AXI_RVALID;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output S_AXI_WREADY;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]S_AXI_BRESP;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output S_AXI_BVALID;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output S_AXI_AWREADY;
-
-  wire \<const0> ;
-  wire \<const1> ;
-  wire [0:0]BCLK_O;
-  wire DATA_CLK_I;
-  wire DMA_REQ_RX_ACLK;
-  wire [1:0]DMA_REQ_RX_DATYPE;
-  wire DMA_REQ_RX_DAVALID;
-  wire DMA_REQ_RX_DRREADY;
-  wire [1:1]\^DMA_REQ_RX_DRTYPE ;
-  wire DMA_REQ_RX_DRVALID;
-  wire DMA_REQ_RX_RSTN;
-  wire DMA_REQ_TX_ACLK;
-  wire [1:0]DMA_REQ_TX_DATYPE;
-  wire DMA_REQ_TX_DAVALID;
-  wire DMA_REQ_TX_DRREADY;
-  wire [1:1]\^DMA_REQ_TX_DRTYPE ;
-  wire DMA_REQ_TX_DRVALID;
-  wire DMA_REQ_TX_RSTN;
-  wire [0:0]LRCLK_O;
-  wire [0:0]SDATA_I;
-  wire [0:0]SDATA_O;
-  wire S_AXI_ACLK;
-  wire [31:0]S_AXI_ARADDR;
-  wire S_AXI_ARESETN;
-  wire S_AXI_ARREADY;
-  wire S_AXI_ARVALID;
-  wire [31:0]S_AXI_AWADDR;
-  wire S_AXI_AWVALID;
-  wire S_AXI_BREADY;
-  wire S_AXI_BVALID;
-  wire [31:0]S_AXI_RDATA;
-  wire S_AXI_RREADY;
-  wire S_AXI_RVALID;
-  wire [31:0]S_AXI_WDATA;
-  wire S_AXI_WREADY;
-  wire S_AXI_WVALID;
-
-  assign DMA_REQ_RX_DAREADY = \<const1> ;
-  assign DMA_REQ_RX_DRLAST = \<const0> ;
-  assign DMA_REQ_RX_DRTYPE[1] = \^DMA_REQ_RX_DRTYPE [1];
-  assign DMA_REQ_RX_DRTYPE[0] = \<const0> ;
-  assign DMA_REQ_TX_DAREADY = \<const1> ;
-  assign DMA_REQ_TX_DRLAST = \<const0> ;
-  assign DMA_REQ_TX_DRTYPE[1] = \^DMA_REQ_TX_DRTYPE [1];
-  assign DMA_REQ_TX_DRTYPE[0] = \<const0> ;
-  assign S_AXI_AWREADY = S_AXI_WREADY;
-  assign S_AXI_BRESP[1] = \<const0> ;
-  assign S_AXI_BRESP[0] = \<const0> ;
-  assign S_AXI_RRESP[1] = \<const0> ;
-  assign S_AXI_RRESP[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  system_axi_i2s_adi_0_0_axi_i2s_adi U0
-       (.BCLK_O(BCLK_O),
-        .DATA_CLK_I(DATA_CLK_I),
-        .DMA_REQ_RX_ACLK(DMA_REQ_RX_ACLK),
-        .DMA_REQ_RX_DATYPE(DMA_REQ_RX_DATYPE),
-        .DMA_REQ_RX_DAVALID(DMA_REQ_RX_DAVALID),
-        .DMA_REQ_RX_DRREADY(DMA_REQ_RX_DRREADY),
-        .DMA_REQ_RX_DRTYPE(\^DMA_REQ_RX_DRTYPE ),
-        .DMA_REQ_RX_DRVALID(DMA_REQ_RX_DRVALID),
-        .DMA_REQ_RX_RSTN(DMA_REQ_RX_RSTN),
-        .DMA_REQ_TX_ACLK(DMA_REQ_TX_ACLK),
-        .DMA_REQ_TX_DATYPE(DMA_REQ_TX_DATYPE),
-        .DMA_REQ_TX_DAVALID(DMA_REQ_TX_DAVALID),
-        .DMA_REQ_TX_DRREADY(DMA_REQ_TX_DRREADY),
-        .DMA_REQ_TX_DRTYPE(\^DMA_REQ_TX_DRTYPE ),
-        .DMA_REQ_TX_DRVALID(DMA_REQ_TX_DRVALID),
-        .DMA_REQ_TX_RSTN(DMA_REQ_TX_RSTN),
-        .LRCLK_O(LRCLK_O),
-        .SDATA_I(SDATA_I),
-        .SDATA_O(SDATA_O),
-        .S_AXI_ACLK(S_AXI_ACLK),
-        .S_AXI_ARADDR(S_AXI_ARADDR[5:2]),
-        .S_AXI_ARESETN(S_AXI_ARESETN),
-        .S_AXI_ARREADY(S_AXI_ARREADY),
-        .S_AXI_ARVALID(S_AXI_ARVALID),
-        .S_AXI_AWADDR(S_AXI_AWADDR[5:2]),
-        .S_AXI_AWVALID(S_AXI_AWVALID),
-        .S_AXI_BREADY(S_AXI_BREADY),
-        .S_AXI_BVALID(S_AXI_BVALID),
-        .S_AXI_RDATA(S_AXI_RDATA),
-        .S_AXI_RREADY(S_AXI_RREADY),
-        .S_AXI_RVALID(S_AXI_RVALID),
-        .S_AXI_WDATA(S_AXI_WDATA),
-        .S_AXI_WREADY(S_AXI_WREADY),
-        .S_AXI_WVALID(S_AXI_WVALID));
-  VCC VCC
-       (.P(\<const1> ));
-endmodule
-
-(* ORIG_REF_NAME = "axi_ctrlif" *) 
 module system_axi_i2s_adi_0_0_axi_ctrlif
    (S_AXI_RVALID,
     \I2S_RESET_REG_reg[1] ,
@@ -802,7 +622,6 @@ module system_axi_i2s_adi_0_0_axi_ctrlif
         .R(SR));
 endmodule
 
-(* ORIG_REF_NAME = "axi_i2s_adi" *) 
 module system_axi_i2s_adi_0_0_axi_i2s_adi
    (S_AXI_RDATA,
     BCLK_O,
@@ -1378,7 +1197,6 @@ module system_axi_i2s_adi_0_0_axi_i2s_adi
         .\wr_state_reg[0] (ctrlif_n_38));
 endmodule
 
-(* ORIG_REF_NAME = "dma_fifo" *) 
 module system_axi_i2s_adi_0_0_dma_fifo
    (\free_cnt_reg[0]_0 ,
     D,
@@ -2080,7 +1898,6 @@ module system_axi_i2s_adi_0_0_dma_fifo_0
         .R(\wr_addr[2]_i_1__0_n_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_synchronizer" *) 
 module system_axi_i2s_adi_0_0_fifo_synchronizer
    (tick_d1_reg_0,
     bit_sync,
@@ -2448,7 +2265,6 @@ module system_axi_i2s_adi_0_0_fifo_synchronizer_1
         .R(S_AXI_ARESETN_0));
 endmodule
 
-(* ORIG_REF_NAME = "i2s_clkgen" *) 
 module system_axi_i2s_adi_0_0_i2s_clkgen
    (tx_bclk,
     tx_lrclk,
@@ -3221,7 +3037,6 @@ module system_axi_i2s_adi_0_0_i2s_clkgen
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "i2s_controller" *) 
 module system_axi_i2s_adi_0_0_i2s_controller
    (SR,
     channel_sync_int_d1,
@@ -3491,7 +3306,6 @@ module system_axi_i2s_adi_0_0_i2s_controller
         .tick_d2(tick_d2));
 endmodule
 
-(* ORIG_REF_NAME = "i2s_rx" *) 
 module system_axi_i2s_adi_0_0_i2s_rx
    (bclk_d1,
     \gen[0].data_latched_reg[0][23]_0 ,
@@ -4024,7 +3838,6 @@ module system_axi_i2s_adi_0_0_i2s_rx
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "i2s_tx" *) 
 module system_axi_i2s_adi_0_0_i2s_tx
    (channel_sync_int_d1,
     enable_int_reg_0,
@@ -4265,7 +4078,6 @@ module system_axi_i2s_adi_0_0_i2s_tx
         .R(reset_int));
 endmodule
 
-(* ORIG_REF_NAME = "pl330_dma_fifo" *) 
 module system_axi_i2s_adi_0_0_pl330_dma_fifo
    (empty,
     D,
@@ -4615,6 +4427,185 @@ module system_axi_i2s_adi_0_0_pl330_dma_fifo__parameterized0
         .D(\state[1]_i_1_n_0 ),
         .Q(\state_reg_n_0_[1] ),
         .R(1'b0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_axi_i2s_adi_0_0,axi_i2s_adi,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_i2s_adi,Vivado 2017.4" *) 
+(* NotValidForBitStream *)
+module system_axi_i2s_adi_0_0
+   (DATA_CLK_I,
+    BCLK_O,
+    LRCLK_O,
+    SDATA_O,
+    SDATA_I,
+    DMA_REQ_TX_ACLK,
+    DMA_REQ_TX_RSTN,
+    DMA_REQ_TX_DAVALID,
+    DMA_REQ_TX_DATYPE,
+    DMA_REQ_TX_DAREADY,
+    DMA_REQ_TX_DRVALID,
+    DMA_REQ_TX_DRTYPE,
+    DMA_REQ_TX_DRLAST,
+    DMA_REQ_TX_DRREADY,
+    DMA_REQ_RX_ACLK,
+    DMA_REQ_RX_RSTN,
+    DMA_REQ_RX_DAVALID,
+    DMA_REQ_RX_DATYPE,
+    DMA_REQ_RX_DAREADY,
+    DMA_REQ_RX_DRVALID,
+    DMA_REQ_RX_DRTYPE,
+    DMA_REQ_RX_DRLAST,
+    DMA_REQ_RX_DRREADY,
+    S_AXI_ACLK,
+    S_AXI_ARESETN,
+    S_AXI_AWADDR,
+    S_AXI_AWVALID,
+    S_AXI_WDATA,
+    S_AXI_WSTRB,
+    S_AXI_WVALID,
+    S_AXI_BREADY,
+    S_AXI_ARADDR,
+    S_AXI_ARVALID,
+    S_AXI_RREADY,
+    S_AXI_ARREADY,
+    S_AXI_RDATA,
+    S_AXI_RRESP,
+    S_AXI_RVALID,
+    S_AXI_WREADY,
+    S_AXI_BRESP,
+    S_AXI_BVALID,
+    S_AXI_AWREADY);
+  input DATA_CLK_I;
+  output [0:0]BCLK_O;
+  output [0:0]LRCLK_O;
+  output [0:0]SDATA_O;
+  input [0:0]SDATA_I;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 DMA_REQ_TX_signal_clock CLK, xilinx.com:signal:clock:1.0 DMA_REQ_TX_DMA_ACK_TX_signal_clock CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_TX_signal_clock, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, ASSOCIATED_BUSIF DMA_REQ_TX:DMA_ACK_TX, ASSOCIATED_RESET DMA_REQ_TX_RSTN, XIL_INTERFACENAME DMA_REQ_TX_DMA_ACK_TX_signal_clock, ASSOCIATED_BUSIF DMA_REQ_TX:DMA_ACK_TX, ASSOCIATED_RESET DMA_REQ_TX_RSTN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input DMA_REQ_TX_ACLK;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 DMA_REQ_TX_DMA_ACK_TX_signal_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_TX_DMA_ACK_TX_signal_reset, POLARITY ACTIVE_LOW" *) input DMA_REQ_TX_RSTN;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_TX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_ACK_TX, TDATA_NUM_BYTES 0, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) input DMA_REQ_TX_DAVALID;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_TX TUSER" *) input [1:0]DMA_REQ_TX_DATYPE;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_TX TREADY" *) output DMA_REQ_TX_DAREADY;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_TX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_TX, TDATA_NUM_BYTES 0, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) output DMA_REQ_TX_DRVALID;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_TX TUSER" *) output [1:0]DMA_REQ_TX_DRTYPE;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_TX TLAST" *) output DMA_REQ_TX_DRLAST;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_TX TREADY" *) input DMA_REQ_TX_DRREADY;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 DMA_REQ_RX_signal_clock CLK, xilinx.com:signal:clock:1.0 DMA_REQ_RX_DMA_ACK_RX_signal_clock CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_RX_signal_clock, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, ASSOCIATED_BUSIF DMA_REQ_RX:DMA_ACK_RX, ASSOCIATED_RESET DMA_REQ_RX_RSTN, XIL_INTERFACENAME DMA_REQ_RX_DMA_ACK_RX_signal_clock, ASSOCIATED_BUSIF DMA_REQ_RX:DMA_ACK_RX, ASSOCIATED_RESET DMA_REQ_RX_RSTN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input DMA_REQ_RX_ACLK;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 DMA_REQ_RX_DMA_ACK_RX_signal_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_RX_DMA_ACK_RX_signal_reset, POLARITY ACTIVE_LOW" *) input DMA_REQ_RX_RSTN;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_RX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_ACK_RX, TDATA_NUM_BYTES 0, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) input DMA_REQ_RX_DAVALID;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_RX TUSER" *) input [1:0]DMA_REQ_RX_DATYPE;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_ACK_RX TREADY" *) output DMA_REQ_RX_DAREADY;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_RX TVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME DMA_REQ_RX, TDATA_NUM_BYTES 0, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 2, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, LAYERED_METADATA undef" *) output DMA_REQ_RX_DRVALID;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_RX TUSER" *) output [1:0]DMA_REQ_RX_DRTYPE;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_RX TLAST" *) output DMA_REQ_RX_DRLAST;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 DMA_REQ_RX TREADY" *) input DMA_REQ_RX_DRREADY;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_signal_clock CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_signal_clock, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input S_AXI_ACLK;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 S_AXI_signal_reset RST" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_signal_reset, POLARITY ACTIVE_LOW" *) input S_AXI_ARESETN;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [31:0]S_AXI_AWADDR;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input S_AXI_AWVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]S_AXI_WDATA;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]S_AXI_WSTRB;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input S_AXI_WVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input S_AXI_BREADY;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [31:0]S_AXI_ARADDR;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input S_AXI_ARVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input S_AXI_RREADY;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output S_AXI_ARREADY;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]S_AXI_RDATA;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]S_AXI_RRESP;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output S_AXI_RVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output S_AXI_WREADY;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]S_AXI_BRESP;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output S_AXI_BVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output S_AXI_AWREADY;
+
+  wire \<const0> ;
+  wire \<const1> ;
+  wire [0:0]BCLK_O;
+  wire DATA_CLK_I;
+  wire DMA_REQ_RX_ACLK;
+  wire [1:0]DMA_REQ_RX_DATYPE;
+  wire DMA_REQ_RX_DAVALID;
+  wire DMA_REQ_RX_DRREADY;
+  wire [1:1]\^DMA_REQ_RX_DRTYPE ;
+  wire DMA_REQ_RX_DRVALID;
+  wire DMA_REQ_RX_RSTN;
+  wire DMA_REQ_TX_ACLK;
+  wire [1:0]DMA_REQ_TX_DATYPE;
+  wire DMA_REQ_TX_DAVALID;
+  wire DMA_REQ_TX_DRREADY;
+  wire [1:1]\^DMA_REQ_TX_DRTYPE ;
+  wire DMA_REQ_TX_DRVALID;
+  wire DMA_REQ_TX_RSTN;
+  wire [0:0]LRCLK_O;
+  wire [0:0]SDATA_I;
+  wire [0:0]SDATA_O;
+  wire S_AXI_ACLK;
+  wire [31:0]S_AXI_ARADDR;
+  wire S_AXI_ARESETN;
+  wire S_AXI_ARREADY;
+  wire S_AXI_ARVALID;
+  wire [31:0]S_AXI_AWADDR;
+  wire S_AXI_AWVALID;
+  wire S_AXI_BREADY;
+  wire S_AXI_BVALID;
+  wire [31:0]S_AXI_RDATA;
+  wire S_AXI_RREADY;
+  wire S_AXI_RVALID;
+  wire [31:0]S_AXI_WDATA;
+  wire S_AXI_WREADY;
+  wire S_AXI_WVALID;
+
+  assign DMA_REQ_RX_DAREADY = \<const1> ;
+  assign DMA_REQ_RX_DRLAST = \<const0> ;
+  assign DMA_REQ_RX_DRTYPE[1] = \^DMA_REQ_RX_DRTYPE [1];
+  assign DMA_REQ_RX_DRTYPE[0] = \<const0> ;
+  assign DMA_REQ_TX_DAREADY = \<const1> ;
+  assign DMA_REQ_TX_DRLAST = \<const0> ;
+  assign DMA_REQ_TX_DRTYPE[1] = \^DMA_REQ_TX_DRTYPE [1];
+  assign DMA_REQ_TX_DRTYPE[0] = \<const0> ;
+  assign S_AXI_AWREADY = S_AXI_WREADY;
+  assign S_AXI_BRESP[1] = \<const0> ;
+  assign S_AXI_BRESP[0] = \<const0> ;
+  assign S_AXI_RRESP[1] = \<const0> ;
+  assign S_AXI_RRESP[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  system_axi_i2s_adi_0_0_axi_i2s_adi U0
+       (.BCLK_O(BCLK_O),
+        .DATA_CLK_I(DATA_CLK_I),
+        .DMA_REQ_RX_ACLK(DMA_REQ_RX_ACLK),
+        .DMA_REQ_RX_DATYPE(DMA_REQ_RX_DATYPE),
+        .DMA_REQ_RX_DAVALID(DMA_REQ_RX_DAVALID),
+        .DMA_REQ_RX_DRREADY(DMA_REQ_RX_DRREADY),
+        .DMA_REQ_RX_DRTYPE(\^DMA_REQ_RX_DRTYPE ),
+        .DMA_REQ_RX_DRVALID(DMA_REQ_RX_DRVALID),
+        .DMA_REQ_RX_RSTN(DMA_REQ_RX_RSTN),
+        .DMA_REQ_TX_ACLK(DMA_REQ_TX_ACLK),
+        .DMA_REQ_TX_DATYPE(DMA_REQ_TX_DATYPE),
+        .DMA_REQ_TX_DAVALID(DMA_REQ_TX_DAVALID),
+        .DMA_REQ_TX_DRREADY(DMA_REQ_TX_DRREADY),
+        .DMA_REQ_TX_DRTYPE(\^DMA_REQ_TX_DRTYPE ),
+        .DMA_REQ_TX_DRVALID(DMA_REQ_TX_DRVALID),
+        .DMA_REQ_TX_RSTN(DMA_REQ_TX_RSTN),
+        .LRCLK_O(LRCLK_O),
+        .SDATA_I(SDATA_I),
+        .SDATA_O(SDATA_O),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_ARADDR(S_AXI_ARADDR[5:2]),
+        .S_AXI_ARESETN(S_AXI_ARESETN),
+        .S_AXI_ARREADY(S_AXI_ARREADY),
+        .S_AXI_ARVALID(S_AXI_ARVALID),
+        .S_AXI_AWADDR(S_AXI_AWADDR[5:2]),
+        .S_AXI_AWVALID(S_AXI_AWVALID),
+        .S_AXI_BREADY(S_AXI_BREADY),
+        .S_AXI_BVALID(S_AXI_BVALID),
+        .S_AXI_RDATA(S_AXI_RDATA),
+        .S_AXI_RREADY(S_AXI_RREADY),
+        .S_AXI_RVALID(S_AXI_RVALID),
+        .S_AXI_WDATA(S_AXI_WDATA),
+        .S_AXI_WREADY(S_AXI_WREADY),
+        .S_AXI_WVALID(S_AXI_WVALID));
+  VCC VCC
+       (.P(\<const1> ));
 endmodule
 `ifndef GLBL
 `define GLBL

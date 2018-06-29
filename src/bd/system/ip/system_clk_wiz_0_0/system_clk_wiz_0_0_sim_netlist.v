@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Sat Mar 31 13:24:22 2018
+// Date        : Mon Apr  2 19:25:42 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_clk_wiz_0_0 -prefix
+//               system_clk_wiz_0_0_ system_clk_wiz_0_0_sim_netlist.v
 // Design      : system_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,7 +31,6 @@ module system_clk_wiz_0_0
         .clk_out2(clk_out2));
 endmodule
 
-(* ORIG_REF_NAME = "system_clk_wiz_0_0_clk_wiz" *) 
 module system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz
    (clk_out1,
     clk_out2,
@@ -45,6 +44,7 @@ module system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz
   wire clk_out1;
   wire clk_out1_system_clk_wiz_0_0;
   wire clk_out2;
+  wire clk_out2_system_clk_wiz_0_0;
   wire clkfbout_buf_system_clk_wiz_0_0;
   wire clkfbout_system_clk_wiz_0_0;
   wire NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED;
@@ -72,6 +72,10 @@ module system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz
   BUFG clkout1_buf
        (.I(clk_out1_system_clk_wiz_0_0),
         .O(clk_out1));
+  (* BOX_TYPE = "PRIMITIVE" *) 
+  BUFG clkout2_buf
+       (.I(clk_out2_system_clk_wiz_0_0),
+        .O(clk_out2));
   (* BOX_TYPE = "PRIMITIVE" *) 
   PLLE2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
@@ -112,7 +116,7 @@ module system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz
         .CLKIN2(1'b0),
         .CLKINSEL(1'b1),
         .CLKOUT0(clk_out1_system_clk_wiz_0_0),
-        .CLKOUT1(clk_out2),
+        .CLKOUT1(clk_out2_system_clk_wiz_0_0),
         .CLKOUT2(NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED),
         .CLKOUT3(NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED),
         .CLKOUT4(NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED),

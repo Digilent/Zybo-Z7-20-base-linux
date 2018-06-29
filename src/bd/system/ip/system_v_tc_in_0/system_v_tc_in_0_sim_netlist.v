@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Thu Feb  8 18:34:23 2018
+// Date        : Thu Feb  8 18:34:22 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_v_tc_in_0/system_v_tc_in_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_v_tc_in_0 -prefix
+//               system_v_tc_in_0_ system_v_tc_in_0_sim_netlist.v
 // Design      : system_v_tc_in_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,247 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_v_tc_in_0,v_tc,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "v_tc,Vivado 2017.4" *) 
-(* NotValidForBitStream *)
-module system_v_tc_in_0
-   (clk,
-    clken,
-    s_axi_aclk,
-    s_axi_aclken,
-    det_clken,
-    intc_if,
-    hsync_in,
-    vsync_in,
-    active_video_in,
-    resetn,
-    s_axi_aresetn,
-    s_axi_awaddr,
-    s_axi_awvalid,
-    s_axi_awready,
-    s_axi_wdata,
-    s_axi_wstrb,
-    s_axi_wvalid,
-    s_axi_wready,
-    s_axi_bresp,
-    s_axi_bvalid,
-    s_axi_bready,
-    s_axi_araddr,
-    s_axi_arvalid,
-    s_axi_arready,
-    s_axi_rdata,
-    s_axi_rresp,
-    s_axi_rvalid,
-    s_axi_rready,
-    irq);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 clk_intf CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF vtiming_in:vtiming_out, ASSOCIATED_RESET resetn, ASSOCIATED_CLKEN clken, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_dvi2rgb_1_0_PixelClk" *) input clk;
-  (* x_interface_info = "xilinx.com:signal:clockenable:1.0 clken_intf CE" *) (* x_interface_parameter = "XIL_INTERFACENAME clken_intf, POLARITY ACTIVE_LOW" *) input clken;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 s_axi_aclk_intf CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aclk_intf, ASSOCIATED_BUSIF ctrl, ASSOCIATED_RESET s_axi_aresetn, ASSOCIATED_CLKEN s_axi_aclken, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input s_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:clockenable:1.0 s_axi_aclken_intf CE" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aclken_intf, POLARITY ACTIVE_LOW" *) input s_axi_aclken;
-  input det_clken;
-  output [31:0]intc_if;
-  (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_in HSYNC" *) input hsync_in;
-  (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_in VSYNC" *) input vsync_in;
-  (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_in ACTIVE_VIDEO" *) input active_video_in;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 resetn_intf RST" *) (* x_interface_parameter = "XIL_INTERFACENAME resetn_intf, POLARITY ACTIVE_LOW" *) input resetn;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 s_axi_aresetn_intf RST" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aresetn_intf, POLARITY ACTIVE_LOW" *) input s_axi_aresetn;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME ctrl, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [8:0]s_axi_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWVALID" *) input s_axi_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWREADY" *) output s_axi_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WDATA" *) input [31:0]s_axi_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WSTRB" *) input [3:0]s_axi_wstrb;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WVALID" *) input s_axi_wvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WREADY" *) output s_axi_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl BRESP" *) output [1:0]s_axi_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl BVALID" *) output s_axi_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl BREADY" *) input s_axi_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl ARADDR" *) input [8:0]s_axi_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl ARVALID" *) input s_axi_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl ARREADY" *) output s_axi_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RDATA" *) output [31:0]s_axi_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RRESP" *) output [1:0]s_axi_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RVALID" *) output s_axi_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RREADY" *) input s_axi_rready;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 IRQ INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME IRQ, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output irq;
-
-  wire active_video_in;
-  wire clk;
-  wire clken;
-  wire det_clken;
-  wire hsync_in;
-  wire [31:0]intc_if;
-  wire irq;
-  wire resetn;
-  wire s_axi_aclk;
-  wire s_axi_aclken;
-  wire [8:0]s_axi_araddr;
-  wire s_axi_aresetn;
-  wire s_axi_arready;
-  wire s_axi_arvalid;
-  wire [8:0]s_axi_awaddr;
-  wire s_axi_awready;
-  wire s_axi_awvalid;
-  wire s_axi_bready;
-  wire [1:0]s_axi_bresp;
-  wire s_axi_bvalid;
-  wire [31:0]s_axi_rdata;
-  wire s_axi_rready;
-  wire [1:0]s_axi_rresp;
-  wire s_axi_rvalid;
-  wire [31:0]s_axi_wdata;
-  wire s_axi_wready;
-  wire [3:0]s_axi_wstrb;
-  wire s_axi_wvalid;
-  wire vsync_in;
-  wire NLW_U0_active_chroma_out_UNCONNECTED;
-  wire NLW_U0_active_video_out_UNCONNECTED;
-  wire NLW_U0_field_id_out_UNCONNECTED;
-  wire NLW_U0_hblank_out_UNCONNECTED;
-  wire NLW_U0_hsync_out_UNCONNECTED;
-  wire NLW_U0_vblank_out_UNCONNECTED;
-  wire NLW_U0_vsync_out_UNCONNECTED;
-  wire [0:0]NLW_U0_fsync_out_UNCONNECTED;
-
-  (* C_CONTROL = "0" *) 
-  (* C_DETECT_EN = "1" *) 
-  (* C_DET_ACHROMA_EN = "0" *) 
-  (* C_DET_AVIDEO_EN = "1" *) 
-  (* C_DET_FIELDID_EN = "0" *) 
-  (* C_DET_HBLANK_EN = "0" *) 
-  (* C_DET_HSYNC_EN = "1" *) 
-  (* C_DET_VBLANK_EN = "0" *) 
-  (* C_DET_VSYNC_EN = "1" *) 
-  (* C_FAMILY = "virtex5" *) 
-  (* C_FSYNC_HSTART0 = "0" *) 
-  (* C_FSYNC_HSTART1 = "0" *) 
-  (* C_FSYNC_HSTART10 = "0" *) 
-  (* C_FSYNC_HSTART11 = "0" *) 
-  (* C_FSYNC_HSTART12 = "0" *) 
-  (* C_FSYNC_HSTART13 = "0" *) 
-  (* C_FSYNC_HSTART14 = "0" *) 
-  (* C_FSYNC_HSTART15 = "0" *) 
-  (* C_FSYNC_HSTART2 = "0" *) 
-  (* C_FSYNC_HSTART3 = "0" *) 
-  (* C_FSYNC_HSTART4 = "0" *) 
-  (* C_FSYNC_HSTART5 = "0" *) 
-  (* C_FSYNC_HSTART6 = "0" *) 
-  (* C_FSYNC_HSTART7 = "0" *) 
-  (* C_FSYNC_HSTART8 = "0" *) 
-  (* C_FSYNC_HSTART9 = "0" *) 
-  (* C_FSYNC_VSTART0 = "0" *) 
-  (* C_FSYNC_VSTART1 = "0" *) 
-  (* C_FSYNC_VSTART10 = "0" *) 
-  (* C_FSYNC_VSTART11 = "0" *) 
-  (* C_FSYNC_VSTART12 = "0" *) 
-  (* C_FSYNC_VSTART13 = "0" *) 
-  (* C_FSYNC_VSTART14 = "0" *) 
-  (* C_FSYNC_VSTART15 = "0" *) 
-  (* C_FSYNC_VSTART2 = "0" *) 
-  (* C_FSYNC_VSTART3 = "0" *) 
-  (* C_FSYNC_VSTART4 = "0" *) 
-  (* C_FSYNC_VSTART5 = "0" *) 
-  (* C_FSYNC_VSTART6 = "0" *) 
-  (* C_FSYNC_VSTART7 = "0" *) 
-  (* C_FSYNC_VSTART8 = "0" *) 
-  (* C_FSYNC_VSTART9 = "0" *) 
-  (* C_GENERATE_EN = "0" *) 
-  (* C_GEN_ACHROMA_EN = "0" *) 
-  (* C_GEN_ACHROMA_POLARITY = "1" *) 
-  (* C_GEN_AUTO_SWITCH = "0" *) 
-  (* C_GEN_AVIDEO_EN = "1" *) 
-  (* C_GEN_AVIDEO_POLARITY = "1" *) 
-  (* C_GEN_CPARITY = "0" *) 
-  (* C_GEN_F0_VBLANK_HEND = "1280" *) 
-  (* C_GEN_F0_VBLANK_HSTART = "1280" *) 
-  (* C_GEN_F0_VFRAME_SIZE = "750" *) 
-  (* C_GEN_F0_VSYNC_HEND = "1280" *) 
-  (* C_GEN_F0_VSYNC_HSTART = "1280" *) 
-  (* C_GEN_F0_VSYNC_VEND = "729" *) 
-  (* C_GEN_F0_VSYNC_VSTART = "724" *) 
-  (* C_GEN_F1_VBLANK_HEND = "1280" *) 
-  (* C_GEN_F1_VBLANK_HSTART = "1280" *) 
-  (* C_GEN_F1_VFRAME_SIZE = "750" *) 
-  (* C_GEN_F1_VSYNC_HEND = "1280" *) 
-  (* C_GEN_F1_VSYNC_HSTART = "1280" *) 
-  (* C_GEN_F1_VSYNC_VEND = "729" *) 
-  (* C_GEN_F1_VSYNC_VSTART = "724" *) 
-  (* C_GEN_FIELDID_EN = "0" *) 
-  (* C_GEN_FIELDID_POLARITY = "1" *) 
-  (* C_GEN_HACTIVE_SIZE = "1280" *) 
-  (* C_GEN_HBLANK_EN = "1" *) 
-  (* C_GEN_HBLANK_POLARITY = "1" *) 
-  (* C_GEN_HFRAME_SIZE = "1650" *) 
-  (* C_GEN_HSYNC_EN = "1" *) 
-  (* C_GEN_HSYNC_END = "1430" *) 
-  (* C_GEN_HSYNC_POLARITY = "1" *) 
-  (* C_GEN_HSYNC_START = "1390" *) 
-  (* C_GEN_INTERLACED = "0" *) 
-  (* C_GEN_VACTIVE_SIZE = "720" *) 
-  (* C_GEN_VBLANK_EN = "1" *) 
-  (* C_GEN_VBLANK_POLARITY = "1" *) 
-  (* C_GEN_VIDEO_FORMAT = "2" *) 
-  (* C_GEN_VSYNC_EN = "1" *) 
-  (* C_GEN_VSYNC_POLARITY = "1" *) 
-  (* C_HAS_AXI4_LITE = "1" *) 
-  (* C_HAS_INTC_IF = "1" *) 
-  (* C_INTERLACE_EN = "0" *) 
-  (* C_IRQEN = "0" *) 
-  (* C_LINE_DELAY = "0" *) 
-  (* C_MAX_LINES = "4096" *) 
-  (* C_MAX_PIXELS = "4096" *) 
-  (* C_NUM_FSYNCS = "1" *) 
-  (* C_PIXEL_DELAY = "0" *) 
-  (* C_SYNC_EN = "0" *) 
-  (* C_S_AXI_ADDR_WIDTH = "9" *) 
-  (* C_S_AXI_CLK_FREQ_HZ = "100000000" *) 
-  (* C_S_AXI_DATA_WIDTH = "32" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  system_v_tc_in_0_v_tc U0
-       (.active_chroma_in(1'b0),
-        .active_chroma_out(NLW_U0_active_chroma_out_UNCONNECTED),
-        .active_video_in(active_video_in),
-        .active_video_out(NLW_U0_active_video_out_UNCONNECTED),
-        .clk(clk),
-        .clken(clken),
-        .det_clken(det_clken),
-        .field_id_in(1'b0),
-        .field_id_out(NLW_U0_field_id_out_UNCONNECTED),
-        .fsync_in(1'b0),
-        .fsync_out(NLW_U0_fsync_out_UNCONNECTED[0]),
-        .gen_clken(1'b1),
-        .hblank_in(1'b0),
-        .hblank_out(NLW_U0_hblank_out_UNCONNECTED),
-        .hsync_in(hsync_in),
-        .hsync_out(NLW_U0_hsync_out_UNCONNECTED),
-        .intc_if(intc_if),
-        .irq(irq),
-        .resetn(resetn),
-        .s_axi_aclk(s_axi_aclk),
-        .s_axi_aclken(s_axi_aclken),
-        .s_axi_araddr(s_axi_araddr),
-        .s_axi_aresetn(s_axi_aresetn),
-        .s_axi_arready(s_axi_arready),
-        .s_axi_arvalid(s_axi_arvalid),
-        .s_axi_awaddr(s_axi_awaddr),
-        .s_axi_awready(s_axi_awready),
-        .s_axi_awvalid(s_axi_awvalid),
-        .s_axi_bready(s_axi_bready),
-        .s_axi_bresp(s_axi_bresp),
-        .s_axi_bvalid(s_axi_bvalid),
-        .s_axi_rdata(s_axi_rdata),
-        .s_axi_rready(s_axi_rready),
-        .s_axi_rresp(s_axi_rresp),
-        .s_axi_rvalid(s_axi_rvalid),
-        .s_axi_wdata(s_axi_wdata),
-        .s_axi_wready(s_axi_wready),
-        .s_axi_wstrb(s_axi_wstrb),
-        .s_axi_wvalid(s_axi_wvalid),
-        .vblank_in(1'b0),
-        .vblank_out(NLW_U0_vblank_out_UNCONNECTED),
-        .vsync_in(vsync_in),
-        .vsync_out(NLW_U0_vsync_out_UNCONNECTED));
-endmodule
-
-(* ORIG_REF_NAME = "address_decoder" *) 
 module system_v_tc_in_0_address_decoder
    (p_151_out,
     s_axi_arready,
@@ -371,7 +130,6 @@ module system_v_tc_in_0_address_decoder
         .O(s_axi_wready_INST_0_i_2_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_lite_ipif" *) 
 module system_v_tc_in_0_axi_lite_ipif
    (rst_reg,
     s_axi_rresp,
@@ -470,7 +228,6 @@ module system_v_tc_in_0_axi_lite_ipif
         .s_axi_wvalid(s_axi_wvalid));
 endmodule
 
-(* ORIG_REF_NAME = "slave_attachment" *) 
 module system_v_tc_in_0_slave_attachment
    (rst_reg_0,
     s_axi_rresp,
@@ -1321,7 +1078,246 @@ module system_v_tc_in_0_slave_attachment
         .R(rst));
 endmodule
 
-(* ORIG_REF_NAME = "mux_tree" *) 
+(* CHECK_LICENSE_TYPE = "system_v_tc_in_0,v_tc,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "v_tc,Vivado 2017.4" *) 
+(* NotValidForBitStream *)
+module system_v_tc_in_0
+   (clk,
+    clken,
+    s_axi_aclk,
+    s_axi_aclken,
+    det_clken,
+    intc_if,
+    hsync_in,
+    vsync_in,
+    active_video_in,
+    resetn,
+    s_axi_aresetn,
+    s_axi_awaddr,
+    s_axi_awvalid,
+    s_axi_awready,
+    s_axi_wdata,
+    s_axi_wstrb,
+    s_axi_wvalid,
+    s_axi_wready,
+    s_axi_bresp,
+    s_axi_bvalid,
+    s_axi_bready,
+    s_axi_araddr,
+    s_axi_arvalid,
+    s_axi_arready,
+    s_axi_rdata,
+    s_axi_rresp,
+    s_axi_rvalid,
+    s_axi_rready,
+    irq);
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 clk_intf CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF vtiming_in:vtiming_out, ASSOCIATED_RESET resetn, ASSOCIATED_CLKEN clken, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_dvi2rgb_1_0_PixelClk" *) input clk;
+  (* x_interface_info = "xilinx.com:signal:clockenable:1.0 clken_intf CE" *) (* x_interface_parameter = "XIL_INTERFACENAME clken_intf, POLARITY ACTIVE_LOW" *) input clken;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 s_axi_aclk_intf CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aclk_intf, ASSOCIATED_BUSIF ctrl, ASSOCIATED_RESET s_axi_aresetn, ASSOCIATED_CLKEN s_axi_aclken, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input s_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:clockenable:1.0 s_axi_aclken_intf CE" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aclken_intf, POLARITY ACTIVE_LOW" *) input s_axi_aclken;
+  input det_clken;
+  output [31:0]intc_if;
+  (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_in HSYNC" *) input hsync_in;
+  (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_in VSYNC" *) input vsync_in;
+  (* x_interface_info = "xilinx.com:interface:video_timing:2.0 vtiming_in ACTIVE_VIDEO" *) input active_video_in;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 resetn_intf RST" *) (* x_interface_parameter = "XIL_INTERFACENAME resetn_intf, POLARITY ACTIVE_LOW" *) input resetn;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 s_axi_aresetn_intf RST" *) (* x_interface_parameter = "XIL_INTERFACENAME s_axi_aresetn_intf, POLARITY ACTIVE_LOW" *) input s_axi_aresetn;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME ctrl, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input [8:0]s_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWVALID" *) input s_axi_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl AWREADY" *) output s_axi_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WDATA" *) input [31:0]s_axi_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WSTRB" *) input [3:0]s_axi_wstrb;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WVALID" *) input s_axi_wvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl WREADY" *) output s_axi_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl BRESP" *) output [1:0]s_axi_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl BVALID" *) output s_axi_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl BREADY" *) input s_axi_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl ARADDR" *) input [8:0]s_axi_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl ARVALID" *) input s_axi_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl ARREADY" *) output s_axi_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RDATA" *) output [31:0]s_axi_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RRESP" *) output [1:0]s_axi_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RVALID" *) output s_axi_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 ctrl RREADY" *) input s_axi_rready;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 IRQ INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME IRQ, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output irq;
+
+  wire active_video_in;
+  wire clk;
+  wire clken;
+  wire det_clken;
+  wire hsync_in;
+  wire [31:0]intc_if;
+  wire irq;
+  wire resetn;
+  wire s_axi_aclk;
+  wire s_axi_aclken;
+  wire [8:0]s_axi_araddr;
+  wire s_axi_aresetn;
+  wire s_axi_arready;
+  wire s_axi_arvalid;
+  wire [8:0]s_axi_awaddr;
+  wire s_axi_awready;
+  wire s_axi_awvalid;
+  wire s_axi_bready;
+  wire [1:0]s_axi_bresp;
+  wire s_axi_bvalid;
+  wire [31:0]s_axi_rdata;
+  wire s_axi_rready;
+  wire [1:0]s_axi_rresp;
+  wire s_axi_rvalid;
+  wire [31:0]s_axi_wdata;
+  wire s_axi_wready;
+  wire [3:0]s_axi_wstrb;
+  wire s_axi_wvalid;
+  wire vsync_in;
+  wire NLW_U0_active_chroma_out_UNCONNECTED;
+  wire NLW_U0_active_video_out_UNCONNECTED;
+  wire NLW_U0_field_id_out_UNCONNECTED;
+  wire NLW_U0_hblank_out_UNCONNECTED;
+  wire NLW_U0_hsync_out_UNCONNECTED;
+  wire NLW_U0_vblank_out_UNCONNECTED;
+  wire NLW_U0_vsync_out_UNCONNECTED;
+  wire [0:0]NLW_U0_fsync_out_UNCONNECTED;
+
+  (* C_CONTROL = "0" *) 
+  (* C_DETECT_EN = "1" *) 
+  (* C_DET_ACHROMA_EN = "0" *) 
+  (* C_DET_AVIDEO_EN = "1" *) 
+  (* C_DET_FIELDID_EN = "0" *) 
+  (* C_DET_HBLANK_EN = "0" *) 
+  (* C_DET_HSYNC_EN = "1" *) 
+  (* C_DET_VBLANK_EN = "0" *) 
+  (* C_DET_VSYNC_EN = "1" *) 
+  (* C_FAMILY = "virtex5" *) 
+  (* C_FSYNC_HSTART0 = "0" *) 
+  (* C_FSYNC_HSTART1 = "0" *) 
+  (* C_FSYNC_HSTART10 = "0" *) 
+  (* C_FSYNC_HSTART11 = "0" *) 
+  (* C_FSYNC_HSTART12 = "0" *) 
+  (* C_FSYNC_HSTART13 = "0" *) 
+  (* C_FSYNC_HSTART14 = "0" *) 
+  (* C_FSYNC_HSTART15 = "0" *) 
+  (* C_FSYNC_HSTART2 = "0" *) 
+  (* C_FSYNC_HSTART3 = "0" *) 
+  (* C_FSYNC_HSTART4 = "0" *) 
+  (* C_FSYNC_HSTART5 = "0" *) 
+  (* C_FSYNC_HSTART6 = "0" *) 
+  (* C_FSYNC_HSTART7 = "0" *) 
+  (* C_FSYNC_HSTART8 = "0" *) 
+  (* C_FSYNC_HSTART9 = "0" *) 
+  (* C_FSYNC_VSTART0 = "0" *) 
+  (* C_FSYNC_VSTART1 = "0" *) 
+  (* C_FSYNC_VSTART10 = "0" *) 
+  (* C_FSYNC_VSTART11 = "0" *) 
+  (* C_FSYNC_VSTART12 = "0" *) 
+  (* C_FSYNC_VSTART13 = "0" *) 
+  (* C_FSYNC_VSTART14 = "0" *) 
+  (* C_FSYNC_VSTART15 = "0" *) 
+  (* C_FSYNC_VSTART2 = "0" *) 
+  (* C_FSYNC_VSTART3 = "0" *) 
+  (* C_FSYNC_VSTART4 = "0" *) 
+  (* C_FSYNC_VSTART5 = "0" *) 
+  (* C_FSYNC_VSTART6 = "0" *) 
+  (* C_FSYNC_VSTART7 = "0" *) 
+  (* C_FSYNC_VSTART8 = "0" *) 
+  (* C_FSYNC_VSTART9 = "0" *) 
+  (* C_GENERATE_EN = "0" *) 
+  (* C_GEN_ACHROMA_EN = "0" *) 
+  (* C_GEN_ACHROMA_POLARITY = "1" *) 
+  (* C_GEN_AUTO_SWITCH = "0" *) 
+  (* C_GEN_AVIDEO_EN = "1" *) 
+  (* C_GEN_AVIDEO_POLARITY = "1" *) 
+  (* C_GEN_CPARITY = "0" *) 
+  (* C_GEN_F0_VBLANK_HEND = "1280" *) 
+  (* C_GEN_F0_VBLANK_HSTART = "1280" *) 
+  (* C_GEN_F0_VFRAME_SIZE = "750" *) 
+  (* C_GEN_F0_VSYNC_HEND = "1280" *) 
+  (* C_GEN_F0_VSYNC_HSTART = "1280" *) 
+  (* C_GEN_F0_VSYNC_VEND = "729" *) 
+  (* C_GEN_F0_VSYNC_VSTART = "724" *) 
+  (* C_GEN_F1_VBLANK_HEND = "1280" *) 
+  (* C_GEN_F1_VBLANK_HSTART = "1280" *) 
+  (* C_GEN_F1_VFRAME_SIZE = "750" *) 
+  (* C_GEN_F1_VSYNC_HEND = "1280" *) 
+  (* C_GEN_F1_VSYNC_HSTART = "1280" *) 
+  (* C_GEN_F1_VSYNC_VEND = "729" *) 
+  (* C_GEN_F1_VSYNC_VSTART = "724" *) 
+  (* C_GEN_FIELDID_EN = "0" *) 
+  (* C_GEN_FIELDID_POLARITY = "1" *) 
+  (* C_GEN_HACTIVE_SIZE = "1280" *) 
+  (* C_GEN_HBLANK_EN = "1" *) 
+  (* C_GEN_HBLANK_POLARITY = "1" *) 
+  (* C_GEN_HFRAME_SIZE = "1650" *) 
+  (* C_GEN_HSYNC_EN = "1" *) 
+  (* C_GEN_HSYNC_END = "1430" *) 
+  (* C_GEN_HSYNC_POLARITY = "1" *) 
+  (* C_GEN_HSYNC_START = "1390" *) 
+  (* C_GEN_INTERLACED = "0" *) 
+  (* C_GEN_VACTIVE_SIZE = "720" *) 
+  (* C_GEN_VBLANK_EN = "1" *) 
+  (* C_GEN_VBLANK_POLARITY = "1" *) 
+  (* C_GEN_VIDEO_FORMAT = "2" *) 
+  (* C_GEN_VSYNC_EN = "1" *) 
+  (* C_GEN_VSYNC_POLARITY = "1" *) 
+  (* C_HAS_AXI4_LITE = "1" *) 
+  (* C_HAS_INTC_IF = "1" *) 
+  (* C_INTERLACE_EN = "0" *) 
+  (* C_IRQEN = "0" *) 
+  (* C_LINE_DELAY = "0" *) 
+  (* C_MAX_LINES = "4096" *) 
+  (* C_MAX_PIXELS = "4096" *) 
+  (* C_NUM_FSYNCS = "1" *) 
+  (* C_PIXEL_DELAY = "0" *) 
+  (* C_SYNC_EN = "0" *) 
+  (* C_S_AXI_ADDR_WIDTH = "9" *) 
+  (* C_S_AXI_CLK_FREQ_HZ = "100000000" *) 
+  (* C_S_AXI_DATA_WIDTH = "32" *) 
+  (* downgradeipidentifiedwarnings = "yes" *) 
+  system_v_tc_in_0_v_tc U0
+       (.active_chroma_in(1'b0),
+        .active_chroma_out(NLW_U0_active_chroma_out_UNCONNECTED),
+        .active_video_in(active_video_in),
+        .active_video_out(NLW_U0_active_video_out_UNCONNECTED),
+        .clk(clk),
+        .clken(clken),
+        .det_clken(det_clken),
+        .field_id_in(1'b0),
+        .field_id_out(NLW_U0_field_id_out_UNCONNECTED),
+        .fsync_in(1'b0),
+        .fsync_out(NLW_U0_fsync_out_UNCONNECTED[0]),
+        .gen_clken(1'b1),
+        .hblank_in(1'b0),
+        .hblank_out(NLW_U0_hblank_out_UNCONNECTED),
+        .hsync_in(hsync_in),
+        .hsync_out(NLW_U0_hsync_out_UNCONNECTED),
+        .intc_if(intc_if),
+        .irq(irq),
+        .resetn(resetn),
+        .s_axi_aclk(s_axi_aclk),
+        .s_axi_aclken(s_axi_aclken),
+        .s_axi_araddr(s_axi_araddr),
+        .s_axi_aresetn(s_axi_aresetn),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_awaddr(s_axi_awaddr),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_bresp(s_axi_bresp),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_rdata(s_axi_rdata),
+        .s_axi_rready(s_axi_rready),
+        .s_axi_rresp(s_axi_rresp),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_wdata(s_axi_wdata),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_wstrb(s_axi_wstrb),
+        .s_axi_wvalid(s_axi_wvalid),
+        .vblank_in(1'b0),
+        .vblank_out(NLW_U0_vblank_out_UNCONNECTED),
+        .vsync_in(vsync_in),
+        .vsync_out(NLW_U0_vsync_out_UNCONNECTED));
+endmodule
+
 module system_v_tc_in_0_mux_tree
    (\AXI4_LITE_INTERFACE.ipif_RdData_reg[31] ,
     \AXI4_LITE_INTERFACE.ipif_RdData_reg[31]_0 ,
@@ -13944,7 +13940,6 @@ module system_v_tc_in_0_mux_tree__parameterized0
         .R(\GEN_SEL_DELAY[2].sel_int_reg[2][0] ));
 endmodule
 
-(* ORIG_REF_NAME = "tc_detector" *) 
 module system_v_tc_in_0_tc_detector
    (det_ce,
     Q,
@@ -21321,7 +21316,6 @@ module system_v_tc_in_0_tc_detector
         .R(\v_count[0]_i_1_n_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "tc_top" *) 
 module system_v_tc_in_0_tc_top
    (Q,
     \time_status_regs[6] ,
@@ -21752,7 +21746,7 @@ endmodule
 (* C_LINE_DELAY = "0" *) (* C_MAX_LINES = "4096" *) (* C_MAX_PIXELS = "4096" *) 
 (* C_NUM_FSYNCS = "1" *) (* C_PIXEL_DELAY = "0" *) (* C_SYNC_EN = "0" *) 
 (* C_S_AXI_ADDR_WIDTH = "9" *) (* C_S_AXI_CLK_FREQ_HZ = "100000000" *) (* C_S_AXI_DATA_WIDTH = "32" *) 
-(* ORIG_REF_NAME = "v_tc" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* downgradeipidentifiedwarnings = "yes" *) 
 module system_v_tc_in_0_v_tc
    (s_axi_aclk,
     s_axi_aclken,
@@ -22248,7 +22242,6 @@ module system_v_tc_in_0_v_tc
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "video_clock_cross" *) 
 module system_v_tc_in_0_video_clock_cross
    (\AXI4_LITE_INTERFACE.genr_control_regs_int_reg[1][31] ,
     out_data,
@@ -31924,7 +31917,7 @@ endmodule
 (* C_TIMEOUT_HOURS = "8" *) (* C_TIMEOUT_MINS = "0" *) (* C_TIME_AXI_WRITE = "928'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111110001111111111111000000000000000000000000000000000000000000000000000000111100111100000000000000000000000001111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111" *) 
 (* C_TIME_DBUFFER = "928'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111110001111111111111000000000000000000000000000000000000000000000000000000111000000000000000000000000000000000111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111000111111111111100011111111111110001111111111111" *) (* C_TIME_DEFAULT = "928'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010110100000000010100000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000001111111000000000000000000000110011100100000001011101110000000101110111000000101100101100000010101101110000001010000000000000101000000000000001011011001000000101101010000000101000000000000010100000000000001010000000000000101000000000000001011011001000000101101010000000101000000000000010100000000" *) (* C_TIME_NUM_REGS = "29" *) 
 (* C_VERSION_MAJOR = "6" *) (* C_VERSION_MINOR = "1" *) (* C_VERSION_REVISION = "0" *) 
-(* ORIG_REF_NAME = "video_ctrl" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* downgradeipidentifiedwarnings = "yes" *) 
 module system_v_tc_in_0_video_ctrl
    (aclk,
     aclk_en,

@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Thu Feb  8 18:34:18 2018
+-- Date        : Thu Feb  8 18:34:17 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_xadc_wiz_0_0/system_xadc_wiz_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_xadc_wiz_0_0 -prefix
+--               system_xadc_wiz_0_0_ system_xadc_wiz_0_0_sim_netlist.vhdl
 -- Design      : system_xadc_wiz_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -110,8 +110,6 @@ entity system_xadc_wiz_0_0_system_xadc_wiz_0_0_address_decoder is
     s_axi_wdata : in STD_LOGIC_VECTOR ( 1 downto 0 );
     hard_macro_rst_reg : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_xadc_wiz_0_0_system_xadc_wiz_0_0_address_decoder : entity is "system_xadc_wiz_0_0_address_decoder";
 end system_xadc_wiz_0_0_system_xadc_wiz_0_0_address_decoder;
 
 architecture STRUCTURE of system_xadc_wiz_0_0_system_xadc_wiz_0_0_address_decoder is
@@ -1785,8 +1783,6 @@ entity system_xadc_wiz_0_0_system_xadc_wiz_0_0_interrupt_control is
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 0 to 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_xadc_wiz_0_0_system_xadc_wiz_0_0_interrupt_control : entity is "system_xadc_wiz_0_0_interrupt_control";
 end system_xadc_wiz_0_0_system_xadc_wiz_0_0_interrupt_control;
 
 architecture STRUCTURE of system_xadc_wiz_0_0_system_xadc_wiz_0_0_interrupt_control is
@@ -2774,8 +2770,6 @@ entity system_xadc_wiz_0_0_system_xadc_wiz_0_0_soft_reset is
     s_axi_arvalid : in STD_LOGIC;
     s_axi_wdata : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_xadc_wiz_0_0_system_xadc_wiz_0_0_soft_reset : entity is "system_xadc_wiz_0_0_soft_reset";
 end system_xadc_wiz_0_0_system_xadc_wiz_0_0_soft_reset;
 
 architecture STRUCTURE of system_xadc_wiz_0_0_system_xadc_wiz_0_0_soft_reset is
@@ -3339,8 +3333,6 @@ entity system_xadc_wiz_0_0_system_xadc_wiz_0_0_xadc_core_drp is
     dummy_local_reg_rdack : in STD_LOGIC;
     rst_ip2bus_rdack : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_xadc_wiz_0_0_system_xadc_wiz_0_0_xadc_core_drp : entity is "system_xadc_wiz_0_0_xadc_core_drp";
 end system_xadc_wiz_0_0_system_xadc_wiz_0_0_xadc_core_drp;
 
 architecture STRUCTURE of system_xadc_wiz_0_0_system_xadc_wiz_0_0_xadc_core_drp is
@@ -4269,8 +4261,6 @@ entity system_xadc_wiz_0_0_system_xadc_wiz_0_0_slave_attachment is
     hard_macro_rst_reg : in STD_LOGIC;
     \INTR_CTRLR_GEN_I.ip2bus_data_int_reg[0]\ : in STD_LOGIC_VECTOR ( 18 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_xadc_wiz_0_0_system_xadc_wiz_0_0_slave_attachment : entity is "system_xadc_wiz_0_0_slave_attachment";
 end system_xadc_wiz_0_0_system_xadc_wiz_0_0_slave_attachment;
 
 architecture STRUCTURE of system_xadc_wiz_0_0_system_xadc_wiz_0_0_slave_attachment is
@@ -5087,8 +5077,6 @@ entity system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_lite_ipif is
     hard_macro_rst_reg : in STD_LOGIC;
     \INTR_CTRLR_GEN_I.ip2bus_data_int_reg[0]\ : in STD_LOGIC_VECTOR ( 18 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_lite_ipif : entity is "system_xadc_wiz_0_0_axi_lite_ipif";
 end system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_lite_ipif;
 
 architecture STRUCTURE of system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_lite_ipif is
@@ -5258,8 +5246,6 @@ entity system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_xadc is
   attribute C_S_AXI_ADDR_WIDTH of system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_xadc : entity is 11;
   attribute C_S_AXI_DATA_WIDTH : integer;
   attribute C_S_AXI_DATA_WIDTH of system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_xadc : entity is 32;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_xadc : entity is "system_xadc_wiz_0_0_axi_xadc";
   attribute hdl : string;
   attribute hdl of system_xadc_wiz_0_0_system_xadc_wiz_0_0_axi_xadc : entity is "VHDL";
   attribute ip_group : string;

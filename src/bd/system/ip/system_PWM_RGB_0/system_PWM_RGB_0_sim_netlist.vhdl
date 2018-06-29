@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Thu Feb  8 18:32:08 2018
+-- Date        : Thu Feb  8 18:32:07 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_PWM_RGB_0/system_PWM_RGB_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_PWM_RGB_0 -prefix
+--               system_PWM_RGB_0_ system_PWM_RGB_0_sim_netlist.vhdl
 -- Design      : system_PWM_RGB_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -42,8 +42,6 @@ entity system_PWM_RGB_0_PWM_AXI is
     pwm_axi_wvalid : in STD_LOGIC;
     pwm_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_PWM_RGB_0_PWM_AXI : entity is "PWM_AXI";
 end system_PWM_RGB_0_PWM_AXI;
 
 architecture STRUCTURE of system_PWM_RGB_0_PWM_AXI is
@@ -5402,8 +5400,6 @@ entity system_PWM_RGB_0_PWM_v2_0 is
     pwm_axi_bready : in STD_LOGIC;
     pwm_axi_rready : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_PWM_RGB_0_PWM_v2_0 : entity is "PWM_v2_0";
 end system_PWM_RGB_0_PWM_v2_0;
 
 architecture STRUCTURE of system_PWM_RGB_0_PWM_v2_0 is

@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Sat Mar 31 13:24:22 2018
+-- Date        : Mon Apr  2 19:25:42 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_clk_wiz_0_0/system_clk_wiz_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_clk_wiz_0_0 -prefix
+--               system_clk_wiz_0_0_ system_clk_wiz_0_0_sim_netlist.vhdl
 -- Design      : system_clk_wiz_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,13 +20,12 @@ entity system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz is
     clk_out2 : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz : entity is "system_clk_wiz_0_0_clk_wiz";
 end system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz;
 
 architecture STRUCTURE of system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz is
   signal clk_in1_system_clk_wiz_0_0 : STD_LOGIC;
   signal clk_out1_system_clk_wiz_0_0 : STD_LOGIC;
+  signal clk_out2_system_clk_wiz_0_0 : STD_LOGIC;
   signal clkfbout_buf_system_clk_wiz_0_0 : STD_LOGIC;
   signal clkfbout_system_clk_wiz_0_0 : STD_LOGIC;
   signal NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED : STD_LOGIC;
@@ -46,6 +45,7 @@ architecture STRUCTURE of system_clk_wiz_0_0_system_clk_wiz_0_0_clk_wiz is
   attribute IFD_DELAY_VALUE : string;
   attribute IFD_DELAY_VALUE of clkin1_ibufg : label is "AUTO";
   attribute BOX_TYPE of clkout1_buf : label is "PRIMITIVE";
+  attribute BOX_TYPE of clkout2_buf : label is "PRIMITIVE";
   attribute BOX_TYPE of plle2_adv_inst : label is "PRIMITIVE";
 begin
 clkf_buf: unisim.vcomponents.BUFG
@@ -65,6 +65,11 @@ clkout1_buf: unisim.vcomponents.BUFG
      port map (
       I => clk_out1_system_clk_wiz_0_0,
       O => clk_out1
+    );
+clkout2_buf: unisim.vcomponents.BUFG
+     port map (
+      I => clk_out2_system_clk_wiz_0_0,
+      O => clk_out2
     );
 plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
     generic map(
@@ -107,7 +112,7 @@ plle2_adv_inst: unisim.vcomponents.PLLE2_ADV
       CLKIN2 => '0',
       CLKINSEL => '1',
       CLKOUT0 => clk_out1_system_clk_wiz_0_0,
-      CLKOUT1 => clk_out2,
+      CLKOUT1 => clk_out2_system_clk_wiz_0_0,
       CLKOUT2 => NLW_plle2_adv_inst_CLKOUT2_UNCONNECTED,
       CLKOUT3 => NLW_plle2_adv_inst_CLKOUT3_UNCONNECTED,
       CLKOUT4 => NLW_plle2_adv_inst_CLKOUT4_UNCONNECTED,

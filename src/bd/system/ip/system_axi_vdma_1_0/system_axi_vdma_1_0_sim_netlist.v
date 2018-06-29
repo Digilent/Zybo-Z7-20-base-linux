@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Thu Feb  8 18:35:55 2018
+// Date        : Thu Feb  8 18:35:54 2018
 // Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_axi_vdma_1_0/system_axi_vdma_1_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_axi_vdma_1_0 -prefix
+//               system_axi_vdma_1_0_ system_axi_vdma_1_0_sim_netlist.v
 // Design      : system_axi_vdma_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,339 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_axi_vdma_1_0,axi_vdma,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_vdma,Vivado 2017.4" *) 
-(* NotValidForBitStream *)
-module system_axi_vdma_1_0
-   (s_axi_lite_aclk,
-    m_axi_mm2s_aclk,
-    m_axis_mm2s_aclk,
-    axi_resetn,
-    s_axi_lite_awvalid,
-    s_axi_lite_awready,
-    s_axi_lite_awaddr,
-    s_axi_lite_wvalid,
-    s_axi_lite_wready,
-    s_axi_lite_wdata,
-    s_axi_lite_bresp,
-    s_axi_lite_bvalid,
-    s_axi_lite_bready,
-    s_axi_lite_arvalid,
-    s_axi_lite_arready,
-    s_axi_lite_araddr,
-    s_axi_lite_rvalid,
-    s_axi_lite_rready,
-    s_axi_lite_rdata,
-    s_axi_lite_rresp,
-    mm2s_frame_ptr_in,
-    mm2s_frame_ptr_out,
-    m_axi_mm2s_araddr,
-    m_axi_mm2s_arlen,
-    m_axi_mm2s_arsize,
-    m_axi_mm2s_arburst,
-    m_axi_mm2s_arprot,
-    m_axi_mm2s_arcache,
-    m_axi_mm2s_arvalid,
-    m_axi_mm2s_arready,
-    m_axi_mm2s_rdata,
-    m_axi_mm2s_rresp,
-    m_axi_mm2s_rlast,
-    m_axi_mm2s_rvalid,
-    m_axi_mm2s_rready,
-    m_axis_mm2s_tdata,
-    m_axis_mm2s_tkeep,
-    m_axis_mm2s_tuser,
-    m_axis_mm2s_tvalid,
-    m_axis_mm2s_tready,
-    m_axis_mm2s_tlast,
-    mm2s_introut);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_LITE_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_LITE_ACLK, ASSOCIATED_BUSIF S_AXI_LITE:M_AXI, ASSOCIATED_RESET axi_resetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input s_axi_lite_aclk;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 M_AXI_MM2S_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME M_AXI_MM2S_ACLK, ASSOCIATED_BUSIF M_AXI_MM2S, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1" *) input m_axi_mm2s_aclk;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 M_AXIS_MM2S_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME M_AXIS_MM2S_ACLK, ASSOCIATED_BUSIF M_AXIS_MM2S, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1" *) input m_axis_mm2s_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 AXI_RESETN RST" *) (* x_interface_parameter = "XIL_INTERFACENAME AXI_RESETN, POLARITY ACTIVE_LOW" *) input axi_resetn;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_LITE, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 0, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input s_axi_lite_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWREADY" *) output s_axi_lite_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWADDR" *) input [8:0]s_axi_lite_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE WVALID" *) input s_axi_lite_wvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE WREADY" *) output s_axi_lite_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE WDATA" *) input [31:0]s_axi_lite_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE BRESP" *) output [1:0]s_axi_lite_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE BVALID" *) output s_axi_lite_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE BREADY" *) input s_axi_lite_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARVALID" *) input s_axi_lite_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARREADY" *) output s_axi_lite_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARADDR" *) input [8:0]s_axi_lite_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE RVALID" *) output s_axi_lite_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE RREADY" *) input s_axi_lite_rready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE RDATA" *) output [31:0]s_axi_lite_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE RRESP" *) output [1:0]s_axi_lite_rresp;
-  (* x_interface_info = "xilinx.com:signal:video_frame_ptr:1.0 MM2S_FRAME_PTR_IN_0 FRAME_PTR" *) input [5:0]mm2s_frame_ptr_in;
-  (* x_interface_info = "xilinx.com:signal:video_frame_ptr:1.0 MM2S_FRAME_PTR_OUT FRAME_PTR" *) output [5:0]mm2s_frame_ptr_out;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME M_AXI_MM2S, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 133333344, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_ONLY, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 0, HAS_BRESP 0, HAS_RRESP 1, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 32, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) output [31:0]m_axi_mm2s_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARLEN" *) output [7:0]m_axi_mm2s_arlen;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARSIZE" *) output [2:0]m_axi_mm2s_arsize;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARBURST" *) output [1:0]m_axi_mm2s_arburst;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARPROT" *) output [2:0]m_axi_mm2s_arprot;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARCACHE" *) output [3:0]m_axi_mm2s_arcache;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARVALID" *) output m_axi_mm2s_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARREADY" *) input m_axi_mm2s_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RDATA" *) input [63:0]m_axi_mm2s_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RRESP" *) input [1:0]m_axi_mm2s_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RLAST" *) input m_axi_mm2s_rlast;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RVALID" *) input m_axi_mm2s_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RREADY" *) output m_axi_mm2s_rready;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TDATA" *) (* x_interface_parameter = "XIL_INTERFACENAME M_AXIS_MM2S, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1, LAYERED_METADATA undef" *) output [23:0]m_axis_mm2s_tdata;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TKEEP" *) output [2:0]m_axis_mm2s_tkeep;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TUSER" *) output [0:0]m_axis_mm2s_tuser;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TVALID" *) output m_axis_mm2s_tvalid;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TREADY" *) input m_axis_mm2s_tready;
-  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TLAST" *) output m_axis_mm2s_tlast;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 MM2S_INTROUT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME MM2S_INTROUT, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output mm2s_introut;
-
-  wire axi_resetn;
-  wire m_axi_mm2s_aclk;
-  wire [31:0]m_axi_mm2s_araddr;
-  wire [1:0]m_axi_mm2s_arburst;
-  wire [3:0]m_axi_mm2s_arcache;
-  wire [7:0]m_axi_mm2s_arlen;
-  wire [2:0]m_axi_mm2s_arprot;
-  wire m_axi_mm2s_arready;
-  wire [2:0]m_axi_mm2s_arsize;
-  wire m_axi_mm2s_arvalid;
-  wire [63:0]m_axi_mm2s_rdata;
-  wire m_axi_mm2s_rlast;
-  wire m_axi_mm2s_rready;
-  wire [1:0]m_axi_mm2s_rresp;
-  wire m_axi_mm2s_rvalid;
-  wire m_axis_mm2s_aclk;
-  wire [23:0]m_axis_mm2s_tdata;
-  wire [2:0]m_axis_mm2s_tkeep;
-  wire m_axis_mm2s_tlast;
-  wire m_axis_mm2s_tready;
-  wire [0:0]m_axis_mm2s_tuser;
-  wire m_axis_mm2s_tvalid;
-  wire [5:0]mm2s_frame_ptr_in;
-  wire [5:0]mm2s_frame_ptr_out;
-  wire mm2s_introut;
-  wire s_axi_lite_aclk;
-  wire [8:0]s_axi_lite_araddr;
-  wire s_axi_lite_arready;
-  wire s_axi_lite_arvalid;
-  wire [8:0]s_axi_lite_awaddr;
-  wire s_axi_lite_awready;
-  wire s_axi_lite_awvalid;
-  wire s_axi_lite_bready;
-  wire [1:0]s_axi_lite_bresp;
-  wire s_axi_lite_bvalid;
-  wire [31:0]s_axi_lite_rdata;
-  wire s_axi_lite_rready;
-  wire [1:0]s_axi_lite_rresp;
-  wire s_axi_lite_rvalid;
-  wire [31:0]s_axi_lite_wdata;
-  wire s_axi_lite_wready;
-  wire s_axi_lite_wvalid;
-  wire NLW_U0_m_axi_s2mm_awvalid_UNCONNECTED;
-  wire NLW_U0_m_axi_s2mm_bready_UNCONNECTED;
-  wire NLW_U0_m_axi_s2mm_wlast_UNCONNECTED;
-  wire NLW_U0_m_axi_s2mm_wvalid_UNCONNECTED;
-  wire NLW_U0_m_axi_sg_arvalid_UNCONNECTED;
-  wire NLW_U0_m_axi_sg_rready_UNCONNECTED;
-  wire NLW_U0_mm2s_buffer_almost_empty_UNCONNECTED;
-  wire NLW_U0_mm2s_buffer_empty_UNCONNECTED;
-  wire NLW_U0_mm2s_fsync_out_UNCONNECTED;
-  wire NLW_U0_mm2s_prmry_reset_out_n_UNCONNECTED;
-  wire NLW_U0_mm2s_prmtr_update_UNCONNECTED;
-  wire NLW_U0_s2mm_buffer_almost_full_UNCONNECTED;
-  wire NLW_U0_s2mm_buffer_full_UNCONNECTED;
-  wire NLW_U0_s2mm_fsync_out_UNCONNECTED;
-  wire NLW_U0_s2mm_introut_UNCONNECTED;
-  wire NLW_U0_s2mm_prmry_reset_out_n_UNCONNECTED;
-  wire NLW_U0_s2mm_prmtr_update_UNCONNECTED;
-  wire NLW_U0_s_axis_s2mm_tready_UNCONNECTED;
-  wire [63:0]NLW_U0_axi_vdma_tstvec_UNCONNECTED;
-  wire [31:0]NLW_U0_m_axi_s2mm_awaddr_UNCONNECTED;
-  wire [1:0]NLW_U0_m_axi_s2mm_awburst_UNCONNECTED;
-  wire [3:0]NLW_U0_m_axi_s2mm_awcache_UNCONNECTED;
-  wire [7:0]NLW_U0_m_axi_s2mm_awlen_UNCONNECTED;
-  wire [2:0]NLW_U0_m_axi_s2mm_awprot_UNCONNECTED;
-  wire [2:0]NLW_U0_m_axi_s2mm_awsize_UNCONNECTED;
-  wire [63:0]NLW_U0_m_axi_s2mm_wdata_UNCONNECTED;
-  wire [7:0]NLW_U0_m_axi_s2mm_wstrb_UNCONNECTED;
-  wire [31:0]NLW_U0_m_axi_sg_araddr_UNCONNECTED;
-  wire [1:0]NLW_U0_m_axi_sg_arburst_UNCONNECTED;
-  wire [3:0]NLW_U0_m_axi_sg_arcache_UNCONNECTED;
-  wire [7:0]NLW_U0_m_axi_sg_arlen_UNCONNECTED;
-  wire [2:0]NLW_U0_m_axi_sg_arprot_UNCONNECTED;
-  wire [2:0]NLW_U0_m_axi_sg_arsize_UNCONNECTED;
-  wire [5:0]NLW_U0_s2mm_frame_ptr_out_UNCONNECTED;
-
-  (* C_DLYTMR_RESOLUTION = "125" *) 
-  (* C_DYNAMIC_RESOLUTION = "1" *) 
-  (* C_ENABLE_DEBUG_ALL = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_0 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_1 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_10 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_11 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_12 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_13 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_14 = "1" *) 
-  (* C_ENABLE_DEBUG_INFO_15 = "1" *) 
-  (* C_ENABLE_DEBUG_INFO_2 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_3 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_4 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_5 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_6 = "1" *) 
-  (* C_ENABLE_DEBUG_INFO_7 = "1" *) 
-  (* C_ENABLE_DEBUG_INFO_8 = "0" *) 
-  (* C_ENABLE_DEBUG_INFO_9 = "0" *) 
-  (* C_ENABLE_VERT_FLIP = "0" *) 
-  (* C_ENABLE_VIDPRMTR_READS = "1" *) 
-  (* C_FAMILY = "zynq" *) 
-  (* C_FLUSH_ON_FSYNC = "1" *) 
-  (* C_INCLUDE_INTERNAL_GENLOCK = "1" *) 
-  (* C_INCLUDE_MM2S = "1" *) 
-  (* C_INCLUDE_MM2S_DRE = "1" *) 
-  (* C_INCLUDE_MM2S_SF = "0" *) 
-  (* C_INCLUDE_S2MM = "0" *) 
-  (* C_INCLUDE_S2MM_DRE = "0" *) 
-  (* C_INCLUDE_S2MM_SF = "1" *) 
-  (* C_INCLUDE_SG = "0" *) 
-  (* C_INSTANCE = "axi_vdma" *) 
-  (* C_MM2S_GENLOCK_MODE = "3" *) 
-  (* C_MM2S_GENLOCK_NUM_MASTERS = "1" *) 
-  (* C_MM2S_GENLOCK_REPEAT_EN = "0" *) 
-  (* C_MM2S_LINEBUFFER_DEPTH = "2048" *) 
-  (* C_MM2S_LINEBUFFER_THRESH = "4" *) 
-  (* C_MM2S_MAX_BURST_LENGTH = "32" *) 
-  (* C_MM2S_SOF_ENABLE = "1" *) 
-  (* C_M_AXIS_MM2S_TDATA_WIDTH = "24" *) 
-  (* C_M_AXIS_MM2S_TUSER_BITS = "1" *) 
-  (* C_M_AXI_MM2S_ADDR_WIDTH = "32" *) 
-  (* C_M_AXI_MM2S_DATA_WIDTH = "64" *) 
-  (* C_M_AXI_S2MM_ADDR_WIDTH = "32" *) 
-  (* C_M_AXI_S2MM_DATA_WIDTH = "64" *) 
-  (* C_M_AXI_SG_ADDR_WIDTH = "32" *) 
-  (* C_M_AXI_SG_DATA_WIDTH = "32" *) 
-  (* C_NUM_FSTORES = "1" *) 
-  (* C_PRMRY_IS_ACLK_ASYNC = "1" *) 
-  (* C_S2MM_GENLOCK_MODE = "0" *) 
-  (* C_S2MM_GENLOCK_NUM_MASTERS = "1" *) 
-  (* C_S2MM_GENLOCK_REPEAT_EN = "1" *) 
-  (* C_S2MM_LINEBUFFER_DEPTH = "512" *) 
-  (* C_S2MM_LINEBUFFER_THRESH = "4" *) 
-  (* C_S2MM_MAX_BURST_LENGTH = "8" *) 
-  (* C_S2MM_SOF_ENABLE = "1" *) 
-  (* C_SELECT_XPM = "0" *) 
-  (* C_S_AXIS_S2MM_TDATA_WIDTH = "32" *) 
-  (* C_S_AXIS_S2MM_TUSER_BITS = "1" *) 
-  (* C_S_AXI_LITE_ADDR_WIDTH = "9" *) 
-  (* C_S_AXI_LITE_DATA_WIDTH = "32" *) 
-  (* C_USE_FSYNC = "1" *) 
-  (* C_USE_MM2S_FSYNC = "0" *) 
-  (* C_USE_S2MM_FSYNC = "2" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  (* ip_group = "LOGICORE" *) 
-  (* iptype = "PERIPHERAL" *) 
-  (* run_ngcbuild = "TRUE" *) 
-  system_axi_vdma_1_0_axi_vdma U0
-       (.axi_resetn(axi_resetn),
-        .axi_vdma_tstvec(NLW_U0_axi_vdma_tstvec_UNCONNECTED[63:0]),
-        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
-        .m_axi_mm2s_araddr(m_axi_mm2s_araddr),
-        .m_axi_mm2s_arburst(m_axi_mm2s_arburst),
-        .m_axi_mm2s_arcache(m_axi_mm2s_arcache),
-        .m_axi_mm2s_arlen(m_axi_mm2s_arlen),
-        .m_axi_mm2s_arprot(m_axi_mm2s_arprot),
-        .m_axi_mm2s_arready(m_axi_mm2s_arready),
-        .m_axi_mm2s_arsize(m_axi_mm2s_arsize),
-        .m_axi_mm2s_arvalid(m_axi_mm2s_arvalid),
-        .m_axi_mm2s_rdata(m_axi_mm2s_rdata),
-        .m_axi_mm2s_rlast(m_axi_mm2s_rlast),
-        .m_axi_mm2s_rready(m_axi_mm2s_rready),
-        .m_axi_mm2s_rresp(m_axi_mm2s_rresp),
-        .m_axi_mm2s_rvalid(m_axi_mm2s_rvalid),
-        .m_axi_s2mm_aclk(1'b0),
-        .m_axi_s2mm_awaddr(NLW_U0_m_axi_s2mm_awaddr_UNCONNECTED[31:0]),
-        .m_axi_s2mm_awburst(NLW_U0_m_axi_s2mm_awburst_UNCONNECTED[1:0]),
-        .m_axi_s2mm_awcache(NLW_U0_m_axi_s2mm_awcache_UNCONNECTED[3:0]),
-        .m_axi_s2mm_awlen(NLW_U0_m_axi_s2mm_awlen_UNCONNECTED[7:0]),
-        .m_axi_s2mm_awprot(NLW_U0_m_axi_s2mm_awprot_UNCONNECTED[2:0]),
-        .m_axi_s2mm_awready(1'b0),
-        .m_axi_s2mm_awsize(NLW_U0_m_axi_s2mm_awsize_UNCONNECTED[2:0]),
-        .m_axi_s2mm_awvalid(NLW_U0_m_axi_s2mm_awvalid_UNCONNECTED),
-        .m_axi_s2mm_bready(NLW_U0_m_axi_s2mm_bready_UNCONNECTED),
-        .m_axi_s2mm_bresp({1'b0,1'b0}),
-        .m_axi_s2mm_bvalid(1'b0),
-        .m_axi_s2mm_wdata(NLW_U0_m_axi_s2mm_wdata_UNCONNECTED[63:0]),
-        .m_axi_s2mm_wlast(NLW_U0_m_axi_s2mm_wlast_UNCONNECTED),
-        .m_axi_s2mm_wready(1'b0),
-        .m_axi_s2mm_wstrb(NLW_U0_m_axi_s2mm_wstrb_UNCONNECTED[7:0]),
-        .m_axi_s2mm_wvalid(NLW_U0_m_axi_s2mm_wvalid_UNCONNECTED),
-        .m_axi_sg_aclk(1'b0),
-        .m_axi_sg_araddr(NLW_U0_m_axi_sg_araddr_UNCONNECTED[31:0]),
-        .m_axi_sg_arburst(NLW_U0_m_axi_sg_arburst_UNCONNECTED[1:0]),
-        .m_axi_sg_arcache(NLW_U0_m_axi_sg_arcache_UNCONNECTED[3:0]),
-        .m_axi_sg_arlen(NLW_U0_m_axi_sg_arlen_UNCONNECTED[7:0]),
-        .m_axi_sg_arprot(NLW_U0_m_axi_sg_arprot_UNCONNECTED[2:0]),
-        .m_axi_sg_arready(1'b0),
-        .m_axi_sg_arsize(NLW_U0_m_axi_sg_arsize_UNCONNECTED[2:0]),
-        .m_axi_sg_arvalid(NLW_U0_m_axi_sg_arvalid_UNCONNECTED),
-        .m_axi_sg_rdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .m_axi_sg_rlast(1'b0),
-        .m_axi_sg_rready(NLW_U0_m_axi_sg_rready_UNCONNECTED),
-        .m_axi_sg_rresp({1'b0,1'b0}),
-        .m_axi_sg_rvalid(1'b0),
-        .m_axis_mm2s_aclk(m_axis_mm2s_aclk),
-        .m_axis_mm2s_tdata(m_axis_mm2s_tdata),
-        .m_axis_mm2s_tkeep(m_axis_mm2s_tkeep),
-        .m_axis_mm2s_tlast(m_axis_mm2s_tlast),
-        .m_axis_mm2s_tready(m_axis_mm2s_tready),
-        .m_axis_mm2s_tuser(m_axis_mm2s_tuser),
-        .m_axis_mm2s_tvalid(m_axis_mm2s_tvalid),
-        .mm2s_buffer_almost_empty(NLW_U0_mm2s_buffer_almost_empty_UNCONNECTED),
-        .mm2s_buffer_empty(NLW_U0_mm2s_buffer_empty_UNCONNECTED),
-        .mm2s_frame_ptr_in(mm2s_frame_ptr_in),
-        .mm2s_frame_ptr_out(mm2s_frame_ptr_out),
-        .mm2s_fsync(1'b0),
-        .mm2s_fsync_out(NLW_U0_mm2s_fsync_out_UNCONNECTED),
-        .mm2s_introut(mm2s_introut),
-        .mm2s_prmry_reset_out_n(NLW_U0_mm2s_prmry_reset_out_n_UNCONNECTED),
-        .mm2s_prmtr_update(NLW_U0_mm2s_prmtr_update_UNCONNECTED),
-        .s2mm_buffer_almost_full(NLW_U0_s2mm_buffer_almost_full_UNCONNECTED),
-        .s2mm_buffer_full(NLW_U0_s2mm_buffer_full_UNCONNECTED),
-        .s2mm_frame_ptr_in({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s2mm_frame_ptr_out(NLW_U0_s2mm_frame_ptr_out_UNCONNECTED[5:0]),
-        .s2mm_fsync(1'b0),
-        .s2mm_fsync_out(NLW_U0_s2mm_fsync_out_UNCONNECTED),
-        .s2mm_introut(NLW_U0_s2mm_introut_UNCONNECTED),
-        .s2mm_prmry_reset_out_n(NLW_U0_s2mm_prmry_reset_out_n_UNCONNECTED),
-        .s2mm_prmtr_update(NLW_U0_s2mm_prmtr_update_UNCONNECTED),
-        .s_axi_lite_aclk(s_axi_lite_aclk),
-        .s_axi_lite_araddr(s_axi_lite_araddr),
-        .s_axi_lite_arready(s_axi_lite_arready),
-        .s_axi_lite_arvalid(s_axi_lite_arvalid),
-        .s_axi_lite_awaddr(s_axi_lite_awaddr),
-        .s_axi_lite_awready(s_axi_lite_awready),
-        .s_axi_lite_awvalid(s_axi_lite_awvalid),
-        .s_axi_lite_bready(s_axi_lite_bready),
-        .s_axi_lite_bresp(s_axi_lite_bresp),
-        .s_axi_lite_bvalid(s_axi_lite_bvalid),
-        .s_axi_lite_rdata(s_axi_lite_rdata),
-        .s_axi_lite_rready(s_axi_lite_rready),
-        .s_axi_lite_rresp(s_axi_lite_rresp),
-        .s_axi_lite_rvalid(s_axi_lite_rvalid),
-        .s_axi_lite_wdata(s_axi_lite_wdata),
-        .s_axi_lite_wready(s_axi_lite_wready),
-        .s_axi_lite_wvalid(s_axi_lite_wvalid),
-        .s_axis_s2mm_aclk(1'b0),
-        .s_axis_s2mm_tdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .s_axis_s2mm_tkeep({1'b1,1'b1,1'b1,1'b1}),
-        .s_axis_s2mm_tlast(1'b0),
-        .s_axis_s2mm_tready(NLW_U0_s_axis_s2mm_tready_UNCONNECTED),
-        .s_axis_s2mm_tuser(1'b0),
-        .s_axis_s2mm_tvalid(1'b0));
-endmodule
-
-(* ORIG_REF_NAME = "axi_datamover" *) 
 module system_axi_vdma_1_0_axi_datamover
    (m_axi_mm2s_arburst,
     m_axi_mm2s_arvalid,
@@ -503,7 +170,6 @@ module system_axi_vdma_1_0_axi_datamover
         .wr_tmp(wr_tmp));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_addr_cntl" *) 
 module system_axi_vdma_1_0_axi_datamover_addr_cntl
    (out,
     \sig_addr_posted_cntr_reg[2] ,
@@ -1011,7 +677,6 @@ module system_axi_vdma_1_0_axi_datamover_addr_cntl
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_cmd_status" *) 
 module system_axi_vdma_1_0_axi_datamover_cmd_status
    (\INFERRED_GEN.cnt_i_reg[1] ,
     sig_init_done,
@@ -1145,7 +810,6 @@ module system_axi_vdma_1_0_axi_datamover_cmd_status
         .sig_sm_halt_reg(sig_sm_halt_reg));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_fifo" *) 
 module system_axi_vdma_1_0_axi_datamover_fifo
    (sig_init_done,
     Q,
@@ -1803,7 +1467,6 @@ module system_axi_vdma_1_0_axi_datamover_fifo__parameterized3
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_mm2s_dre" *) 
 module system_axi_vdma_1_0_axi_datamover_mm2s_dre
    (sig_enable_input_rdy,
     dm2linebuf_mm2s_tvalid,
@@ -3483,7 +3146,6 @@ module system_axi_vdma_1_0_axi_datamover_mm2s_dre
         .O(\GEN_MUXFARM_32.sig_shift_case_reg_reg[0]_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_mm2s_full_wrap" *) 
 module system_axi_vdma_1_0_axi_datamover_mm2s_full_wrap
    (m_axi_mm2s_arburst,
     m_axi_mm2s_arvalid,
@@ -3910,7 +3572,6 @@ module system_axi_vdma_1_0_axi_datamover_mm2s_full_wrap
         .sig_rst2all_stop_request(sig_rst2all_stop_request));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_pcc" *) 
 module system_axi_vdma_1_0_axi_datamover_pcc
    (sig_init_reg,
     in,
@@ -7921,7 +7582,6 @@ module system_axi_vdma_1_0_axi_datamover_pcc
         .S(\sig_strbgen_bytes_ireg2_reg_n_0_[2] ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_rd_sf" *) 
 module system_axi_vdma_1_0_axi_datamover_rd_sf
    (full,
     empty,
@@ -8271,7 +7931,6 @@ module system_axi_vdma_1_0_axi_datamover_rd_sf
         .S(SR));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_rd_status_cntl" *) 
 module system_axi_vdma_1_0_axi_datamover_rd_status_cntl
    (sig_rsc2stat_status_valid,
     sig_rsc2data_ready,
@@ -8351,7 +8010,6 @@ module system_axi_vdma_1_0_axi_datamover_rd_status_cntl
         .R(sig_inhibit_rdy_n_reg));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_rddata_cntl" *) 
 module system_axi_vdma_1_0_axi_datamover_rddata_cntl
    (\sig_addr_posted_cntr_reg[2]_0 ,
     sig_data2addr_stop_req,
@@ -9193,7 +8851,6 @@ module system_axi_vdma_1_0_axi_datamover_rddata_cntl
         .O(din[4]));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_reset" *) 
 module system_axi_vdma_1_0_axi_datamover_reset
    (sig_cmd_stat_rst_user_reg_n_cdc_from_reg,
     mm2s_halt_cmplt,
@@ -9284,7 +8941,6 @@ module system_axi_vdma_1_0_axi_datamover_reset
         .O(SR));
 endmodule
 
-(* ORIG_REF_NAME = "axi_datamover_sfifo_autord" *) 
 module system_axi_vdma_1_0_axi_datamover_sfifo_autord
    (full,
     dout,
@@ -9472,8 +9128,8 @@ endmodule
 (* C_S2MM_MAX_BURST_LENGTH = "8" *) (* C_S2MM_SOF_ENABLE = "1" *) (* C_SELECT_XPM = "0" *) 
 (* C_S_AXIS_S2MM_TDATA_WIDTH = "32" *) (* C_S_AXIS_S2MM_TUSER_BITS = "1" *) (* C_S_AXI_LITE_ADDR_WIDTH = "9" *) 
 (* C_S_AXI_LITE_DATA_WIDTH = "32" *) (* C_USE_FSYNC = "1" *) (* C_USE_MM2S_FSYNC = "0" *) 
-(* C_USE_S2MM_FSYNC = "2" *) (* ORIG_REF_NAME = "axi_vdma" *) (* downgradeipidentifiedwarnings = "yes" *) 
-(* ip_group = "LOGICORE" *) (* iptype = "PERIPHERAL" *) (* run_ngcbuild = "TRUE" *) 
+(* C_USE_S2MM_FSYNC = "2" *) (* downgradeipidentifiedwarnings = "yes" *) (* ip_group = "LOGICORE" *) 
+(* iptype = "PERIPHERAL" *) (* run_ngcbuild = "TRUE" *) 
 module system_axi_vdma_1_0_axi_vdma
    (s_axi_lite_aclk,
     m_axi_sg_aclk,
@@ -10592,7 +10248,6 @@ module system_axi_vdma_1_0_axi_vdma
        (.P(\<const1> ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_afifo_builtin" *) 
 module system_axi_vdma_1_0_axi_vdma_afifo_builtin
    (WR_EN,
     \GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] ,
@@ -10655,7 +10310,6 @@ module system_axi_vdma_1_0_axi_vdma_afifo_builtin
         .sig_s_ready_out_reg(sig_s_ready_out_reg));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_cmdsts_if" *) 
 module system_axi_vdma_1_0_axi_vdma_cmdsts_if
    (\cmnds_queued_reg[7] ,
     err_i_reg_0,
@@ -11137,7 +10791,6 @@ module system_axi_vdma_1_0_axi_vdma_cmdsts_if
         .O(dmacntrl_ns12_out));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_fsync_gen" *) 
 module system_axi_vdma_1_0_axi_vdma_fsync_gen
    (p_27_out,
     mask_fsync_out_i,
@@ -11251,7 +10904,6 @@ module system_axi_vdma_1_0_axi_vdma_fsync_gen
         .O(\GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.GEN_CH1_FAST_COUNTER.ch1_dly_fast_cnt_reg[6] ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_genlock_mngr" *) 
 module system_axi_vdma_1_0_axi_vdma_genlock_mngr
    (p_48_out,
     in0,
@@ -11354,7 +11006,6 @@ module system_axi_vdma_1_0_axi_vdma_genlock_mngr
         .O(\DYNAMIC_GENLOCK_FOR_SLAVE.mstr_reverse_order_reg_0 ));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_intrpt" *) 
 module system_axi_vdma_1_0_axi_vdma_intrpt
    (E,
     mm2s_dly_irq_set,
@@ -11957,7 +11608,6 @@ module system_axi_vdma_1_0_axi_vdma_intrpt
         .R(p_0_in));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_lite_if" *) 
 module system_axi_vdma_1_0_axi_vdma_lite_if
    (D,
     out,
@@ -15351,7 +15001,6 @@ module system_axi_vdma_1_0_axi_vdma_lite_if
         .R(SR));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_mm2s_axis_dwidth_converter" *) 
 module system_axi_vdma_1_0_axi_vdma_mm2s_axis_dwidth_converter
    (p_85_out,
     s_valid0,
@@ -15886,7 +15535,6 @@ module system_axi_vdma_1_0_axi_vdma_mm2s_axis_dwidth_converter
         .O(minusOp_carry_i_4__1_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_mm2s_linebuf" *) 
 module system_axi_vdma_1_0_axi_vdma_mm2s_linebuf
    (out,
     \GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.m_axis_tvalid_d1_reg_0 ,
@@ -16983,7 +16631,6 @@ module system_axi_vdma_1_0_axi_vdma_mm2s_linebuf
         .O(minusOp_carry_i_4__0_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_mngr" *) 
 module system_axi_vdma_1_0_axi_vdma_mngr
    (cmnd_wr,
     p_61_out,
@@ -17558,7 +17205,6 @@ module system_axi_vdma_1_0_axi_vdma_mngr
         .R(p_0_in));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_reg_if" *) 
 module system_axi_vdma_1_0_axi_vdma_reg_if
    (D,
     out,
@@ -18272,7 +17918,6 @@ module system_axi_vdma_1_0_axi_vdma_reg_if
         .O(s2mm_ip2axi_frame_store_cdc_tig[0]));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_reg_module" *) 
 module system_axi_vdma_1_0_axi_vdma_reg_module
    (out,
     \GEN_INCLUDE_MM2S.GEN_CH1_DELAY_INTERRUPT.ch1_delay_count_reg[0] ,
@@ -18690,7 +18335,6 @@ module system_axi_vdma_1_0_axi_vdma_reg_module
         .R(p_0_in));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_reg_mux" *) 
 module system_axi_vdma_1_0_axi_vdma_reg_mux
    (out,
     in0);
@@ -18703,7 +18347,6 @@ module system_axi_vdma_1_0_axi_vdma_reg_mux
   assign out[31:0] = ip2axi_rddata_int;
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_regdirect" *) 
 module system_axi_vdma_1_0_axi_vdma_regdirect
    (p_67_out,
     p_68_out,
@@ -19462,7 +19105,6 @@ module system_axi_vdma_1_0_axi_vdma_regdirect
         .R(p_0_in));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_register" *) 
 module system_axi_vdma_1_0_axi_vdma_register
    (run_stop_d1_reg,
     \DYNAMIC_SLAVE_MODE_FRAME_CNT.frame_number_i_reg[0] ,
@@ -20404,7 +20046,6 @@ module system_axi_vdma_1_0_axi_vdma_register
         .O(stop_i));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_reset" *) 
 module system_axi_vdma_1_0_axi_vdma_reset
    (soft_reset_d1,
     in0,
@@ -21044,7 +20685,6 @@ module system_axi_vdma_1_0_axi_vdma_reset
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_rst_module" *) 
 module system_axi_vdma_1_0_axi_vdma_rst_module
    (out,
     sig_cmd_stat_rst_user_reg_n_cdc_from_reg__0,
@@ -21247,7 +20887,6 @@ module system_axi_vdma_1_0_axi_vdma_rst_module
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_skid_buf" *) 
 module system_axi_vdma_1_0_axi_vdma_skid_buf
    (out,
     \sig_data_skid_reg_reg[15]_0 ,
@@ -22280,7 +21919,6 @@ module system_axi_vdma_1_0_axi_vdma_skid_buf
         .R(SR));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_sm" *) 
 module system_axi_vdma_1_0_axi_vdma_sm
    (tstvect_fsync_d2,
     frame_sync_reg,
@@ -24372,7 +24010,6 @@ module system_axi_vdma_1_0_axi_vdma_sm
         .R(p_0_in));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_sof_gen" *) 
 module system_axi_vdma_1_0_axi_vdma_sof_gen
    (prmry_in_xored,
     scndry_reset2,
@@ -24444,7 +24081,6 @@ module system_axi_vdma_1_0_axi_vdma_sof_gen
         .R(scndry_reset2));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_sts_mngr" *) 
 module system_axi_vdma_1_0_axi_vdma_sts_mngr
    (p_40_out,
     datamover_idle,
@@ -24521,7 +24157,6 @@ module system_axi_vdma_1_0_axi_vdma_sts_mngr
         .R(p_0_in));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axis_dwidth_converter" *) 
 module system_axi_vdma_1_0_axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axis_dwidth_converter
    (E,
     s_valid0,
@@ -24709,7 +24344,6 @@ module system_axi_vdma_1_0_axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axis_dwidt
         .sig_m_valid_dup_reg(sig_m_valid_dup_reg));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axisc_downsizer" *) 
 module system_axi_vdma_1_0_axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axisc_downsizer
    (s_valid0,
     m_axis_mm2s_tvalid,
@@ -26503,7 +26137,6 @@ module system_axi_vdma_1_0_axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axisc_down
         .R(areset_r));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axisc_upsizer" *) 
 module system_axi_vdma_1_0_axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axisc_upsizer
    (\r0_user_reg[0]_0 ,
     acc_user_reg,
@@ -27823,7 +27456,6 @@ module system_axi_vdma_1_0_axi_vdma_v6_3_3_axis_dwidth_converter_v1_0_axisc_upsi
         .R(areset_r));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_vid_cdc" *) 
 module system_axi_vdma_1_0_axi_vdma_vid_cdc
    (p_in_d1_cdc_from,
     p_21_out,
@@ -28252,7 +27884,6 @@ module system_axi_vdma_1_0_axi_vdma_vid_cdc
         .O(othrchnl_frame_ptr_in_d1_cdc_tig[1]));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_vidreg_module" *) 
 module system_axi_vdma_1_0_axi_vdma_vidreg_module
    (\GEN_START_ADDR_REG[0].start_address_vid_reg[0][0] ,
     \GEN_START_ADDR_REG[0].start_address_vid_reg[0][0]_0 ,
@@ -28399,7 +28030,6 @@ module system_axi_vdma_1_0_axi_vdma_vidreg_module
         .O(all_idle_reg));
 endmodule
 
-(* ORIG_REF_NAME = "axi_vdma_vregister" *) 
 module system_axi_vdma_1_0_axi_vdma_vregister
    (zero_vsize_err0,
     Q,
@@ -29299,7 +28929,6 @@ module system_axi_vdma_1_0_axi_vdma_vregister
         .O(zero_vsize_err_i_3_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "cdc_sync" *) 
 module system_axi_vdma_1_0_cdc_sync
    (p_1_out,
     SR,
@@ -31754,7 +31383,6 @@ module system_axi_vdma_1_0_cdc_sync__parameterized3_16
         .R(scndry_reset2));
 endmodule
 
-(* ORIG_REF_NAME = "cntr_incr_decr_addn_f" *) 
 module system_axi_vdma_1_0_cntr_incr_decr_addn_f
    (sig_first_dbeat_reg,
     Q,
@@ -32533,7 +32161,6 @@ module system_axi_vdma_1_0_cntr_incr_decr_addn_f_9
         .S(SR));
 endmodule
 
-(* ORIG_REF_NAME = "dynshreg_f" *) 
 module system_axi_vdma_1_0_dynshreg_f
    (out,
     sig_calc_error_reg_reg,
@@ -34510,7 +34137,6 @@ module system_axi_vdma_1_0_dynshreg_f__parameterized3
         .O(FIFO_Full_reg));
 endmodule
 
-(* ORIG_REF_NAME = "srl_fifo_f" *) 
 module system_axi_vdma_1_0_srl_fifo_f
    (Q,
     s_axis_cmd_tvalid_reg,
@@ -34953,7 +34579,6 @@ module system_axi_vdma_1_0_srl_fifo_f__parameterized3
         .sig_mstr2sf_cmd_valid(sig_mstr2sf_cmd_valid));
 endmodule
 
-(* ORIG_REF_NAME = "srl_fifo_rbu_f" *) 
 module system_axi_vdma_1_0_srl_fifo_rbu_f
    (Q,
     s_axis_cmd_tvalid_reg,
@@ -35511,7 +35136,6 @@ module system_axi_vdma_1_0_srl_fifo_rbu_f__parameterized3
         .R(SR));
 endmodule
 
-(* ORIG_REF_NAME = "sync_fifo_fg" *) 
 module system_axi_vdma_1_0_sync_fifo_fg
    (full,
     dout,
@@ -35676,6 +35300,338 @@ module system_axi_vdma_1_0_sync_fifo_fg
         .sig_ok_to_post_rd_addr_reg(sig_ok_to_post_rd_addr_reg),
         .\sig_token_cntr_reg[3] (\sig_token_cntr_reg[3] ),
         .wr_en(wr_en));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_axi_vdma_1_0,axi_vdma,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_vdma,Vivado 2017.4" *) 
+(* NotValidForBitStream *)
+module system_axi_vdma_1_0
+   (s_axi_lite_aclk,
+    m_axi_mm2s_aclk,
+    m_axis_mm2s_aclk,
+    axi_resetn,
+    s_axi_lite_awvalid,
+    s_axi_lite_awready,
+    s_axi_lite_awaddr,
+    s_axi_lite_wvalid,
+    s_axi_lite_wready,
+    s_axi_lite_wdata,
+    s_axi_lite_bresp,
+    s_axi_lite_bvalid,
+    s_axi_lite_bready,
+    s_axi_lite_arvalid,
+    s_axi_lite_arready,
+    s_axi_lite_araddr,
+    s_axi_lite_rvalid,
+    s_axi_lite_rready,
+    s_axi_lite_rdata,
+    s_axi_lite_rresp,
+    mm2s_frame_ptr_in,
+    mm2s_frame_ptr_out,
+    m_axi_mm2s_araddr,
+    m_axi_mm2s_arlen,
+    m_axi_mm2s_arsize,
+    m_axi_mm2s_arburst,
+    m_axi_mm2s_arprot,
+    m_axi_mm2s_arcache,
+    m_axi_mm2s_arvalid,
+    m_axi_mm2s_arready,
+    m_axi_mm2s_rdata,
+    m_axi_mm2s_rresp,
+    m_axi_mm2s_rlast,
+    m_axi_mm2s_rvalid,
+    m_axi_mm2s_rready,
+    m_axis_mm2s_tdata,
+    m_axis_mm2s_tkeep,
+    m_axis_mm2s_tuser,
+    m_axis_mm2s_tvalid,
+    m_axis_mm2s_tready,
+    m_axis_mm2s_tlast,
+    mm2s_introut);
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_LITE_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_LITE_ACLK, ASSOCIATED_BUSIF S_AXI_LITE:M_AXI, ASSOCIATED_RESET axi_resetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0" *) input s_axi_lite_aclk;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 M_AXI_MM2S_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME M_AXI_MM2S_ACLK, ASSOCIATED_BUSIF M_AXI_MM2S, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1" *) input m_axi_mm2s_aclk;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 M_AXIS_MM2S_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME M_AXIS_MM2S_ACLK, ASSOCIATED_BUSIF M_AXIS_MM2S, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1" *) input m_axis_mm2s_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 AXI_RESETN RST" *) (* x_interface_parameter = "XIL_INTERFACENAME AXI_RESETN, POLARITY ACTIVE_LOW" *) input axi_resetn;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWVALID" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_LITE, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 0, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) input s_axi_lite_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWREADY" *) output s_axi_lite_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE AWADDR" *) input [8:0]s_axi_lite_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE WVALID" *) input s_axi_lite_wvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE WREADY" *) output s_axi_lite_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE WDATA" *) input [31:0]s_axi_lite_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE BRESP" *) output [1:0]s_axi_lite_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE BVALID" *) output s_axi_lite_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE BREADY" *) input s_axi_lite_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARVALID" *) input s_axi_lite_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARREADY" *) output s_axi_lite_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE ARADDR" *) input [8:0]s_axi_lite_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE RVALID" *) output s_axi_lite_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE RREADY" *) input s_axi_lite_rready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE RDATA" *) output [31:0]s_axi_lite_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI_LITE RRESP" *) output [1:0]s_axi_lite_rresp;
+  (* x_interface_info = "xilinx.com:signal:video_frame_ptr:1.0 MM2S_FRAME_PTR_IN_0 FRAME_PTR" *) input [5:0]mm2s_frame_ptr_in;
+  (* x_interface_info = "xilinx.com:signal:video_frame_ptr:1.0 MM2S_FRAME_PTR_OUT FRAME_PTR" *) output [5:0]mm2s_frame_ptr_out;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME M_AXI_MM2S, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, DATA_WIDTH 64, PROTOCOL AXI4, FREQ_HZ 133333344, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_ONLY, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 0, HAS_BRESP 0, HAS_RRESP 1, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 32, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0" *) output [31:0]m_axi_mm2s_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARLEN" *) output [7:0]m_axi_mm2s_arlen;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARSIZE" *) output [2:0]m_axi_mm2s_arsize;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARBURST" *) output [1:0]m_axi_mm2s_arburst;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARPROT" *) output [2:0]m_axi_mm2s_arprot;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARCACHE" *) output [3:0]m_axi_mm2s_arcache;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARVALID" *) output m_axi_mm2s_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S ARREADY" *) input m_axi_mm2s_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RDATA" *) input [63:0]m_axi_mm2s_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RRESP" *) input [1:0]m_axi_mm2s_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RLAST" *) input m_axi_mm2s_rlast;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RVALID" *) input m_axi_mm2s_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 M_AXI_MM2S RREADY" *) output m_axi_mm2s_rready;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TDATA" *) (* x_interface_parameter = "XIL_INTERFACENAME M_AXIS_MM2S, TDATA_NUM_BYTES 3, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 133333344, PHASE 0.000, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK1, LAYERED_METADATA undef" *) output [23:0]m_axis_mm2s_tdata;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TKEEP" *) output [2:0]m_axis_mm2s_tkeep;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TUSER" *) output [0:0]m_axis_mm2s_tuser;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TVALID" *) output m_axis_mm2s_tvalid;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TREADY" *) input m_axis_mm2s_tready;
+  (* x_interface_info = "xilinx.com:interface:axis:1.0 M_AXIS_MM2S TLAST" *) output m_axis_mm2s_tlast;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 MM2S_INTROUT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME MM2S_INTROUT, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) output mm2s_introut;
+
+  wire axi_resetn;
+  wire m_axi_mm2s_aclk;
+  wire [31:0]m_axi_mm2s_araddr;
+  wire [1:0]m_axi_mm2s_arburst;
+  wire [3:0]m_axi_mm2s_arcache;
+  wire [7:0]m_axi_mm2s_arlen;
+  wire [2:0]m_axi_mm2s_arprot;
+  wire m_axi_mm2s_arready;
+  wire [2:0]m_axi_mm2s_arsize;
+  wire m_axi_mm2s_arvalid;
+  wire [63:0]m_axi_mm2s_rdata;
+  wire m_axi_mm2s_rlast;
+  wire m_axi_mm2s_rready;
+  wire [1:0]m_axi_mm2s_rresp;
+  wire m_axi_mm2s_rvalid;
+  wire m_axis_mm2s_aclk;
+  wire [23:0]m_axis_mm2s_tdata;
+  wire [2:0]m_axis_mm2s_tkeep;
+  wire m_axis_mm2s_tlast;
+  wire m_axis_mm2s_tready;
+  wire [0:0]m_axis_mm2s_tuser;
+  wire m_axis_mm2s_tvalid;
+  wire [5:0]mm2s_frame_ptr_in;
+  wire [5:0]mm2s_frame_ptr_out;
+  wire mm2s_introut;
+  wire s_axi_lite_aclk;
+  wire [8:0]s_axi_lite_araddr;
+  wire s_axi_lite_arready;
+  wire s_axi_lite_arvalid;
+  wire [8:0]s_axi_lite_awaddr;
+  wire s_axi_lite_awready;
+  wire s_axi_lite_awvalid;
+  wire s_axi_lite_bready;
+  wire [1:0]s_axi_lite_bresp;
+  wire s_axi_lite_bvalid;
+  wire [31:0]s_axi_lite_rdata;
+  wire s_axi_lite_rready;
+  wire [1:0]s_axi_lite_rresp;
+  wire s_axi_lite_rvalid;
+  wire [31:0]s_axi_lite_wdata;
+  wire s_axi_lite_wready;
+  wire s_axi_lite_wvalid;
+  wire NLW_U0_m_axi_s2mm_awvalid_UNCONNECTED;
+  wire NLW_U0_m_axi_s2mm_bready_UNCONNECTED;
+  wire NLW_U0_m_axi_s2mm_wlast_UNCONNECTED;
+  wire NLW_U0_m_axi_s2mm_wvalid_UNCONNECTED;
+  wire NLW_U0_m_axi_sg_arvalid_UNCONNECTED;
+  wire NLW_U0_m_axi_sg_rready_UNCONNECTED;
+  wire NLW_U0_mm2s_buffer_almost_empty_UNCONNECTED;
+  wire NLW_U0_mm2s_buffer_empty_UNCONNECTED;
+  wire NLW_U0_mm2s_fsync_out_UNCONNECTED;
+  wire NLW_U0_mm2s_prmry_reset_out_n_UNCONNECTED;
+  wire NLW_U0_mm2s_prmtr_update_UNCONNECTED;
+  wire NLW_U0_s2mm_buffer_almost_full_UNCONNECTED;
+  wire NLW_U0_s2mm_buffer_full_UNCONNECTED;
+  wire NLW_U0_s2mm_fsync_out_UNCONNECTED;
+  wire NLW_U0_s2mm_introut_UNCONNECTED;
+  wire NLW_U0_s2mm_prmry_reset_out_n_UNCONNECTED;
+  wire NLW_U0_s2mm_prmtr_update_UNCONNECTED;
+  wire NLW_U0_s_axis_s2mm_tready_UNCONNECTED;
+  wire [63:0]NLW_U0_axi_vdma_tstvec_UNCONNECTED;
+  wire [31:0]NLW_U0_m_axi_s2mm_awaddr_UNCONNECTED;
+  wire [1:0]NLW_U0_m_axi_s2mm_awburst_UNCONNECTED;
+  wire [3:0]NLW_U0_m_axi_s2mm_awcache_UNCONNECTED;
+  wire [7:0]NLW_U0_m_axi_s2mm_awlen_UNCONNECTED;
+  wire [2:0]NLW_U0_m_axi_s2mm_awprot_UNCONNECTED;
+  wire [2:0]NLW_U0_m_axi_s2mm_awsize_UNCONNECTED;
+  wire [63:0]NLW_U0_m_axi_s2mm_wdata_UNCONNECTED;
+  wire [7:0]NLW_U0_m_axi_s2mm_wstrb_UNCONNECTED;
+  wire [31:0]NLW_U0_m_axi_sg_araddr_UNCONNECTED;
+  wire [1:0]NLW_U0_m_axi_sg_arburst_UNCONNECTED;
+  wire [3:0]NLW_U0_m_axi_sg_arcache_UNCONNECTED;
+  wire [7:0]NLW_U0_m_axi_sg_arlen_UNCONNECTED;
+  wire [2:0]NLW_U0_m_axi_sg_arprot_UNCONNECTED;
+  wire [2:0]NLW_U0_m_axi_sg_arsize_UNCONNECTED;
+  wire [5:0]NLW_U0_s2mm_frame_ptr_out_UNCONNECTED;
+
+  (* C_DLYTMR_RESOLUTION = "125" *) 
+  (* C_DYNAMIC_RESOLUTION = "1" *) 
+  (* C_ENABLE_DEBUG_ALL = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_0 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_1 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_10 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_11 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_12 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_13 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_14 = "1" *) 
+  (* C_ENABLE_DEBUG_INFO_15 = "1" *) 
+  (* C_ENABLE_DEBUG_INFO_2 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_3 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_4 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_5 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_6 = "1" *) 
+  (* C_ENABLE_DEBUG_INFO_7 = "1" *) 
+  (* C_ENABLE_DEBUG_INFO_8 = "0" *) 
+  (* C_ENABLE_DEBUG_INFO_9 = "0" *) 
+  (* C_ENABLE_VERT_FLIP = "0" *) 
+  (* C_ENABLE_VIDPRMTR_READS = "1" *) 
+  (* C_FAMILY = "zynq" *) 
+  (* C_FLUSH_ON_FSYNC = "1" *) 
+  (* C_INCLUDE_INTERNAL_GENLOCK = "1" *) 
+  (* C_INCLUDE_MM2S = "1" *) 
+  (* C_INCLUDE_MM2S_DRE = "1" *) 
+  (* C_INCLUDE_MM2S_SF = "0" *) 
+  (* C_INCLUDE_S2MM = "0" *) 
+  (* C_INCLUDE_S2MM_DRE = "0" *) 
+  (* C_INCLUDE_S2MM_SF = "1" *) 
+  (* C_INCLUDE_SG = "0" *) 
+  (* C_INSTANCE = "axi_vdma" *) 
+  (* C_MM2S_GENLOCK_MODE = "3" *) 
+  (* C_MM2S_GENLOCK_NUM_MASTERS = "1" *) 
+  (* C_MM2S_GENLOCK_REPEAT_EN = "0" *) 
+  (* C_MM2S_LINEBUFFER_DEPTH = "2048" *) 
+  (* C_MM2S_LINEBUFFER_THRESH = "4" *) 
+  (* C_MM2S_MAX_BURST_LENGTH = "32" *) 
+  (* C_MM2S_SOF_ENABLE = "1" *) 
+  (* C_M_AXIS_MM2S_TDATA_WIDTH = "24" *) 
+  (* C_M_AXIS_MM2S_TUSER_BITS = "1" *) 
+  (* C_M_AXI_MM2S_ADDR_WIDTH = "32" *) 
+  (* C_M_AXI_MM2S_DATA_WIDTH = "64" *) 
+  (* C_M_AXI_S2MM_ADDR_WIDTH = "32" *) 
+  (* C_M_AXI_S2MM_DATA_WIDTH = "64" *) 
+  (* C_M_AXI_SG_ADDR_WIDTH = "32" *) 
+  (* C_M_AXI_SG_DATA_WIDTH = "32" *) 
+  (* C_NUM_FSTORES = "1" *) 
+  (* C_PRMRY_IS_ACLK_ASYNC = "1" *) 
+  (* C_S2MM_GENLOCK_MODE = "0" *) 
+  (* C_S2MM_GENLOCK_NUM_MASTERS = "1" *) 
+  (* C_S2MM_GENLOCK_REPEAT_EN = "1" *) 
+  (* C_S2MM_LINEBUFFER_DEPTH = "512" *) 
+  (* C_S2MM_LINEBUFFER_THRESH = "4" *) 
+  (* C_S2MM_MAX_BURST_LENGTH = "8" *) 
+  (* C_S2MM_SOF_ENABLE = "1" *) 
+  (* C_SELECT_XPM = "0" *) 
+  (* C_S_AXIS_S2MM_TDATA_WIDTH = "32" *) 
+  (* C_S_AXIS_S2MM_TUSER_BITS = "1" *) 
+  (* C_S_AXI_LITE_ADDR_WIDTH = "9" *) 
+  (* C_S_AXI_LITE_DATA_WIDTH = "32" *) 
+  (* C_USE_FSYNC = "1" *) 
+  (* C_USE_MM2S_FSYNC = "0" *) 
+  (* C_USE_S2MM_FSYNC = "2" *) 
+  (* downgradeipidentifiedwarnings = "yes" *) 
+  (* ip_group = "LOGICORE" *) 
+  (* iptype = "PERIPHERAL" *) 
+  (* run_ngcbuild = "TRUE" *) 
+  system_axi_vdma_1_0_axi_vdma U0
+       (.axi_resetn(axi_resetn),
+        .axi_vdma_tstvec(NLW_U0_axi_vdma_tstvec_UNCONNECTED[63:0]),
+        .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
+        .m_axi_mm2s_araddr(m_axi_mm2s_araddr),
+        .m_axi_mm2s_arburst(m_axi_mm2s_arburst),
+        .m_axi_mm2s_arcache(m_axi_mm2s_arcache),
+        .m_axi_mm2s_arlen(m_axi_mm2s_arlen),
+        .m_axi_mm2s_arprot(m_axi_mm2s_arprot),
+        .m_axi_mm2s_arready(m_axi_mm2s_arready),
+        .m_axi_mm2s_arsize(m_axi_mm2s_arsize),
+        .m_axi_mm2s_arvalid(m_axi_mm2s_arvalid),
+        .m_axi_mm2s_rdata(m_axi_mm2s_rdata),
+        .m_axi_mm2s_rlast(m_axi_mm2s_rlast),
+        .m_axi_mm2s_rready(m_axi_mm2s_rready),
+        .m_axi_mm2s_rresp(m_axi_mm2s_rresp),
+        .m_axi_mm2s_rvalid(m_axi_mm2s_rvalid),
+        .m_axi_s2mm_aclk(1'b0),
+        .m_axi_s2mm_awaddr(NLW_U0_m_axi_s2mm_awaddr_UNCONNECTED[31:0]),
+        .m_axi_s2mm_awburst(NLW_U0_m_axi_s2mm_awburst_UNCONNECTED[1:0]),
+        .m_axi_s2mm_awcache(NLW_U0_m_axi_s2mm_awcache_UNCONNECTED[3:0]),
+        .m_axi_s2mm_awlen(NLW_U0_m_axi_s2mm_awlen_UNCONNECTED[7:0]),
+        .m_axi_s2mm_awprot(NLW_U0_m_axi_s2mm_awprot_UNCONNECTED[2:0]),
+        .m_axi_s2mm_awready(1'b0),
+        .m_axi_s2mm_awsize(NLW_U0_m_axi_s2mm_awsize_UNCONNECTED[2:0]),
+        .m_axi_s2mm_awvalid(NLW_U0_m_axi_s2mm_awvalid_UNCONNECTED),
+        .m_axi_s2mm_bready(NLW_U0_m_axi_s2mm_bready_UNCONNECTED),
+        .m_axi_s2mm_bresp({1'b0,1'b0}),
+        .m_axi_s2mm_bvalid(1'b0),
+        .m_axi_s2mm_wdata(NLW_U0_m_axi_s2mm_wdata_UNCONNECTED[63:0]),
+        .m_axi_s2mm_wlast(NLW_U0_m_axi_s2mm_wlast_UNCONNECTED),
+        .m_axi_s2mm_wready(1'b0),
+        .m_axi_s2mm_wstrb(NLW_U0_m_axi_s2mm_wstrb_UNCONNECTED[7:0]),
+        .m_axi_s2mm_wvalid(NLW_U0_m_axi_s2mm_wvalid_UNCONNECTED),
+        .m_axi_sg_aclk(1'b0),
+        .m_axi_sg_araddr(NLW_U0_m_axi_sg_araddr_UNCONNECTED[31:0]),
+        .m_axi_sg_arburst(NLW_U0_m_axi_sg_arburst_UNCONNECTED[1:0]),
+        .m_axi_sg_arcache(NLW_U0_m_axi_sg_arcache_UNCONNECTED[3:0]),
+        .m_axi_sg_arlen(NLW_U0_m_axi_sg_arlen_UNCONNECTED[7:0]),
+        .m_axi_sg_arprot(NLW_U0_m_axi_sg_arprot_UNCONNECTED[2:0]),
+        .m_axi_sg_arready(1'b0),
+        .m_axi_sg_arsize(NLW_U0_m_axi_sg_arsize_UNCONNECTED[2:0]),
+        .m_axi_sg_arvalid(NLW_U0_m_axi_sg_arvalid_UNCONNECTED),
+        .m_axi_sg_rdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .m_axi_sg_rlast(1'b0),
+        .m_axi_sg_rready(NLW_U0_m_axi_sg_rready_UNCONNECTED),
+        .m_axi_sg_rresp({1'b0,1'b0}),
+        .m_axi_sg_rvalid(1'b0),
+        .m_axis_mm2s_aclk(m_axis_mm2s_aclk),
+        .m_axis_mm2s_tdata(m_axis_mm2s_tdata),
+        .m_axis_mm2s_tkeep(m_axis_mm2s_tkeep),
+        .m_axis_mm2s_tlast(m_axis_mm2s_tlast),
+        .m_axis_mm2s_tready(m_axis_mm2s_tready),
+        .m_axis_mm2s_tuser(m_axis_mm2s_tuser),
+        .m_axis_mm2s_tvalid(m_axis_mm2s_tvalid),
+        .mm2s_buffer_almost_empty(NLW_U0_mm2s_buffer_almost_empty_UNCONNECTED),
+        .mm2s_buffer_empty(NLW_U0_mm2s_buffer_empty_UNCONNECTED),
+        .mm2s_frame_ptr_in(mm2s_frame_ptr_in),
+        .mm2s_frame_ptr_out(mm2s_frame_ptr_out),
+        .mm2s_fsync(1'b0),
+        .mm2s_fsync_out(NLW_U0_mm2s_fsync_out_UNCONNECTED),
+        .mm2s_introut(mm2s_introut),
+        .mm2s_prmry_reset_out_n(NLW_U0_mm2s_prmry_reset_out_n_UNCONNECTED),
+        .mm2s_prmtr_update(NLW_U0_mm2s_prmtr_update_UNCONNECTED),
+        .s2mm_buffer_almost_full(NLW_U0_s2mm_buffer_almost_full_UNCONNECTED),
+        .s2mm_buffer_full(NLW_U0_s2mm_buffer_full_UNCONNECTED),
+        .s2mm_frame_ptr_in({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s2mm_frame_ptr_out(NLW_U0_s2mm_frame_ptr_out_UNCONNECTED[5:0]),
+        .s2mm_fsync(1'b0),
+        .s2mm_fsync_out(NLW_U0_s2mm_fsync_out_UNCONNECTED),
+        .s2mm_introut(NLW_U0_s2mm_introut_UNCONNECTED),
+        .s2mm_prmry_reset_out_n(NLW_U0_s2mm_prmry_reset_out_n_UNCONNECTED),
+        .s2mm_prmtr_update(NLW_U0_s2mm_prmtr_update_UNCONNECTED),
+        .s_axi_lite_aclk(s_axi_lite_aclk),
+        .s_axi_lite_araddr(s_axi_lite_araddr),
+        .s_axi_lite_arready(s_axi_lite_arready),
+        .s_axi_lite_arvalid(s_axi_lite_arvalid),
+        .s_axi_lite_awaddr(s_axi_lite_awaddr),
+        .s_axi_lite_awready(s_axi_lite_awready),
+        .s_axi_lite_awvalid(s_axi_lite_awvalid),
+        .s_axi_lite_bready(s_axi_lite_bready),
+        .s_axi_lite_bresp(s_axi_lite_bresp),
+        .s_axi_lite_bvalid(s_axi_lite_bvalid),
+        .s_axi_lite_rdata(s_axi_lite_rdata),
+        .s_axi_lite_rready(s_axi_lite_rready),
+        .s_axi_lite_rresp(s_axi_lite_rresp),
+        .s_axi_lite_rvalid(s_axi_lite_rvalid),
+        .s_axi_lite_wdata(s_axi_lite_wdata),
+        .s_axi_lite_wready(s_axi_lite_wready),
+        .s_axi_lite_wvalid(s_axi_lite_wvalid),
+        .s_axis_s2mm_aclk(1'b0),
+        .s_axis_s2mm_tdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axis_s2mm_tkeep({1'b1,1'b1,1'b1,1'b1}),
+        .s_axis_s2mm_tlast(1'b0),
+        .s_axis_s2mm_tready(NLW_U0_s_axis_s2mm_tready_UNCONNECTED),
+        .s_axis_s2mm_tuser(1'b0),
+        .s_axis_s2mm_tvalid(1'b0));
 endmodule
 
 (* ORIG_REF_NAME = "xpm_counter_updn" *) 
@@ -37345,16 +37301,16 @@ endmodule
 (* EN_WDC = "1'b1" *) (* FG_EQ_ASYM_DOUT = "1'b0" *) (* FIFO_MEMORY_TYPE = "2" *) 
 (* FIFO_MEM_TYPE = "2" *) (* FIFO_READ_DEPTH = "256" *) (* FIFO_READ_LATENCY = "0" *) 
 (* FIFO_SIZE = "19200" *) (* FIFO_WRITE_DEPTH = "256" *) (* FULL_RESET_VALUE = "0" *) 
-(* FULL_RST_VAL = "1'b0" *) (* ORIG_REF_NAME = "xpm_fifo_base" *) (* PE_THRESH_ADJ = "8" *) 
-(* PE_THRESH_MAX = "251" *) (* PE_THRESH_MIN = "5" *) (* PF_THRESH_ADJ = "8" *) 
-(* PF_THRESH_MAX = "251" *) (* PF_THRESH_MIN = "7" *) (* PROG_EMPTY_THRESH = "10" *) 
-(* PROG_FULL_THRESH = "10" *) (* RD_DATA_COUNT_WIDTH = "4" *) (* RD_DC_WIDTH_EXT = "9" *) 
-(* RD_LATENCY = "2" *) (* RD_MODE = "1" *) (* RD_PNTR_WIDTH = "8" *) 
-(* READ_DATA_WIDTH = "75" *) (* READ_MODE = "1" *) (* RELATED_CLOCKS = "0" *) 
-(* REMOVE_WR_RD_PROT_LOGIC = "0" *) (* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "1F1F" *) 
-(* VERSION = "0" *) (* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH = "75" *) 
-(* WR_DATA_COUNT_WIDTH = "9" *) (* WR_DC_WIDTH_EXT = "9" *) (* WR_PNTR_WIDTH = "8" *) 
-(* WR_RD_RATIO = "0" *) (* XPM_MODULE = "TRUE" *) 
+(* FULL_RST_VAL = "1'b0" *) (* PE_THRESH_ADJ = "8" *) (* PE_THRESH_MAX = "251" *) 
+(* PE_THRESH_MIN = "5" *) (* PF_THRESH_ADJ = "8" *) (* PF_THRESH_MAX = "251" *) 
+(* PF_THRESH_MIN = "7" *) (* PROG_EMPTY_THRESH = "10" *) (* PROG_FULL_THRESH = "10" *) 
+(* RD_DATA_COUNT_WIDTH = "4" *) (* RD_DC_WIDTH_EXT = "9" *) (* RD_LATENCY = "2" *) 
+(* RD_MODE = "1" *) (* RD_PNTR_WIDTH = "8" *) (* READ_DATA_WIDTH = "75" *) 
+(* READ_MODE = "1" *) (* RELATED_CLOCKS = "0" *) (* REMOVE_WR_RD_PROT_LOGIC = "0" *) 
+(* SIM_ASSERT_CHK = "0" *) (* USE_ADV_FEATURES = "1F1F" *) (* VERSION = "0" *) 
+(* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH = "75" *) (* WR_DATA_COUNT_WIDTH = "9" *) 
+(* WR_DC_WIDTH_EXT = "9" *) (* WR_PNTR_WIDTH = "8" *) (* WR_RD_RATIO = "0" *) 
+(* XPM_MODULE = "TRUE" *) 
 module system_axi_vdma_1_0_xpm_fifo_base
    (sleep,
     rst,
@@ -38197,7 +38153,6 @@ module system_axi_vdma_1_0_xpm_fifo_base
         .write_only_q(write_only_q));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_reg_bit" *) 
 module system_axi_vdma_1_0_xpm_fifo_reg_bit
    (rst_d1,
     \gen_rst_cc.fifo_wr_rst_i_reg ,
@@ -38220,7 +38175,6 @@ module system_axi_vdma_1_0_xpm_fifo_reg_bit
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_rst" *) 
 module system_axi_vdma_1_0_xpm_fifo_rst
    (\count_value_i_reg[1] ,
     \gen_pntr_flags_cc.wrp_eq_rdp_pf_cc.gpf_cc_sym.prog_full_i_reg ,
@@ -38444,7 +38398,6 @@ module system_axi_vdma_1_0_xpm_fifo_rst
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "xpm_fifo_sync" *) 
 module system_axi_vdma_1_0_xpm_fifo_sync
    (full,
     dout,
@@ -39211,22 +39164,21 @@ endmodule
 (* ECC_MODE = "0" *) (* MAX_NUM_CHAR = "0" *) (* MEMORY_INIT_FILE = "none" *) 
 (* MEMORY_INIT_PARAM = "" *) (* MEMORY_OPTIMIZATION = "true" *) (* MEMORY_PRIMITIVE = "2" *) 
 (* MEMORY_SIZE = "19200" *) (* MEMORY_TYPE = "1" *) (* MESSAGE_CONTROL = "0" *) 
-(* NUM_CHAR_LOC = "0" *) (* ORIG_REF_NAME = "xpm_memory_base" *) (* P_ECC_MODE = "no_ecc" *) 
-(* P_ENABLE_BYTE_WRITE_A = "0" *) (* P_ENABLE_BYTE_WRITE_B = "0" *) (* P_MAX_DEPTH_DATA = "256" *) 
-(* P_MEMORY_OPT = "yes" *) (* P_MEMORY_PRIMITIVE = "block" *) (* P_MIN_WIDTH_DATA = "75" *) 
-(* P_MIN_WIDTH_DATA_A = "75" *) (* P_MIN_WIDTH_DATA_B = "75" *) (* P_MIN_WIDTH_DATA_ECC = "75" *) 
-(* P_MIN_WIDTH_DATA_LDW = "4" *) (* P_MIN_WIDTH_DATA_SHFT = "75" *) (* P_NUM_COLS_WRITE_A = "1" *) 
-(* P_NUM_COLS_WRITE_B = "1" *) (* P_NUM_ROWS_READ_A = "1" *) (* P_NUM_ROWS_READ_B = "1" *) 
-(* P_NUM_ROWS_WRITE_A = "1" *) (* P_NUM_ROWS_WRITE_B = "1" *) (* P_SDP_WRITE_MODE = "no" *) 
-(* P_WIDTH_ADDR_LSB_READ_A = "0" *) (* P_WIDTH_ADDR_LSB_READ_B = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_A = "0" *) 
-(* P_WIDTH_ADDR_LSB_WRITE_B = "0" *) (* P_WIDTH_ADDR_READ_A = "8" *) (* P_WIDTH_ADDR_READ_B = "8" *) 
-(* P_WIDTH_ADDR_WRITE_A = "8" *) (* P_WIDTH_ADDR_WRITE_B = "8" *) (* P_WIDTH_COL_WRITE_A = "75" *) 
-(* P_WIDTH_COL_WRITE_B = "75" *) (* READ_DATA_WIDTH_A = "75" *) (* READ_DATA_WIDTH_B = "75" *) 
-(* READ_LATENCY_A = "2" *) (* READ_LATENCY_B = "2" *) (* READ_RESET_VALUE_A = "0" *) 
-(* READ_RESET_VALUE_B = "0" *) (* USE_EMBEDDED_CONSTRAINT = "0" *) (* USE_MEM_INIT = "1" *) 
-(* VERSION = "0" *) (* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH_A = "75" *) 
-(* WRITE_DATA_WIDTH_B = "75" *) (* WRITE_MODE_A = "2" *) (* WRITE_MODE_B = "2" *) 
-(* XPM_MODULE = "TRUE" *) 
+(* NUM_CHAR_LOC = "0" *) (* P_ECC_MODE = "no_ecc" *) (* P_ENABLE_BYTE_WRITE_A = "0" *) 
+(* P_ENABLE_BYTE_WRITE_B = "0" *) (* P_MAX_DEPTH_DATA = "256" *) (* P_MEMORY_OPT = "yes" *) 
+(* P_MEMORY_PRIMITIVE = "block" *) (* P_MIN_WIDTH_DATA = "75" *) (* P_MIN_WIDTH_DATA_A = "75" *) 
+(* P_MIN_WIDTH_DATA_B = "75" *) (* P_MIN_WIDTH_DATA_ECC = "75" *) (* P_MIN_WIDTH_DATA_LDW = "4" *) 
+(* P_MIN_WIDTH_DATA_SHFT = "75" *) (* P_NUM_COLS_WRITE_A = "1" *) (* P_NUM_COLS_WRITE_B = "1" *) 
+(* P_NUM_ROWS_READ_A = "1" *) (* P_NUM_ROWS_READ_B = "1" *) (* P_NUM_ROWS_WRITE_A = "1" *) 
+(* P_NUM_ROWS_WRITE_B = "1" *) (* P_SDP_WRITE_MODE = "no" *) (* P_WIDTH_ADDR_LSB_READ_A = "0" *) 
+(* P_WIDTH_ADDR_LSB_READ_B = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_A = "0" *) (* P_WIDTH_ADDR_LSB_WRITE_B = "0" *) 
+(* P_WIDTH_ADDR_READ_A = "8" *) (* P_WIDTH_ADDR_READ_B = "8" *) (* P_WIDTH_ADDR_WRITE_A = "8" *) 
+(* P_WIDTH_ADDR_WRITE_B = "8" *) (* P_WIDTH_COL_WRITE_A = "75" *) (* P_WIDTH_COL_WRITE_B = "75" *) 
+(* READ_DATA_WIDTH_A = "75" *) (* READ_DATA_WIDTH_B = "75" *) (* READ_LATENCY_A = "2" *) 
+(* READ_LATENCY_B = "2" *) (* READ_RESET_VALUE_A = "0" *) (* READ_RESET_VALUE_B = "0" *) 
+(* USE_EMBEDDED_CONSTRAINT = "0" *) (* USE_MEM_INIT = "1" *) (* VERSION = "0" *) 
+(* WAKEUP_TIME = "0" *) (* WRITE_DATA_WIDTH_A = "75" *) (* WRITE_DATA_WIDTH_B = "75" *) 
+(* WRITE_MODE_A = "2" *) (* WRITE_MODE_B = "2" *) (* XPM_MODULE = "TRUE" *) 
 module system_axi_vdma_1_0_xpm_memory_base
    (sleep,
     clka,
@@ -39732,7 +39684,6 @@ module system_axi_vdma_1_0_xpm_memory_base
         .WEBWE({ena,ena,ena,ena}));
 endmodule
 
-(* ORIG_REF_NAME = "builtin_extdepth_v6" *) 
 module system_axi_vdma_1_0_builtin_extdepth_v6
    (RD_EN,
     EMPTY,
@@ -39977,7 +39928,6 @@ module system_axi_vdma_1_0_builtin_extdepth_v6_18
         .O(dbr_as_reg));
 endmodule
 
-(* ORIG_REF_NAME = "builtin_prim_v6" *) 
 module system_axi_vdma_1_0_builtin_prim_v6
    (EMPTY,
     FULL,
@@ -40395,7 +40345,6 @@ module system_axi_vdma_1_0_builtin_prim_v6_20
         .O(RD_EN));
 endmodule
 
-(* ORIG_REF_NAME = "builtin_top_v6" *) 
 module system_axi_vdma_1_0_builtin_top_v6
    (WR_EN,
     \GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] ,
@@ -40490,7 +40439,6 @@ module system_axi_vdma_1_0_builtin_top_v6
         .sig_s_ready_out_reg(sig_s_ready_out_reg));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_top" *) 
 module system_axi_vdma_1_0_fifo_generator_top
    (WR_EN,
     \GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] ,
@@ -40553,7 +40501,6 @@ module system_axi_vdma_1_0_fifo_generator_top
         .sig_s_ready_out_reg(sig_s_ready_out_reg));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_v13_2_1" *) 
 module system_axi_vdma_1_0_fifo_generator_v13_2_1
    (WR_EN,
     \GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] ,
@@ -40616,7 +40563,6 @@ module system_axi_vdma_1_0_fifo_generator_v13_2_1
         .sig_s_ready_out_reg(sig_s_ready_out_reg));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_v13_2_1_builtin" *) 
 module system_axi_vdma_1_0_fifo_generator_v13_2_1_builtin
    (WR_EN,
     \GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] ,
@@ -40685,7 +40631,6 @@ module system_axi_vdma_1_0_fifo_generator_v13_2_1_builtin
         .sig_s_ready_out_reg(sig_s_ready_out_reg));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_v13_2_1_synth" *) 
 module system_axi_vdma_1_0_fifo_generator_v13_2_1_synth
    (WR_EN,
     \GEN_INPUT_REG[2].sig_input_data_reg_reg[2][9] ,
@@ -40748,7 +40693,6 @@ module system_axi_vdma_1_0_fifo_generator_v13_2_1_synth
         .sig_s_ready_out_reg(sig_s_ready_out_reg));
 endmodule
 
-(* ORIG_REF_NAME = "reset_builtin" *) 
 module system_axi_vdma_1_0_reset_builtin
    (RST,
     m_axi_mm2s_aclk,

@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
--- Date        : Thu Feb  8 18:34:21 2018
+-- Date        : Thu Feb  8 18:34:19 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_v_tc_out_0/system_v_tc_out_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_v_tc_out_0 -prefix
+--               system_v_tc_out_0_ system_v_tc_out_0_sim_netlist.vhdl
 -- Design      : system_v_tc_out_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -29,8 +29,6 @@ entity system_v_tc_out_0_address_decoder is
     is_write_reg : in STD_LOGIC;
     \INCLUDE_DPHASE_TIMER.dpto_cnt_reg[9]\ : in STD_LOGIC_VECTOR ( 9 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_address_decoder : entity is "address_decoder";
 end system_v_tc_out_0_address_decoder;
 
 architecture STRUCTURE of system_v_tc_out_0_address_decoder is
@@ -802,8 +800,6 @@ entity system_v_tc_out_0_mux_tree is
     \GEN_HAS_IRQ.intr_stat_reg[0]\ : in STD_LOGIC;
     \genr_control_regs[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_mux_tree : entity is "mux_tree";
 end system_v_tc_out_0_mux_tree;
 
 architecture STRUCTURE of system_v_tc_out_0_mux_tree is
@@ -14836,8 +14832,6 @@ entity system_v_tc_out_0_tc_generator is
     \time_control_regs[24]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_control_regs[23]\ : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_tc_generator : entity is "tc_generator";
 end system_v_tc_out_0_tc_generator;
 
 architecture STRUCTURE of system_v_tc_out_0_tc_generator is
@@ -19397,8 +19391,6 @@ entity system_v_tc_out_0_video_clock_cross is
     \AXI4_LITE_INTERFACE.proc_sync1_reg[44]\ : in STD_LOGIC_VECTOR ( 44 downto 0 );
     vid_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_video_clock_cross : entity is "video_clock_cross";
 end system_v_tc_out_0_video_clock_cross;
 
 architecture STRUCTURE of system_v_tc_out_0_video_clock_cross is
@@ -29398,8 +29390,6 @@ entity system_v_tc_out_0_slave_attachment is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_slave_attachment : entity is "slave_attachment";
 end system_v_tc_out_0_slave_attachment;
 
 architecture STRUCTURE of system_v_tc_out_0_slave_attachment is
@@ -30495,8 +30485,6 @@ entity system_v_tc_out_0_tc_top is
     \time_control_regs[24]\ : in STD_LOGIC_VECTOR ( 23 downto 0 );
     \time_control_regs[23]\ : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_tc_top : entity is "tc_top";
 end system_v_tc_out_0_tc_top;
 
 architecture STRUCTURE of system_v_tc_out_0_tc_top is
@@ -30764,8 +30752,6 @@ entity system_v_tc_out_0_axi_lite_ipif is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end system_v_tc_out_0_axi_lite_ipif;
 
 architecture STRUCTURE of system_v_tc_out_0_axi_lite_ipif is
@@ -30991,8 +30977,6 @@ entity system_v_tc_out_0_video_ctrl is
   attribute C_VERSION_MINOR of system_v_tc_out_0_video_ctrl : entity is 1;
   attribute C_VERSION_REVISION : integer;
   attribute C_VERSION_REVISION of system_v_tc_out_0_video_ctrl : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_video_ctrl : entity is "video_ctrl";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_v_tc_out_0_video_ctrl : entity is "yes";
 end system_v_tc_out_0_video_ctrl;
@@ -54357,8 +54341,6 @@ entity system_v_tc_out_0_v_tc is
   attribute C_S_AXI_CLK_FREQ_HZ of system_v_tc_out_0_v_tc : entity is 100000000;
   attribute C_S_AXI_DATA_WIDTH : integer;
   attribute C_S_AXI_DATA_WIDTH of system_v_tc_out_0_v_tc : entity is 32;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_v_tc_out_0_v_tc : entity is "v_tc";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_v_tc_out_0_v_tc : entity is "yes";
 end system_v_tc_out_0_v_tc;

@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
 -- Date        : Thu Feb  8 18:33:08 2018
 -- Host        : ubuntu running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/digilent/work/git/Zybo-Z7-20-base-linux/src/bd/system/ip/system_axi_i2s_adi_0_0/system_axi_i2s_adi_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axi_i2s_adi_0_0 -prefix
+--               system_axi_i2s_adi_0_0_ system_axi_i2s_adi_0_0_sim_netlist.vhdl
 -- Design      : system_axi_i2s_adi_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -47,8 +47,6 @@ entity system_axi_i2s_adi_0_0_axi_ctrlif is
     S_AXI_BREADY : in STD_LOGIC;
     S_AXI_ARADDR : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_axi_ctrlif : entity is "axi_ctrlif";
 end system_axi_i2s_adi_0_0_axi_ctrlif;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_axi_ctrlif is
@@ -764,8 +762,6 @@ entity system_axi_i2s_adi_0_0_dma_fifo is
     \state_reg[1]_0\ : in STD_LOGIC;
     S_AXI_WDATA : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_dma_fifo : entity is "dma_fifo";
 end system_axi_i2s_adi_0_0_dma_fifo;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_dma_fifo is
@@ -1621,8 +1617,6 @@ entity system_axi_i2s_adi_0_0_fifo_synchronizer is
     bclk_d1 : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 4 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_fifo_synchronizer : entity is "fifo_synchronizer";
 end system_axi_i2s_adi_0_0_fifo_synchronizer;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_fifo_synchronizer is
@@ -2099,8 +2093,6 @@ entity system_axi_i2s_adi_0_0_i2s_clkgen is
     enable_int_reg_0 : in STD_LOGIC;
     empty : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_i2s_clkgen : entity is "i2s_clkgen";
 end system_axi_i2s_adi_0_0_i2s_clkgen;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_i2s_clkgen is
@@ -3072,8 +3064,6 @@ entity system_axi_i2s_adi_0_0_i2s_rx is
     S_AXI_ARESETN : in STD_LOGIC;
     full_reg : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_i2s_rx : entity is "i2s_rx";
 end system_axi_i2s_adi_0_0_i2s_rx;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_i2s_rx is
@@ -3753,8 +3743,6 @@ entity system_axi_i2s_adi_0_0_i2s_tx is
     empty : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_i2s_tx : entity is "i2s_tx";
 end system_axi_i2s_adi_0_0_i2s_tx;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_i2s_tx is
@@ -4051,8 +4039,6 @@ entity system_axi_i2s_adi_0_0_i2s_controller is
     D : in STD_LOGIC_VECTOR ( 0 to 0 );
     SDATA_I : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_i2s_controller : entity is "i2s_controller";
 end system_axi_i2s_adi_0_0_i2s_controller;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_i2s_controller is
@@ -4421,8 +4407,6 @@ entity system_axi_i2s_adi_0_0_pl330_dma_fifo is
     DMA_REQ_TX_ACLK : in STD_LOGIC;
     S_AXI_WDATA : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_pl330_dma_fifo : entity is "pl330_dma_fifo";
 end system_axi_i2s_adi_0_0_pl330_dma_fifo;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_pl330_dma_fifo is
@@ -4786,8 +4770,6 @@ entity system_axi_i2s_adi_0_0_axi_i2s_adi is
     S_AXI_RREADY : in STD_LOGIC;
     S_AXI_ARVALID : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_i2s_adi_0_0_axi_i2s_adi : entity is "axi_i2s_adi";
 end system_axi_i2s_adi_0_0_axi_i2s_adi;
 
 architecture STRUCTURE of system_axi_i2s_adi_0_0_axi_i2s_adi is

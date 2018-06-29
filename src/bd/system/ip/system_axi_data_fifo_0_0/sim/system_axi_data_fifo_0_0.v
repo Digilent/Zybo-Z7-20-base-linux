@@ -289,12 +289,12 @@ output wire m_axi_rready;
     .C_AXI_WUSER_WIDTH(1),
     .C_AXI_RUSER_WIDTH(1),
     .C_AXI_BUSER_WIDTH(1),
-    .C_AXI_WRITE_FIFO_DEPTH(512),
-    .C_AXI_WRITE_FIFO_TYPE("bram"),
-    .C_AXI_WRITE_FIFO_DELAY(1),
-    .C_AXI_READ_FIFO_DEPTH(0),
-    .C_AXI_READ_FIFO_TYPE("lut"),
-    .C_AXI_READ_FIFO_DELAY(0)
+    .C_AXI_WRITE_FIFO_DEPTH(0),
+    .C_AXI_WRITE_FIFO_TYPE("lut"),
+    .C_AXI_WRITE_FIFO_DELAY(0),
+    .C_AXI_READ_FIFO_DEPTH(512),
+    .C_AXI_READ_FIFO_TYPE("bram"),
+    .C_AXI_READ_FIFO_DELAY(1)
   ) inst (
     .aclk(aclk),
     .aresetn(aresetn),
