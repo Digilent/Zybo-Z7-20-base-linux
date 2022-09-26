@@ -1,4 +1,7 @@
 # Zybo Z7-20 Base Linux Design
+
+**Note:** The demo contained in this repository has been moved and this repository is no longer being actively maintained. Check out the [Zybo Z7 Petalinux Demo](https://digilent.com/reference/programmable-logic/zybo-z7/demos/petalinux) page on Digilent Reference for more information.
+
 Created for Vivado 2017.4
 
 This project is an internal project used by Digilent for the Zybo Z7-20 
